@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:sharedUserId="android.uid.system"
+    android:sharedUserMaxSdkVersion="32">
+
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.READ_WALLPAPER_INTERNAL" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32"
+        tools:ignore="ScopedStorage" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL"
+        tools:ignore="ProtectedPermissions" />
+
+    <uses-permission android:name="android.permission.SET_WALLPAPER" />
+    <uses-permission android:name="android.permission.SET_WALLPAPER_HINTS" />
+
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.Manifest.permission.BLUETOOTH" />
+
+    <protected-broadcast android:name="com.commonlib.BROADCAST_CMD_TO_BT" />
+    <protected-broadcast android:name="com.my.radio.SOURCE_CHANGE" />
+    <protected-broadcast android:name="com.my.dvd.SOURCE_CHANGE" />
+    <protected-broadcast android:name="com.my.audio.SOURCE_CHANGE" />
+    <protected-broadcast android:name="com.my.video.SOURCE_CHANGE" />
+    <protected-broadcast android:name="com.my.ipod.SOURCE_CHANGE" />
+    <protected-broadcast android:name="com.commonlib.BROADCAST_CMD_FROM_MUSIC" />
+    <protected-broadcast android:name="com.my.car.service.BROADCAST_CMD_TO_CAR_SERVICE_SYSTEM_ID_com.car.ui" />
+    <protected-broadcast android:name="com.commonlib.BROADCAST_CMD_FROM_CARUI_CAMERA" />
+    <protected-broadcast android:name="net.easyconn.bt.connected" />
+    <protected-broadcast android:name="net.easyconn.bt.opened" />
+    <protected-broadcast android:name="net.easyconn.a2dp.acquire.ok" />
+    <protected-broadcast android:name="net.easyconn.a2dp.release.ok" />
+
+
+    <application
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:largeHeap="true"
+        android:persistent="true"
+        android:screenOrientation="landscape"
+        tools:ignore="DiscouragedApi">
+
+
+        <activity
+            android:name="com.octopus.android.carapps.settings.SettingsActivityUser"
+            android:finishOnCloseSystemDialogs="true"
+            android:icon="@mipmap/ic_launcher_wallpaper"
+            android:label="@string/pick_wallpaper"
+            android:launchMode="singleInstance"
+            android:resizeableActivity="true"
+            android:theme="@android:style/Theme.Material.NoActionBar"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.octopus.android.carapps.settings.intent.action.SettingsActivityUser" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.octopus.android.carapps.settings.SettingsActivity"
+            android:finishOnCloseSystemDialogs="true"
+            android:icon="@mipmap/ic_launcher_wallpaper"
+            android:label="@string/pick_wallpaper"
+            android:launchMode="singleInstance"
+            android:resizeableActivity="true"
+            android:theme="@android:style/Theme.Material.NoActionBar"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.octopus.android.carapps.settings.intent.action.SettingsActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.octopus.android.carapps.wallpaper.WallpaperChooser"
+            android:finishOnCloseSystemDialogs="true"
+            android:icon="@mipmap/ic_launcher_wallpaper"
+            android:label="@string/pick_wallpaper"
+            android:launchMode="singleInstance"
+            android:resizeableActivity="true"
+            android:theme="@android:style/Theme.Holo.NoActionBar"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SET_WALLPAPER" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.octopus.android.carapps.radio.RadioActivity"
+            android:excludeFromRecents="true"
+            android:icon="@drawable/radio_icon"
+            android:label="@string/toolbar_text_radio"
+            android:launchMode="singleInstance"
+            android:resizeableActivity="true"
+            android:theme="@style/TranslucentTheme"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.octopus.android.carapps.audio.MusicActivity"
+            android:excludeFromRecents="true"
+
+            android:icon="@drawable/music_icon"
+            android:label="@string/toolbar_text_music"
+            android:launchMode="singleInstance"
+            android:resizeableActivity="true"
+            android:theme="@style/TranslucentTheme"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.octopus.android.carapps.dvd.DVDPlayer"
+            android:excludeFromRecents="true"
+            android:icon="@drawable/dvd_icon"
+            android:label="@string/toolbar_text_dvd"
+            android:launchMode="singleInstance"
+            android:resizeableActivity="false"
+            android:theme="@style/TranslucentTheme"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.octopus.android.carapps.tv.TVActivity"
+            android:excludeFromRecents="true"
+            android:icon="@drawable/tv_icon"
+            android:label="@string/toolbar_text_tv"
+            android:launchMode="singleInstance"
+            android:resizeableActivity="false"
+            android:theme="@style/TranslucentTheme2"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.octopus.android.carapps.video.VideoActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:excludeFromRecents="true"
+            android:icon="@drawable/video_icon"
+            android:label="@string/toolbar_text_video"
+            android:launchMode="singleInstance"
+            android:resizeableActivity="true"
+            android:theme="@style/TranslucentTheme"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.octopus.android.carapps.auxplayer.AUXPlayer"
+            android:excludeFromRecents="true"
+            android:icon="@drawable/auxin_icon"
+            android:label="@string/toolbar_text_auxin"
+            android:launchMode="singleInstance"
+            android:resizeableActivity="false"
+            android:theme="@style/TranslucentTheme2"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.octopus.android.carapps.btmusic.BTMusicActivity"
+            android:excludeFromRecents="true"
+            android:icon="@drawable/btmusic_icon"
+            android:label="@string/toolbar_text_bluetooth_music"
+            android:launchMode="singleInstance"
+            android:resizeableActivity="true"
+            android:theme="@style/TranslucentTheme"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.octopus.android.carapps.frontcamera.FrontCameraActivity"
+            android:icon="@drawable/front_camera_icon"
+            android:label="@string/f_camera"
+            android:launchMode="singleInstance"
+            android:resizeableActivity="false"
+            android:theme="@style/TranslucentTheme2"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.octopus.android.carapps.frontcamera.BackCameraActivity"
+            android:icon="@drawable/camera"
+            android:label="@string/camera"
+            android:launchMode="singleInstance"
+            android:resizeableActivity="false"
+            android:theme="@style/TranslucentTheme2"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.octopus.android.carapps.frontcamera.SideCameraActivity"
+            android:icon="@drawable/front_camera_icon"
+            android:label="@string/side_camera"
+            android:launchMode="singleInstance"
+            android:resizeableActivity="true"
+            android:theme="@style/TranslucentTheme2"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            </intent-filter>
+        </activity>
+
+        <activity-alias
+            android:name="com.my.frontcamera.FrontCameraActivity4"
+            android:icon="@drawable/front_camera_icon"
+            android:label="@string/f_camera4"
+            android:launchMode="singleInstance"
+            android:resizeableActivity="true"
+            android:targetActivity="com.octopus.android.carapps.frontcamera.FrontCameraActivity"
+            android:theme="@style/TranslucentTheme2"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity
+            android:name="com.octopus.android.carapps.navi.NaviEmptyActivity"
+            android:icon="@drawable/navi_icon"
+            android:label="@string/toolbar_text_gps"
+            android:launchMode="singleInstance"
+            android:resizeableActivity="true"
+            android:theme="@style/TranslucentTheme"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <receiver android:name="com.octopus.android.carapps.car.ui.BR"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.octopus.android.carapps.car.service.UIService"
+            android:exported="true"></service>
+    </application>
+
+</manifest>

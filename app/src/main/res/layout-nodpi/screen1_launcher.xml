@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/screen1_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <include layout="@layout/common_status_bar" />
+
+    <HorizontalScrollView
+        android:id="@+id/all_apps_scrolview"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:id="@+id/button_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/button_radio"
+                style="@style/WorkspaceButtonUI2"
+                android:drawableTop="@drawable/custom2_icon_radio"
+                android:text="@string/toolbar_text_radio" />
+
+            <Button
+                android:id="@+id/button_dvd"
+                style="@style/WorkspaceButtonUI2"
+                android:drawableTop="@drawable/custom2_icon_dvd"
+                android:text="@string/toolbar_text_dvd" />
+
+            <Button
+                android:id="@+id/button_music"
+                style="@style/WorkspaceButtonUI2"
+                android:drawableTop="@drawable/custom2_icon_music"
+                android:text="@string/toolbar_text_music" />
+
+            <Button
+                android:id="@+id/button_video"
+                style="@style/WorkspaceButtonUI2"
+                android:drawableTop="@drawable/custom2_icon_video"
+                android:text="@string/toolbar_text_video" />
+
+            <Button
+                android:id="@+id/button_bluetooth_music"
+                style="@style/WorkspaceButtonUI2"
+                android:drawableTop="@drawable/custom2_icon_bt_music"
+                android:text="@string/toolbar_text_bluetooth_music" />
+
+            <Button
+                android:id="@+id/button_bluetooth_auxin"
+                style="@style/WorkspaceButtonUI2"
+                android:drawableTop="@drawable/custom2_auxin"
+                android:text="@string/toolbar_text_auxin" />
+
+            <Button
+                android:id="@+id/button_bluetooth"
+                style="@style/WorkspaceButtonUI2"
+                android:background="@drawable/screen1_button1_selector"
+                android:drawableTop="@drawable/custom1_icon_radio"
+                android:text="@string/toolbar_text_radio"
+                android:visibility="gone" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+</LinearLayout>

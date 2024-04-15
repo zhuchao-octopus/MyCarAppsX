@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="KeyButtonView">
+
+        <!-- key code to send when pressed; if absent or 0, no key is sent -->
+        <attr name="keyCode" format="integer" />
+        <!-- does this button generate longpress / repeat events? -->
+        <attr name="keyRepeat" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="RadioFrequencyList">
+
+        <!-- The first screen the workspace should display. -->
+        <attr name="defaultFGColor" format="color" />
+        <attr name="selectedTextColor" format="color" />
+    </declare-styleable>
+
+      <declare-styleable name="RadioMarkFaceView">
+
+        <!-- The first screen the workspace should display. -->
+        <attr name="start_freq_px" format="integer" />
+        <attr name="end_freq_px" format="integer" />
+        
+        <attr name="point_y" format="integer" />
+        
+        <attr name="freq_x1" format="integer" />
+        <attr name="freq_x2" format="integer" />
+        <attr name="freq_x3" format="integer" />
+        <attr name="freq_x4" format="integer" />
+        <attr name="freq_x5" format="integer" />
+        <attr name="freq_x6" format="integer" />
+    </declare-styleable>
+    
+          <declare-styleable name="CircleSeekBar">
+        <attr name="wheel_max_process" format="integer" />
+        <attr name="wheel_cur_process" format="integer" />
+        <attr name="wheel_reached_color" format="color" />
+        <attr name="wheel_reached_width" format="dimension" />
+        <attr name="wheel_reached_has_corner_round" format="boolean"/>
+        <attr name="wheel_unreached_color" format="color" />
+        <attr name="wheel_unreached_width" format="dimension" />
+        <attr name="wheel_pointer_color" format="color" />
+        <attr name="wheel_pointer_radius" format="dimension" />
+        <attr name="wheel_has_pointer_shadow" format="boolean" />
+        <attr name="wheel_has_wheel_shadow" format="boolean" />
+        <attr name="wheel_pointer_shadow_radius" format="dimension" />
+        <attr name="wheel_shadow_radius" format="dimension" />
+        <attr name="wheel_has_cache" format="boolean" />
+        <attr name="wheel_can_touch" format="boolean" />
+        <attr name="wheel_scroll_only_one_circle" format="boolean" />
+    </declare-styleable>
+</resources>

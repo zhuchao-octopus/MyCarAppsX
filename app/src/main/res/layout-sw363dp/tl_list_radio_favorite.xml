@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="135.0px"
+    android:layout_height="140px"
+    android:background="@drawable/button_click_back2" >
+
+    <TextView
+        android:id="@+id/list_text1"
+        style="@style/CommonStyleFonts"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_y="28px"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:paddingLeft="1.0px"
+        android:singleLine="true"
+        android:textColor="#ffffffff"
+        android:textSize="22.0px" />
+
+    <TextView
+        android:id="@+id/list_text2"
+        style="@style/CommonStyleFonts"
+        android:layout_width="fill_parent"
+        android:layout_height="140px"
+        android:paddingTop="30px"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:singleLine="true"
+        android:textColor="#ffffffff"
+        android:textSize="32.0px" />
+
+    <TextView
+        android:id="@+id/list_text3"
+        style="@style/CommonStyleFonts"
+        android:layout_width="0px"
+        android:layout_height="wrap_content"
+        android:layout_x="110px"
+        android:layout_y="85px"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:singleLine="true"
+        android:textColor="#ffffffff"
+        android:textSize="22.0px" />
+
+</AbsoluteLayout>

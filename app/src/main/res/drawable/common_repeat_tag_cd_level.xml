@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<level-list xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:drawable="@drawable/empty"
+        android:maxLevel="0"/>
+    
+    <item
+        android:drawable="@drawable/common_repeat_tag"
+        android:maxLevel="1"/>
+    <item
+        android:drawable="@drawable/common_repeat1_tag"
+        android:maxLevel="2"/>
+    <item
+        android:drawable="@drawable/common_shuffle_tag"
+        android:maxLevel="3"/>
+
+</level-list>

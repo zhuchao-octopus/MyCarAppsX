@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="ButtonStyle3">
+        <item name="android:background">@drawable/com_focus_select</item>
+        <item name="android:tag">ak_paramter=100,50</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textSize">34px</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">0px</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="ButtonStyle1">
+        <item name="android:background">@drawable/button_click_back1</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:layout_height">84px</item>
+        <item name="android:layout_width">180px</item>
+        <item name="android:focusable">true</item>
+        <item name="android:textSize">46px</item>
+    </style>
+
+    
+    <style name="shadowTextCommonStyleFonts" parent="shadowText">
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+    
+    
+    
+    <style name="CommonWeightAkParamter">
+        <item name="android:tag">ak_paramter=100,50</item>
+        <item name="android:layout_width">137.0px</item>
+        <item name="android:layout_height">137.0px</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:scaleType">centerInside</item>
+        <item name="android:clickable">true</item>
+        <item name="android:background">@drawable/com_focus_select</item>
+    </style>
+
+    <style name="CommonStyleFonts">
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="CommonListViewStyle1">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:cacheColorHint">@android:color/transparent</item>
+        <item name="android:descendantFocusability">blocksDescendants</item>
+        <item name="android:divider">@drawable/music_splitline</item>
+        <item name="android:fadingEdge">none</item>
+        <item name="android:focusable">true</item>
+        <item name="android:listSelector">@android:color/transparent</item>
+        <item name="android:scrollbarStyle">outsideOverlay</item>
+        <item name="android:scrollingCache">false</item>
+    </style>
+
+        <style name="channelTextStyle" parent="shadowText">
+        <item name="android:layout_width">200.0px</item>
+        <item name="android:layout_height">88.0px</item>
+        <item name="android:textSize">30px</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:gravity">center</item>
+        
+        <item name="android:background">@drawable/c_bg_button</item>
+    </style>
+        <style name="ButtonStyleCD">
+        <item name="android:background">@drawable/com_focus_select</item>
+        <item name="android:tag">ak_paramter=100,50</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">0px</item>  
+        <item name="android:layout_weight">1</item>    
+        
+        <item name="android:focusable">true</item>
+        
+        
+        <item name="android:textSize">34px</item>
+    </style>
+        
+</resources>

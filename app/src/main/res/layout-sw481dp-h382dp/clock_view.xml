@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.common.view.SplitWidgetClockView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center" >
+
+    <RelativeLayout
+        android:layout_width="320px"
+        android:layout_height="320px"
+        android:background="@drawable/split_clock_back" >
+
+        <ImageView
+            android:id="@+id/clock_hour"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/split_clock_hour" >
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/clock_minute"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:rotation="90"
+            android:src="@drawable/split_clock_minute" >
+        </ImageView>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="center"
+            android:src="@drawable/split_clock_mid_point" >
+        </ImageView>
+    </RelativeLayout>
+
+</com.common.view.SplitWidgetClockView>

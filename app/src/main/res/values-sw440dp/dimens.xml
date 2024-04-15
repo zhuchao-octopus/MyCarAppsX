@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="list_view_width">318px</dimen>
+    <dimen name="list_view_height">417px</dimen>
+    <dimen name="right_view_height1">180px</dimen>
+    <dimen name="right_view_height2">210px</dimen>
+    <dimen name="home_button_margin_right">22.0px</dimen>
+    <dimen name="bottom_button_width">121.0px</dimen>
+    <dimen name="bottom_margin_top">12.0px</dimen>
+    <dimen name="freq_total_x">100.0px</dimen>
+    <dimen name="freq_total_y">20.0px</dimen>
+    <dimen name="right_freq_height">132.0px</dimen>
+    <dimen name="mark_face_height">108.0px</dimen>
+    <dimen name="freq_view_margin_top">20.0px</dimen>
+    <dimen name="freq_view_margin_left">80.0px</dimen>
+    <dimen name="list_height">56.0px</dimen>
+    <dimen name="small_seekbar_layout_width">620px</dimen>
+    <dimen name="small_seekbar_width">520px</dimen>
+    <dimen name="id3_view_height">260px</dimen>
+    <dimen name="right_view_width">688.0px</dimen>
+    <dimen name="right_view_height">440.0px</dimen>
+    <dimen name="radio_text_witdh">140.0px</dimen>
+    <dimen name="radio_layout_height">70.0px</dimen>
+    <dimen name="process_bar_width">418.0px</dimen>
+    <dimen name="image_width">158px</dimen>
+    <dimen name="image_height">194px</dimen>
+    <dimen name="all_text_height">168.0px</dimen>
+    <dimen name="artist_text_height">54.0px</dimen>
+    <dimen name="right_margin_top">0.0px</dimen>
+    <dimen name="right_margin_left">50.0px</dimen>
+
+    <color name="list_hilight_colre">#ff31e37d</color>
+
+     <dimen name="bottom_y">420dip</dimen>
+ <dimen name="reverse_page_right_x">649dip</dimen>
+ <dimen name="buttom_page_right_x">740dip</dimen>
+</resources>

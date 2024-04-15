@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/screen1_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/disconnect_info"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <LinearLayout
+            android:layout_width="914px"
+            android:layout_height="307px"
+            android:background="@drawable/music_alarm"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="226px"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:layout_width="120px"
+                    android:layout_height="fill_parent"
+                    android:scaleType="center"
+                    android:src="@drawable/bt_disconnect" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        style="@style/CommonStyleFonts"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:singleLine="true"
+                        android:text="@string/btdisconnected"
+                        android:textColor="#ff000000"
+                        android:textSize="38px" />
+
+                    <TextView
+                        style="@style/CommonStyleFonts"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:singleLine="true"
+                        android:text="@string/pleaseconnectedbt"
+                        android:textColor="#ff000000"
+                        android:textSize="28px" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="horizontal"
+                android:paddingLeft="8px" >
+
+                <TextView
+                    style="@style/CommonStyleFonts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"
+                    android:text="@string/modulename"
+                    android:textColor="#ffffffff"
+                    android:textSize="26px" />
+
+                <TextView
+                    android:id="@+id/tv_devicename"
+                    style="@style/CommonStyleFonts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"
+                    android:textColor="#ffffffff"
+                    android:textSize="26px" />
+
+                <TextView
+                    style="@style/CommonStyleFonts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="40px"
+                    android:gravity="center"
+                    android:text="@string/modulepassword"
+                    android:textColor="#ffffffff"
+                    android:textSize="26px" />
+
+                <TextView
+                    android:id="@+id/tv_pincode"
+                    style="@style/CommonStyleFonts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"
+                    android:textColor="#ffffffff"
+                    android:textSize="26px" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/playing_content"
+        android:layout_width="fill_parent"
+        android:layout_height="692px"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:id="@+id/iv_bt_music_pic"
+                android:layout_width="300px"
+                android:layout_height="300px"
+                android:layout_marginLeft="180px"
+                android:layout_marginTop="0px"
+                android:src="@drawable/bt_music_pic_level" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="390px"
+                android:layout_marginLeft="40px"
+                android:layout_marginTop="00px"
+                android:gravity="center_vertical"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="740px"
+                    android:layout_height="90px" >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:gravity="center"
+                        android:src="@drawable/music_name" />
+
+                    <TextView
+                        android:id="@+id/song"
+                        style="@style/shadowTextCommonStyleFonts"
+                        android:layout_width="match_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="25px"
+                        android:ellipsize="end"
+                        android:gravity="center_vertical"
+                        android:singleLine="true"
+                        android:textColor="#ffffffff"
+                        android:textSize="44.0px" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="740px"
+                    android:layout_height="90px" >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:gravity="center"
+                        android:src="@drawable/music_artist" />
+
+                    <TextView
+                        android:id="@+id/artist"
+                        style="@style/shadowTextCommonStyleFonts"
+                        android:layout_width="match_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="25px"
+                        android:ellipsize="end"
+                        android:gravity="center_vertical"
+                        android:singleLine="true"
+                        android:textColor="#ffffffff"
+                        android:textSize="44.0px" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="740px"
+                    android:layout_height="90px" >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:gravity="center"
+                        android:src="@drawable/music_album" />
+
+                    <TextView
+                        android:id="@+id/album"
+                        style="@style/shadowTextCommonStyleFonts"
+                        android:layout_width="match_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="25px"
+                        android:ellipsize="end"
+                        android:gravity="center_vertical"
+                        android:singleLine="true"
+                        android:textColor="#ffffffff"
+                        android:textSize="44.0px" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/time"
+                    style="@style/shadowTextCommonStyleFonts"
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="5px"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textColor="#ffffffff"
+                    android:textSize="42.0px" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone" >
+
+            <TextView
+                android:id="@+id/currenttime"
+                style="@style/shadowTextCommonStyleFonts"
+                android:layout_width="50px"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffffff"
+                android:textSize="18px" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <SeekBar
+                    android:id="@+id/progress"
+                    android:layout_width="520px"
+                    android:layout_height="36px"
+                    android:background="@drawable/seek_bar_bg"
+                    android:paddingLeft="16.0px"
+                    android:paddingRight="16.0px"
+                    android:progress="50"
+                    android:progressDrawable="@drawable/rl_progress"
+                    android:thumb="@drawable/thumb" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/totaltime"
+                style="@style/shadowTextCommonStyleFonts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffffff"
+                android:textSize="18px" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="162.0px"
+        android:background="@drawable/radio_bottom_bg"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingLeft="40px"
+        android:paddingRight="40px" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center" >
+
+            <ImageView
+                android:id="@+id/prev"
+                style="@style/ButtonWidthWeight1"
+                android:clickable="true"
+                android:scaleType="center"
+                android:src="@drawable/prev" />
+
+            <ImageView
+                android:id="@+id/pp"
+                style="@style/ButtonWidthWeight1"
+                android:clickable="true"
+                android:scaleType="center"
+                android:src="@drawable/play_level" />
+
+            <ImageView
+                android:id="@+id/next"
+                style="@style/ButtonWidthWeight1"
+                android:clickable="true"
+                android:scaleType="center"
+                android:src="@drawable/next" />
+
+            <ImageView
+                android:id="@+id/eq"
+                style="@style/ButtonWidthWeight1"
+                android:clickable="true"
+                android:scaleType="center"
+                android:src="@drawable/eq" />
+
+            <ImageView
+                android:id="@+id/bt"
+                style="@style/ButtonWidthWeight1"
+                android:clickable="true"
+                android:scaleType="center"
+                android:src="@drawable/bt" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="ButtonStyle3">
+        <item name="android:background">@drawable/button_click_back1</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textSize">34px</item>
+        <item name="android:layout_height">104px</item>
+        <item name="android:focusable">true</item>
+        <item name="android:layout_width">132px</item>
+    </style>
+
+    <style name="ButtonStyle1">
+        <item name="android:background">@drawable/button_click_back1</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:layout_height">104px</item>
+        <item name="android:layout_width">170px</item>
+        <item name="android:focusable">true</item>
+        <item name="android:textSize">46px</item>
+    </style>
+
+        <style name="ButtonStyleCD">
+        <item name="android:background">@drawable/button_click_back1</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:layout_height">104px</item>
+        <item name="android:layout_width">160px</item>
+        <item name="android:focusable">true</item>
+        <item name="android:textSize">46px</item>
+    </style>
+    
+    <style name="ButonStyleNum" parent="CommonStyleFonts">
+        <item name="android:background">@drawable/num_channel</item>
+        <item name="android:textColor">#ff000000</item>
+        <item name="android:layout_width">50.0dip</item>
+        <item name="android:layout_height">50.0dip</item>
+        <item name="android:layout_marginLeft">2.0dip</item>
+        <item name="android:textSize">38.0px</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+</resources>

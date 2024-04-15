@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cd_player"
+    android:layout_width="1280px"
+    android:layout_height="480px"
+    android:layout_margin="0px"
+    android:background="@drawable/background"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:padding="0px" >
+
+    <!-- <View -->
+    <!-- android:layout_width="match_parent" -->
+    <!-- android:layout_height="1px" -->
+    <!-- android:background="#808080" /> -->
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0.0dip"
+        android:layout_weight="1.0"
+        android:gravity="center_vertical" >
+
+        <FrameLayout
+            android:id="@+id/list_content"
+            android:layout_width="360px"
+            android:layout_height="fill_parent" >
+
+            <ListView
+                android:id="@+id/list_view"
+                style="@style/CommonListViewStyle1"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:cacheColorHint="@android:color/transparent"
+                android:divider="@android:color/transparent"
+                android:dividerHeight="0.0dip"
+                android:fadingEdge="none" />
+        </FrameLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <!-- <ImageView -->
+            <!-- android:layout_width="560px" -->
+            <!-- android:layout_height="286px" -->
+            <!-- android:src="@drawable/disc_bg" /> -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/cd_title"
+                    style="@style/CommonStyleFonts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="58px"
+                    android:gravity="center"
+                    android:textColor="#ffffffff"
+                    android:textSize="26px" />
+
+                <ImageView
+                    android:id="@+id/disc"
+                    android:layout_width="200px"
+                    android:layout_height="200px"
+                    android:layout_marginStart="0px"
+                    android:layout_marginTop="0px"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/cd" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:gravity="center"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/currenttime"
+                        style="@style/CommonStyleFonts"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#ffffffff"
+                        android:textSize="22px" />
+
+                    <RelativeLayout
+                        android:layout_width="420px"
+                        android:layout_height="42px" >
+
+                        <SeekBar
+                            android:id="@+id/progress"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/seek_bar_bg"
+                            android:focusable="false"
+                            android:paddingLeft="17.0px"
+                            android:paddingRight="20.0px"
+                            android:progressDrawable="@drawable/rl_progress"
+                            android:thumb="@drawable/thumb" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:clickable="true" />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/totaltime"
+                        style="@style/CommonStyleFonts"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#ffffffff"
+                        android:textSize="22px" />
+                </LinearLayout>
+            </LinearLayout>
+            
+            <ImageView
+                android:id="@+id/play_repeat_tag"
+                android:layout_width="37px"
+                android:layout_height="27px"
+                android:layout_marginLeft="580px"
+                android:layout_marginTop="220px"
+                android:src="@drawable/common_repeat_tag_cd_level" />
+
+            <TextView
+                android:id="@+id/cd_song_num"
+                style="@style/CommonStyleFonts"
+                android:layout_width="wrap_content"
+                android:layout_height="58dp"
+                android:layout_marginLeft="20px"
+                android:gravity="left|center_vertical"
+                android:textColor="#ffffffff"
+                android:textSize="28px" />
+            
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:orientation="horizontal"
+        android:layout_height="90px"
+        android:background="@drawable/radio_bottom_bg"
+        android:gravity="center" >
+
+        <com.octopus.android.carapps.common.view.KeyButtonView
+            android:id="@+id/cd_prev_button"
+            style="@style/ButtonStyleCD"
+            android:clickable="true"
+            android:scaleType="center"
+            android:src="@drawable/prev" />
+
+        <com.octopus.android.carapps.common.view.KeyButtonView
+            android:id="@+id/cd_play_pause_button"
+            style="@style/ButtonStyleCD"
+            android:clickable="true"
+            android:scaleType="center"
+            android:src="@drawable/play_level" />
+
+        <com.octopus.android.carapps.common.view.KeyButtonView
+            android:id="@+id/cd_next_button"
+            style="@style/ButtonStyleCD"
+            android:clickable="true"
+            android:scaleType="center"
+            android:src="@drawable/next" />
+
+        <com.octopus.android.carapps.common.view.KeyButtonView
+            android:id="@+id/cd_fr_button"
+            style="@style/ButtonStyleCD"
+            android:clickable="true"
+            android:scaleType="center"
+            android:visibility="gone"
+            android:src="@drawable/fr" />
+
+        <com.octopus.android.carapps.common.view.KeyButtonView
+            android:id="@+id/cd_ff_button"
+            style="@style/ButtonStyleCD"
+            android:visibility="gone"
+            android:clickable="true"
+            android:scaleType="center"
+            android:src="@drawable/ff" />
+
+        <com.octopus.android.carapps.common.view.KeyButtonView
+            android:id="@+id/cd_play_order_button"
+            style="@style/ButtonStyleCD"
+            android:clickable="true"
+            android:scaleType="center"
+            android:src="@drawable/repeat" />
+
+        <com.octopus.android.carapps.common.view.KeyButtonView
+            android:id="@+id/cd_shuffle"
+            style="@style/ButtonStyleCD"
+            android:clickable="true"
+            android:scaleType="center"
+            android:src="@drawable/shuffle" />
+
+          <Button
+                            android:id="@+id/cd_eq_mode_switch"
+                            style="@style/ButtonStyle3"
+                            android:clickable="true"
+                            android:scaleType="center"
+                            android:text="@string/eq_text_normal" />
+          
+
+    </LinearLayout>
+
+</LinearLayout> <!-- 最外围布局 纵向线性布局 -->

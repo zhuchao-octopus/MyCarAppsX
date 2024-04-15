@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/radio_keyboard_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusable="false"
+        android:paddingLeft="280px"
+        android:paddingTop="220px" >
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/radio_key_bg"
+            android:focusable="false" >
+
+            <TextView
+                android:id="@+id/result"
+                android:layout_width="460.0px"
+                android:layout_height="75.0px"
+                android:layout_marginLeft="23.0px"
+                android:layout_marginTop="13.0px"
+                android:background="@null"
+                android:ellipsize="end"
+                android:focusable="false"
+                android:gravity="center|right"
+                android:singleLine="true"
+                android:textColor="@android:color/white"
+                android:textSize="38.0px" />
+
+            <ImageView
+                android:id="@+id/num_del"
+                android:layout_width="75.0px"
+                android:layout_height="75.0px"
+                android:layout_marginLeft="510.0px"
+                android:layout_marginTop="15.0px"
+                android:src="@drawable/radio_key_delete" />
+
+            <TextView
+                android:id="@+id/num1"
+                android:layout_width="146.0px"
+                android:layout_height="93.0px"
+                android:layout_marginLeft="15.0px"
+                android:layout_marginTop="100.0px"
+                android:background="@drawable/radio_key1" />
+
+            <TextView
+                android:id="@+id/num2"
+                android:layout_width="146.0px"
+                android:layout_height="93.0px"
+                android:layout_marginLeft="166.0px"
+                android:layout_marginTop="100.0px"
+                android:background="@drawable/radio_key2" />
+
+            <TextView
+                android:id="@+id/num3"
+                android:layout_width="146.0px"
+                android:layout_height="93.0px"
+                android:layout_marginLeft="318.0px"
+                android:layout_marginTop="100.0px"
+                android:background="@drawable/radio_key3" />
+
+            <TextView
+                android:id="@+id/num0"
+                android:layout_width="146.0px"
+                android:layout_height="93.0px"
+                android:layout_marginLeft="470.0px"
+                android:layout_marginTop="100.0px"
+                android:background="@drawable/radio_key0" />
+
+            <TextView
+                android:id="@+id/num4"
+                android:layout_width="146.0px"
+                android:layout_height="93.0px"
+                android:layout_marginLeft="15.0px"
+                android:layout_marginTop="200.0px"
+                android:background="@drawable/radio_key4" />
+
+            <TextView
+                android:id="@+id/num5"
+                android:layout_width="146.0px"
+                android:layout_height="93.0px"
+                android:layout_marginLeft="166.0px"
+                android:layout_marginTop="200.0px"
+                android:background="@drawable/radio_key5" />
+
+            <TextView
+                android:id="@+id/num6"
+                android:layout_width="146.0px"
+                android:layout_height="93.0px"
+                android:layout_marginLeft="318.0px"
+                android:layout_marginTop="200.0px"
+                android:background="@drawable/radio_key6" />
+
+            <TextView
+                android:id="@+id/num_point"
+                android:layout_width="146.0px"
+                android:layout_height="93.0px"
+                android:layout_marginLeft="470.0px"
+                android:layout_marginTop="200.0px"
+                android:background="@drawable/radio_key_dian" />
+
+            <TextView
+                android:id="@+id/num7"
+                android:layout_width="146.0px"
+                android:layout_height="93.0px"
+                android:layout_marginLeft="15.0px"
+                android:layout_marginTop="300.0px"
+                android:background="@drawable/radio_key7" />
+
+            <TextView
+                android:id="@+id/num8"
+                android:layout_width="146.0px"
+                android:layout_height="93.0px"
+                android:layout_marginLeft="166.0px"
+                android:layout_marginTop="300.0px"
+                android:background="@drawable/radio_key8" />
+
+            <TextView
+                android:id="@+id/num9"
+                android:layout_width="146.0px"
+                android:layout_height="93.0px"
+                android:layout_marginLeft="318.0px"
+                android:layout_marginTop="300.0px"
+                android:background="@drawable/radio_key9" />
+
+            <TextView
+                android:id="@+id/num_ok"
+                android:layout_width="146.0px"
+                android:layout_height="93.0px"
+                android:layout_marginLeft="470.0px"
+                android:layout_marginTop="300.0px"
+                android:background="@drawable/radio_key_ok" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</LinearLayout>

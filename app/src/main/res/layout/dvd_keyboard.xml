@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/dvd_keyboard_all"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:id="@+id/keyboard2"
+        android:layout_width="300px"
+        android:visibility="gone"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="78px"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:id="@+id/up"
+                style="@style/ButtonStyleDvdKeyBoard"
+                android:layout_width="90px"
+                android:layout_height="68px"
+                android:clickable="true"
+                android:scaleType="center"
+                android:src="@drawable/u" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="78px"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:id="@+id/left"
+                style="@style/ButtonStyleDvdKeyBoard"
+                android:layout_width="90px"
+                android:layout_height="68px"
+                android:clickable="true"
+                android:scaleType="center"
+                android:src="@drawable/l" />
+
+            <TextView
+                android:id="@+id/ok"
+                style="@style/ButtonStyleDvdKeyBoard"
+                android:layout_width="90px"
+                android:layout_height="68px"
+                android:gravity="center"
+                android:text="@android:string/ok"
+                android:textSize="28px" />
+
+            <ImageView
+                android:id="@+id/right"
+                style="@style/ButtonStyleDvdKeyBoard"
+                android:layout_width="90px"
+                android:layout_height="68px"
+                android:clickable="true"
+                android:scaleType="center"
+                android:src="@drawable/r" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="78px"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:id="@+id/down"
+                style="@style/ButtonStyleDvdKeyBoard"
+                android:layout_width="90px"
+                android:layout_height="68px"
+                android:clickable="true"
+                android:scaleType="center"
+                android:src="@drawable/d" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/keyboard3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ccffffff"
+        android:orientation="vertical"
+        android:paddingBottom="1px"
+        android:paddingLeft="1px"
+        android:visibility="gone"
+        android:paddingRight="1px"
+        android:paddingTop="2px" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#aa000000"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1px"
+                android:gravity="center" >
+
+                <TextView
+                    android:id="@+id/num1"
+                    style="@style/ButonStyleNumDvd"
+                    android:text="@string/digit_1" />
+
+                <TextView
+                    android:id="@+id/num2"
+                    style="@style/ButonStyleNumDvd"
+                    android:text="@string/digit_2" />
+
+                <TextView
+                    android:id="@+id/num3"
+                    style="@style/ButonStyleNumDvd"
+                    android:text="@string/digit_3" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center" >
+
+                <TextView
+                    android:id="@+id/num4"
+                    style="@style/ButonStyleNumDvd"
+                    android:text="@string/digit_4" />
+
+                <TextView
+                    android:id="@+id/num5"
+                    style="@style/ButonStyleNumDvd"
+                    android:text="@string/digit_5" />
+
+                <TextView
+                    android:id="@+id/num6"
+                    style="@style/ButonStyleNumDvd"
+                    android:text="@string/digit_6" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center" >
+
+                <TextView
+                    android:id="@+id/num7"
+                    style="@style/ButonStyleNumDvd"
+                    android:text="@string/digit_7" />
+
+                <TextView
+                    android:id="@+id/num8"
+                    style="@style/ButonStyleNumDvd"
+                    android:text="@string/digit_8" />
+
+                <TextView
+                    android:id="@+id/num9"
+                    style="@style/ButonStyleNumDvd"
+                    android:text="@string/digit_9" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center" >
+
+                <TextView
+                    android:id="@+id/num0"
+                    style="@style/ButonStyleNumDvd"
+                    android:text="@string/digit_0" />
+
+                <!-- <TextView -->
+                <!-- android:id="@+id/num_point" -->
+                <!-- style="@style/ButonStyleNumDvd" -->
+                <!-- android:text="@string/digit_point" /> -->
+
+                <TextView
+                    android:id="@+id/num_ok"
+                    style="@style/ButonStyleNumDvd"
+                    android:layout_width="0px"
+                    android:layout_weight="2"
+                    android:text="@string/button_ok"
+                    android:textSize="32px" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>

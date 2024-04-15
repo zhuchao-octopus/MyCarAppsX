@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <string name="toolbar_text_auxin">AV入力</string>
+    <string name="toolbar_text_gps">ナビゲーション</string>
+    <string name="toolbar_text_video">ビデオ</string>
+    <string name="toolbar_text_radio">ラジオ</string>
+    <string name="toolbar_text_music">音楽</string>
+    <string name="toolbar_text_bluetooth_music">Bluetooth音楽</string>
+    <!--     <string name="bluetooth_settings"></string> -->
+    <!--     <string name="f_camera"></string> -->
+
+    <!--     <string name="device_eject">شنت</string> -->
+    <!--     <string name="device_mount">جميع الصور</string> -->
+    <string name="media">メモリ</string>   <!--     <string name="localfile">Flash</string> -->
+
+
+    <string name="all_song">すべてのメディア</string>    <!--     <string name="all_medianame">Všechny písně</string> -->
+
+
+    <string name="warning_driving">駆動する場合は、ビデオの禁止を見ます！</string>
+    <string name="playlist">リスト</string>
+    <!-- <string name="disconnect_video">无信号!</string> -->
+    <string name="a2dp_disconnect_info">蓝牙设备未连接，请搜索设备:%s,</string>
+    <string name="pick_wallpaper">"壁紙"</string>
+    <string name="screen_view_select">副画面に表示するビューを選択する</string>
+    <!-- <string name="a2dp_disconnect_info2">PIN码:%s,进行连接</string> -->
+    <string name="no_disk">ディスクなし!</string>
+    <!-- <string name="loading">加载中...</string> -->
+    <!-- <string name="traffic">交通信息通告</string> -->
+    <!-- <string name="title">菜单</string> -->
+    <!-- <string name="sub">字幕</string> -->
+    <!-- <string name="speaker">声道</string> -->
+
+
+    <string name="eq_text_user">ユーザー</string>
+    <string name="eq_text_rock">岩</string>
+    <string name="eq_text_pop">ポップ</string>
+    <string name="eq_text_jazz">ジャズ</string>
+    <string name="eq_text_classic">クラシック</string>
+    <string name="eq_text_normal">ノーマル</string>
+    <string name="bluetooth_device_context_connect">接続しますか？</string>
+    <string name="bluetooth_device_context_disconnect">切断しますか？</string>
+    <string name="modulename">デバイス名:</string>
+    <string name="modulepassword">暗証番号:</string>
+    <string name="pty00">無し</string>
+    <string name="pty01">ニュース</string>
+    <string name="pty02">業務</string>
+    <string name="pty03">インフォメーション</string>
+    <string name="pty04">スポーツ</string>
+    <string name="pty05">教育</string>
+    <string name="pty06">ドラマ</string>
+    <string name="pty07">文化</string>
+    <string name="pty08">科学</string>
+    <string name="pty09">綜合</string>
+    <string name="pty10">ポップ M</string>
+    <string name="pty11">ロック M</string>
+    <string name="pty12">イーズィー M</string>
+    <string name="pty13">ソフト M</string>
+    <string name="pty14">クラシック</string>
+    <string name="pty15">その他 M</string>
+    <string name="pty16">天気</string>
+    <string name="pty17">金融</string>
+    <string name="pty18">子供</string>
+    <string name="pty19">社会</string>
+    <string name="pty20">宗教</string>
+    <string name="pty21">放送局</string>
+    <string name="pty22">旅行</string>
+    <string name="pty23">レジャー</string>
+    <string name="pty24">ジャズ</string>
+    <string name="pty25">カントリー</string>
+    <string name="pty26">民俗 M</string>
+    <string name="pty27">オールディーズ</string>
+    <string name="pty28">民謡 M</string>
+    <string name="pty29">ドキュメント</string>
+    <string name="pty30">テキスト</string>
+    <string name="pty31">警報 !</string>
+</resources><!-- <?xml version="1.0" encoding="utf-8"?> -->
+    <!-- <resources> -->
+    <!--     <string name="usb1file">USB1</string> -->
+    <!--     <string name="usb2file">USB2</string> -->
+    <!--     <string name="unmount">アンインストールしました!</string> -->
+    <!--     <string name="mount">インストールされています!</string> -->
+    <!--     <string name="gpssd">地図カード</string> -->
+    <!--     <string name="sdcard">SDカード</string> -->
+    <!--     <string name="app_name">音楽</string> -->
+    <!--     <string name="music_name">音楽再生</string> -->
+    <!--     <string name="filemanage">ファイル管理</string> -->
+    <!--     <string name="music_style0">カスタム</string> -->
+    <!--     <string name="music_style1">ロック</string> -->
+    <!--     <string name="music_style2">ポップ</string> -->
+    <!--     <string name="music_style3">ジャズ</string> -->
+    <!--     <string name="music_style4">クラシック</string> -->
+    <!--     <string name="music_style5">フラット</string> -->
+    <!--     <string name="music_style6">ヴォーカル</string> -->
+    <!--     <string name="music_title" /> -->
+    <!--     <string name="erropath">暗証番号無効または音楽ファイル無効</string> -->
+    <!--     <string name="localfile">フラッシュ</string> -->
+    <!--     <string name="sd1file">地図カード</string> -->
+    <!--     <string name="sd2file">SDカード</string> -->
+    <!--     <string name="deviceunmount">%1$s アンインストールしました!</string> -->
+    <!--     <string name="devicemount">%1$s インストールされています!</string> -->
+    <!--     <string name="usbfile">%1$s</string> -->
+    <!--     <string name="nolrcfile">歌詞ファイルはありません!</string> -->
+    <!--     <string name="musicnumber">曲</string> -->
+    <!--     <string name="all_medianame">全曲</string> -->
+    <!-- </resources> -->

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/radio_keyboard_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center" >
+
+    <LinearLayout
+        android:scaleX="1.5"
+        android:scaleY="1.5"
+        android:layout_width="220dip"
+        android:layout_height="340px"
+        android:orientation="vertical"
+        android:paddingBottom="1dp"
+        android:paddingLeft="1dp"
+        android:paddingRight="1dp"
+        android:paddingTop="2dp" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/num_bg"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="206.0dip"
+                android:layout_height="50.0dip"
+                android:layout_marginTop="10.0dip"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/num_input_bg"
+                android:gravity="center" >
+
+                <TextView
+                    android:id="@+id/result"
+                    android:layout_width="138.0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20.0dip"
+                    android:clickable="false"
+                    android:gravity="center"
+                    android:textColor="#ffffff"
+                    android:textSize="38dp" />
+
+                <ImageView
+                    android:id="@+id/num_del"
+                    style="@style/ButonStyleNum"
+                    android:layout_width="50.0dip"
+                    android:layout_height="50.0dip"
+                    android:scaleType="fitCenter"
+                    android:background="@drawable/button_click_back1"
+                    android:src="@drawable/num_back" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center" >
+
+                <TextView
+                    android:id="@+id/num1"
+                    style="@style/ButonStyleNum"
+                    android:text="@string/digit_1" />
+
+                <TextView
+                    android:id="@+id/num2"
+                    style="@style/ButonStyleNum"
+                    android:text="@string/digit_2" />
+
+                <TextView
+                    android:id="@+id/num3"
+                    style="@style/ButonStyleNum"
+                    android:text="@string/digit_3" />
+
+                <TextView
+                    android:id="@+id/num0"
+                    style="@style/ButonStyleNum"
+                    android:text="@string/digit_0" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center" >
+
+                <TextView
+                    android:id="@+id/num4"
+                    style="@style/ButonStyleNum"
+                    android:text="@string/digit_4" />
+
+                <TextView
+                    android:id="@+id/num5"
+                    style="@style/ButonStyleNum"
+                    android:text="@string/digit_5" />
+
+                <TextView
+                    android:id="@+id/num6"
+                    style="@style/ButonStyleNum"
+                    android:text="@string/digit_6" /><TextView
+                    android:id="@+id/num_point"
+                    style="@style/ButonStyleNum"
+                    android:text="@string/digit_point" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center" >
+
+                <TextView
+                    android:id="@+id/num7"
+                    style="@style/ButonStyleNum"
+                    android:text="@string/digit_7" />
+
+                <TextView
+                    android:id="@+id/num8"
+                    style="@style/ButonStyleNum"
+                    android:text="@string/digit_8" />
+
+                <TextView
+                    android:id="@+id/num9"
+                    style="@style/ButonStyleNum"
+                    android:text="@string/digit_9" /><ImageView
+                    android:id="@+id/num_ok"
+                    style="@style/ButonStyleNum"
+                    android:scaleType="center"
+                    android:src="@drawable/num_enter"
+                    android:text="@string/button_ok"
+                    android:textSize="32dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,28 @@
+<!-- ?xml version="1.0" encoding="utf-8"? -->
+<resources>
+
+    
+    <integer name="freq_x1">34</integer>
+    <integer name="freq_x2">148</integer>
+    <integer name="freq_x3">266</integer>
+    <integer name="freq_x4">390</integer>
+    <integer name="freq_x5">500</integer>
+    <integer name="freq_x6">624</integer>
+
+    <integer name="freq_text_y">20</integer>
+    <integer name="start_freq_px">44</integer>
+    <integer name="end_freq_px">644</integer>
+    
+    <integer name="point_y">0</integer>
+    
+    
+    <integer name="point_y2">20</integer>
+    
+    <integer name="video_def_width">1024</integer>
+    <integer name="video_def_height">540</integer>
+    
+    
+    <integer name="radio_grid_fm_widht">1400</integer>
+    <integer name="radio_grid_am_widht">560</integer>
+    
+</resources>

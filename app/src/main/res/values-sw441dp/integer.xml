@@ -1,0 +1,23 @@
+<!-- ?xml version="1.0" encoding="utf-8"? -->
+<resources>
+
+    
+    <integer name="freq_x1">53</integer>
+    <integer name="freq_x2">-100</integer>
+    <integer name="freq_x3">-100</integer>
+    <integer name="freq_x4">-100</integer>
+    <integer name="freq_x5">-100</integer>
+    <integer name="freq_x6">320</integer>
+
+    <integer name="start_freq_px">70</integer>
+    <integer name="end_freq_px">333</integer>
+    
+    
+    
+    
+    
+    <integer name="video_def_width">800</integer>
+    <integer name="video_def_height">420</integer>
+    
+    
+</resources>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="ButtonStyle3">
+        <item name="android:background">@drawable/button_click_back1</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textSize">30dp</item>
+        <item name="android:layout_height">104dp</item>
+        <item name="android:focusable">true</item>
+        <item name="android:layout_width">132dp</item>
+    </style>
+
+    <style name="ButtonStyle1">
+        <item name="android:background">@drawable/button_click_back1</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:layout_height">104dp</item>
+        <item name="android:layout_width">170dp</item>
+        <item name="android:focusable">true</item>
+        <item name="android:textSize">46dp</item>
+    </style>
+
+    <style name="ButtonStyleCD">
+        <item name="android:background">@drawable/button_click_back1</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:layout_height">104dp</item>
+        <item name="android:layout_width">160dp</item>
+        <item name="android:focusable">true</item>
+        <item name="android:textSize">46dp</item>
+    </style>
+    
+    <style name="ButonStyleNum" parent="CommonStyleFonts">
+        <item name="android:background">@drawable/num_channel</item>
+        <item name="android:textColor">#ff000000</item>
+        <item name="android:layout_width">50.0dip</item>
+        <item name="android:layout_height">50.0dip</item>
+        <item name="android:layout_marginLeft">2.0dip</item>
+        <item name="android:textSize">38.0dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    
+    <style name="ButtonWidthWeight">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="ButtonWidthWeight1" parent="ButtonWidthWeight">
+        <item name="android:background">@drawable/button_click_back1</item>
+        <item name="android:gravity">center</item>
+    </style>
+    
+            <style name="MusicButtonStyle1">
+        <item name="android:tag">ak_paramter=100,50</item>
+        <item name="android:layout_width">92dp</item>
+        <item name="android:layout_height">92dp</item>
+        <item name="android:scaleType">center</item>
+        <item name="android:clickable">true</item>
+    </style>
+</resources>

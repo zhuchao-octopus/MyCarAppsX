@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<!--     <string name="radio_function_text_band">波段</string> -->
+    
+    <string name="toolbar_text_gps">導航</string>
+
+    <string name="toolbar_text_bluetooth_music">藍牙音樂</string>
+    <string name="bluetooth_settings">藍牙</string>
+    <string name="toolbar_text_radio">收音</string>
+    <string name="toolbar_text_music">音樂</string>
+    <string name="toolbar_text_video">視頻</string> 
+    <string name="f_camera">前攝像頭</string>
+    <string name="f_camera4">攝像頭</string>
+    
+    <string name="title">菜單</string>
+    
+    <string name="sub">字幕</string>
+    
+    <string name="speaker">專道</string>
+    <string name="pick_wallpaper">"桌布"</string>
+    <string name="screen_view_select">選擇顯示到副屏上的介面</string>
+    
+    
+    
+    <string name="playlist">播放列表</string>
+    <string name="media">本地</string>
+    <string name="device_mount">存儲設備已經加載</string>
+    <string name="device_eject">存儲設備已經卸載</string>
+    <string name="all_song">所有歌曲</string>
+    <string name="all_video">所有視頻</string>
+    <string name="traffic">交通信息通告</string>
+    
+    <string name="eq_text_classic">古典</string>
+    <string name="eq_text_pop">流行</string>
+    <string name="eq_text_rock">搖滾</string>
+    <string name="eq_text_jazz">爵士</string>
+    <string name="eq_text_user">自定義</string>
+    <string name="eq_text_normal">正常</string>   
+</resources>

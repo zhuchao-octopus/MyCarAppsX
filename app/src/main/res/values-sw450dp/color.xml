@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="radio_rds_info">#ffffffff</color>
+    <color name="radio_rds_info1">#ffffffff</color>
+
+    
+    <color name="radio_tag_normal">#ffffffff</color>
+    <color name="radio_tag_select">#ff40b2b3</color>
+
+
+</resources>

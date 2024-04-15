@@ -1,0 +1,1037 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:radio="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/screen1_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="0px"
+    android:background="#ff000000"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:padding="0px" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/list_content"
+            android:layout_width="match_parent"
+            android:layout_height="202px"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40px"
+                android:gravity="center_vertical"
+                android:paddingLeft="40px"
+                android:paddingRight="40px" >
+
+                <LinearLayout
+                        android:id="@+id/rds_tag"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        style="@style/RadioText1"
+                        android:text="@string/radio_rds"
+                        android:textColor="#ff40b2b3" />
+                    
+                    <TextView
+                        android:id="@+id/radio_tag_color_af"
+                        style="@style/RadioText1"
+                        android:text="@string/radio_function_text_af"
+                        android:textColor="#ffffffff" />
+
+                    <TextView
+                        android:id="@+id/radio_tag_color_ta"
+                        style="@style/RadioText1"
+                        android:text="@string/radio_ta"
+                        android:textColor="#ffffffff" />
+
+                    <TextView
+                        android:id="@+id/radio_tag_color_pty"
+                        style="@style/RadioText1"
+                        android:text="@string/radio_function_text_pty"
+                        android:textColor="#ffffffff" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/radio_tag_color_ams"
+                        style="@style/RadioText1"
+                        android:text="@string/radio_ams"
+                        android:textColor="#ffffffff" />
+
+                    <TextView
+                        android:id="@+id/radio_tag_color_aps"
+                        style="@style/RadioText1"
+                        android:text="@string/radio_aps"
+                        android:textColor="#ffffffff" />
+
+                    <TextView
+                        android:id="@+id/radio_tag_color_st"
+                        style="@style/RadioText1"
+                        android:text="@string/radio_st"
+                        android:textColor="#ffffffff" />
+
+                    <TextView
+                        android:id="@+id/radio_tag_color_loc"
+                        style="@style/RadioText1"
+                        android:text="@string/radio_function_text_loc"
+                        android:textColor="#ffffffff" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="100px"
+                android:gravity="center_horizontal"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="600px"
+                    android:layout_height="100px"
+                    android:orientation="horizontal" >
+
+                    <ImageView
+                            android:id="@+id/radio_function_button_seek_previous_and_step"
+                        android:layout_width="68px"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:src="@drawable/btn_step_pre_normal"
+                        android:tag="ak_paramter=100,50" />
+
+                    <LinearLayout
+                        android:layout_width="464px"
+                        android:layout_height="fill_parent"
+                        android:gravity="center_horizontal" >
+
+                        <AbsoluteLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent" >
+
+                            <TextView
+                                android:id="@+id/debug"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="20px"
+                                android:visibility="visible" />
+
+                            <TextView
+                                android:id="@+id/freq_text_ps"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_x="0px"
+                                android:layout_y="-8px"
+                                android:gravity="center"
+                                android:paddingLeft="10px"
+                                android:paddingRight="10px"
+                                android:singleLine="true"
+                                android:textColor="#ffffff"
+                                android:textSize="40px"
+                                android:visibility="visible" />
+
+                            <TextView
+                                android:id="@+id/freq_text"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_x="0px"
+                                android:gravity="center"
+                                android:paddingLeft="10px"
+                                android:paddingRight="10px"
+                                android:singleLine="true"
+                                android:textColor="#ffffff"
+                                android:textSize="68px"
+                                android:visibility="visible" />
+
+                            <TextView
+                                android:id="@+id/radio_fm_text"
+                                style="@style/shadowText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_x="0px"
+                                android:layout_y="40px"
+                                android:textColor="@color/radio_rds_info1"
+                                android:textSize="30px" />
+
+                            <TextView
+                                android:id="@+id/radio_unit_text"
+                                style="@style/shadowText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_x="400px"
+                                android:layout_y="40px"
+                                android:textColor="@color/radio_rds_info1"
+                                android:textSize="30px" />
+                        </AbsoluteLayout>
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/radio_function_button_seek_next_and_step"
+                        android:layout_width="68px"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_x="804px"
+                        android:layout_y="22px"
+                        android:src="@drawable/btn_step_next_normal"
+                        android:tag="ak_paramter=100,50" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="60px"
+                android:layout_marginTop="0px"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingLeft="40px"
+                android:paddingRight="40px" >
+
+                <ImageView
+                    android:id="@+id/radio_keyboard"
+                    style="@style/RadioButtonStyle"
+                    android:clickable="true"
+                    android:scaleType="center"
+                    android:src="@drawable/botton_set_num" />
+
+                <LinearLayout
+                    android:id="@+id/rds_buttons"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="100px" >
+
+                    <ImageView
+                        android:id="@+id/radio_function_button_af"
+                        style="@style/RadioButtonStyle"
+                        android:clickable="true"
+                        android:scaleType="center"
+                        android:src="@drawable/botton_af_nor" />
+
+                    <ImageView
+                        android:id="@+id/radio_function_button_ta"
+                        style="@style/RadioButtonStyle"
+                        android:clickable="true"
+                        android:scaleType="center"
+                        android:src="@drawable/botton_ta_nor" />
+
+                    <ImageView
+                        android:id="@+id/radio_function_button_pty"
+                        style="@style/RadioButtonStyle"
+                        android:layout_marginLeft="440px"
+                        android:clickable="true"
+                        android:scaleType="center"
+                        android:src="@drawable/botton_pty_nor" />
+
+                    <ToggleButton
+                        android:id="@+id/radio_function_button_reg"
+                        style="@style/ButtonStyle2"
+                        android:clickable="true"
+                        android:scaleType="center"
+                        android:textColor="@color/radio_rds_info1"
+                        android:textOff="@string/radio_function_text_reg"
+                        android:textOn="@string/radio_function_text_reg"
+                        android:textSize="25px"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/eq"
+                    style="@style/RadioButtonStyle"
+                    android:layout_alignParentRight="true"
+                    android:clickable="true"
+                    android:scaleType="center"
+                    android:src="@drawable/botton_set_eq" />
+            </RelativeLayout>
+
+            <ccom.octopus.android.carapps.radio.MarkFaceView
+                android:id="@+id/radio_mark_face_view"
+                android:layout_width="fill_parent"
+                android:layout_height="60px"
+                android:background="@drawable/markface"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="8px"
+            android:background="@drawable/center_line_bg" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="255.0px" >
+
+            <RelativeLayout
+                android:id="@+id/rds_texts"
+                android:layout_width="fill_parent"
+                android:layout_height="40px"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/radio_rds_ps"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="200px"
+                    android:textColor="@color/radio_rds_info1"
+                    android:textSize="24px" />
+
+                <com.common.view.MarqueeTextView
+                    android:id="@+id/radio_rds_rt"
+                    style="@style/shadowText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="200px"
+                    android:textColor="@color/radio_rds_info1"
+                    android:textSize="24px" />
+
+                <TextView
+                    android:id="@+id/radio_current_pty_type_name"
+                    style="@style/shadowText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="15px"
+                    android:textColor="@color/radio_rds_info1"
+                    android:textSize="24px" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="245.0px"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="0px"
+                android:focusable="false"
+                android:orientation="vertical"
+                android:paddingBottom="30px"
+                android:paddingTop="40px" >
+
+                <com.octopus.android.carapps.common.view.MyScrollView
+                    android:id="@+id/radio_frequency_scrollview"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:scrollbars="none"
+                    android:tag="0,1024,2048,3072,4096,5120:0" >
+
+                    <LinearLayout
+                        android:id="@+id/radio_scrollview_content_width"
+                        android:layout_width="5120px"
+                        android:layout_height="fill_parent"
+                        android:orientation="horizontal" >
+
+                        <LinearLayout
+                            android:layout_width="1024px"
+                            android:layout_height="fill_parent"
+                            android:orientation="vertical" >
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent" >
+
+                                <RelativeLayout
+                                    android:layout_width="0px"
+                                    android:layout_height="fill_parent"
+                                    android:layout_weight="1" >
+
+                                    <TextView
+                                        android:id="@+id/channel_00"
+                                        style="@style/channelTextStyle" />
+
+                                    <TextView
+                                        android:id="@+id/channel_index_00"
+                                        style="@style/channelButtonTextStyle" />
+
+                                    <TextView
+                                        android:id="@+id/channel_baud_index_00"
+                                        style="@style/channelBaudIndexStyle" />
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:layout_width="0px"
+                                    android:layout_height="fill_parent"
+                                    android:layout_weight="1" >
+
+                                    <TextView
+                                        android:id="@+id/channel_01"
+                                        style="@style/channelTextStyle" />
+
+                                    <TextView
+                                        android:id="@+id/channel_index_01"
+                                        style="@style/channelButtonTextStyle" />
+
+                                    <TextView
+                                        android:id="@+id/channel_baud_index_01"
+                                        style="@style/channelBaudIndexStyle" />
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:layout_width="0px"
+                                    android:layout_height="fill_parent"
+                                    android:layout_weight="1" >
+
+                                    <TextView
+                                        android:id="@+id/channel_02"
+                                        style="@style/channelTextStyle" />
+
+                                    <TextView
+                                        android:id="@+id/channel_index_02"
+                                        style="@style/channelButtonTextStyle" />
+
+                                    <TextView
+                                        android:id="@+id/channel_baud_index_02"
+                                        style="@style/channelBaudIndexStyle" />
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:layout_width="0px"
+                                    android:layout_height="fill_parent"
+                                    android:layout_weight="1" >
+
+                                    <TextView
+                                        android:id="@+id/channel_03"
+                                        style="@style/channelTextStyle" />
+
+                                    <TextView
+                                        android:id="@+id/channel_index_03"
+                                        style="@style/channelButtonTextStyle" />
+
+                                    <TextView
+                                        android:id="@+id/channel_baud_index_03"
+                                        style="@style/channelBaudIndexStyle" />
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:layout_width="0px"
+                                    android:layout_height="fill_parent"
+                                    android:layout_weight="1" >
+
+                                    <TextView
+                                        android:id="@+id/channel_04"
+                                        style="@style/channelTextStyle" />
+
+                                    <TextView
+                                        android:id="@+id/channel_index_04"
+                                        style="@style/channelButtonTextStyle" />
+
+                                    <TextView
+                                        android:id="@+id/channel_baud_index_04"
+                                        style="@style/channelBaudIndexStyle" />
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:layout_width="0px"
+                                    android:layout_height="fill_parent"
+                                    android:layout_weight="1" >
+
+                                    <TextView
+                                        android:id="@+id/channel_05"
+                                        style="@style/channelTextStyle" />
+
+                                    <TextView
+                                        android:id="@+id/channel_index_05"
+                                        style="@style/channelButtonTextStyle" />
+
+                                    <TextView
+                                        android:id="@+id/channel_baud_index_05"
+                                        style="@style/channelBaudIndexStyle" />
+                                </RelativeLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="1024px"
+                            android:layout_height="fill_parent"
+                            android:orientation="vertical" >
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content" >
+
+                                <RelativeLayout
+                                    android:layout_width="0px"
+                                    android:layout_height="fill_parent"
+                                    android:layout_weight="1" >
+
+                                    <TextView
+                                        android:id="@+id/channel_06"
+                                        style="@style/channelTextStyle" />
+
+                                    <TextView
+                                        android:id="@+id/channel_index_06"
+                                        style="@style/channelButtonTextStyle" />
+
+                                    <TextView
+                                        android:id="@+id/channel_baud_index_06"
+                                        style="@style/channelBaudIndexStyle" />
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:layout_width="0px"
+                                    android:layout_height="fill_parent"
+                                    android:layout_weight="1" >
+
+                                    <TextView
+                                        android:id="@+id/channel_07"
+                                        style="@style/channelTextStyle" />
+
+                                    <TextView
+                                        android:id="@+id/channel_index_07"
+                                        style="@style/channelButtonTextStyle" />
+
+                                    <TextView
+                                        android:id="@+id/channel_baud_index_07"
+                                        style="@style/channelBaudIndexStyle" />
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:layout_width="0px"
+                                    android:layout_height="fill_parent"
+                                    android:layout_weight="1" >
+
+                                    <TextView
+                                        android:id="@+id/channel_08"
+                                        style="@style/channelTextStyle" />
+
+                                    <TextView
+                                        android:id="@+id/channel_index_08"
+                                        style="@style/channelButtonTextStyle" />
+
+                                    <TextView
+                                        android:id="@+id/channel_baud_index_08"
+                                        style="@style/channelBaudIndexStyle" />
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:layout_width="0px"
+                                    android:layout_height="fill_parent"
+                                    android:layout_weight="1" >
+
+                                    <TextView
+                                        android:id="@+id/channel_09"
+                                        style="@style/channelTextStyle" />
+
+                                    <TextView
+                                        android:id="@+id/channel_index_09"
+                                        style="@style/channelButtonTextStyle" />
+
+                                    <TextView
+                                        android:id="@+id/channel_baud_index_09"
+                                        style="@style/channelBaudIndexStyle" />
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:layout_width="0px"
+                                    android:layout_height="fill_parent"
+                                    android:layout_weight="1" >
+
+                                    <TextView
+                                        android:id="@+id/channel_10"
+                                        style="@style/channelTextStyle" />
+
+                                    <TextView
+                                        android:id="@+id/channel_index_10"
+                                        style="@style/channelButtonTextStyle" />
+
+                                    <TextView
+                                        android:id="@+id/channel_baud_index_10"
+                                        style="@style/channelBaudIndexStyle" />
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:layout_width="0px"
+                                    android:layout_height="fill_parent"
+                                    android:layout_weight="1" >
+
+                                    <TextView
+                                        android:id="@+id/channel_11"
+                                        style="@style/channelTextStyle" />
+
+                                    <TextView
+                                        android:id="@+id/channel_index_11"
+                                        style="@style/channelButtonTextStyle" />
+
+                                    <TextView
+                                        android:id="@+id/channel_baud_index_11"
+                                        style="@style/channelBaudIndexStyle" />
+                                </RelativeLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/radio_am_hide_layout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="fill_parent"
+                            android:orientation="horizontal" >
+
+                            <LinearLayout
+                                android:layout_width="1024px"
+                                android:layout_height="fill_parent"
+                                android:orientation="vertical" >
+
+                                <LinearLayout
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content" >
+
+                                    <RelativeLayout
+                                        android:layout_width="0px"
+                                        android:layout_height="fill_parent"
+                                        android:layout_weight="1" >
+
+                                        <TextView
+                                            android:id="@+id/channel_12"
+                                            style="@style/channelTextStyle" />
+
+                                        <TextView
+                                            android:id="@+id/channel_index_12"
+                                            style="@style/channelButtonTextStyle" />
+
+                                        <TextView
+                                            android:id="@+id/channel_baud_index_12"
+                                            style="@style/channelBaudIndexStyle" />
+                                    </RelativeLayout>
+
+                                    <RelativeLayout
+                                        android:layout_width="0px"
+                                        android:layout_height="fill_parent"
+                                        android:layout_weight="1" >
+
+                                        <TextView
+                                            android:id="@+id/channel_13"
+                                            style="@style/channelTextStyle" />
+
+                                        <TextView
+                                            android:id="@+id/channel_index_13"
+                                            style="@style/channelButtonTextStyle" />
+
+                                        <TextView
+                                            android:id="@+id/channel_baud_index_13"
+                                            style="@style/channelBaudIndexStyle" />
+                                    </RelativeLayout>
+
+                                    <RelativeLayout
+                                        android:layout_width="0px"
+                                        android:layout_height="fill_parent"
+                                        android:layout_weight="1" >
+
+                                        <TextView
+                                            android:id="@+id/channel_14"
+                                            style="@style/channelTextStyle" />
+
+                                        <TextView
+                                            android:id="@+id/channel_index_14"
+                                            style="@style/channelButtonTextStyle" />
+
+                                        <TextView
+                                            android:id="@+id/channel_baud_index_14"
+                                            style="@style/channelBaudIndexStyle" />
+                                    </RelativeLayout>
+
+                                    <RelativeLayout
+                                        android:layout_width="0px"
+                                        android:layout_height="fill_parent"
+                                        android:layout_weight="1" >
+
+                                        <TextView
+                                            android:id="@+id/channel_15"
+                                            style="@style/channelTextStyle" />
+
+                                        <TextView
+                                            android:id="@+id/channel_index_15"
+                                            style="@style/channelButtonTextStyle" />
+
+                                        <TextView
+                                            android:id="@+id/channel_baud_index_15"
+                                            style="@style/channelBaudIndexStyle" />
+                                    </RelativeLayout>
+
+                                    <RelativeLayout
+                                        android:layout_width="0px"
+                                        android:layout_height="fill_parent"
+                                        android:layout_weight="1" >
+
+                                        <TextView
+                                            android:id="@+id/channel_16"
+                                            style="@style/channelTextStyle" />
+
+                                        <TextView
+                                            android:id="@+id/channel_index_16"
+                                            style="@style/channelButtonTextStyle" />
+
+                                        <TextView
+                                            android:id="@+id/channel_baud_index_16"
+                                            style="@style/channelBaudIndexStyle" />
+                                    </RelativeLayout>
+
+                                    <RelativeLayout
+                                        android:layout_width="0px"
+                                        android:layout_height="fill_parent"
+                                        android:layout_weight="1" >
+
+                                        <TextView
+                                            android:id="@+id/channel_17"
+                                            style="@style/channelTextStyle" />
+
+                                        <TextView
+                                            android:id="@+id/channel_index_17"
+                                            style="@style/channelButtonTextStyle" />
+
+                                        <TextView
+                                            android:id="@+id/channel_baud_index_17"
+                                            style="@style/channelBaudIndexStyle" />
+                                    </RelativeLayout>
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="1024px"
+                                android:layout_height="fill_parent"
+                                android:orientation="vertical" >
+
+                                <LinearLayout
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content" >
+
+                                    <RelativeLayout
+                                        android:layout_width="0px"
+                                        android:layout_height="fill_parent"
+                                        android:layout_weight="1" >
+
+                                        <TextView
+                                            android:id="@+id/channel_18"
+                                            style="@style/channelTextStyle" />
+
+                                        <TextView
+                                            android:id="@+id/channel_index_18"
+                                            style="@style/channelButtonTextStyle" />
+
+                                        <TextView
+                                            android:id="@+id/channel_baud_index_18"
+                                            style="@style/channelBaudIndexStyle" />
+                                    </RelativeLayout>
+
+                                    <RelativeLayout
+                                        android:layout_width="0px"
+                                        android:layout_height="fill_parent"
+                                        android:layout_weight="1" >
+
+                                        <TextView
+                                            android:id="@+id/channel_19"
+                                            style="@style/channelTextStyle" />
+
+                                        <TextView
+                                            android:id="@+id/channel_index_19"
+                                            style="@style/channelButtonTextStyle" />
+
+                                        <TextView
+                                            android:id="@+id/channel_baud_index_19"
+                                            style="@style/channelBaudIndexStyle" />
+                                    </RelativeLayout>
+
+                                    <RelativeLayout
+                                        android:layout_width="0px"
+                                        android:layout_height="fill_parent"
+                                        android:layout_weight="1" >
+
+                                        <TextView
+                                            android:id="@+id/channel_20"
+                                            style="@style/channelTextStyle" />
+
+                                        <TextView
+                                            android:id="@+id/channel_index_20"
+                                            style="@style/channelButtonTextStyle" />
+
+                                        <TextView
+                                            android:id="@+id/channel_baud_index_20"
+                                            style="@style/channelBaudIndexStyle" />
+                                    </RelativeLayout>
+
+                                    <RelativeLayout
+                                        android:layout_width="0px"
+                                        android:layout_height="fill_parent"
+                                        android:layout_weight="1" >
+
+                                        <TextView
+                                            android:id="@+id/channel_21"
+                                            style="@style/channelTextStyle" />
+
+                                        <TextView
+                                            android:id="@+id/channel_index_21"
+                                            style="@style/channelButtonTextStyle" />
+
+                                        <TextView
+                                            android:id="@+id/channel_baud_index_21"
+                                            style="@style/channelBaudIndexStyle" />
+                                    </RelativeLayout>
+
+                                    <RelativeLayout
+                                        android:layout_width="0px"
+                                        android:layout_height="fill_parent"
+                                        android:layout_weight="1" >
+
+                                        <TextView
+                                            android:id="@+id/channel_22"
+                                            style="@style/channelTextStyle" />
+
+                                        <TextView
+                                            android:id="@+id/channel_index_22"
+                                            style="@style/channelButtonTextStyle" />
+
+                                        <TextView
+                                            android:id="@+id/channel_baud_index_22"
+                                            style="@style/channelBaudIndexStyle" />
+                                    </RelativeLayout>
+
+                                    <RelativeLayout
+                                        android:layout_width="0px"
+                                        android:layout_height="fill_parent"
+                                        android:layout_weight="1" >
+
+                                        <TextView
+                                            android:id="@+id/channel_23"
+                                            style="@style/channelTextStyle" />
+
+                                        <TextView
+                                            android:id="@+id/channel_index_23"
+                                            style="@style/channelButtonTextStyle" />
+
+                                        <TextView
+                                            android:id="@+id/channel_baud_index_23"
+                                            style="@style/channelBaudIndexStyle" />
+                                    </RelativeLayout>
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="1024px"
+                                android:layout_height="fill_parent"
+                                android:orientation="vertical" >
+
+                                <LinearLayout
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content" >
+
+                                    <RelativeLayout
+                                        android:layout_width="0px"
+                                        android:layout_height="fill_parent"
+                                        android:layout_weight="1" >
+
+                                        <TextView
+                                            android:id="@+id/channel_24"
+                                            style="@style/channelTextStyle" />
+
+                                        <TextView
+                                            android:id="@+id/channel_index_24"
+                                            style="@style/channelButtonTextStyle" />
+
+                                        <TextView
+                                            android:id="@+id/channel_baud_index_24"
+                                            style="@style/channelBaudIndexStyle" />
+                                    </RelativeLayout>
+
+                                    <RelativeLayout
+                                        android:layout_width="0px"
+                                        android:layout_height="fill_parent"
+                                        android:layout_weight="1" >
+
+                                        <TextView
+                                            android:id="@+id/channel_25"
+                                            style="@style/channelTextStyle" />
+
+                                        <TextView
+                                            android:id="@+id/channel_index_25"
+                                            style="@style/channelButtonTextStyle" />
+
+                                        <TextView
+                                            android:id="@+id/channel_baud_index_25"
+                                            style="@style/channelBaudIndexStyle" />
+                                    </RelativeLayout>
+
+                                    <RelativeLayout
+                                        android:layout_width="0px"
+                                        android:layout_height="fill_parent"
+                                        android:layout_weight="1" >
+
+                                        <TextView
+                                            android:id="@+id/channel_26"
+                                            style="@style/channelTextStyle" />
+
+                                        <TextView
+                                            android:id="@+id/channel_index_26"
+                                            style="@style/channelButtonTextStyle" />
+
+                                        <TextView
+                                            android:id="@+id/channel_baud_index_26"
+                                            style="@style/channelBaudIndexStyle" />
+                                    </RelativeLayout>
+
+                                    <RelativeLayout
+                                        android:layout_width="0px"
+                                        android:layout_height="fill_parent"
+                                        android:layout_weight="1" >
+
+                                        <TextView
+                                            android:id="@+id/channel_27"
+                                            style="@style/channelTextStyle" />
+
+                                        <TextView
+                                            android:id="@+id/channel_index_27"
+                                            style="@style/channelButtonTextStyle" />
+
+                                        <TextView
+                                            android:id="@+id/channel_baud_index_27"
+                                            style="@style/channelBaudIndexStyle" />
+                                    </RelativeLayout>
+
+                                    <RelativeLayout
+                                        android:layout_width="0px"
+                                        android:layout_height="fill_parent"
+                                        android:layout_weight="1" >
+
+                                        <TextView
+                                            android:id="@+id/channel_28"
+                                            style="@style/channelTextStyle" />
+
+                                        <TextView
+                                            android:id="@+id/channel_index_28"
+                                            style="@style/channelButtonTextStyle" />
+
+                                        <TextView
+                                            android:id="@+id/channel_baud_index_28"
+                                            style="@style/channelBaudIndexStyle" />
+                                    </RelativeLayout>
+
+                                    <RelativeLayout
+                                        android:layout_width="0px"
+                                        android:layout_height="fill_parent"
+                                        android:layout_weight="1" >
+
+                                        <TextView
+                                            android:id="@+id/channel_29"
+                                            style="@style/channelTextStyle" />
+
+                                        <TextView
+                                            android:id="@+id/channel_index_29"
+                                            style="@style/channelButtonTextStyle" />
+
+                                        <TextView
+                                            android:id="@+id/channel_baud_index_29"
+                                            style="@style/channelBaudIndexStyle" />
+                                    </RelativeLayout>
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </com.octopus.android.carapps.common.view.MyScrollView>
+            </LinearLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="75.0px"
+            android:background="@drawable/radio_bottom_bg2"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center" >
+
+                    <!-- <ImageView -->
+                    <!-- android:id="@+id/btn_list" -->
+                    <!-- style="@style/CommonWeightAkParamter" -->
+                    <!-- android:scaleType="center" -->
+                    <!-- android:src="@drawable/ico_menu" /> -->
+
+
+                    <!-- <View -->
+                    <!-- android:layout_width="0.0010000467px" -->
+                    <!-- android:layout_height="fill_parent" -->
+                    <!-- android:layout_marginBottom="10.0px" -->
+                    <!-- android:layout_marginTop="10.0px" -->
+                    <!-- android:background="#ffe1e1e1" /> -->
+
+                    <ImageView
+                        android:id="@+id/radio_function_button_scan"
+                        style="@style/CommonWeightAkParamter"
+                        android:scaleType="center"
+                        android:src="@drawable/radio_btn_search_normal" />
+
+                    <ImageView
+                        android:id="@+id/radio_function_button_ps_search"
+                        style="@style/CommonWeightAkParamter"
+                        android:scaleType="center"
+                        android:src="@drawable/radio_icon_ps" />
+
+                    <ImageView
+                        android:id="@+id/radio_function_button_st"
+                        style="@style/CommonWeightAkParamter"
+                        android:clickable="true"
+                        android:scaleType="center"
+                        android:src="@drawable/ico_st" />
+
+                    <ImageView
+                        android:id="@+id/radio_button_loc"
+                        style="@style/CommonWeightAkParamter"
+                        android:clickable="true"
+                        android:scaleType="center"
+                        android:src="@drawable/ico_distance" />
+
+                    <ImageView
+                        android:id="@+id/am_sel2"
+                        style="@style/CommonWeightAkParamter"
+                        android:clickable="true"
+                        android:scaleType="center"
+                        android:src="@drawable/ico_am" />
+
+                    <ImageView
+                        android:id="@+id/fm_sel2"
+                        style="@style/CommonWeightAkParamter"
+                        android:clickable="true"
+                        android:scaleType="center"
+                        android:src="@drawable/ico_fm" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/radio_pty_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" >
+
+        <RelativeLayout
+            android:layout_width="230px"
+            android:layout_height="327px"
+            android:layout_marginLeft="670px"
+            android:layout_marginTop="200px"
+            android:background="@drawable/rds_wrap"
+            android:paddingTop="13px" >
+
+            <ListView
+                android:id="@+id/radio_pty_list"
+                style="@style/CommonListViewStyle1"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:cacheColorHint="@android:color/transparent"
+                android:divider="@android:color/transparent"
+                android:fadingEdge="none" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout> <!-- 最外围布局 纵向线性布局 -->

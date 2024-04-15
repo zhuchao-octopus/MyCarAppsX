@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="885px"
+    android:layout_height="match_parent"
+    android:background="@drawable/music_background"
+    android:orientation="horizontal" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal" >
+    <ImageView
+        android:layout_width="338px"
+        android:layout_height="match_parent"
+        android:background="@drawable/video_background2"
+        android:scaleType="fitCenter" />
+
+        <RelativeLayout
+        android:layout_width="438px"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/btn_add_all"
+                style="@style/CommonStyleFonts"
+                android:layout_width="fill_parent"
+                android:layout_height="78.0px"
+                        android:background="@drawable/music_list_selector"
+                android:drawableLeft="@drawable/button_add"
+                android:drawablePadding="10.0px"
+                android:gravity="left|center"
+                android:text="@string/all_video"
+                android:textColor="#ffffffff"
+                android:textSize="24.0px" />
+
+            <ListView
+                android:id="@+id/tv_sd_list"
+                 style="@style/CommonListViewStyle1"
+                android:visibility="gone" />
+
+            <ListView
+                android:id="@+id/tv_sd2_list"
+                style="@style/CommonListViewStyle1"
+                android:visibility="gone" />
+
+            <ListView
+                android:id="@+id/tv_usb_list"
+                style="@style/CommonListViewStyle1"
+                android:visibility="gone" />
+
+            <ListView
+                android:id="@+id/tv_usb2_list"
+                style="@style/CommonListViewStyle1"
+                android:visibility="gone" />
+
+            <ListView
+                android:id="@+id/tv_usb3_list"
+                style="@style/CommonListViewStyle1"
+                android:visibility="gone" />
+
+            <ListView
+                android:id="@+id/tv_usb4_list"
+                style="@style/CommonListViewStyle1"
+                android:visibility="gone" />
+
+            <ListView
+                android:id="@+id/tv_local_list"
+                style="@style/CommonListViewStyle1"/>
+        </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/progressBar1"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:clickable="true"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+                <ProgressBar
+                    style="?android:attr/progressBarStyleLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </RelativeLayout>
+
+    <View
+        android:layout_width="1px"
+        android:layout_height="fill_parent"
+        android:background="#cccccc" />
+
+    <ScrollView
+        android:layout_width="134.0px"
+        android:layout_height="fill_parent" >
+
+        <LinearLayout
+            android:id="@+id/tb"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="1px"
+            android:layout_marginTop="0px"
+            android:gravity="left"
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/btn_all"
+                style="@style/PageSelectButtonButton"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:clickable="true"
+                android:drawablePadding="1.0px"
+                android:drawableTop="@drawable/type_playing"
+                android:gravity="left|center"
+                android:text="@string/playlist"
+                android:textColor="#ffffffff"
+                android:textSize="24.0px"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/btn_local"
+                android:layout_width="match_parent"
+                android:layout_height="135px"
+                 
+                android:clickable="true"
+                android:drawablePadding="0.0px"
+                android:drawableTop="@drawable/type_arm"
+                android:gravity="center"
+                android:tag="ak_paramter=100,50"
+                    android:background="@drawable/com_focus_select"
+                android:text="@string/media"
+                android:textColor="#ffffffff"
+                android:textSize="24.0px" />
+
+            <Button
+                android:id="@+id/btn_sd"
+                android:layout_width="match_parent"
+                android:layout_height="135px"
+                    android:background="@drawable/com_focus_select"
+                 
+                android:clickable="true"
+                android:drawablePadding="1.0px"
+                android:drawableTop="@drawable/type_sd"
+                android:gravity="center"
+                android:tag="ak_paramter=100,50"
+                android:text="@string/sd"
+                android:textColor="#ffffffff"
+                android:textSize="24.0px" />
+
+            <Button
+                android:id="@+id/btn_sd2"
+                android:layout_width="match_parent"
+                android:layout_height="135px"
+                 
+                android:clickable="true"
+                    android:background="@drawable/com_focus_select"
+                android:drawablePadding="1.0px"
+                android:drawableTop="@drawable/type_sd"
+                android:gravity="center"
+                android:tag="ak_paramter=100,50"
+                android:text="@string/sd2"
+                android:textColor="#ffffffff"
+                android:textSize="24.0px" />
+
+            <Button
+                android:id="@+id/btn_usb"
+                android:layout_width="match_parent"
+                android:layout_height="135px"
+                 
+                    android:background="@drawable/com_focus_select"
+                android:clickable="true"
+                android:drawablePadding="1.0px"
+                android:drawableTop="@drawable/type_usb"
+                android:gravity="center"
+                android:tag="ak_paramter=100,50"
+                android:text="@string/usb"
+                android:textColor="#ffffffff"
+                android:textSize="24.0px" />
+
+            <Button
+                android:id="@+id/btn_usb2"
+                android:layout_width="match_parent"
+                android:layout_height="135px"
+                 
+                    android:background="@drawable/com_focus_select"
+                android:clickable="true"
+                android:drawablePadding="1.0px"
+                android:drawableTop="@drawable/type_usb"
+                android:gravity="center"
+                android:tag="ak_paramter=100,50"
+                android:text="@string/usb2"
+                android:textColor="#ffffffff"
+                android:textSize="24.0px" />
+
+            <Button
+                android:id="@+id/btn_usb3"
+                android:layout_width="match_parent"
+                android:layout_height="135px"
+                    android:background="@drawable/com_focus_select"
+                 
+                android:clickable="true"
+                android:drawablePadding="1.0px"
+                android:drawableTop="@drawable/type_usb"
+                android:gravity="center"
+                android:tag="ak_paramter=100,50"
+                android:text="@string/usb3"
+                android:textColor="#ffffffff"
+                android:textSize="24.0px" />
+
+            <Button
+                android:id="@+id/btn_usb4"
+                android:layout_width="match_parent"
+                    android:background="@drawable/com_focus_select"
+                android:layout_height="135px"
+                 
+                android:clickable="true"
+                android:drawablePadding="1.0px"
+                android:drawableTop="@drawable/type_usb"
+                android:gravity="center"
+                android:tag="ak_paramter=100,50"
+                android:text="@string/usb4"
+                android:textColor="#ffffffff"
+                android:textSize="24.0px" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
+</RelativeLayout>

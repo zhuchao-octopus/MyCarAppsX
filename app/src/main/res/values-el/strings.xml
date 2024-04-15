@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string name="toolbar_text_gps">"Πλοήγηση"</string>
+    <string name="toolbar_text_bluetooth_music">"Μουσική BT"</string>
+    <string name="toolbar_text_radio">"Ράδιο"</string>
+    <string name="toolbar_text_music">"Μουσική"</string>
+    <string name="toolbar_text_video">"Βίντεο"</string>
+
+    <string name="widget_app_video">"Βίντεο"</string>
+    <string name="playlist">"Λίστα αναπαραγωγής"</string>
+    <string name="artist">"Καλλιτέχνης:"</string>
+    <string name="album">"Άλμπουμ:"</string>
+    <string name="song">"Τραγούδι:"</string>
+    <string name="unknown">"Άγνωστο"</string>
+    <string name="device_mount">"Εισαγωγή συσκευής"</string>
+    <string name="device_eject">"Εξαγωγή συσκευής"</string>
+    <string name="scanning">"Σάρωση αρχείων πολυμέσων"</string>
+    <string name="disconnect_video">"Κανένα Σήμα!"</string>
+    <string name="play_fail">"Αναπαραγωγή απέτυχε!"</string>
+    <string name="warning_driving">"Το βίντεο είναι απενεργοποιημένο για την ασφάλειά σας!"</string>
+    <string name="warning_driving_1992">"Κατάσταση οδήγησης, βίντεο Κλειστό, για την ασφάλειά σας, επικεντρωθείτε στην οδήγηση"</string>
+
+    <string name="text_reverse_warning">"Προειδοποίηση "</string>
+    <string name="media_scanning">"Σάρωση πολυμέσων"</string>
+    <string name="button_cancel">"Ακυρώση"</string>
+    <string name="button_ok">"ΟΚ"</string>
+
+    <string name="a2dp_disconnect_info">"Αποσυνδεδεμένη συσκευή, αναζήτηση συσκευής: %s, "</string>
+    <string name="a2dp_disconnect_info2">"PIN: %s για σύνδεση"</string>
+    <string name="all_song">"Όλα τα τραγούδια"</string>
+    <string name="all_video">"Όλα τα βίντεο"</string>
+    <string name="traffic">"Κίνηση"</string>
+    <string name="title">"Τίτλος"</string>
+    <string name="sub">"Υπότιτλος"</string>
+    <string name="speaker">"Κανάλι"</string>
+    <string name="no_disk">"Κανένας Δίσκος!"</string>
+    <string name="no_tv">"Χωρίς Συσκευή TV!"</string>
+
+    
+    <string name="pick_wallpaper">"Ταπετσαρίες"</string>
+    
+    <string name="if_reboot">"Το σύστημα θα επανεκκινήσει, συνέχεια;"</string>
+    <string name="switch_screen">"Εναλλαγή διπλή οθόνη"</string>
+   
+    <string name="eq_text_classic">"Κλασσικό"</string>
+    <string name="eq_text_pop">"Ποπ"</string>
+    <string name="eq_text_rock">"Ροκ"</string>
+    <string name="eq_text_jazz">"Τζαζ"</string>
+    <string name="eq_text_user">"Χρήστης"</string>
+    <string name="eq_text_normal">"Κανοκικό"</string>
+
+    <string name="rear">"ΠΙΣΩ"</string>
+    
+    <string name="menu">"ΜΕΝΟΥ"</string>   
+    <string name="rec">"ΕΓΓΡΑΦΉ"</string>    
+    <string name="exit">"ΕΞΟΔΟΣ"</string>
+    
+    
+           <string name="no_lyric">"Χωρίς στοίχους"</string>
+           
+           <string name="speed">"ΤΑΧΥΤΗΤΑ"</string>
+           
+               <string name="modulename">"Όνομα συσκευής:"</string>
+    <string name="modulepassword">"Αριθμός PIN:"</string>
+    <string name="btdisconnected">"Αποσυνδεδεμένο Bluetooth"</string>
+    <string name="pleaseconnectedbt">"Παρακαλώ συνδέστε το τηλέφωνο"</string>
+
+    <string name="dvr_recording_notice">"Το DVR καταγράφει, ανοίξτε την εφαρμογή για προβολή"</string>
+</resources>

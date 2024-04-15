@@ -1,0 +1,28 @@
+<!-- ?xml version="1.0" encoding="utf-8"? -->
+<resources>
+
+    
+        <integer name="freq_x1">66</integer>
+    <integer name="freq_x2">287</integer>
+    <integer name="freq_x3">515</integer>
+    <integer name="freq_x4">748</integer>
+    <integer name="freq_x5">975</integer>
+    <integer name="freq_x6">1205</integer>
+
+    
+    <integer name="start_freq_px">81</integer>
+    <integer name="end_freq_px">1215</integer>
+    
+
+    <integer name="point_y">0</integer>
+    
+    <integer name="freq_text_y">40</integer>
+    
+     <integer name="audio_ui_type">2</integer>
+     
+    <integer name="lrc_text_size">20</integer>
+    
+    
+    <integer name="video_def_width">1280</integer>
+    <integer name="video_def_height">420</integer>
+</resources>

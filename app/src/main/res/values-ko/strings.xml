@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string name="toolbar_text_gps">"내비게이션"</string>
+    <string name="toolbar_text_bluetooth_music">"BT 음악"</string>
+    <string name="toolbar_text_radio">"라디오"</string>
+    <string name="toolbar_text_music">"음악"</string>
+    <string name="toolbar_text_video">"동영상"</string>
+    <string name="widget_app_video">"동영상"</string>
+    <string name="playlist">"재생 목록"</string>
+    <string name="artist">"아티스트:"</string>
+    <string name="album">"앨범:"</string>
+    <string name="song">"노래:"</string>
+    <string name="unknown">"알려지지 않은"</string>
+    <string name="device_mount">"디바이스 연결"</string>
+    <string name="device_eject">"디바이스 해제"</string>
+    <string name="scanning">"미디어 파일 검색"</string>
+    <string name="disconnect_video">"신호 없음!"</string>
+    <string name="play_fail">"재생 실패!"</string>
+    <string name="warning_driving">"운전 중에는 동영상을 시청하실수 없습니다!"</string>
+    <string name="text_reverse_warning">"경고!"</string>
+    <string name="media_scanning">"미디어 검색"</string>
+    <string name="all_song">"전곡"</string>
+    <string name="title">"제목"</string>
+    <string name="sub">"부제목"</string>
+    <string name="speaker">"채널"</string>
+    <string name="no_disk">"디스크 없음!"</string>
+    <string name="no_tv">"TV 장치 없음!"</string>
+    <string name="loading">"로딩중"</string>
+
+    <string name="pick_wallpaper">"바탕 화면"</string>
+
+    <string name="button_cancel">"취소"</string>
+    <string name="button_ok">"확인"</string>
+
+    <string name="a2dp_disconnect_info">"장치 연결이 끊겼습니다, 장치 검색:%s,  "</string>
+    <string name="a2dp_disconnect_info2">"PIN:%s 연결"</string>
+
+</resources>

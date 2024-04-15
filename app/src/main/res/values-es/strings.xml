@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="toolbar_text_auxin">Entrada AV</string>
+    <string name="toolbar_text_gps">GPS</string>
+     <string name="toolbar_text_video">Video</string> 
+    <string name="toolbar_text_radio">Radio</string>
+    <string name="toolbar_text_music">Musica</string>
+    <string name="toolbar_text_bluetooth_music">"Audio BT"</string>
+<!--     <string name="bluetooth_settings"></string> -->
+    <string name="f_camera">"Cámara Frontal"</string>
+    <string name="f_camera4">Cámara</string>
+    <string name="no_tv">"No hay TV!"</string>
+
+<!--     <string name="radio_function_text_band">Banda</string> -->
+    <string name="radio_function_text_scan">Scanear</string>
+<!--     <string name="device_eject">شنت</string> -->
+<!--     <string name="device_mount">جميع الصور</string> -->
+    <string name="media">"Memoria interna"</string>   <!--     <string name="localfile">Flash</string> -->
+
+     <string name="warning_driving">"El vehículo está en marcha, no puede ver video!"</string> 
+      <string name="warning_driving_1992">Estado de conducción, video Cerrado, para su seguridad, por favor concentrarse en la conducción</string> 
+    <string name="text_reverse_warning">"Aviso"</string>
+    <string name="media_scanning">"Buscando Multimedia"</string>
+    <string name="button_cancel">"Cancelar"</string>
+    <string name="playlist">Lista</string>
+    
+    <string name="artist">Artista:</string>
+    <string name="album">Album:</string>
+    <string name="song">Canción:</string>
+    
+    <string name="unknown">Desconocido</string>
+    <string name="device_mount">Dispositivo conectado</string>
+    <string name="device_eject">Dispositivo extraido</string>
+    <string name="scanning">"Buscando Archivos Multimedia"</string>
+    <string name="disconnect_video">"Sin Señal!"</string>
+    <string name="play_fail">"Fallo de reproducción!"</string>
+    <string name="a2dp_disconnect_info">Bluetooth no está conectado, el dispositivo de búsqueda:%s,</string> 
+    <string name="a2dp_disconnect_info2">"PIN:%s para conectar"</string>
+    <string name="all_song">Todas las canciones</string>
+    <string name="all_video">"Todos los Videos"</string>
+    <string name="no_disk">No hay disco!</string>
+    <string name="loading">Leyendo</string>
+    <string name="traffic">Tráfico</string> 
+    
+    <string name="pick_wallpaper">"Fondos de pantalla"</string>
+    <string name="screen_view_select">Seleccione el modo de visualización de la vista</string>
+    <string name="title">Titulo</string>
+    <string name="sub">Sub Titulo</string>
+    <string name="speaker">Canal</string>
+
+    <string name="rear">"Parte Trasera"</string>
+    <string name="exit">"SALIR"</string>
+    <string name="no_lyric">"sin letra"</string>
+    <string name="speed">"VELOCIDAD"</string>
+
+    <string name="root">RAÍZ</string>
+    
+        <string name="eq_text_user">Usuario</string>
+<!--     <string name="eq_text_rock">Roca</string> -->
+<!--     <string name="eq_text_pop">Pop</string> -->
+<!--     <string name="eq_text_jazz">No hay TV</string> -->
+    <string name="eq_text_classic">Clásica</string>
+    <string name="eq_text_normal">"Plano"</string>
+    <string name="btdisconnected">Conexión Bluetooth</string>
+    <string name="pleaseconnectedbt">Por favor, conectarse con el teléfono</string>
+        <string name="modulename">Nombre del dispositivo:</string>
+    <string name="modulepassword">Número de PIN:</string>
+
+    <string name="pty00">"Ninguno"</string>
+    <string name="pty01">"Noticias"</string>
+    <string name="pty02">"Actualidad"</string>
+    <string name="pty03">Info</string>
+    <string name="pty04">Sport</string>
+    <string name="pty05">"Educación"</string>
+    <string name="pty06">Drama</string>
+    <string name="pty07">"Cultura"</string>
+    <string name="pty08">"Ciencia"</string>
+    <string name="pty09">"Variedad"</string>
+    <string name="pty10">Pop M</string>
+    <string name="pty11">Rock M</string>
+    <string name="pty12">Easy M</string>
+    <string name="pty13">Light M</string>
+    <string name="pty14">"Clasica"</string>
+    <string name="pty15">"Otros M"</string>
+    <string name="pty16">"Clima"</string>
+    <string name="pty17">"Finanzas"</string>
+    <string name="pty18">"Infantil"</string>
+    <string name="pty19">Social</string>
+    <string name="pty20">Religion</string>
+    <string name="pty21">"Teléfono en"</string>
+    <string name="pty22">"Viajar"</string>
+    <string name="pty23">"Ocio"</string>
+    <string name="pty24">Jazz</string>
+    <string name="pty25">"País"</string>
+    <string name="pty26">"Nación M"</string>
+    <string name="pty27">Oldies</string>
+    <string name="pty28">Folk M</string>
+    <string name="pty29">"Documento"</string>
+    <string name="pty30">Test</string>    
+    <string name="pty31">"Alarma!"</string>
+
+    <string name="dvr_recording_notice">"DVR está grabando, abra dvr para previsualizar el video."</string>
+</resources>
+

@@ -1,0 +1,33 @@
+<!-- ?xml version="1.0" encoding="utf-8"? -->
+<resources>
+
+    
+    <integer name="freq_x1">80</integer>
+    <integer name="freq_x2">205</integer>
+    <integer name="freq_x3">330</integer>
+    <integer name="freq_x4">452</integer>
+    <integer name="freq_x5">574</integer>
+    <integer name="freq_x6">688</integer>
+
+    <integer name="freq_text_y">48</integer>
+    <integer name="start_freq_px">101</integer>
+    <integer name="end_freq_px">710</integer>
+    <integer name="lrc_text_size">16</integer>
+    
+    
+    
+    <integer name="radio_grid_fm_widht">4820</integer>
+    <integer name="radio_grid_am_widht">1930</integer>
+    
+    <integer name="video_def_width">1280</integer>
+    <integer name="video_def_height">420</integer>
+    
+    
+    <!-- for lrc -->
+    <integer name="lrc_lines">2</integer>
+    <integer name="lrc_margin_top">0</integer>
+    <integer name="lrc_curline_color">0xFF6600</integer>
+    <integer name="lrc_otherline_color">0x666666</integer>
+    <integer name="lrc_curline_scaling">90</integer>
+    <integer name="lrc_otherline_scaling">70</integer>
+</resources>

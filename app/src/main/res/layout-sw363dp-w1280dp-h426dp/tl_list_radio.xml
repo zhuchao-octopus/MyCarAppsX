@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="170.0dp"
+    android:layout_height="80dp"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp" >
+
+    <TextView
+        android:id="@+id/list_text1"
+        style="@style/CommonStyleFonts"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_x="4dp"
+        android:layout_y="8dp"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:paddingLeft="1.0dp"
+        android:singleLine="true"
+        android:textColor="#ffff0000"
+        android:textSize="26.0dp" />
+
+    <TextView
+        android:id="@+id/list_text2"
+        style="@style/CommonStyleFonts"
+        android:layout_width="fill_parent"
+        android:layout_height="80dp"
+        android:layout_x="0dp"
+        android:layout_y="0dp"
+       android:background="@drawable/button_click_back2"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:singleLine="true"
+        android:textColor="#ffffffff"
+        android:textSize="36.0dp" />
+
+    <TextView
+        android:id="@+id/list_text3"
+        style="@style/CommonStyleFonts"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_x="110dp"
+        android:layout_y="85dp"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:paddingLeft="1.0dp"
+        android:singleLine="true"
+        android:textColor="#ffffffff"
+        android:textSize="22.0dp" />
+
+</AbsoluteLayout>

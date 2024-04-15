@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="341px"
+    android:layout_height="75px"
+    android:background="@drawable/tl_l_bg"
+    android:minHeight="75px" >
+
+    <TextView
+        android:id="@+id/list_ps_name"
+        style="@style/CommonStyleFonts"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_x="20px"
+        android:layout_y="20px"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:singleLine="true"
+        android:textColor="#ffffffff"
+        android:textSize="28.0px" />
+
+    <TextView
+        android:id="@+id/list_text1"
+        style="@style/CommonStyleFonts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_x="18px"
+        android:layout_y="20px"
+        android:ellipsize="end"
+        android:gravity="left"
+        android:singleLine="true"
+        android:textColor="#ffffffff"
+        android:textSize="26.0px" />
+
+    <TextView
+        android:id="@+id/list_text2"
+        style="@style/CommonStyleFonts"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_x="120px"
+        android:layout_y="15px"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:paddingLeft="1.0px"
+        android:singleLine="true"
+        android:textColor="#ffffffff"
+        android:textSize="32.0px" />
+
+    <TextView
+        android:id="@+id/list_text3"
+        style="@style/CommonStyleFonts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="280px"
+        android:layout_y="20px"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:paddingLeft="1.0px"
+        android:singleLine="true"
+        android:textColor="#ffffffff"
+        android:textSize="22.0px" />
+
+</AbsoluteLayout>

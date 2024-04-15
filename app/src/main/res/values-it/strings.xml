@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="toolbar_text_gps">Navigazione</string>
+<!--     <string name="toolbar_text_video"></string> -->
+    <string name="toolbar_text_radio">Radio</string>
+    <string name="toolbar_text_music">Musica</string>
+    <string name="toolbar_text_bluetooth_music">BT Musica</string>
+<!--     <string name="bluetooth_settings"></string> -->
+<!--     <string name="f_camera"></string> -->
+
+<!--     <string name="device_eject">شنت</string> -->
+<!--     <string name="device_mount">جميع الصور</string> -->
+<!--     <string name="media"></string>       <string name="localfile">Flash</string> -->
+
+    
+    
+    <string name="all_song">tutti i media</string>    <!--     <string name="all_medianame">tutti i media</string> -->
+    <string name="pleaseconnectedbt">Connettere il telefono.</string>
+    <string name="all_video">Tutti i video</string>
+
+
+     <string name="warning_driving">La guida è vietato per vedere il video!</string> 
+    <!-- <string name="playlist">播放列表</string> -->
+    <!-- <string name="disconnect_video">无信号!</string> -->
+    <!-- <string name="a2dp_disconnect_info">蓝牙设备未连接，请搜索设备:%s,</string> -->
+    <!-- <string name="a2dp_disconnect_info2">PIN码:%s,进行连接</string> -->
+    <string name="no_disk">Nessun disco!</string>
+    <!-- <string name="loading">加载中...</string> -->
+     <string name="traffic">Informazioni sul traffico Annunci</string> 
+    <string name="pick_wallpaper">"Sfondi"</string>
+    <string name="screen_view_select">Seleziona la visualizzazione nella schermata vizi</string>
+    <string name="btdisconnected">Connessione Bluetooth</string>
+        
+   
+    <string name="modulename">Nome dispositivo:</string>
+    <string name="modulepassword">Numero PIN:</string>
+    <!-- <string name="title">菜单</string> -->
+    <!-- <string name="sub">字幕</string> -->
+    <!-- <string name="speaker">声道</string> -->
+
+    <string name="pty00">Niente</string>
+    <string name="pty01">News</string>
+    <string name="pty02">Affari</string>
+    <string name="pty03">Info</string>
+    <string name="pty04">Sport</string>
+    <string name="pty05">Educazione</string>
+    <string name="pty06">Dramma</string>
+    <string name="pty07">Cultura</string>
+    <string name="pty08">Scienza</string>
+    <string name="pty09">Varietà</string>
+    <string name="pty10">M Pop</string>
+    <string name="pty11">M Rock</string>
+    <string name="pty12">M Easy</string>
+    <string name="pty13">M Leggera</string>
+    <string name="pty14">Classics</string>
+    <string name="pty15">M Altro</string>
+    <string name="pty16">Tempo</string>
+    <string name="pty17">Finanza</string>
+    <string name="pty18">Bambini</string>
+    <string name="pty19">Sociale</string>
+    <string name="pty20">Religione</string>
+    <string name="pty21">Al telefono</string>
+    <string name="pty22">Viaggi</string>
+    <string name="pty23">Lettura</string>
+    <string name="pty24">Jazz</string>
+    <string name="pty25">Città</string>
+    <string name="pty26">M Nazionale</string>
+    <string name="pty27">Vecchie</string>
+    <string name="pty28">M Folk</string>
+    <string name="pty29">Documentari</string>
+    <string name="pty30">Test</string>
+    <string name="pty31">Allarmi !</string>
+</resources>
+<!-- <?xml version="1.0" encoding="utf-8"?> -->
+<!-- <resources> -->
+<!--     <string name="usb1file">USB1</string> -->
+<!--     <string name="usb2file">USB2</string> -->
+<!--     <string name="unmount">è stata rimossa!</string> -->
+<!--     <string name="mount">è stata inserita!</string> -->
+<!--     <string name="gpssd">GPS CARD</string> -->
+<!--     <string name="sdcard">SD CARD</string> -->
+<!--     <string name="app_name">Musica</string> -->
+<!--     <string name="music_name">Lettore musicale</string> -->
+<!--     <string name="filemanage">Explorer</string> -->
+<!--     <string name="music_style0">Custom</string> -->
+<!--     <string name="music_style1">Rock</string> -->
+<!--     <string name="music_style2">Pop</string> -->
+<!--     <string name="music_style3">Jazz</string> -->
+<!--     <string name="music_style4">Classica</string> -->
+<!--     <string name="music_style5">Flat</string> -->
+<!--     <string name="music_style6">Voce</string> -->
+<!--     <string name="music_title" /> -->
+<!--     <string name="erropath">Percorso invalido o file audio</string> -->
+<!--     <string name="localfile">Flash</string> -->
+<!--     <string name="sd1file">GPS CARD</string> -->
+<!--     <string name="sd2file">SD CARD</string> -->
+<!--     <string name="deviceunmount">%1$s è stata rimossa!</string> -->
+<!--     <string name="devicemount">%1$s è stata inserita!</string> -->
+<!--     <string name="usbfile">%1$s</string> -->
+<!--     <string name="nolrcfile">No Lrc file!</string> -->
+<!--     <string name="musicnumber">Canzoni</string> -->
+<!--     <string name="all_medianame">Tutte le canzoni</string> -->
+<!-- </resources> -->

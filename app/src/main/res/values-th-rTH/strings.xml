@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <string name="warning_driving">ดูวิดีโอที่ไม่ได้รับอนุญาตให้ขับรถ!</string>
+    <string name="disconnect_video">ไม่มีสัญญาณ!</string>
+    <string name="a2dp_disconnect_info">อุปกรณ์บลูทูธไม่ได้เชื่อมต่ออุปกรณ์ของคุณค้นหา:%s,</string>
+    <string name="a2dp_disconnect_info2">PIN:%s</string>
+    <string name="playlist">รายชื่อ</string>
+    <!-- <string name="sd">SD</string> -->
+    <!-- <string name="sd2">SD2</string> -->
+    <!-- <string name="usb">USB</string> -->
+<!--     <string name="media">本地</string> -->
+    <string name="device_mount">อุปกรณ์จัดเก็บข้อมูลที่ได้รับการโหลด</string>
+    <string name="device_eject">ถอนการติดตั้งอุปกรณ์จัดเก็บข้อมูลได้</string>
+    <string name="all_song">เพลงทั้งหมดในอัลบั้ม</string>
+    <string name="toolbar_text_gps">นำทาง</string>
+    <string name="toolbar_text_bluetooth_music">เพลงบลูทูธ</string>
+    <string name="bluetooth_settings">บลูทูธ</string>
+    <string name="toolbar_text_radio">วิทยุ</string>
+    <string name="toolbar_text_music">เพลง</string>
+    <string name="toolbar_text_video">วิดีโอ</string>
+    <string name="traffic">แจ้งข้อมูลการจราจร</string>
+<!--     <string name="f_camera">前摄像头</string> -->
+<!--     <string name="title">菜单</string> -->
+<!--     <string name="sub">字幕</string> -->
+<!--     <string name="speaker">声道</string> -->
+    <string name="no_disk">ไม่มีแผ่นดิสก์！ออก!</string>
+    <string name="loading">"ในการโหลด..."</string>
+
+    <string name="pick_wallpaper">"วอลเปเปอร์"</string>
+    <string name="screen_view_select">เลือกมุมมองที่แสดงในหน้าจอรอง</string>
+</resources>

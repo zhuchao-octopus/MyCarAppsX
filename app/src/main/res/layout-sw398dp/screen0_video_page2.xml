@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="400px"
+    android:background="#ff000000"
+    android:layout_height="fill_parent" >
+
+        <View
+        android:layout_width="1px"
+        android:layout_height="fill_parent"
+        android:background="#cccccc" />
+        
+    <ListView
+        android:id="@+id/tv_all_list"
+        android:layout_marginLeft="1px"
+        style="@style/CommonListViewStyle1"
+        android:layout_width="398px"
+        android:layout_height="fill_parent"
+        android:cacheColorHint="@android:color/transparent"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="0.0px"
+        android:layout_marginRight="5px"
+        android:layout_alignParentRight="true"
+        android:fadingEdge="none" />
+    
+</RelativeLayout>

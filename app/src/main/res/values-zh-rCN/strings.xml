@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- <string name="audio_name">音乐</string> -->
+    <!-- <string name="radio_name">收音</string> -->
+    <!-- <string name="video_name">视频</string> -->
+    <!-- <string name="btmusic_name">蓝牙音乐</string> -->
+    <string name="radio_function_text_dx">远程</string>
+<!--     <string name="radio_function_text_loc">近程</string> -->
+    <string name="radio_function_text_as">自动存台</string>
+    <string name="radio_function_text_ps">列表扫描</string>
+<!--     <string name="radio_function_text_band">波段</string> -->
+    <string name="radio_function_text_scan">扫描</string>
+    <!-- <string name="radio_function_text_eq">均衡器</string> -->
+    <string name="warning_driving">开车时不允许看视频!</string>
+    <string name="disconnect_video">无信号!</string>
+    <string name="outdoor_temp">室外温度: </string>
+    <string name="a2dp_disconnect_info">蓝牙设备未连接，请搜索设备:%s,</string>
+    <string name="a2dp_disconnect_info2">PIN码:%s,进行连接</string>
+    <string name="playlist">播放列表</string>
+    <!-- <string name="sd">SD</string> -->
+    <!-- <string name="sd2">SD2</string> -->
+    <!-- <string name="usb">USB</string> -->
+    <string name="media">本地</string>
+    <string name="device_mount">存储设备已加载</string>
+    <string name="device_eject">存储设备已经卸载</string>
+    <string name="all_song">所有歌曲</string>
+    <string name="all_video">所有视频</string>
+    <string name="toolbar_text_gps">导航</string>
+    <string name="toolbar_text_bluetooth_music">蓝牙音乐</string>
+    <string name="bluetooth_settings">蓝牙</string>
+    <string name="toolbar_text_radio">收音</string>
+    <string name="toolbar_text_music">音乐</string>
+    <string name="toolbar_text_video">视频</string>
+    <string name="traffic">交通信息通告</string>
+    <string name="f_camera">前摄像头</string>
+    <string name="f_camera4">摄像头</string>
+    <string name="title">菜单</string>
+    <string name="sub">字幕</string>
+    <string name="speaker">声道</string>
+    <string name="no_disk">无碟！即将退出!</string>
+    
+    <string name="no_tv">没检测到设备！即将退出!</string>
+    <string name="loading">加载中...</string>
+
+    <string name="screen_size_title">选择副屏显示分辨率</string>
+    
+    <string name="if_reboot">系统需要重启,是否继续?</string>
+    
+    <string name="switch_screen">主副屏调换</string>
+    
+    <string name="screen_view_select">选择显示到副屏上面的界面</string>
+    
+    <string name="pick_wallpaper">壁纸</string>
+    
+    <string name="screen1_backlight">副屏亮度</string>
+    
+        <string name="eq_text_classic">古典</string>
+    <string name="eq_text_pop">流行</string>
+    <string name="eq_text_rock">摇滚</string>
+    <string name="eq_text_jazz">爵士</string>
+    <string name="eq_text_user">自定义</string>
+    <string name="eq_text_normal">正常</string>    
+    
+    
+    <string name="camera">摄像头</string>
+</resources>

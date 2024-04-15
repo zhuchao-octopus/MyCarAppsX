@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/screen1_main"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent" >
+
+    
+    <include layout="@layout/common_status_bar" />
+    
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="#ff000000" />
+
+            <RelativeLayout
+                android:id="@+id/screen_size_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_click_back1"
+                android:paddingBottom="5px"
+                android:paddingLeft="20px"
+                android:paddingRight="15px"
+                android:paddingTop="5px" >
+
+                <TextView
+                    style="@style/CarInfoTextView1"
+                    android:text="@string/screen_size_title" />
+
+                <TextView
+                    android:id="@+id/screen_size_value"
+                    style="@style/CarInfoTextView2" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="#ff000000" />
+
+            <TextView
+                android:id="@+id/switch_screen"
+                style="@style/CarInfoTextView1"
+                android:layout_width="match_parent"
+                android:background="@drawable/button_click_back1"
+                android:paddingBottom="5px"
+                android:paddingLeft="20px"
+                android:paddingRight="15px"
+                android:paddingTop="5px"
+                android:text="@string/switch_screen" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="#ff000000" />
+
+            <TextView
+                android:id="@+id/wallpaper_instructions"
+                style="@style/CarInfoTextView1"
+                android:layout_width="match_parent"
+                android:background="@drawable/button_click_back1"
+                android:paddingBottom="5px"
+                android:paddingLeft="20px"
+                android:paddingRight="15px"
+                android:paddingTop="5px"
+                android:text="@string/pick_wallpaper" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="#ff000000" />
+
+            <TextView
+                android:id="@+id/backlight_screen1"
+                style="@style/CarInfoTextView1"
+                android:layout_width="match_parent"
+                android:background="@drawable/button_click_back1"
+                android:paddingBottom="5px"
+                android:paddingLeft="20px"
+                android:paddingRight="15px"
+                android:paddingTop="5px"
+                android:visibility="gone"
+                android:text="@string/screen1_backlight" />
+
+            <View
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                android:layout_height="1px"
+                android:background="#ff000000" />
+
+            <LinearLayout
+                android:id="@+id/screen_view_select"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_click_back1"
+                android:orientation="vertical"
+                android:paddingBottom="5px"
+                android:paddingLeft="20px"
+                android:paddingRight="15px"
+                android:paddingTop="5px" >
+
+                <TextView
+                    style="@style/SettingsTextViewTitle"
+                    android:text="@string/screen_view_select" />
+
+                <TextView
+                    android:id="@+id/screen_view_select_value"
+                    style="@style/SettingsTextViewSummary" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="#ff000000" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

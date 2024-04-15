@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<!--     <string name="toolbar_text_gps"></string> -->
+<!--     <string name="toolbar_text_video"></string> -->
+<!--     <string name="toolbar_text_radio"></string> -->
+    <string name="toolbar_text_music">Musique</string>
+    <string name="toolbar_text_bluetooth_music">BT Musique</string>
+<!--     <string name="bluetooth_settings"></string> -->
+<!--     <string name="f_camera"></string> -->
+
+<!--     <string name="device_eject">شنت</string> -->
+<!--     <string name="device_mount">جميع الصور</string> -->
+<!--     <string name="media"></string>       <string name="localfile">Flash</string> -->
+
+    
+    
+    <string name="all_song">tous les médias</string>    <!--     <string name="all_medianame">tous les médias</string> -->
+
+
+
+<string name="warning_driving">Non autorisé à regarder la vidéo pendant la conduite!</string> 
+    <string name="playlist">Liste</string>
+    <!-- <string name="disconnect_video">无信号!</string> -->
+    <!-- <string name="a2dp_disconnect_info">Bluetooth est pas connecté, l'appareil de recherche:%s,</string> -->
+<!--    <string name="a2dp_disconnect_info2">PIN码:%s,进行连接</string>  -->
+    <string name="no_disk">Pas de disque!</string>
+    <!-- <string name="loading">加载中...</string> -->
+ <string name="traffic"> Notice d\'information Voyage</string> 
+    <string name="pick_wallpaper">"Fonds d\'écran"</string>
+    <string name="screen_view_select">Sélectionnez l\'affichage dans l\'écran vice</string>
+    <!-- <string name="title">菜单</string> -->
+    <!-- <string name="sub">字幕</string> -->
+    <!-- <string name="speaker">声道</string> -->
+
+
+    <string name="eq_text_user">Utilisateur</string>
+    <string name="eq_text_rock">Roche</string>
+    <string name="eq_text_pop">Pop</string>
+    <string name="eq_text_jazz">Le jazz</string>
+    <string name="eq_text_classic">Classique</string>
+    <string name="eq_text_normal">Normal</string>
+        <string name="btdisconnected">Connexion Bluetooth</string>
+    <string name="pleaseconnectedbt">"S'il vous plaît communiquer avec le téléphone"</string>
+        <string name="modulename">"Nom de l'appareil:"</string>
+    <string name="modulepassword">"Numéro d'identification:"</string>
+</resources>
+<!-- <?xml version="1.0" encoding="utf-8"?> -->
+<!-- <resources> -->
+<!--     <string name="usb1file">USB1</string> -->
+<!--     <string name="usb2file">USB2</string> -->
+<!--     <string name="unmount">non montées</string> -->
+<!--     <string name="mount">monté</string> -->
+<!--     <string name="gpssd">CARTE GPS</string> -->
+<!--     <string name="sdcard">CARTE SD</string> -->
+<!--     <string name="app_name">Musique</string> -->
+<!--     <string name="music_name">Lecteur de musique</string> -->
+<!--     <string name="filemanage">Explorateur</string> -->
+<!--     <string name="music_style0">Personnalisé</string> -->
+<!--     <string name="music_style1">Rock</string> -->
+<!--     <string name="music_style2">Pop</string> -->
+<!--     <string name="music_style3">Jazz</string> -->
+<!--     <string name="music_style4">Classique</string> -->
+<!--     <string name="music_style5">Plat</string> -->
+<!--     <string name="music_style6">Voix</string> -->
+<!--     <string name="music_title" /> -->
+<!--     <string name="erropath">"Fichier de musique ou le chemin d'ccès invalide"</string> -->
+<!--     <string name="localfile">Flash</string> -->
+<!--     <string name="sd1file">CARTE GPS</string> -->
+<!--     <string name="sd2file">CARTE SD</string> -->
+<!--     <string name="deviceunmount">%1$s non montées!</string> -->
+<!--     <string name="devicemount">%1$s monté!</string> -->
+<!--     <string name="usbfile">%1$s</string> -->
+<!--     <string name="nolrcfile">Paroles de no</string> -->
+<!--     <string name="musicnumber">chansons</string> -->
+<!--     <string name="all_medianame">toutes les chansons</string> -->
+<!-- </resources> -->

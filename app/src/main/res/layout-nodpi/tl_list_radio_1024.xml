@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="234.0px"
+    android:layout_height="56.0px"
+    android:layout_gravity="center"
+    android:background="@drawable/tl_l_bg"
+    android:minHeight="71px"
+    android:paddingLeft="16.0px" >
+
+    <TextView
+        android:id="@+id/list_text1"
+        style="@style/CommonStyleFonts"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_y="20px"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:paddingLeft="1.0px"
+        android:singleLine="true"
+        android:textColor="#ffffffff"
+        android:textSize="28.0px" />
+
+    <TextView
+        android:id="@+id/list_text2"
+        style="@style/CommonStyleFonts"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_x="70px"
+        android:layout_y="20px"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:paddingLeft="1.0px"
+        android:singleLine="true"
+        android:textColor="#ffffffff"
+        android:textSize="28.0px" />
+
+    <TextView
+        android:id="@+id/list_text3"
+        style="@style/CommonStyleFonts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="205px"
+        android:layout_y="24px"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:paddingLeft="1.0px"
+        android:singleLine="true"
+        android:textColor="#ffffffff"
+        android:textSize="22.0px" />
+
+</AbsoluteLayout>

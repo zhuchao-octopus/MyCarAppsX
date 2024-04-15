@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/screen1_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/dvd_player"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+
+            <SurfaceView
+                android:id="@+id/camera_surfaceview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <FrameLayout
+                android:id="@+id/glsuface_main"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center" />
+
+            <TextView
+                android:id="@+id/brake_warning_text"
+                style="@style/CommonStyleFonts"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_centerInParent="true"
+                android:background="#000000"
+                android:gravity="center"
+                android:text="@string/warning_driving"
+                android:textSize="36sp" />
+
+            <TextView
+                android:id="@+id/no_signal"
+                style="@style/CommonStyleFonts"
+                android:layout_width="0px"
+                android:layout_height="fill_parent"
+                android:layout_centerInParent="true"
+                android:background="#000000"
+                android:gravity="center"
+                android:text="@string/disconnect_video"
+                android:textSize="36sp" />
+
+            <TextView
+                android:id="@+id/only_black"
+                style="@style/CommonStyleFonts"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_centerInParent="true"
+                android:background="#000001"
+                android:gravity="center" />
+
+            <include
+                layout="@layout/common_status_bar"
+                android:visibility="gone" />
+        </FrameLayout>
+        
+        <LinearLayout
+            android:layout_width="300px"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="50px"
+            android:layout_marginTop="220px"
+            android:orientation="vertical" >
+
+            <include layout="@layout/dvd_keyboard" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/dvd_menu"
+            android:layout_width="fill_parent"
+            android:layout_height="120px"
+            android:layout_alignParentBottom="true"
+            android:background="#dd000000"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@drawable/radio_bottom_bg" />
+
+            <LinearLayout
+                android:layout_width="1160px"
+                android:layout_height="fill_parent"
+                android:gravity="left|center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="2px" >
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center" >
+
+                    <LinearLayout
+                        android:id="@+id/dvd_page1_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" >
+
+                        <com.octopus.android.carapps.common.view.KeyButtonView
+                            android:id="@+id/dvd_prev_button"
+                            style="@style/ButtonStyle3"
+                            android:clickable="true"
+                            android:scaleType="center"
+                            android:src="@drawable/prev" />
+
+                        <com.octopus.android.carapps.common.view.KeyButtonView
+                            android:id="@+id/dvd_play_pause_button"
+                            style="@style/ButtonStyle3"
+                            android:clickable="true"
+                            android:scaleType="center"
+                            android:src="@drawable/play_level" />
+
+                        <com.octopus.android.carapps.common.view.KeyButtonView
+                            android:id="@+id/dvd_stop_button"
+                            style="@style/ButtonStyle3"
+                            android:clickable="true"
+                            android:scaleType="center"
+                            android:src="@drawable/stop" />
+
+                        <com.octopus.android.carapps.common.view.KeyButtonView
+                            android:id="@+id/dvd_next_button"
+                            style="@style/ButtonStyle3"
+                            android:clickable="true"
+                            android:scaleType="center"
+                            android:src="@drawable/next" />
+
+                        <com.octopus.android.carapps.common.view.KeyButtonView
+                            android:id="@+id/dvd_fr_button"
+                            style="@style/ButtonStyle3"
+                            android:clickable="true"
+                            android:scaleType="center"
+                            android:src="@drawable/fr" />
+
+                        <com.octopus.android.carapps.common.view.KeyButtonView
+                            android:id="@+id/dvd_ff_button"
+                            style="@style/ButtonStyle3"
+                            android:clickable="true"
+                            android:scaleType="center"
+                            android:src="@drawable/ff" />
+
+                 
+                        <Button
+                            android:id="@+id/dvd_eq_mode_switch"
+                            style="@style/ButtonStyle3"
+                            android:clickable="true"
+                            android:scaleType="center"
+                            android:text="@string/eq_text_normal" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/dvd_page2_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:visibility="gone" >
+
+                        <com.common.view.KeyButton
+                            android:id="@+id/dvd_title_button"
+                            style="@style/ButtonStyle3"
+                            android:clickable="true"
+                            android:text="@string/title" />
+
+                        <com.common.view.KeyButton
+                            android:id="@+id/dvd_subt_button"
+                            style="@style/ButtonStyle3"
+                            android:clickable="true"
+                            android:text="@string/sub" />
+
+                        <com.common.view.KeyButton
+                            android:id="@+id/dvd_volume_button"
+                            style="@style/ButtonStyle3"
+                            android:clickable="true"
+                            android:text="@string/speaker" />
+
+                        <com.octopus.android.carapps.common.view.KeyButtonView
+                            android:id="@+id/dvd_play_order_button"
+                            style="@style/ButtonStyle3"
+                            android:clickable="true"
+                            android:scaleType="center"
+                            android:src="@drawable/repeat" />
+
+                        <com.octopus.android.carapps.common.view.KeyButtonView
+                            android:id="@+id/dvd_shuffle"
+                            style="@style/ButtonStyle3"
+                            android:clickable="true"
+                            android:scaleType="center"
+                            android:src="@drawable/shuffle" />
+
+                        <com.octopus.android.carapps.common.view.KeyButtonView
+                            android:id="@+id/dvd_keyboard"
+                            style="@style/ButtonStyle3"
+                            android:clickable="true"
+                            android:scaleType="center"
+                            android:src="@drawable/keyboard" />
+
+                        <!-- <ImageView -->
+                        <!-- android:id="@+id/dvd_title_button" -->
+                        <!-- style="@style/ButtonStyle3" -->
+                        <!-- android:clickable="true" -->
+                        <!-- android:scaleType="center" -->
+                        <!-- android:src="@drawable/title" /> -->
+
+
+                        <!-- <ImageButton -->
+                        <!-- android:id="@+id/dvd_subt_button" -->
+                        <!-- android:layout_width="@dimen/dvd_button_width1" -->
+                        <!-- android:layout_height="wrap_content" -->
+                        <!-- android:background="@drawable/b_c_fg" -->
+                        <!-- android:clickable="true" -->
+                        <!-- android:onClick="dvd_button_onClick" -->
+                        <!-- android:scaleType="center" -->
+                        <!-- android:src="@drawable/subt" /> -->
+
+
+                        <!-- <ImageButton -->
+                        <!-- android:id="@+id/dvd_volume_button" -->
+                        <!-- android:layout_width="@dimen/dvd_button_width1" -->
+                        <!-- android:layout_height="wrap_content" -->
+                        <!-- android:background="@drawable/b_c_fg" -->
+                        <!-- android:clickable="true" -->
+                        <!-- android:onClick="dvd_button_onClick" -->
+                        <!-- android:scaleType="center" -->
+                        <!-- android:src="@drawable/voice" /> -->
+
+
+                        <!-- <ImageView -->
+                        <!-- android:id="@id/shuffle" -->
+                        <!-- android:layout_width="wrap_content" -->
+                        <!-- android:layout_height="wrap_content" -->
+                        <!-- android:background="@drawable/b_c_fg" -->
+                        <!-- android:clickable="true" -->
+                        <!--  -->
+                        <!-- android:scaleType="center" -->
+                        <!-- android:src="@drawable/shuffle" /> -->
+
+
+                        <!-- <TextView -->
+                        <!-- android:id="@+id/dvd_eq_button" -->
+                        <!-- android:layout_width="@dimen/dvd_button_width1" -->
+                        <!-- android:layout_height="wrap_content" -->
+                        <!-- android:background="@drawable/b_c_fg" -->
+                        <!-- android:clickable="true" -->
+                        <!-- android:gravity="center" -->
+                        <!-- android:onClick="dvd_button_onClick" -->
+                        <!-- android:text="@string/eq" -->
+                        <!-- android:textColor="#ffffffff" -->
+                        <!-- android:textSize="24.0px" -->
+                        <!-- android:textStyle="bold" /> -->
+
+
+                        <!-- <ImageButton -->
+                        <!-- android:id="@+id/dvd_play_order_button" -->
+                        <!-- android:layout_width="@dimen/dvd_button_width1" -->
+                        <!-- android:layout_height="wrap_content" -->
+                        <!-- android:background="@drawable/b_c_fg" -->
+                        <!-- android:clickable="true" -->
+                        <!-- android:onClick="dvd_button_onClick" -->
+                        <!-- android:scaleType="center" -->
+                        <!-- android:src="@drawable/repeat" /> -->
+                    </LinearLayout>
+                </RelativeLayout>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="120px"
+                android:layout_height="fill_parent"
+                android:layout_alignParentRight="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingRight="2px" >
+
+                <com.octopus.android.carapps.common.view.KeyButtonView
+                    android:id="@+id/dvd_prev_page_button"
+                    style="@style/ButtonStyle3"
+                    android:layout_width="fill_parent"
+                    android:gravity="center_vertical"
+                    android:scaleType="center"
+                    android:src="@drawable/p_prev"
+                    android:visibility="gone" />
+
+                <com.octopus.android.carapps.common.view.KeyButtonView
+                    android:id="@+id/dvd_next_page_button"
+                    style="@style/ButtonStyle3"
+                    android:layout_width="fill_parent"
+                    android:gravity="center_vertical"
+                    android:scaleType="center"
+                    android:src="@drawable/p_next" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <include
+        layout="@layout/cd_player"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:id="@+id/loading"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/background"
+        android:gravity="center"
+        android:visibility="gone" >
+
+        <ImageView
+            android:id="@+id/loading_image"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:scaleType="center" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <ProgressBar
+                    android:id="@+id/progressBar1"
+                    style="?android:attr/progressBarStyleLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/loading"
+                    android:textColor="#ffffff"
+                    android:textSize="32px" >
+                </TextView>
+            </LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/no_disk"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#000000"
+        android:gravity="center"
+        android:text="@string/no_disk"
+        android:textColor="#ffffff"
+        android:textSize="38px"
+        android:visibility="gone" >
+    </TextView>
+
+</RelativeLayout>

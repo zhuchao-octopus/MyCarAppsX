@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="1920px"
+    android:background="@drawable/background"
+    android:layout_height="fill_parent" >
+
+    <AbsoluteLayout
+        android:layout_width="1920px"
+        android:layout_height="1080px"
+        android:background="#ff000000"
+        android:gravity="center" >
+
+        <com.my.video.MoviceView
+            android:id="@+id/surface_view"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" />
+    </AbsoluteLayout>
+
+    <LinearLayout
+        android:id="@+id/video_main"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical" >
+
+        <!-- <View -->
+        <!-- android:layout_width="fill_parent" -->
+        <!-- android:layout_height="1.0px" -->
+        <!-- android:background="#626262" /> -->
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0"
+            android:gravity="center_vertical" >
+
+            <LinearLayout
+                android:id="@+id/tr"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent" >
+
+                    <TextView
+                        android:id="@+id/brake_warning_text"
+                        style="@style/CommonStyleFonts"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_centerInParent="true"
+                        android:background="#000000"
+                        android:gravity="center"
+                        android:text="@string/warning_driving"
+                        android:textSize="36sp" />
+
+                    <ImageView
+                        android:id="@+id/video_hide"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:background="#ff000000"
+                        android:scaleType="center"
+                        android:src="@drawable/video_hide"
+                        android:visibility="gone" />
+
+                    <LinearLayout
+                        android:id="@+id/progress_bar"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginBottom="18.0px"
+                        android:gravity="center" >
+
+                        <TextView
+                            android:id="@+id/currenttime2"
+                            android:layout_width="142px"
+                            android:layout_height="fill_parent"
+                            android:gravity="right|center"
+                            android:textColor="#ffffffff"
+                            android:textSize="34px" />
+
+                        <SeekBar
+                            android:id="@+id/progress2"
+                            android:layout_width="1410px"
+                            android:layout_height="62px"
+                            android:background="@drawable/seek_bar_bg"
+                    android:paddingLeft="29.0px"
+                    android:paddingRight="35.0px"
+                            android:progressDrawable="@drawable/rl_progress"
+                            android:thumb="@drawable/thumb" />
+
+                        <TextView
+                            android:id="@+id/totaltime2"
+                            android:layout_width="142px"
+                            android:layout_height="fill_parent"
+                            android:gravity="left|center"
+                            android:textColor="#ffffffff"
+                            android:textSize="34px" />
+
+                        <ImageView
+                            android:id="@+id/play_repeat_tag"
+                            android:layout_width="37px"
+                            android:layout_height="27px"
+                            android:layout_marginLeft="8px"
+                            android:src="@drawable/common_repeat_tag_level"
+                            android:visibility="gone" />
+                    </LinearLayout>
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/home_back"
+            android:layout_width="fill_parent"
+            android:layout_height="180px"
+            android:gravity="center_horizontal"
+            android:orientation="vertical" >
+
+            <!-- <View -->
+            <!-- android:layout_width="fill_parent" -->
+            <!-- android:layout_height="1.0px" -->
+            <!-- android:background="#626262" -->
+            <!-- android:gravity="center_vertical" /> -->
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bottom_button_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="180px"
+        android:layout_alignParentBottom="true" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@drawable/radio_bottom_bg"
+            android:gravity="center" >
+
+            <Button
+                android:id="@+id/eq_mode_switch"
+                style="@style/CommonWeightAkParamter"
+                    android:background="@drawable/empty_back_focus"
+                android:clickable="true"
+                android:scaleType="center"
+                android:text="@string/eq_text_normal"
+                    android:textSize="44px" />
+
+            <ImageView
+                android:id="@+id/repeat2"
+                style="@style/CommonWeightAkParamter"
+                android:clickable="true"
+                android:scaleType="center"
+                android:src="@drawable/common_repeat_tag_level"
+                android:tag="ak_paramter=100,50" />
+
+            <ImageView
+                android:id="@+id/prev"
+                style="@style/CommonWeightAkParamter"
+                android:clickable="true"
+                android:scaleType="center"
+                android:src="@drawable/prev" />
+
+            <ImageView
+                android:id="@+id/pp"
+                style="@style/CommonWeightAkParamter"
+                android:clickable="true"
+                android:scaleType="center"
+                android:src="@drawable/play_level" />
+
+            <ImageView
+                android:id="@+id/next"
+                style="@style/CommonWeightAkParamter"
+                android:clickable="true"
+                android:scaleType="center"
+                android:src="@drawable/next" />
+
+            <ImageView
+                android:id="@+id/full2"
+                style="@style/CommonWeightAkParamter"
+                android:clickable="true"
+                android:scaleType="centerInside"
+                android:src="@drawable/full" />
+
+            <ImageView
+                android:id="@+id/list"
+                style="@style/CommonWeightAkParamter"
+                android:clickable="true"
+                android:scaleType="center"
+                android:src="@drawable/list" />
+            <!-- <ImageView -->
+            <!-- android:id="@+id/rew" -->
+            <!-- style="@style/CommonWeightAkParamter" -->
+            <!-- android:clickable="true" -->
+            <!-- android:scaleType="center" -->
+            <!-- android:src="@drawable/rew" -->
+            <!-- android:visibility="gone" /> -->
+
+
+            <!-- <ImageView -->
+            <!-- android:id="@+id/ffwd" -->
+            <!-- style="@style/CommonWeightAkParamter" -->
+            <!-- android:clickable="true" -->
+            <!-- android:scaleType="center" -->
+            <!-- android:src="@drawable/ffwd" -->
+            <!-- android:visibility="gone" /> -->
+
+
+            <!-- <ImageView -->
+            <!-- android:id="@+id/eq" -->
+            <!-- style="@style/CommonWeightAkParamter" -->
+            <!-- android:clickable="true" -->
+            <!-- android:scaleType="center" -->
+            <!-- android:src="@drawable/eq" /> -->
+
+
+            <!-- <ImageView -->
+            <!-- android:id="@+id/full" -->
+            <!-- style="@style/CommonWeightAkParamter" -->
+            <!-- android:clickable="true" -->
+            <!-- android:scaleType="center" -->
+            <!-- android:src="@drawable/eq" /> -->
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

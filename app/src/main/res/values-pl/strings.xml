@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="toolbar_text_gps">Nawigacja</string>
+    <string name="toolbar_text_video">Wideo</string>
+<!--     <string name="toolbar_text_radio"></string> -->
+    <string name="toolbar_text_music">Muzyka</string>
+    <string name="toolbar_text_bluetooth_music">BT Muzyka</string>
+<!--     <string name="bluetooth_settings"></string> -->
+<!--     <string name="f_camera"></string> -->
+
+    <string name="all_song">Wszystkie media</string>
+    <string name="warning_driving">Jazdy jest zabronione, aby obejrzeć film!</string>
+    <string name="a2dp_disconnect_info">Bluetooth nie jest podłączony, moduł wyszukiwania:%s, </string>
+    <string name="traffic">Ruch Porady Informacje</string>
+
+    <string name="pick_wallpaper">"Tapety"</string>
+    <string name="screen_view_select">Wybierz widok pokazywania na ekranie wice</string>
+</resources>
+<!-- <?xml version="1.0" encoding="utf-8"?> -->
+<!-- <resources> -->
+<!--     <string name="app_name">MUZYKA</string> -->
+<!-- </resources> -->

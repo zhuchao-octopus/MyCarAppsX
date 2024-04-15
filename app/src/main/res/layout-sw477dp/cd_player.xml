@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cd_player"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_margin="0px"
+    android:background="@drawable/background"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:padding="0px" >
+
+    <!-- <View -->
+    <!-- android:layout_width="match_parent" -->
+    <!-- android:layout_height="1px" -->
+    <!-- android:background="#808080" /> -->
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0.0dip"
+        android:layout_weight="1.0"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <FrameLayout
+            android:id="@+id/list_content"
+            android:layout_width="@dimen/list_view_width"
+            android:layout_height="435px" >
+
+            <ListView
+                android:id="@+id/list_view"
+                style="@style/CommonListViewStyle1"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:cacheColorHint="@android:color/transparent"
+                android:divider="@android:color/transparent"
+                android:dividerHeight="0.0dip"
+                android:fadingEdge="none" />
+        </FrameLayout>
+
+        <RelativeLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0" >
+
+            <!-- <ImageView -->
+            <!-- android:layout_width="560px" -->
+            <!-- android:layout_height="286px" -->
+            <!-- android:src="@drawable/disc_bg" /> -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/cd_title"
+                    style="@style/CommonStyleFonts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="58dp"
+                    android:gravity="center"
+                    android:textColor="#ffffffff"
+                    android:textSize="30px" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0px" >
+
+                    <com.common.view.MusicRollImage
+                        android:id="@+id/disc"
+                        android:layout_width="233px"
+                        android:layout_height="233px"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="40px"
+                        android:scaleType="center"
+                        android:src="@drawable/cd2" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="-30px"
+                        android:scaleType="center"
+                        android:src="@drawable/cd3" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/currenttime"
+                        style="@style/CommonStyleFonts"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#ffffffff"
+                        android:textSize="22px" />
+
+                    <RelativeLayout
+                        android:layout_width="520px"
+                        android:layout_height="42px" >
+
+                        <SeekBar
+                            android:id="@+id/progress"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/seek_bar_bg"
+                            android:focusable="false"
+                            android:paddingLeft="17.0px"
+                            android:paddingRight="20.0px"
+                            android:progressDrawable="@drawable/rl_progress"
+                            android:thumb="@drawable/thumb" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:clickable="true" />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/totaltime"
+                        style="@style/CommonStyleFonts"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#ffffffff"
+                        android:textSize="22px" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/play_repeat_tag"
+                android:layout_width="37px"
+                android:layout_height="27px"
+                android:layout_marginLeft="540px"
+                android:layout_marginTop="320px"
+                android:src="@drawable/common_repeat_tag_cd_level" />
+
+            <TextView
+                android:id="@+id/cd_song_num"
+                style="@style/CommonStyleFonts"
+                android:layout_width="wrap_content"
+                android:layout_height="58dp"
+                android:layout_marginLeft="20px"
+                android:gravity="left|center_vertical"
+                android:textColor="#ffffffff"
+                android:textSize="28px" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="100px"
+        android:background="@drawable/radio_bottom_bg"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/cd_eq_mode_switch"
+            android:layout_width="140px"
+            android:layout_height="75px"
+            android:layout_marginLeft="20px"
+            android:background="@drawable/c_bg_button"
+            android:clickable="true"
+            android:scaleType="center"
+            android:text="@string/eq_text_normal"
+            android:textSize="26px" />
+
+        <ImageView
+            android:id="@+id/cd_prev_button"
+            android:layout_width="140px"
+            android:layout_height="75px"
+            android:layout_marginLeft="20px"
+            android:background="@drawable/c_bg_button"
+            android:clickable="true"
+            android:scaleType="center"
+            android:src="@drawable/prev" />
+
+        <ImageView
+            android:id="@+id/cd_play_pause_button"
+            android:layout_width="140px"
+            android:layout_height="75px"
+            android:layout_marginLeft="20px"
+            android:background="@drawable/c_bg_button"
+            android:clickable="true"
+            android:scaleType="center"
+            android:src="@drawable/play_level" />
+
+        <ImageView
+            android:id="@+id/cd_next_button"
+            android:layout_width="140px"
+            android:layout_height="75px"
+            android:layout_marginLeft="20px"
+            android:background="@drawable/c_bg_button"
+            android:clickable="true"
+            android:scaleType="center"
+            android:src="@drawable/next" />
+
+        <ImageView
+            android:id="@+id/cd_fr_button"
+            style="@style/ButtonStyleCD"
+            android:clickable="true"
+            android:scaleType="center"
+            android:src="@drawable/fr"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/cd_ff_button"
+            style="@style/ButtonStyleCD"
+            android:clickable="true"
+            android:scaleType="center"
+            android:src="@drawable/ff"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/cd_play_order_button"
+            android:layout_width="140px"
+            android:layout_height="75px"
+            android:layout_marginLeft="20px"
+            android:background="@drawable/c_bg_button"
+            android:clickable="true"
+            android:scaleType="center"
+            android:src="@drawable/common_repeat_tag_level" />
+
+        <ImageView
+            android:id="@+id/cd_shuffle"
+            android:layout_width="140px"
+            android:layout_height="75px"
+            android:layout_marginLeft="20px"
+            android:background="@drawable/c_bg_button"
+            android:clickable="true"
+            android:scaleType="center"
+            android:src="@drawable/shuffle" />
+
+        <!-- <ImageView -->
+        <!-- android:id="@+id/cd_shuffle" -->
+        <!-- style="@style/ButtonStyleCD" -->
+        <!-- android:clickable="true" -->
+        <!-- android:src="@drawable/shuffle" /> -->
+
+
+        <!-- <ImageView -->
+        <!-- android:id="@+id/cd_eq_button" -->
+        <!-- android:layout_width="140px" -->
+        <!-- android:layout_height="75px" -->
+        <!-- android:layout_marginLeft="20px" -->
+        <!-- android:background="@drawable/c_bg_button" -->
+        <!-- android:clickable="true" -->
+        <!-- android:scaleType="fitCenter" -->
+        <!-- android:src="@drawable/eq" /> -->
+
+    </LinearLayout>
+
+</LinearLayout> <!-- 最外围布局 纵向线性布局 -->

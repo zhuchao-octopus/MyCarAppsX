@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="ButtonStyle3">
+        <item name="android:background">@drawable/button_click_back1</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textSize">26px</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:focusable">true</item>
+        <item name="android:layout_width">0px</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="ButtonStyle1">
+        <item name="android:background">@drawable/button_click_back1</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:layout_height">84px</item>
+        <item name="android:layout_width">180px</item>
+        <item name="android:focusable">true</item>
+        <item name="android:textSize">46px</item>
+    </style>
+
+    <style name="ButtonStyleCD">
+        <item name="android:background">@drawable/button_click_back1</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:layout_height">104px</item>
+        <item name="android:layout_width">160px</item>
+        <item name="android:focusable">true</item>
+        <item name="android:textSize">46px</item>
+    </style>
+
+    <style name="shadowTextCommonStyleFonts" parent="shadowText">
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="CommonWeightAkParamter">
+        <item name="android:tag">ak_paramter=100,50</item>
+        <item name="android:layout_width">0.0px</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:scaleType">center</item>
+        <item name="android:clickable">true</item>
+        <item name="android:background">@drawable/c_bg_button</item>
+    </style>
+    
+        <style name="CommonWeightAkParamterVideo">
+        <item name="android:tag">ak_paramter=100,50</item>
+        <item name="android:layout_width">0.0px</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:scaleType">center</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+    <style name="CommonStyleFonts">
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="CommonListViewStyle1">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:cacheColorHint">@android:color/transparent</item>
+        <item name="android:descendantFocusability">blocksDescendants</item>
+        <item name="android:divider">@drawable/music_splitline</item>
+        <item name="android:fadingEdge">none</item>
+        <item name="android:focusable">true</item>
+        <item name="android:listSelector">@android:color/transparent</item>
+        <item name="android:scrollbarStyle">outsideOverlay</item>
+        <item name="android:scrollingCache">false</item>
+    </style>
+
+    <style name="channelButtonStyle">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">78.0px</item>
+        <item name="android:layout_marginLeft">3.0px</item>
+        <item name="android:textSize">34.0px</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:gravity">center</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:paddingRight">50px</item>
+        <item name="android:paddingLeft">30px</item>
+        <item name="android:background">@drawable/c_bg_button</item>
+    </style>
+    
+        <style name="channelButtonTextStyle">
+        <item name="android:layout_width">48px</item>
+        <item name="android:layout_height">48.0px</item>
+        <item name="android:layout_marginLeft">288.0px</item>
+        <item name="android:layout_marginTop">30.0px</item>
+        <item name="android:textSize">22.0px</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:gravity">center</item>
+    </style>
+    
+</resources>

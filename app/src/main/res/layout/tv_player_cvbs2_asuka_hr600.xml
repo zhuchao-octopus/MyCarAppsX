@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/screen1_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="1" >
+
+        <SurfaceView
+            android:id="@+id/camera_surfaceview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <FrameLayout
+            android:id="@+id/glsuface_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:id="@+id/brake_warning_text"
+            style="@style/CommonStyleFonts"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_centerInParent="true"
+            android:background="#000000"
+            android:gravity="center"
+            android:text="@string/warning_driving"
+            android:textSize="36sp" />
+
+        <ImageView
+            android:id="@+id/no_signal"
+            style="@style/CommonStyleFonts"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_centerInParent="true"
+            android:background="#000000"
+            android:gravity="center"
+            android:scaleType="center"
+            android:src="@drawable/no_signal"
+            android:textSize="36sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/only_black"
+            style="@style/CommonStyleFonts"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_centerInParent="true"
+            android:background="#000001"
+            android:gravity="center"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/tv_control"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="0px"
+                android:layout_weight="5.3"
+                android:gravity="bottom|left"
+                android:orientation="vertical"
+                android:paddingBottom="5px"
+                android:paddingLeft="10px" >
+
+                <include
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    layout="@layout/tv_keyboard"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="0px"
+                android:layout_weight="1"
+                android:background="#dd222222"
+                android:gravity="center" >
+
+                <ImageView
+                    android:id="@+id/dtv_left"
+                    android:layout_width="0px"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/screen1_button_click_back1"
+                    android:clickable="true"
+                    android:scaleType="center"
+                    android:src="@drawable/l" />
+
+                <ImageView
+                    android:id="@+id/dtv_right"
+                    android:layout_width="0px"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/screen1_button_click_back1"
+                    android:clickable="true"
+                    android:scaleType="center"
+                    android:src="@drawable/r" />
+                
+                <ImageView
+                    android:id="@+id/dtv_up"
+                    android:layout_width="0px"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/screen1_button_click_back1"
+                    android:clickable="true"
+                    android:scaleType="center"
+                    android:src="@drawable/u" />
+
+                <ImageView
+                    android:id="@+id/dtv_down"
+                    android:layout_width="0px"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/screen1_button_click_back1"
+                    android:clickable="true"
+                    android:scaleType="center"
+                    android:src="@drawable/d" />
+
+                
+
+                <TextView
+                    android:id="@+id/num_ok"
+                    android:layout_width="0px"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/screen1_button_click_back1"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:paddingLeft="0px"
+                    android:text="@string/button_ok"
+                    android:textColor="#ffffff"
+                    android:textSize="36px" />
+
+                <TextView
+                    android:id="@+id/dtv_exit"
+                    android:layout_width="0px"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/screen1_button_click_back1"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:paddingLeft="0px"
+                    android:text="@string/exit"
+                    android:textColor="#ffffff"
+                    android:textSize="36px" />
+
+                <TextView
+                    android:id="@+id/dtv_menu"
+                    android:layout_width="0px"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/screen1_button_click_back1"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:paddingLeft="0px"
+                    android:text="@string/menu"
+                    android:textColor="#ffffff"
+                    android:textSize="36px" />
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+
+</LinearLayout>

@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cd_player"
+    android:layout_width="800dp"
+    android:layout_height="480dp"
+    android:layout_margin="0dp"
+    android:background="@drawable/background"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:padding="0dp" >
+
+    <!-- <View -->
+    <!-- android:layout_width="match_parent" -->
+    <!-- android:layout_height="1dp" -->
+    <!-- android:background="#808080" /> -->
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0.0dip"
+        android:layout_weight="1.0"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0" >
+
+            <!-- <ImageView -->
+            <!-- android:layout_width="560dp" -->
+            <!-- android:layout_height="286dp" -->
+            <!-- android:src="@drawable/disc_bg" /> -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/cd_title"
+                    style="@style/CommonStyleFonts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="38dp"
+                    android:gravity="center"
+                    android:textColor="#ffffffff"
+                    android:textSize="22dp" />
+
+                <ImageView
+                    android:id="@+id/disc"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="0dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/cd" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/currenttime"
+                        style="@style/CommonStyleFonts"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#ffffffff"
+                        android:textSize="18dp" />
+
+                    <RelativeLayout
+                        android:layout_width="320dp"
+                        android:layout_height="42dp" >
+
+                        <SeekBar
+                            android:id="@+id/progress"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/seek_bar_bg"
+                            android:focusable="false"
+                            android:paddingLeft="17.0dp"
+                            android:paddingRight="20.0dp"
+                            android:progressDrawable="@drawable/rl_progress"
+                            android:thumb="@drawable/thumb" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:clickable="true" />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/totaltime"
+                        style="@style/CommonStyleFonts"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#ffffffff"
+                        android:textSize="18dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/play_repeat_tag"
+                android:layout_width="37dp"
+                android:layout_height="27dp"
+                android:layout_marginLeft="460dp"
+                android:layout_marginTop="220dp"
+                android:src="@drawable/common_repeat_tag_cd_level" />
+
+            <TextView
+                android:id="@+id/cd_song_num"
+                style="@style/CommonStyleFonts"
+                android:layout_width="wrap_content"
+                android:layout_height="38dp"
+                android:layout_marginLeft="20dp"
+                android:gravity="left|center_vertical"
+                android:textColor="#ffffffff"
+                android:textSize="20dp" />
+        </RelativeLayout>
+
+        <FrameLayout
+            android:id="@+id/list_content"
+            android:layout_width="250dp"
+            android:layout_height="330dp" >
+
+            <ListView
+                android:id="@+id/list_view"
+                style="@style/CommonListViewStyle1"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:cacheColorHint="@android:color/transparent"
+                android:divider="@android:color/transparent"
+                android:dividerHeight="0.0dip"
+                android:fadingEdge="none" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="90dp"
+        android:background="@drawable/radio_bottom_bg"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/cd_eq_mode_switch"
+            android:layout_width="122dp"
+            android:layout_height="75dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/button_click_back3"
+            android:clickable="true"
+            android:scaleType="center"
+            android:text="@string/eq_text_normal" />
+
+        <ImageView
+            android:id="@+id/cd_prev_button"
+            android:layout_width="122dp"
+            android:layout_height="75dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/button_click_back3"
+            android:clickable="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/prev" />
+
+        <ImageView
+            android:id="@+id/cd_play_pause_button"
+            android:layout_width="122dp"
+            android:layout_height="75dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/button_click_back3"
+            android:clickable="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/play_level" />
+
+        <ImageView
+            android:id="@+id/cd_next_button"
+            android:layout_width="122dp"
+            android:layout_height="75dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/button_click_back3"
+            android:clickable="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/next" />
+
+        <ImageView
+            android:id="@+id/cd_fr_button"
+            style="@style/ButtonStyleCD"
+            android:clickable="true"
+            android:scaleType="center"
+            android:src="@drawable/fr"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/cd_ff_button"
+            style="@style/ButtonStyleCD"
+            android:clickable="true"
+            android:scaleType="center"
+            android:src="@drawable/ff"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/cd_play_order_button"
+            android:layout_width="122dp"
+            android:layout_height="75dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/button_click_back3"
+            android:clickable="true"
+            android:scaleType="center"
+            android:src="@drawable/repeat" />
+
+        <ImageView
+            android:id="@+id/cd_shuffle"
+            android:layout_width="122dp"
+            android:layout_height="75dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/button_click_back3"
+            android:clickable="true"
+            android:scaleType="center"
+            android:src="@drawable/shuffle" />
+
+        <!-- <ImageView -->
+        <!-- android:id="@+id/cd_shuffle" -->
+        <!-- style="@style/ButtonStyleCD" -->
+        <!-- android:clickable="true" -->
+        <!-- android:src="@drawable/shuffle" /> -->
+
+
+        <!-- <ImageView -->
+        <!-- android:id="@+id/cd_eq_button" -->
+        <!-- android:layout_width="122dp" -->
+        <!-- android:layout_height="75dp" -->
+        <!-- android:layout_marginLeft="10dp" -->
+        <!-- android:background="@drawable/button_click_back3" -->
+        <!-- android:clickable="true" -->
+        <!-- android:scaleType="fitCenter" -->
+        <!-- android:src="@drawable/eq" /> -->
+
+    </LinearLayout>
+
+</LinearLayout> <!-- 最外围布局 纵向线性布局 -->

@@ -1,0 +1,21 @@
+<!-- ?xml version="1.0" encoding="utf-8"? -->
+<resources>
+
+    
+    <integer name="freq_x1">42</integer>
+    <integer name="freq_x2">227</integer>
+    <integer name="freq_x3">412</integer>
+    <integer name="freq_x4">596</integer>
+    <integer name="freq_x5">777</integer>
+    <integer name="freq_x6">958</integer>
+
+    <integer name="freq_text_y">70</integer>
+    
+    <integer name="start_freq_px">75</integer>
+    <integer name="end_freq_px">978</integer>
+    <integer name="lrc_text_size">22</integer>
+    
+    
+    <integer name="video_def_width">706</integer>
+    <integer name="video_def_height">335</integer>
+</resources>

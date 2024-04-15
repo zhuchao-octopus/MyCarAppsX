@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+      <style name="ButtonStyle3">
+        <item name="android:background">@drawable/button_click_back1</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textSize">28px</item>
+        <item name="android:layout_height">match_parent</item>
+        
+        <item name="android:focusable">true</item>
+        <item name="android:layout_width">0px</item>  
+        <item name="android:layout_weight">1</item>        
+    </style>
+
+
+    <style name="ButtonStyle1">
+        <item name="android:background">@drawable/button_click_back1</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">174px</item>
+        
+        <item name="android:focusable">true</item>
+        
+        
+        <item name="android:textSize">46px</item>
+    </style>
+
+
+    <style name="ButtonStyleCD">
+        <item name="android:background">@drawable/button_click_back1</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">0px</item>  
+        <item name="android:layout_weight">1</item>    
+        
+        <item name="android:focusable">true</item>
+        
+        
+        <item name="android:textSize">46px</item>
+    </style>
+    
+        <style name="ButonStyleNum" parent="CommonStyleFonts">
+        <item name="android:background">@drawable/common_button2_selector</item>
+        <item name="android:textColor">#ffffffff</item>
+        <item name="android:layout_width">120px</item>
+        <item name="android:layout_height">64px</item>
+        <item name="android:textSize">36.0px</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    
+        
+    <style name="channelTextStyle" parent="shadowText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">22px</item>
+        <item name="android:layout_marginLeft">8px</item>
+        <item name="android:paddingTop">74px</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:gravity">center</item>
+        <item name="android:tag">ak_paramter=100,50</item>
+        <item name="android:background">@drawable/radio_channel_selector</item>
+    </style>
+
+    <style name="channelButtonTextStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">48.0px</item>
+        <item name="android:textSize">32.0px</item>
+        <item name="android:layout_marginTop">10.0px</item>
+        <item name="android:layout_marginLeft">8px</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:gravity">center</item>
+        <item name="android:focusable">false</item>
+        <item name="android:clickable">false</item>
+    </style>
+
+    <style name="channelBaudIndexStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">48.0px</item>
+        <item name="android:layout_marginLeft">8px</item>
+        <item name="android:layout_marginTop">53.0px</item>
+        <item name="android:textSize">20.0px</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:gravity">center</item>
+        <item name="android:focusable">false</item>
+        <item name="android:clickable">false</item>
+    </style>
+  
+    
+                <style name="RadioButtonStyle">            
+        <item name="android:tag">ak_paramter=100,50</item>
+        <item name="android:layout_width">98px</item>
+        <item name="android:layout_height">48.0px</item>
+        <item name="android:textSize">28.0px</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:gravity">center</item>
+        
+        <item name="android:focusable">false</item>
+        <item name="android:clickable">false</item>
+    </style>
+    
+    <style name="RadioText1">
+        <item name="android:layout_width">60px</item>
+        <item name="android:layout_height">30.0px</item>
+        <item name="android:textSize">20.0px</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:gravity">center</item>
+    </style>
+</resources>

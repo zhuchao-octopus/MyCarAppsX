@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="210dp"
+    android:layout_height="75dp"
+    android:background="@drawable/stroke_black"
+    android:minHeight="92dp" >
+
+    <LinearLayout
+        android:layout_width="213dp"
+        android:layout_height="92dp"
+        android:orientation="vertical"
+        android:paddingTop="5dp"
+        android:paddingBottom="20px"
+        android:paddingRight="0dp" >
+
+        <TextView
+            android:id="@+id/list_text1"
+            style="@style/CommonStyleFonts"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:gravity="left|center_vertical"
+            android:paddingLeft="20dp"
+            android:singleLine="true"
+            android:textColor="#ffffffff"
+            android:textSize="24.0dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/list_text3"
+                style="@style/CommonStyleFonts"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_x="280dp"
+                android:layout_y="20dp"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:paddingLeft="1.0dp"
+                android:singleLine="true"
+                android:textColor="#ffffffff"
+                android:textSize="22.0dp" />
+
+            <TextView
+                android:id="@+id/list_ps_name"
+                style="@style/CommonStyleFonts"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ellipsize="end"
+                android:gravity="center_vertical|right"
+                android:paddingRight="20dp"
+                android:singleLine="true"
+                android:textColor="#ffffffff"
+                android:textSize="24.0dp" />
+
+            <TextView
+                android:id="@+id/list_text2"
+                style="@style/CommonStyleFonts"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:ellipsize="end"
+                android:paddingRight="20dp"
+                android:gravity="center_vertical|right"
+                android:paddingLeft="1.0dp"
+                android:singleLine="true"
+                android:textColor="#ffffffff"
+                android:textSize="32.0dp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</AbsoluteLayout>

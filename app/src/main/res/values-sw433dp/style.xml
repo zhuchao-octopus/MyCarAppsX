@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+      <style name="ButtonStyle3">
+        <item name="android:background">@drawable/button_click_back1</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textSize">28px</item>
+        <item name="android:layout_height">match_parent</item>
+        
+        <item name="android:focusable">true</item>
+        <item name="android:layout_width">0px</item>  
+        <item name="android:layout_weight">1</item>        
+    </style>
+
+
+    <style name="ButtonStyle1">
+        <item name="android:background">@drawable/button_click_back1</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">174px</item>
+        
+        <item name="android:focusable">true</item>
+        
+        
+        <item name="android:textSize">46px</item>
+    </style>
+
+
+    <style name="ButtonStyleCD">
+        <item name="android:background">@drawable/button_click_back1</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">0px</item>  
+        <item name="android:layout_weight">1</item>    
+        
+        <item name="android:focusable">true</item>
+        
+        
+        <item name="android:textSize">46px</item>
+    </style>
+</resources>

@@ -1,0 +1,20 @@
+<!-- ?xml version="1.0" encoding="utf-8"? -->
+<resources>
+
+    
+    
+    <integer name="freq_text_y">56</integer>
+    
+    
+        <integer name="freq_x1">10</integer>
+    <integer name="freq_x2">-100</integer>
+    <integer name="freq_x3">-100</integer>
+    <integer name="freq_x4">-100</integer>
+    <integer name="freq_x5">-100</integer>
+    <integer name="freq_x6">600</integer>
+
+    
+    <integer name="start_freq_px">29</integer>
+    <integer name="end_freq_px">620</integer>
+    
+</resources>
