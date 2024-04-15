@@ -38,4 +38,5 @@ dependencies {
 
     implementation(libs.libFBaseUtils)
     implementation(libs.libJOSUtils)
+    implementation(libs.libSessionUtils)
 }
