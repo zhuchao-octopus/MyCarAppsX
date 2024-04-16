@@ -3,7 +3,7 @@
     android:layout_width="426dp"
     android:layout_height="75dp"
     android:background="@drawable/stroke_black"
-    android:minHeight="60dp" >
+    android:minHeight="60dp">
 
     <TextView
         android:id="@+id/list_ps_name"

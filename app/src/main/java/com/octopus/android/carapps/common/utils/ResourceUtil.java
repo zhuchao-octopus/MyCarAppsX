@@ -1,8 +1,5 @@
 package com.octopus.android.carapps.common.utils;
 
-import com.common.util.MachineConfig;
-import com.octopus.android.carapps.car.ui.GlobalDef;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
@@ -11,12 +8,9 @@ import android.hardware.display.DisplayManager;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Display;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.view.animation.Animation;
-import android.view.animation.AnimationSet;
-import android.view.animation.AnimationUtils;
+
+import com.common.util.MachineConfig;
+import com.octopus.android.carapps.car.ui.GlobalDef;
 
 public class ResourceUtil {
 
@@ -26,19 +20,20 @@ public class ResourceUtil {
 
     private static boolean multiWindow = false;
     private static final String TAG = "ResourceUtil";
+
     @SuppressLint("DiscouragedApi")
     public static int getLayoutId(Context paramContext, String paramString) {
-        return paramContext.getResources().getIdentifier(paramString, "layout",paramContext.getPackageName());
+        return paramContext.getResources().getIdentifier(paramString, "layout", paramContext.getPackageName());
     }
 
     @SuppressLint("DiscouragedApi")
     public static int getStringId(Context paramContext, String paramString) {
-        return paramContext.getResources().getIdentifier(paramString, "string",paramContext.getPackageName());
+        return paramContext.getResources().getIdentifier(paramString, "string", paramContext.getPackageName());
     }
 
     @SuppressLint("DiscouragedApi")
     public static int getDrawableId(Context paramContext, String paramString) {
-        return paramContext.getResources().getIdentifier(paramString,"drawable", paramContext.getPackageName());
+        return paramContext.getResources().getIdentifier(paramString, "drawable", paramContext.getPackageName());
     }
 
     @SuppressLint("DiscouragedApi")
@@ -53,18 +48,20 @@ public class ResourceUtil {
 
     @SuppressLint("DiscouragedApi")
     public static int getColorId(Context paramContext, String paramString) {
-        return paramContext.getResources().getIdentifier(paramString, "color",paramContext.getPackageName());
+        return paramContext.getResources().getIdentifier(paramString, "color", paramContext.getPackageName());
     }
 
     public static boolean isMultiWindow(Activity activity) {
-        try {
-            Class<?> CActivity = Class.forName("android.app.Activity");
-            java.lang.reflect.Method method = CActivity.getMethod("isInMultiWindowMode", (Class<?>) null);
-            return (boolean) method.invoke(activity);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return false;
+        ///try {
+        //    Class<?> CActivity = Class.forName("android.app.Activity");
+        //    java.lang.reflect.Method method = CActivity.getMethod("isInMultiWindowMode", (Class<?>) null);
+        //    return (boolean) method.invoke(activity);
+        //} catch (Exception e) {
+        //    e.printStackTrace();
+        //}
+
+        //return false;
+        return activity.isInMultiWindowMode();
     }
 
     public static boolean isMultiWindow() {
@@ -74,8 +71,8 @@ public class ResourceUtil {
     public static boolean updateAppUi(Context context) { // app used except
         // launcher
 
-//		String value = MachineConfig
-//				.getPropertyReadOnly(MachineConfig.KEY_SYSTEM_UI);
+        //		String value = MachineConfig
+        //				.getPropertyReadOnly(MachineConfig.KEY_SYSTEM_UI);
 
         if (GlobalDef.mContext == null) {
             GlobalDef.initCustomUI(context);
@@ -84,20 +81,15 @@ public class ResourceUtil {
 
 
         // if (value != null) {
-//		int sw = 0;
-//		int w = 0;
-//		int h = 0;
+        //		int sw = 0;
+        //		int w = 0;
+        //		int h = 0;
         int type = 0; // deault 800X480
 
 
-        if (MachineConfig.VALUE_SYSTEM_UI_KLD12_80.equals(value) ||
-                MachineConfig.VALUE_SYSTEM_UI19_KLD1.equals(value) ||
-                MachineConfig.VALUE_SYSTEM_UI28_7451.equals(value)) {
+        if (MachineConfig.VALUE_SYSTEM_UI_KLD12_80.equals(value) || MachineConfig.VALUE_SYSTEM_UI19_KLD1.equals(value) || MachineConfig.VALUE_SYSTEM_UI28_7451.equals(value)) {
             baseSW = 340;
-        } else if (MachineConfig.VALUE_SYSTEM_UI_KLD3_8702.equals(value) ||
-                MachineConfig.VALUE_SYSTEM_UI_KLD15_6413.equals(value) ||
-                MachineConfig.VALUE_SYSTEM_UI32_KLD8.equals(value) ||
-                MachineConfig.VALUE_SYSTEM_UI37_KLD10.equals(value)) {
+        } else if (MachineConfig.VALUE_SYSTEM_UI_KLD3_8702.equals(value) || MachineConfig.VALUE_SYSTEM_UI_KLD15_6413.equals(value) || MachineConfig.VALUE_SYSTEM_UI32_KLD8.equals(value) || MachineConfig.VALUE_SYSTEM_UI37_KLD10.equals(value)) {
             baseSW = 360;
         } else if (MachineConfig.VALUE_SYSTEM_UI45_8702_2.equals(value)) {
             baseSW = 370;
@@ -107,12 +99,9 @@ public class ResourceUtil {
             baseSW = 390;
         } else if (MachineConfig.VALUE_SYSTEM_UI21_RM10_2.equals(value)) {
             baseSW = 400;
-        } else if (MachineConfig.VALUE_SYSTEM_UI22_1050.equals(value) ||
-                MachineConfig.VALUE_SYSTEM_UI_PX30_1.equals(value)) {
+        } else if (MachineConfig.VALUE_SYSTEM_UI22_1050.equals(value) || MachineConfig.VALUE_SYSTEM_UI_PX30_1.equals(value)) {
             baseSW = 410;
-        } else if (MachineConfig.VALUE_SYSTEM_UI16_7099.equals(value) ||
-                MachineConfig.VALUE_SYSTEM_UI31_KLD7.equals(value) ||
-                MachineConfig.VALUE_SYSTEM_UI36_664.equals(value)) {
+        } else if (MachineConfig.VALUE_SYSTEM_UI16_7099.equals(value) || MachineConfig.VALUE_SYSTEM_UI31_KLD7.equals(value) || MachineConfig.VALUE_SYSTEM_UI36_664.equals(value)) {
             baseSW = 420;
         } else if (MachineConfig.VALUE_SYSTEM_UI34_KLD9.equals(value)) {
             baseSW = 430;
@@ -135,8 +124,7 @@ public class ResourceUtil {
         // DisplayMetrics dm = context.getResources().getDisplayMetrics();
         // mScreenWidth = dm.widthPixels;
         // mScreenHeight = dm.heightPixels;
-        DisplayManager displayManager = (DisplayManager) context
-                .getSystemService(Context.DISPLAY_SERVICE);
+        DisplayManager displayManager = (DisplayManager) context.getSystemService(Context.DISPLAY_SERVICE);
         Display[] display = displayManager.getDisplays();
 
         //DisplayInfo outDisplayInfo = new DisplayInfo();
@@ -211,13 +199,13 @@ public class ResourceUtil {
         if (baseSW != 0) {
             c.smallestScreenWidthDp = baseSW;
         }
-//		if (w != 0) {
-//			c.screenWidthDp = w;
-//		}
-//		if (h != 0) {
-//			c.screenHeightDp = h;
-//		}
-//		context.getResources().updateConfiguration(c, null);
+        //		if (w != 0) {
+        //			c.screenWidthDp = w;
+        //		}
+        //		if (h != 0) {
+        //			c.screenHeightDp = h;
+        //		}
+        //		context.getResources().updateConfiguration(c, null);
 
         // }
         return multiWindow;
@@ -226,8 +214,7 @@ public class ResourceUtil {
     public static String updateSingleUi(Context context) { // only launcher use
         // now
 
-        String value = MachineConfig
-                .getPropertyReadOnly(MachineConfig.KEY_SYSTEM_UI);
+        String value = MachineConfig.getPropertyReadOnly(MachineConfig.KEY_SYSTEM_UI);
 
         int sw = 0;
         DisplayMetrics dm = context.getResources().getDisplayMetrics();
@@ -245,8 +232,7 @@ public class ResourceUtil {
     }
 
     public static boolean isInSplitScreen(Context context) {
-        DisplayManager displayManager = (DisplayManager) context
-                .getSystemService(Context.DISPLAY_SERVICE);
+        DisplayManager displayManager = (DisplayManager) context.getSystemService(Context.DISPLAY_SERVICE);
         Display[] display = displayManager.getDisplays();
 
         //DisplayInfo outDisplayInfo = new DisplayInfo();

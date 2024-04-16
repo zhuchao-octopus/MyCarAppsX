@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-<!--     <string name="toolbar_text_gps"></string> -->
-<!--     <string name="toolbar_text_video"></string> -->
-<!--     <string name="toolbar_text_radio"></string> -->
+    <!--     <string name="toolbar_text_gps"></string> -->
+    <!--     <string name="toolbar_text_video"></string> -->
+    <!--     <string name="toolbar_text_radio"></string> -->
     <string name="toolbar_text_music">Musik</string>
     <string name="toolbar_text_bluetooth_music">Bluetooth Musik</string>
-<!--     <string name="bluetooth_settings"></string> -->
-<!--     <string name="f_camera"></string> -->
+    <!--     <string name="bluetooth_settings"></string> -->
+    <!--     <string name="f_camera"></string> -->
 
-<!--     <string name="device_eject">شنت</string> -->
-<!--     <string name="device_mount">جميع الصور</string> -->
+    <!--     <string name="device_eject">شنت</string> -->
+    <!--     <string name="device_mount">جميع الصور</string> -->
     <string name="media">Blitz</string>   <!--     <string name="localfile">Flash</string> -->
 
-    
-    
+
     <string name="all_song">Alle Medien</string>    <!--     <string name="all_medianame">Všechny písně</string> -->
 
 
@@ -40,41 +39,40 @@
     <string name="eq_text_jazz">Jazz</string>
     <string name="eq_text_classic">Klassik</string>
     <string name="eq_text_normal">Normal</string>
-    
-    
+
+
     <string name="btdisconnected">Bluetooth-Verbindung</string>
     <string name="pleaseconnectedbt">Bitte verbinden Sie mit dem Telefon</string>
-    
+
     <string name="modulename">Gerätename</string>
     <string name="modulepassword">PIN vergessen</string>
-</resources>
-<!-- <?xml version="1.0" encoding="utf-8"?> -->
-<!-- <resources> -->
-<!--     <string name="usb1file">USB1</string> -->
-<!--     <string name="usb2file">USB2</string> -->
-<!--     <string name="unmount">unmontiert</string> -->
-<!--     <string name="mount">montiert</string> -->
-<!--     <string name="gpssd">GPS CARD</string> -->
-<!--     <string name="sdcard">SD CARD</string> -->
-<!--     <string name="app_name">MediaPlayer</string> -->
-<!--     <string name="music_name">MediaPlayer</string> -->
-<!--     <string name="filemanage">Explorer</string> -->
-<!--     <string name="music_style0">Benutzer</string> -->
-<!--     <string name="music_style1">Rock</string> -->
-<!--     <string name="music_style2">Popular</string> -->
-<!--     <string name="music_style3">Jazz</string> -->
-<!--     <string name="music_style4">Klassik</string> -->
-<!--     <string name="music_style5">Wohnung</string> -->
-<!--     <string name="music_style6">Gesang</string> -->
-<!--     <string name="music_title" /> -->
-<!--     <string name="erropath">Ungültiger Pfad oder Musik-Datei</string> -->
-<!--     <string name="localfile">Blitz</string> -->
-<!--     <string name="sd1file">GPS CARD</string> -->
-<!--     <string name="sd2file">SD CARD</string> -->
-<!--     <string name="deviceunmount">%1$s unmontiert!</string> -->
-<!--     <string name="devicemount">%1$s montiert!</string> -->
-<!--     <string name="usbfile">%1$s</string> -->
-<!--     <string name="nolrcfile">Songtext No</string> -->
-<!--     <string name="musicnumber">songs</string> -->
-<!--     <string name="all_medianame">Alle Songs</string> -->
-<!-- </resources> -->
+</resources><!-- <?xml version="1.0" encoding="utf-8"?> -->
+    <!-- <resources> -->
+    <!--     <string name="usb1file">USB1</string> -->
+    <!--     <string name="usb2file">USB2</string> -->
+    <!--     <string name="unmount">unmontiert</string> -->
+    <!--     <string name="mount">montiert</string> -->
+    <!--     <string name="gpssd">GPS CARD</string> -->
+    <!--     <string name="sdcard">SD CARD</string> -->
+    <!--     <string name="app_name">MediaPlayer</string> -->
+    <!--     <string name="music_name">MediaPlayer</string> -->
+    <!--     <string name="filemanage">Explorer</string> -->
+    <!--     <string name="music_style0">Benutzer</string> -->
+    <!--     <string name="music_style1">Rock</string> -->
+    <!--     <string name="music_style2">Popular</string> -->
+    <!--     <string name="music_style3">Jazz</string> -->
+    <!--     <string name="music_style4">Klassik</string> -->
+    <!--     <string name="music_style5">Wohnung</string> -->
+    <!--     <string name="music_style6">Gesang</string> -->
+    <!--     <string name="music_title" /> -->
+    <!--     <string name="erropath">Ungültiger Pfad oder Musik-Datei</string> -->
+    <!--     <string name="localfile">Blitz</string> -->
+    <!--     <string name="sd1file">GPS CARD</string> -->
+    <!--     <string name="sd2file">SD CARD</string> -->
+    <!--     <string name="deviceunmount">%1$s unmontiert!</string> -->
+    <!--     <string name="devicemount">%1$s montiert!</string> -->
+    <!--     <string name="usbfile">%1$s</string> -->
+    <!--     <string name="nolrcfile">Songtext No</string> -->
+    <!--     <string name="musicnumber">songs</string> -->
+    <!--     <string name="all_medianame">Alle Songs</string> -->
+    <!-- </resources> -->

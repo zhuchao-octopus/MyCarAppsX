@@ -2,25 +2,25 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="800px"
     android:layout_height="fill_parent"
-    android:orientation="horizontal" >
+    android:orientation="horizontal">
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:orientation="horizontal" >
+        android:orientation="horizontal">
 
         <ScrollView
             android:layout_width="wrap_content"
-            android:layout_height="fill_parent" >
+            android:layout_height="fill_parent">
 
             <LinearLayout
                 android:id="@+id/tb"
-            android:layout_width="131px"
+                android:layout_width="131px"
                 android:layout_height="fill_parent"
                 android:layout_marginLeft="1px"
                 android:layout_marginTop="0px"
                 android:gravity="left"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <Button
                     android:id="@+id/btn_all"
@@ -33,13 +33,13 @@
                     android:gravity="left|center"
                     android:text="@string/playlist"
                     android:textColor="#ffffffff"
-                android:textSize="20.0px"
+                    android:textSize="20.0px"
                     android:visibility="gone" />
 
                 <Button
                     android:id="@+id/btn_local"
                     android:layout_width="match_parent"
-                android:layout_height="105px"
+                    android:layout_height="105px"
                     android:background="@null"
                     android:clickable="true"
                     android:drawablePadding="0.0px"
@@ -48,12 +48,12 @@
                     android:tag="ak_paramter=100,50"
                     android:text="@string/media"
                     android:textColor="#ffffffff"
-                android:textSize="20.0px" />
+                    android:textSize="20.0px" />
 
                 <Button
                     android:id="@+id/btn_sd"
                     android:layout_width="match_parent"
-                android:layout_height="105px"
+                    android:layout_height="105px"
                     android:background="@null"
                     android:clickable="true"
                     android:drawablePadding="1.0px"
@@ -62,12 +62,12 @@
                     android:tag="ak_paramter=100,50"
                     android:text="@string/sd"
                     android:textColor="#ffffffff"
-                android:textSize="20.0px" />
+                    android:textSize="20.0px" />
 
                 <Button
                     android:id="@+id/btn_sd2"
                     android:layout_width="match_parent"
-                android:layout_height="105px"
+                    android:layout_height="105px"
                     android:background="@null"
                     android:clickable="true"
                     android:drawablePadding="1.0px"
@@ -76,12 +76,12 @@
                     android:tag="ak_paramter=100,50"
                     android:text="@string/sd2"
                     android:textColor="#ffffffff"
-                android:textSize="20.0px" />
+                    android:textSize="20.0px" />
 
                 <Button
                     android:id="@+id/btn_usb"
                     android:layout_width="match_parent"
-                android:layout_height="105px"
+                    android:layout_height="105px"
                     android:background="@null"
                     android:clickable="true"
                     android:drawablePadding="1.0px"
@@ -90,12 +90,12 @@
                     android:tag="ak_paramter=100,50"
                     android:text="@string/usb"
                     android:textColor="#ffffffff"
-                android:textSize="20.0px" />
+                    android:textSize="20.0px" />
 
                 <Button
                     android:id="@+id/btn_usb2"
                     android:layout_width="match_parent"
-                android:layout_height="105px"
+                    android:layout_height="105px"
                     android:background="@null"
                     android:clickable="true"
                     android:drawablePadding="1.0px"
@@ -104,12 +104,12 @@
                     android:tag="ak_paramter=100,50"
                     android:text="@string/usb2"
                     android:textColor="#ffffffff"
-                android:textSize="20.0px" />
+                    android:textSize="20.0px" />
 
                 <Button
                     android:id="@+id/btn_usb3"
                     android:layout_width="match_parent"
-                android:layout_height="105px"
+                    android:layout_height="105px"
                     android:background="@null"
                     android:clickable="true"
                     android:drawablePadding="1.0px"
@@ -118,12 +118,12 @@
                     android:tag="ak_paramter=100,50"
                     android:text="@string/usb3"
                     android:textColor="#ffffffff"
-                android:textSize="20.0px" />
+                    android:textSize="20.0px" />
 
                 <Button
                     android:id="@+id/btn_usb4"
                     android:layout_width="match_parent"
-                android:layout_height="105px"
+                    android:layout_height="105px"
                     android:background="@null"
                     android:clickable="true"
                     android:drawablePadding="1.0px"
@@ -132,7 +132,7 @@
                     android:tag="ak_paramter=100,50"
                     android:text="@string/usb4"
                     android:textColor="#ffffffff"
-                android:textSize="20.0px" />
+                    android:textSize="20.0px" />
             </LinearLayout>
         </ScrollView>
 
@@ -144,25 +144,25 @@
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <Button
                     android:id="@+id/btn_add_all"
                     style="@style/CommonStyleFonts"
                     android:layout_width="fill_parent"
-                android:layout_height="70px"
+                    android:layout_height="70px"
                     android:background="@drawable/tl_l_bg"
                     android:drawableLeft="@drawable/button_add"
                     android:drawablePadding="10.0px"
                     android:gravity="left|center"
                     android:text="@string/all_song"
                     android:textColor="#ffffffff"
-                android:textSize="22.0px" />
+                    android:textSize="22.0px" />
 
                 <ListView
                     android:id="@+id/tv_sd_list"
@@ -250,7 +250,7 @@
         android:clickable="true"
         android:gravity="center"
         android:orientation="vertical"
-        android:visibility="gone" >
+        android:visibility="gone">
 
         <ProgressBar
             style="?android:attr/progressBarStyleLarge"

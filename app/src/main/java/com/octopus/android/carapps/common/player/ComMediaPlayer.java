@@ -1,25 +1,6 @@
 package com.octopus.android.carapps.common.player;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.Random;
-
-import com.common.util.AppConfig;
-import com.common.util.MachineConfig;
-import com.common.util.MyCmd;
-import com.common.util.Util;
-import com.octopus.android.carapps.R;
-import com.octopus.android.carapps.audio.MusicUI;
-import com.octopus.android.carapps.car.ui.BR;
-import com.octopus.android.carapps.car.ui.GlobalDef;
-
+import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
 import android.content.ContentUris;
@@ -44,9 +25,29 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.common.util.AppConfig;
+import com.common.util.MachineConfig;
+import com.common.util.MyCmd;
+import com.common.util.Util;
+import com.octopus.android.carapps.R;
+import com.octopus.android.carapps.audio.MusicUI;
+import com.octopus.android.carapps.car.ui.BR;
+import com.octopus.android.carapps.car.ui.GlobalDef;
+import com.zhuchao.android.fbase.MMLog;
+import com.zhuchao.android.fbase.TAppUtils;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 public class ComMediaPlayer extends MediaPlayer {
 
-    public String TAG = "unused"; // will define by sub class
+    public String TAG = "ComMediaPlayer"; // will define by sub class
     public static final int REPEAT_NONE = 0;
 
     public static final int REPEAT_CURRENT = 1;
@@ -57,14 +58,14 @@ public class ComMediaPlayer extends MediaPlayer {
 
     private int mRepeatMode = REPEAT_ALL;
 
-    private int mLockTime = 500; // ms
+    private final int mLockTime = 500; // ms
     private long mStartPlayTime = 0;
 
     private String mFileToPlay;
 
-    private final static String[] mCursorCols = new String[]{MediaStore.Audio.Media.ARTIST,
-            MediaStore.Audio.Media.ALBUM, MediaStore.Audio.Media.TITLE,
-            MediaStore.Audio.Media.ALBUM_ID};
+    private final static String[] mCursorCols = new String[]{
+            MediaStore.Audio.Media.ARTIST, MediaStore.Audio.Media.ALBUM, MediaStore.Audio.Media.TITLE, MediaStore.Audio.Media.ALBUM_ID
+    };
 
     private final static String[] mCursorColsTime = new String[]{MediaStore.Audio.Media.DURATION};
     private final static String[] mCursorColsAlbum = new String[]{MediaStore.Audio.Media.ALBUM_ID};
@@ -118,13 +119,16 @@ public class ComMediaPlayer extends MediaPlayer {
 
     // /scan
     //private MediaScanner mScanner = null;
-    private Method mScannerMethod = null;
+    private final Method mScannerMethod = null;
 
-    public ComMediaPlayer(Context ac) {
-        //if (ac == null) {
-        //    ac = ActivityThread.currentApplication();
-        //}
-        mContext = ac;
+    public ComMediaPlayer(Context context) {
+        if (context == null) {
+           /// ac = ActivityThread.currentApplication();
+            context = TAppUtils.getApplicationByReflection();
+        }
+        mContext = context;
+        if(mContext == null)
+            MMLog.d(TAG,"ComMediaPlayer.mContext==null!!!!!");
         initDiskPath();
         updateCompletionListener(true);
     }
@@ -180,17 +184,13 @@ public class ComMediaPlayer extends MediaPlayer {
 
         if (mScanMusic) {
 
-            if ((what == PLAYSTATE_CHANGED
-                    || (what == MEDIA_SEEK && isPlaying())
-                    || (status == 1 && what == META_CHANGED))) {
+            if ((what == PLAYSTATE_CHANGED || (what == MEDIA_SEEK && isPlaying()) || (status == 1 && what == META_CHANGED))) {
                 Intent i = new Intent(MyCmd.BROADCAST_CMD_FROM_MUSIC);
-                i.putExtra(MyCmd.EXTRA_COMMON_CMD,
-                        MyCmd.Cmd.MUSIC_SEND_PLAY_STATUS);
+                i.putExtra(MyCmd.EXTRA_COMMON_CMD, MyCmd.Cmd.MUSIC_SEND_PLAY_STATUS);
                 if (isInitialized()) {
                     i.putExtra(MyCmd.EXTRA_COMMON_DATA, isPlaying() ? 1 : 0);
                     // Log.d("aa", this.isInitialized()+ ""+isPlaying());
-                    i.putExtra(MyCmd.EXTRA_COMMON_DATA2,
-                            this.getCurrentPosition());
+                    i.putExtra(MyCmd.EXTRA_COMMON_DATA2, this.getCurrentPosition());
                     i.putExtra(MyCmd.EXTRA_COMMON_DATA3, this.getDuration());
                     i.putExtra(MyCmd.EXTRA_COMMON_DATA4, getTrackName());
                     i.putExtra(MyCmd.EXTRA_COMMON_OBJECT, getArtworkLimit());
@@ -230,9 +230,9 @@ public class ComMediaPlayer extends MediaPlayer {
 
         synchronized (this) {
             if (id < mCurrentUriList.size()) {
-//				mCurrentPlayPos = id;
-//
-//				playCurrent();
+                //				mCurrentPlayPos = id;
+                //
+                //				playCurrent();
                 if (!mShowBePlay) {
                     return;
                 }
@@ -241,9 +241,7 @@ public class ComMediaPlayer extends MediaPlayer {
                     Log.d(TAG, "play id lock");
                     return;
                 }
-                if (mCurrentUriList != null
-                        && (id >= 0 && id < mCurrentUriList
-                        .size())) {
+                if (mCurrentUriList != null && (id >= 0 && id < mCurrentUriList.size())) {
 
                     mCurrentPlayPos = id;
 
@@ -309,9 +307,7 @@ public class ComMediaPlayer extends MediaPlayer {
             Log.d(TAG, "playCurrent lock");
             return;
         }
-        if (mCurrentUriList != null
-                && (mCurrentPlayPos >= 0 && mCurrentPlayPos < mCurrentUriList
-                .size())) {
+        if (mCurrentUriList != null && (mCurrentPlayPos >= 0 && mCurrentPlayPos < mCurrentUriList.size())) {
 
             // Log.d("allen", "playCurrent:" + mCurrentUriList.size());
             if (mUseThread) {
@@ -366,8 +362,7 @@ public class ComMediaPlayer extends MediaPlayer {
             Util.doSleep(200);
             // Log.d(TAG, ">>playCurrentThread11: stop");
             // this.setVolume(0.0f);
-            if (mCurrentPlayPos >= 0
-                    && mCurrentPlayPos < mCurrentUriList.size()) {
+            if (mCurrentPlayPos >= 0 && mCurrentPlayPos < mCurrentUriList.size()) {
                 // return;
 
                 mIsLock = (mPreLock + 1);
@@ -379,8 +374,7 @@ public class ComMediaPlayer extends MediaPlayer {
                     // });
                     mHandler.removeMessages(MSG_HIDE_BUSY_DIALOG);
                     mHandler.removeMessages(MSG_SHOW_BUSY_DIALOG);
-                    mHandler.sendEmptyMessageDelayed(MSG_SHOW_BUSY_DIALOG,
-                            TIME_SHOW_BUSY_DIALOG);
+                    mHandler.sendEmptyMessageDelayed(MSG_SHOW_BUSY_DIALOG, TIME_SHOW_BUSY_DIALOG);
                 }
 
                 stop();
@@ -552,30 +546,29 @@ public class ComMediaPlayer extends MediaPlayer {
             }
 
             try {
-                mCursor = resolver.query(uri, mCursorCols, where,
-                        selectionArgs, null);
+                mCursor = resolver.query(uri, mCursorCols, where, selectionArgs, null);
                 if (mCursor != null) {
-//					if (mCursor.getCount() == 0) {
-//						if (mScannerMethod != null) {
-//							try {
-//								if (Build.VERSION.SDK_INT >= 25) {
-//									uri = (Uri) mScannerMethod.invoke(mScanner,
-//											path, null);
-//								} else {
-//									uri = (Uri) mScannerMethod.invoke(mScanner,
-//											path, "external", null);
-//
-//								}
-//							} catch (Exception e) {
-//
-//							}
-//							Log.d(TAG, "mScannerMethod:" + uri);
-//							if (uri != null) {
-//								mCursor = resolver.query(uri, mCursorCols,
-//										where, selectionArgs, null);
-//							}
-//						}
-//					}
+                    //					if (mCursor.getCount() == 0) {
+                    //						if (mScannerMethod != null) {
+                    //							try {
+                    //								if (Build.VERSION.SDK_INT >= 25) {
+                    //									uri = (Uri) mScannerMethod.invoke(mScanner,
+                    //											path, null);
+                    //								} else {
+                    //									uri = (Uri) mScannerMethod.invoke(mScanner,
+                    //											path, "external", null);
+                    //
+                    //								}
+                    //							} catch (Exception e) {
+                    //
+                    //							}
+                    //							Log.d(TAG, "mScannerMethod:" + uri);
+                    //							if (uri != null) {
+                    //								mCursor = resolver.query(uri, mCursorCols,
+                    //										where, selectionArgs, null);
+                    //							}
+                    //						}
+                    //					}
 
                     Log.d(TAG, "mScannerMethod no canner:" + uri);
                     if (mCursor.getCount() == 0) {
@@ -689,12 +682,10 @@ public class ComMediaPlayer extends MediaPlayer {
                 if (mRepeatMode == REPEAT_SHUFFLE) {
                     mCurrentPlayPos = getRandomSong();
                 } else {
-                    mCurrentPlayPos = (mCurrentPlayPos + mCurrentUriList.size() - 1)
-                            % mCurrentUriList.size();
+                    mCurrentPlayPos = (mCurrentPlayPos + mCurrentUriList.size() - 1) % mCurrentUriList.size();
                 }
 
-                if (!isLock()
-                        && (System.currentTimeMillis() - mPlayDelayStart) > TIME_DELAY_PLAY) {
+                if (!isLock() && (System.currentTimeMillis() - mPlayDelayStart) > TIME_DELAY_PLAY) {
                     playCurrent();
                 } else {
                     if (!isLock() && this.isInitialized() && isPlaying()) {
@@ -712,8 +703,7 @@ public class ComMediaPlayer extends MediaPlayer {
 
     private int getRandomPositive() {
         int r = mRandom.nextInt();
-        if (r < 0)
-            r = 0 - r;
+        if (r < 0) r = 0 - r;
         return r;
     }
 
@@ -735,12 +725,10 @@ public class ComMediaPlayer extends MediaPlayer {
                 if (mRepeatMode == REPEAT_SHUFFLE) {
                     mCurrentPlayPos = getRandomSong();
                 } else {
-                    mCurrentPlayPos = (mCurrentPlayPos + 1)
-                            % mCurrentUriList.size();
+                    mCurrentPlayPos = (mCurrentPlayPos + 1) % mCurrentUriList.size();
                 }
 
-                if (!isLock()
-                        && (System.currentTimeMillis() - mPlayDelayStart) > TIME_DELAY_PLAY) {
+                if (!isLock() && (System.currentTimeMillis() - mPlayDelayStart) > TIME_DELAY_PLAY) {
                     playCurrent();
                 } else {
                     if (!isLock() && this.isInitialized() && isPlaying()) {
@@ -770,8 +758,7 @@ public class ComMediaPlayer extends MediaPlayer {
         // return;
         // }
         synchronized (this) {
-            if (mFailNum != 0)
-                return;
+            if (mFailNum != 0) return;
 
             if (mCurrentUriList.size() != 0) {
                 if (mRepeatMode == REPEAT_SHUFFLE) {
@@ -779,8 +766,7 @@ public class ComMediaPlayer extends MediaPlayer {
                 } else if (mRepeatMode == REPEAT_CURRENT) {
 
                 } else {
-                    mCurrentPlayPos = (mCurrentPlayPos + 1)
-                            % mCurrentUriList.size();
+                    mCurrentPlayPos = (mCurrentPlayPos + 1) % mCurrentUriList.size();
                 }
             }
             mStartPlayTime = 0;
@@ -802,10 +788,8 @@ public class ComMediaPlayer extends MediaPlayer {
             if (isInitialized()) {
                 int pos = getCurrentPosition();
                 pos += 15000;
-                if (pos < 0)
-                    pos = 0;
-                if (pos > getDuration())
-                    pos = getDuration();
+                if (pos < 0) pos = 0;
+                if (pos > getDuration()) pos = getDuration();
                 seekTo(pos);
             }
         }
@@ -817,10 +801,8 @@ public class ComMediaPlayer extends MediaPlayer {
             if (isInitialized()) {
                 int pos = getCurrentPosition();
                 pos -= 15000;
-                if (pos < 0)
-                    pos = 0;
-                if (pos > getDuration())
-                    pos = getDuration();
+                if (pos < 0) pos = 0;
+                if (pos > getDuration()) pos = getDuration();
                 seekTo(pos);
             }
         }
@@ -838,7 +820,7 @@ public class ComMediaPlayer extends MediaPlayer {
             } else {
                 setRepeatMode(REPEAT_NONE);
             }
-//			notifyChange(PLAY_REPEAT);
+            //			notifyChange(PLAY_REPEAT);
 
             return mRepeatMode;
 
@@ -855,7 +837,7 @@ public class ComMediaPlayer extends MediaPlayer {
             } else {
                 setRepeatMode(REPEAT_ALL);
             }
-//			notifyChange(PLAY_REPEAT);
+            //			notifyChange(PLAY_REPEAT);
 
             return mRepeatMode;
 
@@ -964,15 +946,13 @@ public class ComMediaPlayer extends MediaPlayer {
     }
 
     private void saveDataEx(String data, String s, int v) {
-        SharedPreferences.Editor sharedata = mContext.getSharedPreferences(
-                data, 0).edit();
+        SharedPreferences.Editor sharedata = mContext.getSharedPreferences(data, 0).edit();
         sharedata.putInt(s, v);
         sharedata.commit();
     }
 
     private void saveDataEx(String data, String s, String v) {
-        SharedPreferences.Editor sharedata = mContext.getSharedPreferences(
-                data, 0).edit();
+        SharedPreferences.Editor sharedata = mContext.getSharedPreferences(data, 0).edit();
         sharedata.putString(s, v);
         sharedata.commit();
     }
@@ -990,36 +970,36 @@ public class ComMediaPlayer extends MediaPlayer {
         return sharedata.getInt(s, 0);
     }
 
-//	public void initPlayingList() {
-//		mCurrentUriList.clear();
-//		// get saved list & checked save list
-//		mCurrentPlayPos = getData(SAVE_DATA_CUR_POS);
-//		mRepeatMode = getData(SAVE_DATA_REPEAT);
-//		searchFilePrepare(mUsbUriList, mUSBFolderUriList, MEDIA_PLAY_PATH);
-//		// for (String s : mUsbUriList) {
-//		// mCurrentUriList.add(s);
-//		// }
-//
-//		mCurrentUriList = mUsbUriList;
-//
-//		if (mCurrentUriList != null) {
-//			mCurrentShow.clear();
-//			for (String s : mCurrentUriList) {
-//				mCurrentShow.add(cutPathSuffix(cutPathPrex(s)));
-//			}
-//		}
-//
-//		if (mCurrentPlayPos >= mCurrentUriList.size()) {
-//			mCurrentPlayPos = 0;
-//		}
-//		// by allen
-//		if (mCurrentUriList.size() > 0) {
-//
-//			getErrFiles();
-//		} else {
-//			updateErrFiles(-1);
-//		}
-//	}
+    //	public void initPlayingList() {
+    //		mCurrentUriList.clear();
+    //		// get saved list & checked save list
+    //		mCurrentPlayPos = getData(SAVE_DATA_CUR_POS);
+    //		mRepeatMode = getData(SAVE_DATA_REPEAT);
+    //		searchFilePrepare(mUsbUriList, mUSBFolderUriList, MEDIA_PLAY_PATH);
+    //		// for (String s : mUsbUriList) {
+    //		// mCurrentUriList.add(s);
+    //		// }
+    //
+    //		mCurrentUriList = mUsbUriList;
+    //
+    //		if (mCurrentUriList != null) {
+    //			mCurrentShow.clear();
+    //			for (String s : mCurrentUriList) {
+    //				mCurrentShow.add(cutPathSuffix(cutPathPrex(s)));
+    //			}
+    //		}
+    //
+    //		if (mCurrentPlayPos >= mCurrentUriList.size()) {
+    //			mCurrentPlayPos = 0;
+    //		}
+    //		// by allen
+    //		if (mCurrentUriList.size() > 0) {
+    //
+    //			getErrFiles();
+    //		} else {
+    //			updateErrFiles(-1);
+    //		}
+    //	}
 
     private Context mContext;
 
@@ -1039,8 +1019,7 @@ public class ComMediaPlayer extends MediaPlayer {
                         String s;
                         int start = mPathFail.lastIndexOf('/');
                         if (start != -1) {
-                            s = mPathFail.substring(start + 1,
-                                    mPathFail.length());
+                            s = mPathFail.substring(start + 1, mPathFail.length());
                         } else {
                             s = mPathFail;
                         }
@@ -1054,12 +1033,7 @@ public class ComMediaPlayer extends MediaPlayer {
                         // Toast.LENGTH_SHORT);
                         // mToastFail.show();
 
-                        notifyChange(
-                                PLAY_FAIL,
-                                mPathFail
-                                        + "  "
-                                        + mContext
-                                        .getString(R.string.play_fail));
+                        notifyChange(PLAY_FAIL, mPathFail + "  " + mContext.getString(R.string.play_fail));
 
                     }
                 }
@@ -1068,10 +1042,8 @@ public class ComMediaPlayer extends MediaPlayer {
             mHandler.postDelayed(new Runnable() {
                 public void run() {
                     if (mShowBePlay && !mIsInitialized) {
-                        if (mCurrentUriList.size() > 1
-                                && mFailNum < mCurrentUriList.size()) {
-                            mCurrentPlayPos = (mCurrentPlayPos + 1)
-                                    % mCurrentUriList.size();
+                        if (mCurrentUriList.size() > 1 && mFailNum < mCurrentUriList.size()) {
+                            mCurrentPlayPos = (mCurrentPlayPos + 1) % mCurrentUriList.size();
                             playCurrent();
                         }
                     } else {
@@ -1123,12 +1095,11 @@ public class ComMediaPlayer extends MediaPlayer {
                     break;
                 case MSG_DELAY_PLAY:
                     if (mPlayDelayIndex == mCurrentPlayPos) {
-//					Log.d("eec", "MSG_DELAY_PLAY!!!!!!!"+isLock()+mShowBePlay);
+                        //					Log.d("eec", "MSG_DELAY_PLAY!!!!!!!"+isLock()+mShowBePlay);
                         if (!isLock()) {
                             playCurrent();
                         } else {
-                            Log.d(TAG,
-                                    "MSG_DELAY_PLAY: is few in here. still lock???");
+                            Log.d(TAG, "MSG_DELAY_PLAY: is few in here. still lock???");
                             playDelay();
                         }
                     }
@@ -1140,8 +1111,7 @@ public class ComMediaPlayer extends MediaPlayer {
 
                     if (mIsLock > 0 && ((mIsLock - mPreLock) == 1)) {
                         mHandler.removeMessages(MSG_DELAY_COMPLETE_PLAY);
-                        mHandler.sendEmptyMessageDelayed(MSG_DELAY_COMPLETE_PLAY,
-                                TIME_DELAY_COMPLETE_PLAY);
+                        mHandler.sendEmptyMessageDelayed(MSG_DELAY_COMPLETE_PLAY, TIME_DELAY_COMPLETE_PLAY);
 
                     } else {
 
@@ -1228,12 +1198,11 @@ public class ComMediaPlayer extends MediaPlayer {
     private int mRepeatCheckSavePlayStatus = 40;
 
     public void savePlayStatus() {
-//		Log.d("eec", "savePlayStatus" + isPlaying() + mThreadPlayFile);
+        //		Log.d("eec", "savePlayStatus" + isPlaying() + mThreadPlayFile);
         mHandler.removeMessages(MSG_DELAY_PLAY);
         if (mThreadPlayFile != null) {
             mHandler.removeMessages(MSG_CHECK_SAVE_PLAY_STATUS_IF_OPENING);
-            mHandler.sendEmptyMessageDelayed(
-                    MSG_CHECK_SAVE_PLAY_STATUS_IF_OPENING, 50);
+            mHandler.sendEmptyMessageDelayed(MSG_CHECK_SAVE_PLAY_STATUS_IF_OPENING, 50);
         } else {
             mRepeatCheckSavePlayStatus = 40;
             try {
@@ -1325,8 +1294,7 @@ public class ComMediaPlayer extends MediaPlayer {
         @Override
         public boolean onError(MediaPlayer mp, int what, int extra) {
             // TODO Auto-generated method stub
-            Log.e(TAG, ">>>>>>>>>>>>>>>>>>>onError: what=" + what + " ,extra="
-                    + extra);
+            Log.e(TAG, ">>>>>>>>>>>>>>>>>>>onError: what=" + what + " ,extra=" + extra);
             if (what == MEDIA_ERROR_SERVER_DIED) {
 
             }
@@ -1420,8 +1388,7 @@ public class ComMediaPlayer extends MediaPlayer {
         if (mCurrentUriList.get(0).contains("USB")) {
             return true;
         } else {
-            if (Util.isPX6() && path != null
-                    && path.startsWith("/storage/MediaCard/")) {
+            if (Util.isPX6() && path != null && path.startsWith("/storage/MediaCard/")) {
                 return true;
             }
         }
@@ -1446,23 +1413,20 @@ public class ComMediaPlayer extends MediaPlayer {
                 mSaveForSleepFolder = getData(SAVE_DATA_CUR_FOLDER);
                 mSaveForSleepTime = getData(SAVE_DATA_PLAY_TIME);
 
-                if (mSaveForSleepPos >= 0
-                        && mSaveForSleepPos < mCurrentUriList.size()) {
+                if (mSaveForSleepPos >= 0 && mSaveForSleepPos < mCurrentUriList.size()) {
                     mSaveForSleepPath = mCurrentUriList.get(mSaveForSleepPos);
 
                     mMemoryPlayFromSleep = 0;
                 }
 
-                Log.d(TAG, mCurrentUriList.get(0)
-                        + "::savePlayForSleepRemount:" + mSaveForSleepPath
-                        + ":" + mSaveForSleepPos + ":" + mSaveForSleepPage);
+                Log.d(TAG, mCurrentUriList.get(0) + "::savePlayForSleepRemount:" + mSaveForSleepPath + ":" + mSaveForSleepPos + ":" + mSaveForSleepPage);
             } else {
-//				mSaveSDPlayIfSleep = true;
-//				Log.d(TAG, "mSaveSDPlayIfSleep:" + mSaveSDPlayIfSleep);
+                //				mSaveSDPlayIfSleep = true;
+                //				Log.d(TAG, "mSaveSDPlayIfSleep:" + mSaveSDPlayIfSleep);
             }
 
             if (isInitialized()) {
-//				releasePlay();
+                //				releasePlay();
                 try {
                     stop();
                     reset();
@@ -1475,10 +1439,10 @@ public class ComMediaPlayer extends MediaPlayer {
                 mIsInitialized = false;
             }
         }
-//		else {
-//			mMemoryPlayFromSleep = -1;
-//			mSaveForSleepPath = null;
-//		}
+        //		else {
+        //			mMemoryPlayFromSleep = -1;
+        //			mSaveForSleepPath = null;
+        //		}
     }
 
     public void savePlayForSleepRemount(String path) {
@@ -1548,8 +1512,7 @@ public class ComMediaPlayer extends MediaPlayer {
                     saveData(SAVE_DATA_PLAY_TIME, mSaveForSleepTime);
                     mSleepRestore = true;
                 }
-                Log.d(TAG, "1restorePlayForSleepRemount:" + f.exists()
-                        + ":" + mSaveForSleepPage + ":" + mSaveForSleepPos + ":" + mSaveForSleepFolder);
+                Log.d(TAG, "1restorePlayForSleepRemount:" + f.exists() + ":" + mSaveForSleepPage + ":" + mSaveForSleepPos + ":" + mSaveForSleepFolder);
             }
             Log.d(TAG, "2restorePlayForSleepRemount:" + mSaveForSleepPath);
             // }
@@ -1564,11 +1527,10 @@ public class ComMediaPlayer extends MediaPlayer {
                 @Override
                 public void onReceive(Context context, Intent intent) {
                     String action = intent.getAction();
-//					Log.e(TAG, "mediaplayer+" + action);
+                    //					Log.e(TAG, "mediaplayer+" + action);
                     if (action.equals(Intent.ACTION_MEDIA_EJECT)) {
 
-                        String path = intent.getData().toString()
-                                .substring("file://".length());
+                        String path = intent.getData().toString().substring("file://".length());
                         Log.e(TAG, "eject+" + path);
                         if (path != null && path.toString().contains("cdrom")) {
                             return;
@@ -1587,11 +1549,11 @@ public class ComMediaPlayer extends MediaPlayer {
                                 mSaveForSleepPath = null;
                             }
 
-//							if(path!=null && (path.endsWith("3") ||
-//									path.endsWith("4")) && GlobalDef.isOneSleepRemountTime()){
-//								Log.d(TAG, "eeeeeeee222222eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
-//								return;
-//							}	
+                            //							if(path!=null && (path.endsWith("3") ||
+                            //									path.endsWith("4")) && GlobalDef.isOneSleepRemountTime()){
+                            //								Log.d(TAG, "eeeeeeee222222eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
+                            //								return;
+                            //							}
                         }
 
 
@@ -1603,15 +1565,12 @@ public class ComMediaPlayer extends MediaPlayer {
                                 Log.d(TAG, "eject play path" + mCurrentUriList.get(0));
                                 if (mCurrentUriList.get(0).startsWith(path)) {
                                     // savePlayForSleepRemount(path);
-                                    closeExternalStorageFiles(intent.getData()
-                                            .getPath());
+                                    closeExternalStorageFiles(intent.getData().getPath());
 
                                     mCurrentUriList.clear();
                                     mCurrentTotal = 0;
 
-                                    if (mSaveForSleepPath == null
-                                            || mSaveForSleepPath
-                                            .startsWith(path)) {
+                                    if (mSaveForSleepPath == null || mSaveForSleepPath.startsWith(path)) {
 
                                         notifyChange(STORAGE_EJECT);
                                         mCursor = null;
@@ -1625,16 +1584,13 @@ public class ComMediaPlayer extends MediaPlayer {
                             cleanMediaChangeStatus(path);
 
                             if (!GlobalDef.isOneSleepRemountTime() && mScanMusic) {
-                                Toast.makeText(mContext,
-                                        mContext.getString(R.string.device_eject),
-                                        Toast.LENGTH_SHORT).show();
+                                Toast.makeText(mContext, mContext.getString(R.string.device_eject), Toast.LENGTH_SHORT).show();
                             }
 
                         }
 
                     } else if (action.equals(Intent.ACTION_MEDIA_MOUNTED)) {
-                        String path = intent.getData().toString()
-                                .substring("file://".length());
+                        String path = intent.getData().toString().substring("file://".length());
                         Log.d(TAG, "mount+" + path);
                         if (path != null && path.toString().contains("cdrom")) {
                             return;
@@ -1652,18 +1608,15 @@ public class ComMediaPlayer extends MediaPlayer {
 
                             if (BR.mBootTime != 0) {
 
-                                Log.d(TAG, GlobalDef.isOneSleepRemountTime() + ":" + path + ":"
-                                        + mSaveForSleepPath);
+                                Log.d(TAG, GlobalDef.isOneSleepRemountTime() + ":" + path + ":" + mSaveForSleepPath);
 
-                                if ((!GlobalDef.isOneSleepRemountTime())
-                                        || (mSaveForSleepPath != null && mSaveForSleepPath
-                                        .startsWith(path))) {
+                                if ((!GlobalDef.isOneSleepRemountTime()) || (mSaveForSleepPath != null && mSaveForSleepPath.startsWith(path))) {
                                     mMountPath = path;
 
                                     GlobalDef.mAutoMountByPowerOn = GlobalDef.isOneSleepRemountTime();
 
-//									Log.d(TAG, GlobalDef.isOneSleepRemountTime()+":"+path + "f222222222222222ff"
-//											+ mSaveForSleepPath);
+                                    //									Log.d(TAG, GlobalDef.isOneSleepRemountTime()+":"+path + "f222222222222222ff"
+                                    //											+ mSaveForSleepPath);
 
                                     mHandler.postDelayed(new Runnable() {
                                         public void run() {
@@ -1713,14 +1666,11 @@ public class ComMediaPlayer extends MediaPlayer {
 
 
                         if (BR.mBootTime != 0 && mScanMusic) {
-                            Toast.makeText(mContext,
-                                    mContext.getString(R.string.device_mount),
-                                    Toast.LENGTH_SHORT).show();
+                            Toast.makeText(mContext, mContext.getString(R.string.device_mount), Toast.LENGTH_SHORT).show();
                         }
 
                     } else if (action.equals(Intent.ACTION_MEDIA_SCANNER_FINISHED)) {
-                        String path = intent.getData().toString()
-                                .substring("file://".length());
+                        String path = intent.getData().toString().substring("file://".length());
 
                         Log.d(TAG, "Intent.ACTION_MEDIA_SCANNER_FINISHED:" + mCursor + ":" + path);
                         if (path != null && path.toString().contains("cdrom")) {
@@ -1845,8 +1795,7 @@ public class ComMediaPlayer extends MediaPlayer {
         }
 
         try {
-            c = resolver.query(uri, mCursorColsAlbum, where, selectionArgs,
-                    null);
+            c = resolver.query(uri, mCursorColsAlbum, where, selectionArgs, null);
 
             if (c == null || c.isClosed()) {
                 return 0;
@@ -1859,8 +1808,7 @@ public class ComMediaPlayer extends MediaPlayer {
 
             }
 
-            return c.getLong(c
-                    .getColumnIndexOrThrow(MediaStore.Audio.Media.ALBUM_ID));
+            return c.getLong(c.getColumnIndexOrThrow(MediaStore.Audio.Media.ALBUM_ID));
 
         } catch (Exception e) {
             return 0;
@@ -1886,8 +1834,7 @@ public class ComMediaPlayer extends MediaPlayer {
         }
 
         try {
-            c = resolver.query(uri, mCursorColsTime, where, selectionArgs,
-                    null);
+            c = resolver.query(uri, mCursorColsTime, where, selectionArgs, null);
 
             if (c == null || c.isClosed()) {
                 return null;
@@ -1899,8 +1846,7 @@ public class ComMediaPlayer extends MediaPlayer {
                 c.moveToNext();
 
             }
-            return c.getString(c
-                    .getColumnIndexOrThrow(MediaStore.Audio.Media.DURATION));
+            return c.getString(c.getColumnIndexOrThrow(MediaStore.Audio.Media.DURATION));
         } catch (Exception e) {
             return "";
         }
@@ -1916,8 +1862,7 @@ public class ComMediaPlayer extends MediaPlayer {
                 if (mCursor == null || mCursor.isClosed()) {
                     return null;
                 }
-                return mCursor.getString(mCursor
-                        .getColumnIndexOrThrow(MediaStore.Audio.Media.ARTIST));
+                return mCursor.getString(mCursor.getColumnIndexOrThrow(MediaStore.Audio.Media.ARTIST));
             } catch (Exception e) {
                 return "";
             }
@@ -1931,9 +1876,7 @@ public class ComMediaPlayer extends MediaPlayer {
                 if (mCursor == null || mCursor.isClosed()) {
                     return -1;
                 }
-                return mCursor
-                        .getLong(mCursor
-                                .getColumnIndexOrThrow(MediaStore.Audio.Media.ARTIST_ID));
+                return mCursor.getLong(mCursor.getColumnIndexOrThrow(MediaStore.Audio.Media.ARTIST_ID));
             } catch (Exception e) {
                 return 0;
             }
@@ -1946,8 +1889,7 @@ public class ComMediaPlayer extends MediaPlayer {
                 if (mCursor == null || mCursor.isClosed()) {
                     return null;
                 }
-                return mCursor.getString(mCursor
-                        .getColumnIndexOrThrow(MediaStore.Audio.Media.ALBUM));
+                return mCursor.getString(mCursor.getColumnIndexOrThrow(MediaStore.Audio.Media.ALBUM));
 
             } catch (Exception e) {
                 return "";
@@ -1961,9 +1903,7 @@ public class ComMediaPlayer extends MediaPlayer {
                 if (mCursor == null || mCursor.isClosed()) {
                     return -1;
                 }
-                return mCursor
-                        .getLong(mCursor
-                                .getColumnIndexOrThrow(MediaStore.Audio.Media.ALBUM_ID));
+                return mCursor.getLong(mCursor.getColumnIndexOrThrow(MediaStore.Audio.Media.ALBUM_ID));
 
             } catch (Exception e) {
                 return 0;
@@ -1978,14 +1918,11 @@ public class ComMediaPlayer extends MediaPlayer {
                 if (mCursor != null && !mCursor.isClosed()) {
                     // return null;
 
-                    name = mCursor
-                            .getString(mCursor
-                                    .getColumnIndexOrThrow(MediaStore.Audio.Media.TITLE));
+                    name = mCursor.getString(mCursor.getColumnIndexOrThrow(MediaStore.Audio.Media.TITLE));
                 }
 
                 if (name == null || name.length() == 0) {
-                    if (this.mCurrentPlayPos >= 0
-                            && this.mCurrentPlayPos < mCurrentUriList.size()) {
+                    if (this.mCurrentPlayPos >= 0 && this.mCurrentPlayPos < mCurrentUriList.size()) {
                         name = mCurrentUriList.get(mCurrentPlayPos);
                         name = cutPathPrex(name);
                     }
@@ -1993,8 +1930,7 @@ public class ComMediaPlayer extends MediaPlayer {
                 }
 
             } catch (Exception e) {
-                if (this.mCurrentPlayPos >= 0
-                        && this.mCurrentPlayPos < mCurrentUriList.size()) {
+                if (this.mCurrentPlayPos >= 0 && this.mCurrentPlayPos < mCurrentUriList.size()) {
                     name = mCurrentUriList.get(mCurrentPlayPos);
                     name = cutPathPrex(name);
                 }
@@ -2058,10 +1994,9 @@ public class ComMediaPlayer extends MediaPlayer {
 
         // long album_id = getAlbumId();
 
-//		mAlbumID = album_id;
+        //		mAlbumID = album_id;
         ContentResolver res = mContext.getContentResolver();
-        Uri uri = ContentUris.withAppendedId(
-                Uri.parse("content://media/external/audio/albumart"), album_id);
+        Uri uri = ContentUris.withAppendedId(Uri.parse("content://media/external/audio/albumart"), album_id);
         if (uri != null) {
             InputStream in = null;
             BitmapFactory.Options sBitmapOptions = new BitmapFactory.Options();
@@ -2069,12 +2004,12 @@ public class ComMediaPlayer extends MediaPlayer {
                 in = res.openInputStream(uri);
                 sBitmapOptions.inPreferredConfig = Bitmap.Config.RGB_565;
                 sBitmapOptions.inDither = false;
-//				Bitmap b = BitmapFactory.decodeStream(in, null, sBitmapOptions);
-//				if (b != null && b.getByteCount() > 500 * 1024) {
-//					Log.d(TAG, "getArtwork size too big:" + mArtWork.getByteCount());
-//					b = null;
-//				}
-//				return b;
+                //				Bitmap b = BitmapFactory.decodeStream(in, null, sBitmapOptions);
+                //				if (b != null && b.getByteCount() > 500 * 1024) {
+                //					Log.d(TAG, "getArtwork size too big:" + mArtWork.getByteCount());
+                //					b = null;
+                //				}
+                //				return b;
                 return BitmapFactory.decodeStream(in, null, sBitmapOptions);
             }
             // catch (FileNotFoundException ex) {
@@ -2143,8 +2078,7 @@ public class ComMediaPlayer extends MediaPlayer {
     private int mErrFileNum = 0;
 
     private void getErrFiles() {
-        SharedPreferences sharedata = mContext.getSharedPreferences(
-                mSaveDataPath, 0);
+        SharedPreferences sharedata = mContext.getSharedPreferences(mSaveDataPath, 0);
 
         mErrFileNum = getData(SAVE_DATA_ERR_FILES_NUM);
         if (mErrFileNum > 0) {
@@ -2166,8 +2100,7 @@ public class ComMediaPlayer extends MediaPlayer {
 
     public void updateErrFiles(int index) {
         if (index >= 0 && index < mCurrentUriList.size()) {
-            saveDataEx(mSaveDataPath, SAVE_DATA_ERR_FILES + mErrFileNum,
-                    mCurrentUriList.get(index));
+            saveDataEx(mSaveDataPath, SAVE_DATA_ERR_FILES + mErrFileNum, mCurrentUriList.get(index));
 
             mErrFile.add(mCurrentUriList.get(index));
 
@@ -2223,8 +2156,7 @@ public class ComMediaPlayer extends MediaPlayer {
     public static String MEDIA_USB4_PATH = "/storage/usbdisk4/";
     public static String MEDIA_SD_PATH = "/storage/sdcard1/";
     public static String MEDIA_SD2_PATH = "/storage/sdcard2/";
-    public final static String MEDIA_LOCAL_PATH = Environment
-            .getExternalStorageDirectory().getAbsolutePath();
+    public final static String MEDIA_LOCAL_PATH = Environment.getExternalStorageDirectory().getAbsolutePath();
 
     private ArrayList<String> mCurrentUriList = new ArrayList<String>(); // just
     // for
@@ -2339,16 +2271,13 @@ public class ComMediaPlayer extends MediaPlayer {
         return ret;
     }
 
-    private void getShowList(ArrayList<String> listFile,
-                             ArrayList<String> listFoler, int folderIndex, String root) {
+    private void getShowList(ArrayList<String> listFile, ArrayList<String> listFoler, int folderIndex, String root) {
         mCurrentShow.clear();
         mCurrentPreparePlay.clear();
 
         try {
             if (mSearchingPath != null) {
-                if (listFile != null && listFile.size() > 0
-                        && listFile.get(0) != null
-                        && listFile.get(0).startsWith(mSearchingPath)) {
+                if (listFile != null && listFile.size() > 0 && listFile.get(0) != null && listFile.get(0).startsWith(mSearchingPath)) {
                     return;
                 }
             }
@@ -2375,8 +2304,7 @@ public class ComMediaPlayer extends MediaPlayer {
                 }
             } else {
                 String folder = null;
-                if (listFoler != null && listFoler.size() != 0
-                        && folderIndex < listFoler.size()) {
+                if (listFoler != null && listFoler.size() != 0 && folderIndex < listFoler.size()) {
                     folder = listFoler.get(folderIndex);
                     mCurrentShow.add(cutPathPrex(folder));
                 }
@@ -2395,8 +2323,7 @@ public class ComMediaPlayer extends MediaPlayer {
         }
     }
 
-    private void getShowFoderList(ArrayList<String> listFile,
-                                  ArrayList<String> listFoler, String root) {
+    private void getShowFoderList(ArrayList<String> listFile, ArrayList<String> listFoler, String root) {
         mCurrentShow.clear();
         mCurrentPreparePlay.clear();
 
@@ -2478,9 +2405,9 @@ public class ComMediaPlayer extends MediaPlayer {
 
     private void searchFile(File filepath, int deep) {
         try {
-//			Util.doSleep(10);//test
+            //			Util.doSleep(10);//test
             File[] files = filepath.listFiles();
-//			Log.d("allen", filepath.getPath() + ":" + deep);
+            //			Log.d("allen", filepath.getPath() + ":" + deep);
             --deep;
             if (files != null && files.length > 0) {
                 for (File file : files) {
@@ -2498,10 +2425,8 @@ public class ComMediaPlayer extends MediaPlayer {
                             }
 
                             if (mSearchingFolerList != null) {
-                                if (isExitFolder(file.getPath().substring(
-                                        mSearchingPath.length()))) {
-                                    setFolderList(file.getPath(),
-                                            mSearchingFolerList);
+                                if (isExitFolder(file.getPath().substring(mSearchingPath.length()))) {
+                                    setFolderList(file.getPath(), mSearchingFolerList);
                                 }
                             }
                         }
@@ -2513,8 +2438,7 @@ public class ComMediaPlayer extends MediaPlayer {
         }
     }
 
-    private int searchFilePrepare(ArrayList<String> uri,
-                                  ArrayList<String> folder, String path) {
+    private int searchFilePrepare(ArrayList<String> uri, ArrayList<String> folder, String path) {
         if (path == null || path.length() < 1) {
             return 0;
         }
@@ -2529,8 +2453,7 @@ public class ComMediaPlayer extends MediaPlayer {
 
         mHandler.removeMessages(MSG_HIDE_BUSY_DIALOG);
         mHandler.removeMessages(MSG_SHOW_BUSY_DIALOG);
-        mHandler.sendEmptyMessageDelayed(MSG_SHOW_BUSY_DIALOG,
-                TIME_SHOW_BUSY_DIALOG);
+        mHandler.sendEmptyMessageDelayed(MSG_SHOW_BUSY_DIALOG, TIME_SHOW_BUSY_DIALOG);
 
 
         searchFile(fsearch, 4);
@@ -2554,9 +2477,7 @@ public class ComMediaPlayer extends MediaPlayer {
     public static final int QUERY_FLAG_USB3 = 0x20;
     public static final int QUERY_FLAG_USB4 = 0x40;
 
-    private static final int QUERY_FLAG_ALL = QUERY_FLAG_SD | QUERY_FLAG_USB
-            | QUERY_FLAG_LOCAL | QUERY_FLAG_SD2 | QUERY_FLAG_USB2
-            | QUERY_FLAG_USB3 | QUERY_FLAG_USB4;
+    private static final int QUERY_FLAG_ALL = QUERY_FLAG_SD | QUERY_FLAG_USB | QUERY_FLAG_LOCAL | QUERY_FLAG_SD2 | QUERY_FLAG_USB2 | QUERY_FLAG_USB3 | QUERY_FLAG_USB4;
     public static int mQeryFlag = QUERY_FLAG_ALL;
 
     protected String mSaveDataPath = "audio_data";
@@ -2603,8 +2524,7 @@ public class ComMediaPlayer extends MediaPlayer {
     private ArrayList<String> mAsyncSearchingFolerList = null;
     private String mAsyncSearchingPath = null;
 
-    private int searchFilePrepareEx(ArrayList<String> uri,
-                                    ArrayList<String> folder, String path) {
+    private int searchFilePrepareEx(ArrayList<String> uri, ArrayList<String> folder, String path) {
 
         if (path == null || path.length() < 1) {
             return 0;
@@ -2632,8 +2552,7 @@ public class ComMediaPlayer extends MediaPlayer {
     }
 
     public ArrayList<String> getStrList(int id, int folderIndex) {
-        Log.d(TAG, "mQeryFlag:" + Integer.toHexString(mQeryFlag) + ":getStrList id:" + id + ":current size:"
-                + mCurrentUriList.size());
+        Log.d(TAG, "mQeryFlag:" + Integer.toHexString(mQeryFlag) + ":getStrList id:" + id + ":current size:" + mCurrentUriList.size());
 
         switch (id) {
             case LIST_PLAYING: {
@@ -2649,70 +2568,57 @@ public class ComMediaPlayer extends MediaPlayer {
                         mQeryFlag &= ~QUERY_FLAG_SD;
                     }
                 }
-                getShowList(mSDUriList, mSDFolderUriList, folderIndex,
-                        MEDIA_SD_PATH);
+                getShowList(mSDUriList, mSDFolderUriList, folderIndex, MEDIA_SD_PATH);
                 break;
             case LIST_SD2:
                 if ((mQeryFlag & QUERY_FLAG_SD2) != 0) {
-                    if (-1 != searchFilePrepareEx(mSD2UriList, mSD2FolderUriList,
-                            MEDIA_SD2_PATH)) {
+                    if (-1 != searchFilePrepareEx(mSD2UriList, mSD2FolderUriList, MEDIA_SD2_PATH)) {
                         mQeryFlag &= ~QUERY_FLAG_SD2;
                     }
                 }
-                getShowList(mSD2UriList, mSD2FolderUriList, folderIndex,
-                        MEDIA_SD2_PATH);
+                getShowList(mSD2UriList, mSD2FolderUriList, folderIndex, MEDIA_SD2_PATH);
                 break;
             case LIST_USB:
                 if ((mQeryFlag & QUERY_FLAG_USB) != 0) {
-                    if (-1 != searchFilePrepareEx(mUsbUriList, mUSBFolderUriList,
-                            MEDIA_USB_PATH)) {
+                    if (-1 != searchFilePrepareEx(mUsbUriList, mUSBFolderUriList, MEDIA_USB_PATH)) {
                         mQeryFlag &= ~QUERY_FLAG_USB;
                     }
                 }
-                getShowList(mUsbUriList, mUSBFolderUriList, folderIndex,
-                        MEDIA_USB_PATH);
+                getShowList(mUsbUriList, mUSBFolderUriList, folderIndex, MEDIA_USB_PATH);
                 break;
             case LIST_USB2:
                 if ((mQeryFlag & QUERY_FLAG_USB2) != 0) {
-                    if (-1 != searchFilePrepareEx(mUsb2UriList, mUSB2FolderUriList,
-                            MEDIA_USB2_PATH)) {
+                    if (-1 != searchFilePrepareEx(mUsb2UriList, mUSB2FolderUriList, MEDIA_USB2_PATH)) {
                         mQeryFlag &= ~QUERY_FLAG_USB2;
                     }
                 }
-                getShowList(mUsb2UriList, mUSB2FolderUriList, folderIndex,
-                        MEDIA_USB2_PATH);
+                getShowList(mUsb2UriList, mUSB2FolderUriList, folderIndex, MEDIA_USB2_PATH);
                 break;
             case LIST_USB3:
                 if ((mQeryFlag & QUERY_FLAG_USB3) != 0) {
-                    if (-1 != searchFilePrepareEx(mUsb3UriList, mUSB3FolderUriList,
-                            MEDIA_USB3_PATH)) {
+                    if (-1 != searchFilePrepareEx(mUsb3UriList, mUSB3FolderUriList, MEDIA_USB3_PATH)) {
                         mQeryFlag &= ~QUERY_FLAG_USB3;
                     }
                 }
-                getShowList(mUsb3UriList, mUSB3FolderUriList, folderIndex,
-                        MEDIA_USB3_PATH);
+                getShowList(mUsb3UriList, mUSB3FolderUriList, folderIndex, MEDIA_USB3_PATH);
                 break;
             case LIST_USB4:
                 if ((mQeryFlag & QUERY_FLAG_USB4) != 0) {
-                    if (-1 != searchFilePrepareEx(mUsb4UriList, mUSB4FolderUriList,
-                            MEDIA_USB4_PATH)) {
+                    if (-1 != searchFilePrepareEx(mUsb4UriList, mUSB4FolderUriList, MEDIA_USB4_PATH)) {
                         mQeryFlag &= ~QUERY_FLAG_USB4;
                     }
                 }
-                getShowList(mUsb4UriList, mUSB4FolderUriList, folderIndex,
-                        MEDIA_USB4_PATH);
+                getShowList(mUsb4UriList, mUSB4FolderUriList, folderIndex, MEDIA_USB4_PATH);
 
                 Log.d(TAG, "1:" + mUsb4UriList.size());
                 break;
             case LIST_LOCAL:
                 if ((mQeryFlag & QUERY_FLAG_LOCAL) != 0) {
-                    if (-1 != searchFilePrepareEx(mLocalUriList, mLocalFolderUriList,
-                            MEDIA_LOCAL_PATH)) {
+                    if (-1 != searchFilePrepareEx(mLocalUriList, mLocalFolderUriList, MEDIA_LOCAL_PATH)) {
                         mQeryFlag &= ~QUERY_FLAG_LOCAL;
                     }
                 }
-                getShowList(mLocalUriList, mLocalFolderUriList, folderIndex,
-                        MEDIA_LOCAL_PATH);
+                getShowList(mLocalUriList, mLocalFolderUriList, folderIndex, MEDIA_LOCAL_PATH);
                 break;
             case LIST_ALL_FOLDER:
                 getShowAllFoderList();
@@ -2725,8 +2631,7 @@ public class ComMediaPlayer extends MediaPlayer {
     }
 
     public ArrayList<String> getStrListEx(int id, int folderIndex) {
-        Log.d(TAG, "mQeryFlag:" + Integer.toHexString(mQeryFlag) + ":getStrList id:" + id + ":current size:"
-                + mCurrentUriList.size());
+        Log.d(TAG, "mQeryFlag:" + Integer.toHexString(mQeryFlag) + ":getStrList id:" + id + ":current size:" + mCurrentUriList.size());
         switch (id) {
             case LIST_PLAYING: {
                 mCurrentShow.clear();
@@ -2740,62 +2645,49 @@ public class ComMediaPlayer extends MediaPlayer {
                     searchFilePrepare(mSDUriList, mSDFolderUriList, MEDIA_SD_PATH);
                     mQeryFlag &= ~QUERY_FLAG_SD;
                 }
-                getShowList(mSDUriList, mSDFolderUriList, folderIndex,
-                        MEDIA_SD_PATH);
+                getShowList(mSDUriList, mSDFolderUriList, folderIndex, MEDIA_SD_PATH);
                 break;
             case LIST_SD2:
                 if ((mQeryFlag & QUERY_FLAG_SD2) != 0) {
-                    searchFilePrepare(mSD2UriList, mSD2FolderUriList,
-                            MEDIA_SD2_PATH);
+                    searchFilePrepare(mSD2UriList, mSD2FolderUriList, MEDIA_SD2_PATH);
                     mQeryFlag &= ~QUERY_FLAG_SD2;
                 }
-                getShowList(mSD2UriList, mSD2FolderUriList, folderIndex,
-                        MEDIA_SD2_PATH);
+                getShowList(mSD2UriList, mSD2FolderUriList, folderIndex, MEDIA_SD2_PATH);
                 break;
             case LIST_USB:
                 if ((mQeryFlag & QUERY_FLAG_USB) != 0) {
-                    searchFilePrepare(mUsbUriList, mUSBFolderUriList,
-                            MEDIA_USB_PATH);
+                    searchFilePrepare(mUsbUriList, mUSBFolderUriList, MEDIA_USB_PATH);
                     mQeryFlag &= ~QUERY_FLAG_USB;
                 }
-                getShowList(mUsbUriList, mUSBFolderUriList, folderIndex,
-                        MEDIA_USB_PATH);
+                getShowList(mUsbUriList, mUSBFolderUriList, folderIndex, MEDIA_USB_PATH);
                 break;
             case LIST_USB2:
                 if ((mQeryFlag & QUERY_FLAG_USB2) != 0) {
-                    searchFilePrepare(mUsb2UriList, mUSB2FolderUriList,
-                            MEDIA_USB2_PATH);
+                    searchFilePrepare(mUsb2UriList, mUSB2FolderUriList, MEDIA_USB2_PATH);
                     mQeryFlag &= ~QUERY_FLAG_USB2;
                 }
-                getShowList(mUsb2UriList, mUSB2FolderUriList, folderIndex,
-                        MEDIA_USB2_PATH);
+                getShowList(mUsb2UriList, mUSB2FolderUriList, folderIndex, MEDIA_USB2_PATH);
                 break;
             case LIST_USB3:
                 if ((mQeryFlag & QUERY_FLAG_USB3) != 0) {
-                    searchFilePrepare(mUsb3UriList, mUSB3FolderUriList,
-                            MEDIA_USB3_PATH);
+                    searchFilePrepare(mUsb3UriList, mUSB3FolderUriList, MEDIA_USB3_PATH);
                     mQeryFlag &= ~QUERY_FLAG_USB3;
                 }
-                getShowList(mUsb3UriList, mUSB3FolderUriList, folderIndex,
-                        MEDIA_USB3_PATH);
+                getShowList(mUsb3UriList, mUSB3FolderUriList, folderIndex, MEDIA_USB3_PATH);
                 break;
             case LIST_USB4:
                 if ((mQeryFlag & QUERY_FLAG_USB4) != 0) {
-                    searchFilePrepare(mUsb4UriList, mUSB4FolderUriList,
-                            MEDIA_USB4_PATH);
+                    searchFilePrepare(mUsb4UriList, mUSB4FolderUriList, MEDIA_USB4_PATH);
                     mQeryFlag &= ~QUERY_FLAG_USB4;
                 }
-                getShowList(mUsb4UriList, mUSB4FolderUriList, folderIndex,
-                        MEDIA_USB4_PATH);
+                getShowList(mUsb4UriList, mUSB4FolderUriList, folderIndex, MEDIA_USB4_PATH);
                 break;
             case LIST_LOCAL:
                 if ((mQeryFlag & QUERY_FLAG_LOCAL) != 0) {
-                    searchFilePrepare(mLocalUriList, mLocalFolderUriList,
-                            MEDIA_LOCAL_PATH);
+                    searchFilePrepare(mLocalUriList, mLocalFolderUriList, MEDIA_LOCAL_PATH);
                     mQeryFlag &= ~QUERY_FLAG_LOCAL;
                 }
-                getShowList(mLocalUriList, mLocalFolderUriList, folderIndex,
-                        MEDIA_LOCAL_PATH);
+                getShowList(mLocalUriList, mLocalFolderUriList, folderIndex, MEDIA_LOCAL_PATH);
                 break;
             case LIST_ALL_FOLDER:
                 getShowAllFoderList();
@@ -2894,8 +2786,7 @@ public class ComMediaPlayer extends MediaPlayer {
 
         mQeryFlag = QUERY_FLAG_ALL;
 
-        Log.d(TAG, "checkPlayingListIsExistFromSleep:" + mCurrentShow.size()
-                + ":" + mSaveForSleepPage + ":" + mSaveForSleepPos + ":" + mSaveForSleepFolder);
+        Log.d(TAG, "checkPlayingListIsExistFromSleep:" + mCurrentShow.size() + ":" + mSaveForSleepPage + ":" + mSaveForSleepPos + ":" + mSaveForSleepFolder);
 
         if (mCurrentShow.size() > 0) {
             mPreparePlayPage = page;
@@ -2916,14 +2807,12 @@ public class ComMediaPlayer extends MediaPlayer {
     // }
 
     public boolean equalPreparePlaylist() {
-        if (mCurrentPreparePlay.size() == 0)
-            return false;
+        if (mCurrentPreparePlay.size() == 0) return false;
         return mCurrentPreparePlay.equals(mCurrentUriList);
     }
 
     public boolean equalCurrentPlaylist(ArrayList<String> list) {
-        if (list.size() == 0)
-            return false;
+        if (list.size() == 0) return false;
         return list.equals(mCurrentUriList);
     }
 
@@ -2997,8 +2886,7 @@ public class ComMediaPlayer extends MediaPlayer {
         int mediaNum = 0;
         if (path != null) {
             if (MEDIA_SD_PATH.startsWith(path)) {
-                mediaNum = searchFilePrepare(mSDUriList, mSDFolderUriList,
-                        MEDIA_SD_PATH);
+                mediaNum = searchFilePrepare(mSDUriList, mSDFolderUriList, MEDIA_SD_PATH);
                 if (mSDUriList.size() > 0) {
                     // Intent i = new Intent(STORAGE_MOUNTED);
                     // i.putExtra("id", getIdFromPath(path));
@@ -3008,8 +2896,7 @@ public class ComMediaPlayer extends MediaPlayer {
 
             }
             if (MEDIA_SD2_PATH.startsWith(path)) {
-                mediaNum = searchFilePrepare(mSD2UriList, mSD2FolderUriList,
-                        MEDIA_SD2_PATH);
+                mediaNum = searchFilePrepare(mSD2UriList, mSD2FolderUriList, MEDIA_SD2_PATH);
                 if (mSD2UriList.size() > 0) {
 
                     id = getIdFromPath(path);
@@ -3017,40 +2904,35 @@ public class ComMediaPlayer extends MediaPlayer {
                 }
 
             } else if (MEDIA_USB_PATH.startsWith((path))) {
-                mediaNum = searchFilePrepare(mUsbUriList, mUSBFolderUriList,
-                        MEDIA_USB_PATH);
+                mediaNum = searchFilePrepare(mUsbUriList, mUSBFolderUriList, MEDIA_USB_PATH);
                 if (mUsbUriList.size() > 0) {
 
                     id = getIdFromPath(path);
                     // notifyChange(STORAGE_MOUNTED, getIdFromPath(path));
                 }
             } else if (MEDIA_USB2_PATH.startsWith((path))) {
-                mediaNum = searchFilePrepare(mUsb2UriList, mUSB2FolderUriList,
-                        MEDIA_USB2_PATH);
+                mediaNum = searchFilePrepare(mUsb2UriList, mUSB2FolderUriList, MEDIA_USB2_PATH);
                 if (mUsb2UriList.size() > 0) {
 
                     id = getIdFromPath(path);
                     // notifyChange(STORAGE_MOUNTED, getIdFromPath(path));
                 }
             } else if (MEDIA_USB3_PATH.startsWith((path))) {
-                mediaNum = searchFilePrepare(mUsb3UriList, mUSB3FolderUriList,
-                        MEDIA_USB3_PATH);
+                mediaNum = searchFilePrepare(mUsb3UriList, mUSB3FolderUriList, MEDIA_USB3_PATH);
                 if (mUsb3UriList.size() > 0) {
 
                     id = getIdFromPath(path);
                     // notifyChange(STORAGE_MOUNTED, getIdFromPath(path));
                 }
             } else if (MEDIA_USB4_PATH.startsWith((path))) {
-                mediaNum = searchFilePrepare(mUsb4UriList, mUSB4FolderUriList,
-                        MEDIA_USB4_PATH);
+                mediaNum = searchFilePrepare(mUsb4UriList, mUSB4FolderUriList, MEDIA_USB4_PATH);
                 if (mUsb4UriList.size() > 0) {
 
                     id = getIdFromPath(path);
                     // notifyChange(STORAGE_MOUNTED, getIdFromPath(path));
                 }
             } else if (MEDIA_LOCAL_PATH.startsWith(path)) {
-                mediaNum = searchFilePrepare(mLocalUriList,
-                        mLocalFolderUriList, MEDIA_LOCAL_PATH);
+                mediaNum = searchFilePrepare(mLocalUriList, mLocalFolderUriList, MEDIA_LOCAL_PATH);
                 if (mLocalUriList.size() > 0) {
 
                     id = getIdFromPath(path);
@@ -3090,10 +2972,10 @@ public class ComMediaPlayer extends MediaPlayer {
 
     public void closeExternalStorageFiles(String storagePath) {
         // stop playback and clean up if the SD card is going to be unmounted.
-//		stop();
+        //		stop();
 
         if (isInitialized()) {
-//			releasePlay();
+            //			releasePlay();
             try {
                 stop();
                 reset();
@@ -3197,8 +3079,7 @@ public class ComMediaPlayer extends MediaPlayer {
     }
 
     private void doScanId3Time() {
-        if (MachineConfig.VALUE_SYSTEM_UI45_8702_2.equals(GlobalDef
-                .getSystemUI())) {
+        if (MachineConfig.VALUE_SYSTEM_UI45_8702_2.equals(GlobalDef.getSystemUI())) {
 
             Log.d("abd", "doScanId3Time");
             if (mUpdateTimeAsyncTask != null) {
@@ -3213,6 +3094,7 @@ public class ComMediaPlayer extends MediaPlayer {
     private ArrayList<String> mCurrentId3Time;// = new ArrayList<Integer>();
     UpdateTimeAsyncTask mUpdateTimeAsyncTask;
 
+    @SuppressLint("StaticFieldLeak")
     class UpdateTimeAsyncTask extends AsyncTask<Void, Integer, Integer> {
 
         UpdateTimeAsyncTask() {
@@ -3236,10 +3118,9 @@ public class ComMediaPlayer extends MediaPlayer {
                 for (int i = 0; i < mCurrentUriList.size(); ++i) {
                     String time = getSongDuration(mCurrentUriList.get(i));
                     try {
-                        int timeMs = Integer.valueOf(time);
+                        int timeMs = Integer.parseInt(time);
                         time = MusicUI.stringForTime(timeMs);
-                    } catch (Exception e) {
-
+                    } catch (Exception ignored) {
                     }
 
                     mCurrentId3Time.add(time);
@@ -3247,7 +3128,7 @@ public class ComMediaPlayer extends MediaPlayer {
             } else {
                 mCurrentId3Time.clear();
             }
-//			Log.d("abd", "UpdateTimeAsyncTask finish");
+            //			Log.d("abd", "UpdateTimeAsyncTask finish");
             notifyChange(ID3_TIME_CHANGE);
             return 0;
         }
@@ -3336,43 +3217,33 @@ public class ComMediaPlayer extends MediaPlayer {
 
     private static List<StorageInfo> listAllStorage(Context context) {
         ArrayList<StorageInfo> storages = new ArrayList<StorageInfo>();
-        StorageManager storageManager = (StorageManager) context
-                .getSystemService(Context.STORAGE_SERVICE);
+        StorageManager storageManager = (StorageManager) context.getSystemService(Context.STORAGE_SERVICE);
         try {
             Class<?>[] paramClasses = {};
-            Method getVolumeList = StorageManager.class.getMethod("getVolumes",
-                    paramClasses);
+            Method getVolumeList = StorageManager.class.getMethod("getVolumes", paramClasses);
             Object[] params = {};
-            List<Object> VolumeInfo = (List<Object>) getVolumeList.invoke(
-                    storageManager, params);
+            List<Object> VolumeInfo = (List<Object>) getVolumeList.invoke(storageManager, params);
 
             if (VolumeInfo != null) {
-                for (Object volumeinfo : VolumeInfo) {
+                for (Object voInfo : VolumeInfo) {
 
-                    Method getPath = volumeinfo.getClass().getMethod("getPath",
-                            new Class[0]);
+                    Method getPath = voInfo.getClass().getMethod("getPath", new Class[0]);
 
-                    File path = (File) getPath
-                            .invoke(volumeinfo, new Object[0]);
+                    File path = (File) getPath.invoke(voInfo, new Object[0]);
 
-                    Method getDisk = volumeinfo.getClass().getMethod("getDisk",
-                            new Class[0]);
+                    Method getDisk = voInfo.getClass().getMethod("getDisk", new Class[0]);
 
-                    Object diskinfo = getDisk.invoke(volumeinfo, new Object[0]);
+                    Object diskInfo = getDisk.invoke(voInfo, new Object[0]);
                     int type = StorageInfo.TYPE_INTERAL;
-                    if (diskinfo != null) {
+                    if (diskInfo != null) {
                         Log.e("aa", ":" + (path == null ? "path is null" : path.toString()));
                         if (path == null || !path.toString().contains("cdrom")) {
-                            Method isSd = diskinfo.getClass().getMethod("isSd",
-                                    new Class[0]);
+                            Method isSd = diskInfo.getClass().getMethod("isSd", new Class[0]);
 
-                            type = ((Boolean) isSd.invoke(diskinfo,
-                                    new Object[0])) ? StorageInfo.TYPE_SD
-                                    : StorageInfo.TYPE_USB;
+                            type = ((Boolean) isSd.invoke(diskInfo, new Object[0])) ? StorageInfo.TYPE_SD : StorageInfo.TYPE_USB;
 
                             if (path != null) {
-                                StorageInfo si = new StorageInfo(
-                                        path.toString(), type);
+                                StorageInfo si = new StorageInfo(path.toString(), type);
                                 storages.add(si);
                             }
                         }

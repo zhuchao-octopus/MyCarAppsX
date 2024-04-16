@@ -27,7 +27,7 @@
         <item name="android:focusable">true</item>
         <item name="android:textSize">46px</item>
     </style>
-    
+
     <style name="ButonStyleNum" parent="CommonStyleFonts">
         <item name="android:background">@drawable/num_channel</item>
         <item name="android:textColor">#ff000000</item>
@@ -38,7 +38,7 @@
         <item name="android:gravity">center</item>
         <item name="android:textStyle">bold</item>
     </style>
-    
+
     <style name="ButtonWidthWeight">
         <item name="android:layout_width">0px</item>
         <item name="android:layout_weight">1</item>
@@ -49,5 +49,5 @@
         <item name="android:background">@drawable/button_click_back1</item>
         <item name="android:gravity">center</item>
     </style>
-    
+
 </resources>

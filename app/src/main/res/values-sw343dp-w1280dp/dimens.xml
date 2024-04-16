@@ -32,7 +32,7 @@
 
     <color name="list_hilight_colre">#3bb874</color>
 
-     <dimen name="bottom_y">420dip</dimen>
- <dimen name="reverse_page_right_x">649dip</dimen>
- <dimen name="buttom_page_right_x">740dip</dimen>
+    <dimen name="bottom_y">420dip</dimen>
+    <dimen name="reverse_page_right_x">649dip</dimen>
+    <dimen name="buttom_page_right_x">740dip</dimen>
 </resources>

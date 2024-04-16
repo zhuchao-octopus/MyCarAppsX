@@ -4,14 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/screen1_background"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <include layout="@layout/common_status_bar" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
         <!-- <View -->
         <!-- android:layout_width="fill_parent" -->
@@ -24,14 +24,14 @@
             android:layout_width="match_parent"
             android:layout_height="392px"
             android:layout_weight="1.0"
-            android:gravity="center_vertical" >
+            android:gravity="center_vertical">
 
             <ViewFlipper
                 android:id="@+id/flipper"
                 android:layout_width="318px"
                 android:layout_height="match_parent"
                 android:layout_marginTop="1px"
-                android:flipInterval="2000" >
+                android:flipInterval="2000">
 
                 <ListView
                     android:id="@+id/radio_frequency_list"
@@ -59,33 +59,34 @@
                 android:layout_height="fill_parent"
                 android:background="#626262"
                 android:gravity="center_vertical" />
+
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="300px" >
+                    android:layout_height="300px">
 
                     <LinearLayout
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
                         android:layout_marginTop="40px"
-                        android:gravity="center" >
+                        android:gravity="center">
 
                         <AbsoluteLayout
                             android:layout_width="706px"
                             android:layout_height="144px"
-                            android:layout_marginTop="32px" >
+                            android:layout_marginTop="32px">
 
                             <LinearLayout
                                 android:layout_width="fill_parent"
                                 android:layout_height="fill_parent"
-                                android:gravity="center_horizontal" >
+                                android:gravity="center_horizontal">
 
                                 <AbsoluteLayout
                                     android:layout_width="620px"
-                                    android:layout_height="144px" >
+                                    android:layout_height="144px">
 
                                     <TextView
                                         android:id="@+id/debug"
@@ -114,41 +115,41 @@
                                         android:src="@drawable/radio_step_right_button" />
 
                                     <TextView
-                                            android:id="@+id/freq_text"
-                                            android:layout_width="510px"
-                                            android:layout_height="140px"
-                                      		android:layout_x="50px"
-                                            android:gravity="center"
-                                            android:textSize="120px"
-                                            android:singleLine="true"
-                                            android:layout_y="-20px"
-                                            android:textColor="#ffffff"
-                                            android:visibility="visible" />
-                                    
+                                        android:id="@+id/freq_text"
+                                        android:layout_width="510px"
+                                        android:layout_height="140px"
+                                        android:layout_x="50px"
+                                        android:gravity="center"
+                                        android:textSize="120px"
+                                        android:singleLine="true"
+                                        android:layout_y="-20px"
+                                        android:textColor="#ffffff"
+                                        android:visibility="visible" />
+
                                     <TextView
-                                            android:id="@+id/freq_text_ps"
-                                            android:layout_width="510px"
-                                            android:layout_height="140px"
-                                      		android:layout_x="50px"
-                                            android:gravity="center"
-                                            android:textSize="75px"
-                                            android:singleLine="true"
-                                            android:layout_y="-20px"
-                                            android:textColor="#ffffff"
-                                            android:visibility="visible" />
-                                    
+                                        android:id="@+id/freq_text_ps"
+                                        android:layout_width="510px"
+                                        android:layout_height="140px"
+                                        android:layout_x="50px"
+                                        android:gravity="center"
+                                        android:textSize="75px"
+                                        android:singleLine="true"
+                                        android:layout_y="-20px"
+                                        android:textColor="#ffffff"
+                                        android:visibility="visible" />
+
                                     <LinearLayout
                                         android:layout_width="480px"
                                         android:layout_height="144px"
                                         android:layout_x="50px"
                                         android:orientation="horizontal"
-                                        android:gravity="center" >
+                                        android:gravity="center">
 
                                         <AbsoluteLayout
                                             android:layout_width="wrap_content"
                                             android:layout_height="144px"
                                             android:visibility="gone"
-                                            android:layout_x="80px" >
+                                            android:layout_x="80px">
 
                                             <ImageView
                                                 android:id="@+id/rds_digit_p"
@@ -206,8 +207,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_x="10px"
                                 android:layout_y="0px"
-                                            style="@style/shadowText"
-                            android:textColor="@color/radio_rds_info1"
+                                style="@style/shadowText"
+                                android:textColor="@color/radio_rds_info1"
                                 android:textSize="22px" />
 
                             <TextView
@@ -215,9 +216,9 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_x="630px"
-                                            style="@style/shadowText"
+                                style="@style/shadowText"
                                 android:layout_y="90px"
-                            android:textColor="@color/radio_rds_info1"
+                                android:textColor="@color/radio_rds_info1"
                                 android:textSize="32px" />
                         </AbsoluteLayout>
                     </LinearLayout>
@@ -228,7 +229,7 @@
                         android:layout_height="60px"
                         android:layout_marginTop="5px"
                         android:gravity="left"
-                        android:paddingLeft="10px" >
+                        android:paddingLeft="10px">
 
                         <Button
                             android:id="@+id/radio_function_button_pty"
@@ -286,14 +287,14 @@
                         android:layout_width="fill_parent"
                         android:background="@drawable/com_background"
                         android:layout_height="110px"
-                        android:orientation="horizontal" >
+                        android:orientation="horizontal">
 
                         <LinearLayout
                             android:layout_width="fill_parent"
                             android:layout_height="60px"
                             android:layout_marginTop="10px"
                             android:gravity="right"
-                            android:orientation="horizontal" >
+                            android:orientation="horizontal">
 
                             <TextView
                                 android:id="@+id/radio_ta"
@@ -336,26 +337,27 @@
                             android:visibility="gone"
                             android:textSize="24px" />
 
-						<com.common.view.MarqueeTextView
+                        <com.octopus.android.carapps.common.view.MarqueeTextView
                             android:id="@+id/radio_rds_rt"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="200px"
                             android:layout_marginTop="70px"
-                                            style="@style/shadowText"
+                            style="@style/shadowText"
                             android:textColor="@color/radio_rds_info1"
                             android:textSize="24px" />
+
                         <TextView
                             android:id="@+id/radio_current_pty_type_name"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15px"
                             android:layout_marginTop="70px"
-                                            style="@style/shadowText"
+                            style="@style/shadowText"
                             android:textColor="@color/radio_rds_info1"
                             android:textSize="24px" />
 
-                      
+
                     </RelativeLayout>
                 </RelativeLayout>
 
@@ -383,13 +385,13 @@
             android:layout_width="fill_parent"
             android:layout_height="118px"
             android:gravity="center"
-            android:orientation="horizontal" >
+            android:orientation="horizontal">
 
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/radio_bottom_bg"
-                android:gravity="center" >
+                android:gravity="center">
 
                 <com.octopus.android.carapps.common.view.KeyButtonView
                     android:id="@+id/radio_function_button_scan"

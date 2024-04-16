@@ -4,9 +4,9 @@
     android:layout_height="56.0px"
     android:layout_gravity="center"
     android:minHeight="85px"
-    android:paddingLeft="56.0px" >
+    android:paddingLeft="56.0px">
 
-        <TextView
+    <TextView
         android:id="@+id/list_ps_name"
         style="@style/CommonStyleFonts"
         android:layout_width="match_parent"
@@ -18,7 +18,7 @@
         android:singleLine="true"
         android:textColor="#ffffffff"
         android:textSize="30.0px" />
-        
+
     <TextView
         android:id="@+id/list_text1"
         style="@style/CommonStyleFonts"

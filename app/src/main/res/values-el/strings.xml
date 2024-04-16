@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    
+
     <string name="toolbar_text_gps">"Πλοήγηση"</string>
     <string name="toolbar_text_bluetooth_music">"Μουσική BT"</string>
     <string name="toolbar_text_radio">"Ράδιο"</string>
@@ -37,12 +37,12 @@
     <string name="no_disk">"Κανένας Δίσκος!"</string>
     <string name="no_tv">"Χωρίς Συσκευή TV!"</string>
 
-    
+
     <string name="pick_wallpaper">"Ταπετσαρίες"</string>
-    
+
     <string name="if_reboot">"Το σύστημα θα επανεκκινήσει, συνέχεια;"</string>
     <string name="switch_screen">"Εναλλαγή διπλή οθόνη"</string>
-   
+
     <string name="eq_text_classic">"Κλασσικό"</string>
     <string name="eq_text_pop">"Ποπ"</string>
     <string name="eq_text_rock">"Ροκ"</string>
@@ -51,17 +51,17 @@
     <string name="eq_text_normal">"Κανοκικό"</string>
 
     <string name="rear">"ΠΙΣΩ"</string>
-    
-    <string name="menu">"ΜΕΝΟΥ"</string>   
-    <string name="rec">"ΕΓΓΡΑΦΉ"</string>    
+
+    <string name="menu">"ΜΕΝΟΥ"</string>
+    <string name="rec">"ΕΓΓΡΑΦΉ"</string>
     <string name="exit">"ΕΞΟΔΟΣ"</string>
-    
-    
-           <string name="no_lyric">"Χωρίς στοίχους"</string>
-           
-           <string name="speed">"ΤΑΧΥΤΗΤΑ"</string>
-           
-               <string name="modulename">"Όνομα συσκευής:"</string>
+
+
+    <string name="no_lyric">"Χωρίς στοίχους"</string>
+
+    <string name="speed">"ΤΑΧΥΤΗΤΑ"</string>
+
+    <string name="modulename">"Όνομα συσκευής:"</string>
     <string name="modulepassword">"Αριθμός PIN:"</string>
     <string name="btdisconnected">"Αποσυνδεδεμένο Bluetooth"</string>
     <string name="pleaseconnectedbt">"Παρακαλώ συνδέστε το τηλέφωνο"</string>

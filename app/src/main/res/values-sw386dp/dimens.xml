@@ -30,8 +30,8 @@
     <dimen name="right_margin_top">0.0px</dimen>
     <dimen name="right_margin_left">50.0px</dimen>
 
-<!--     <color name="list_normal_colre">#FFFFFFFF</color> -->
-<!--     <color name="list_hilight_colre">#fffca330</color> -->
+    <!--     <color name="list_normal_colre">#FFFFFFFF</color> -->
+    <!--     <color name="list_hilight_colre">#fffca330</color> -->
 
     <dimen name="bottom_y">420dip</dimen>
     <dimen name="reverse_page_right_x">649dip</dimen>

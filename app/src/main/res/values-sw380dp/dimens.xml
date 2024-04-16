@@ -36,7 +36,7 @@
     <dimen name="bottom_y">420dip</dimen>
     <dimen name="reverse_page_right_x">649dip</dimen>
     <dimen name="buttom_page_right_x">740dip</dimen>
-    
+
     <dimen name="def_wheel_width">10px</dimen>
     <dimen name="def_shadow_radius">2dp</dimen>
     <dimen name="def_shadow_offset">2dp</dimen>

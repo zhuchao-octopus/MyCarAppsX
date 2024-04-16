@@ -3,12 +3,12 @@
     android:id="@+id/screen1_main"
     android:layout_width="505px"
     android:layout_height="fill_parent"
-    android:fitsSystemWindows="true" >
+    android:fitsSystemWindows="true">
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
         <LinearLayout
             android:id="@+id/playing_content"
@@ -16,29 +16,29 @@
             android:layout_height="0.0px"
             android:layout_weight="1.0"
             android:gravity="center_vertical"
-            android:orientation="horizontal" >
+            android:orientation="horizontal">
 
             <LinearLayout
                 android:id="@+id/tr"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="0.0px"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:orientation="vertical" >
+                    android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="fill_parent"
                         android:layout_height="70px"
-                        android:orientation="horizontal" >
+                        android:orientation="horizontal">
 
                         <HorizontalScrollView
                             android:layout_width="0px"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1" >
+                            android:layout_weight="1">
 
                             <LinearLayout
                                 android:id="@+id/tb"
@@ -46,7 +46,7 @@
                                 android:layout_height="70px"
                                 android:layout_gravity="right"
                                 android:layout_marginLeft="10px"
-                                android:gravity="right" >
+                                android:gravity="right">
 
                                 <Button
                                     android:id="@+id/btn_usb"
@@ -163,14 +163,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="280px"
                         android:gravity="center"
-                        android:orientation="horizontal" >
+                        android:orientation="horizontal">
 
                         <LinearLayout
                             android:layout_width="305px"
                             android:layout_height="fill_parent"
                             android:gravity="center"
                             android:orientation="horizontal"
-                            android:paddingRight="0px" >
+                            android:paddingRight="0px">
 
                             <RelativeLayout
                                 android:layout_width="184px"
@@ -178,7 +178,7 @@
                                 android:layout_marginStart="25px"
                                 android:layout_marginTop="10px"
                                 android:gravity="center"
-                                android:visibility="gone" >
+                                android:visibility="gone">
 
                                 <ImageView
                                     android:id="@+id/album_art"
@@ -207,18 +207,18 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="0px"
                                 android:layout_marginTop="0px"
-                                android:orientation="vertical" >
+                                android:orientation="vertical">
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
-                                    android:orientation="vertical" >
+                                    android:orientation="vertical">
 
                                     <LinearLayout
                                         android:layout_width="match_parent"
                                         android:layout_height="60px"
-                                        android:layout_gravity="center_vertical" >
+                                        android:layout_gravity="center_vertical">
 
                                         <ImageView
                                             android:layout_width="wrap_content"
@@ -249,11 +249,11 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
-                                    android:orientation="vertical" >
+                                    android:orientation="vertical">
 
                                     <LinearLayout
                                         android:layout_width="match_parent"
-                                        android:layout_height="60px" >
+                                        android:layout_height="60px">
 
                                         <ImageView
                                             android:layout_width="wrap_content"
@@ -284,11 +284,11 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
-                                    android:orientation="vertical" >
+                                    android:orientation="vertical">
 
                                     <LinearLayout
                                         android:layout_width="match_parent"
-                                        android:layout_height="60px" >
+                                        android:layout_height="60px">
 
                                         <ImageView
                                             android:layout_width="wrap_content"
@@ -328,11 +328,11 @@
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
                                     android:orientation="vertical"
-                                    android:visibility="gone" >
+                                    android:visibility="gone">
 
                                     <LinearLayout
                                         android:layout_width="match_parent"
-                                        android:layout_height="wrap_content" >
+                                        android:layout_height="wrap_content">
 
                                         <ImageView
                                             style="@style/shadowText"
@@ -366,7 +366,7 @@
                             android:id="@+id/list_content"
                             android:layout_width="200px"
                             android:layout_height="fill_parent"
-                            android:orientation="horizontal" >
+                            android:orientation="horizontal">
 
                             <ListView
                                 android:id="@+id/tv_all_list"
@@ -382,7 +382,7 @@
                             <LinearLayout
                                 android:layout_width="fill_parent"
                                 android:layout_height="fill_parent"
-                                android:orientation="vertical" >
+                                android:orientation="vertical">
 
                                 <Button
                                     android:id="@+id/btn_add_all"
@@ -484,7 +484,7 @@
                     android:orientation="vertical"
                     android:paddingLeft="2px"
                     android:paddingRight="2px"
-                    android:paddingTop="10px" >
+                    android:paddingTop="10px">
 
                     <SeekBar
                         android:id="@+id/progress"
@@ -499,7 +499,7 @@
                     <LinearLayout
                         android:layout_width="fill_parent"
                         android:layout_height="40px"
-                        android:orientation="horizontal" >
+                        android:orientation="horizontal">
 
                         <TextView
                             android:id="@+id/currenttime"
@@ -524,7 +524,7 @@
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="100px"
-                    android:gravity="center_vertical" >
+                    android:gravity="center_vertical">
 
                     <ImageView
                         android:id="@+id/eq"

@@ -1,26 +1,19 @@
 package com.octopus.android.carapps.car.ui;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.WallpaperManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Bitmap.Config;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.Paint;
+import android.graphics.PorterDuff.Mode;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.graphics.RectF;
-import android.graphics.Bitmap.Config;
-import android.graphics.PorterDuff.Mode;
 import android.graphics.drawable.Drawable;
 import android.hardware.display.DisplayManager;
 import android.media.AudioManager;
@@ -28,8 +21,8 @@ import android.media.AudioManager.OnAudioFocusChangeListener;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.PowerManager;
-import android.os.SystemClock;
 import android.os.PowerManager.WakeLock;
+import android.os.SystemClock;
 import android.util.Log;
 import android.view.Display;
 import android.view.View;
@@ -48,6 +41,13 @@ import com.octopus.android.carapps.audio.MusicUI;
 import com.octopus.android.carapps.common.ui.UIBase;
 import com.octopus.android.carapps.video.VideoUI;
 import com.octopus.android.carapps.wallpaper.WallpaperUI;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 
 public class GlobalDef {
 
@@ -93,11 +93,9 @@ public class GlobalDef {
     private final static boolean USE_2SCREEN = false;
 
     static {
-        mSystemUI = MachineConfig
-                .getPropertyReadOnly(MachineConfig.KEY_SYSTEM_UI);
+        mSystemUI = MachineConfig.getPropertyReadOnly(MachineConfig.KEY_SYSTEM_UI);
 
-        mDvrMirror = MachineConfig
-                .getPropertyIntReadOnly(MachineConfig.KEY_DVR_MIRROR);
+        mDvrMirror = MachineConfig.getPropertyIntReadOnly(MachineConfig.KEY_DVR_MIRROR);
         updateCanBox();
     }
 
@@ -115,17 +113,14 @@ public class GlobalDef {
     }
 
     public static void initCustomUI(Context c) {
-        mSystemUI = MachineConfig
-                .getPropertyReadOnly(MachineConfig.KEY_SYSTEM_UI);
+        mSystemUI = MachineConfig.getPropertyReadOnly(MachineConfig.KEY_SYSTEM_UI);
 
         mSystemUI = MachineConfig.VALUE_SYSTEM_UI32_KLD8;//this default is VALUE_SYSTEM_UI45_8702_2
 
         String value = mSystemUI;
-        if (MachineConfig.VALUE_SYSTEM_UI20_RM10_1.equals(value)
-                || MachineConfig.VALUE_SYSTEM_UI21_RM10_2.equals(value)) {
+        if (MachineConfig.VALUE_SYSTEM_UI20_RM10_1.equals(value) || MachineConfig.VALUE_SYSTEM_UI21_RM10_2.equals(value)) {
 
-            String s = SystemConfig.getProperty(c,
-                    SystemConfig.KEY_LAUNCHER_UI_RM10);
+            String s = SystemConfig.getProperty(c, SystemConfig.KEY_LAUNCHER_UI_RM10);
             if (s != null) {
                 if ("1".equals(s)) {
                     mSystemUI = MachineConfig.VALUE_SYSTEM_UI21_RM10_2;
@@ -136,8 +131,7 @@ public class GlobalDef {
             }
         } else if (MachineConfig.VALUE_SYSTEM_UI21_RM12.equals(value)) {
 
-            String s = SystemConfig.getProperty(c,
-                    SystemConfig.KEY_LAUNCHER_UI_RM10);
+            String s = SystemConfig.getProperty(c, SystemConfig.KEY_LAUNCHER_UI_RM10);
             if (s != null) {
                 if ("1".equals(s)) {
                     mSystemUI = MachineConfig.VALUE_SYSTEM_UI21_RM10_2;
@@ -148,8 +142,7 @@ public class GlobalDef {
         }
 
         if (MachineConfig.VALUE_SYSTEM_UI_KLD7_1992.equals(mSystemUI)) {// KEY_1992_LIST_COLOR
-            mListCommonColor = MachineConfig
-                    .getPropertyIntReadOnly(MachineConfig.KEY_1992_LIST_COLOR);
+            mListCommonColor = MachineConfig.getPropertyIntReadOnly(MachineConfig.KEY_1992_LIST_COLOR);
         }
 
         File f = new File("/system/app/MyWidget/MyWidget.apk");
@@ -160,8 +153,7 @@ public class GlobalDef {
             mIsMediaWidget = true;
         }
 
-        mRadioButtonType = MachineConfig
-                .getPropertyIntReadOnly(MachineConfig.KEY_RADIO_BUTTON_TYPE);
+        mRadioButtonType = MachineConfig.getPropertyIntReadOnly(MachineConfig.KEY_RADIO_BUTTON_TYPE);
         // else {
         // if (MachineConfig.VALUE_SYSTEM_UI43_3300.equals(mSystemUI)){
         // mIsMediaWidget = true;
@@ -171,8 +163,7 @@ public class GlobalDef {
 
     public static void init(Context c) {
         mContext = c;
-        mAudioManager = (AudioManager) mContext
-                .getSystemService(Context.AUDIO_SERVICE);
+        mAudioManager = (AudioManager) mContext.getSystemService(Context.AUDIO_SERVICE);
         if (mOnAudioFocusChangeListenerDelayed != null) {
             requestAudioFocus(mOnAudioFocusChangeListenerDelayed);
             mOnAudioFocusChangeListenerDelayed = null;
@@ -262,10 +253,7 @@ public class GlobalDef {
         boolean ret = false;
         if (Util.isGLCamera()) {
             if (USE_OLD_CAMER_IF_NO_DVR) {
-                if ("1".equals(SystemConfig.getProperty(mContext,
-                        SystemConfig.KEY_DVR_RECORDING))
-                        && "1".equals(SystemConfig.getProperty(mContext,
-                        SystemConfig.KEY_DVR_ACTITUL_RECORDING))) {
+                if ("1".equals(SystemConfig.getProperty(mContext, SystemConfig.KEY_DVR_RECORDING)) && "1".equals(SystemConfig.getProperty(mContext, SystemConfig.KEY_DVR_ACTITUL_RECORDING))) {
                     ret = true;
                 }
             } else {
@@ -309,8 +297,7 @@ public class GlobalDef {
 
     public static int getScreenNum(Context context) {
         if (USE_2SCREEN) {
-            DisplayManager displayManager = (DisplayManager) context
-                    .getSystemService(Context.DISPLAY_SERVICE);
+            DisplayManager displayManager = (DisplayManager) context.getSystemService(Context.DISPLAY_SERVICE);
             Display[] display = displayManager.getDisplays();
             return display.length;
         } else {
@@ -326,8 +313,7 @@ public class GlobalDef {
         }
     }
 
-    public static void reactiveSource(Context context, int source,
-                                      OnAudioFocusChangeListener listener) {
+    public static void reactiveSource(Context context, int source, OnAudioFocusChangeListener listener) {
 
         Log.e(TAG, "reactiveSource:" + source + listener);
 
@@ -365,9 +351,7 @@ public class GlobalDef {
             if (show == 0) {
                 delay = 300;
             }
-            mUIScreen0ChangeMonitor.sendMessageDelayed(
-                    mUIScreen0ChangeMonitor.obtainMessage(0, source, show),
-                    delay);
+            mUIScreen0ChangeMonitor.sendMessageDelayed(mUIScreen0ChangeMonitor.obtainMessage(0, source, show), delay);
         }
     }
 
@@ -405,11 +389,7 @@ public class GlobalDef {
 
     public static void rerequestAudioFocusByCarPlayOff() { // by sb suding logic
         Log.d(TAG, "rerequestAudioFocusByCarPlayOff mSource:" + mSource);
-        if (mSource == MyCmd.SOURCE_AUX || mSource == MyCmd.SOURCE_MUSIC
-                || mSource == MyCmd.SOURCE_VIDEO
-                || mSource == MyCmd.SOURCE_RADIO || mSource == MyCmd.SOURCE_DTV
-                || mSource == MyCmd.SOURCE_DVD
-                || mSource == MyCmd.SOURCE_BT_MUSIC) {
+        if (mSource == MyCmd.SOURCE_AUX || mSource == MyCmd.SOURCE_MUSIC || mSource == MyCmd.SOURCE_VIDEO || mSource == MyCmd.SOURCE_RADIO || mSource == MyCmd.SOURCE_DTV || mSource == MyCmd.SOURCE_DVD || mSource == MyCmd.SOURCE_BT_MUSIC) {
 
             requestAudioFocus(mOnAudioFocusChangeListenerNow);
         }
@@ -422,9 +402,7 @@ public class GlobalDef {
         if (mAudioManager != null) {
             Log.e(TAG, "requestAudioFocus" + listener);
             if (listener != null) {
-                mAudioManager
-                        .requestAudioFocus(listener, AudioManager.STREAM_MUSIC,
-                                AudioManager.AUDIOFOCUS_GAIN);
+                mAudioManager.requestAudioFocus(listener, AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN);
                 mOnAudioFocusChangeListenerNow = listener;
             }
         } else {
@@ -489,38 +467,29 @@ public class GlobalDef {
     public static Drawable mDrawableScreen1Wallpaper;
 
     public static boolean updateScreen1Wallpaper() {
-        String s = SystemConfig.getProperty(mContext,
-                SystemConfig.KEY_SCREEN1_WALLPAPER_NAME);
+        String s = SystemConfig.getProperty(mContext, SystemConfig.KEY_SCREEN1_WALLPAPER_NAME);
         if (s == null) {
             mScreen1Wallpaper = WallpaperUI.PATH_DEFAULT_WALLPAPER1;
-            mDrawableScreen1Wallpaper = Drawable
-                    .createFromPath(WallpaperUI.PATH_WALLPAPER
-                            + mScreen1Wallpaper);
+            mDrawableScreen1Wallpaper = Drawable.createFromPath(WallpaperUI.PATH_WALLPAPER + mScreen1Wallpaper);
             if (mDrawableScreen1Wallpaper == null) {
                 mScreen1Wallpaper = WallpaperUI.PATH_DEFAULT_WALLPAPER1;
-                mDrawableScreen1Wallpaper = Drawable
-                        .createFromPath(WallpaperUI.PATH_WALLPAPER
-                                + mScreen1Wallpaper);
+                mDrawableScreen1Wallpaper = Drawable.createFromPath(WallpaperUI.PATH_WALLPAPER + mScreen1Wallpaper);
             }
             if (mDrawableScreen1Wallpaper == null) {
-                WallpaperManager wallpaperManager = WallpaperManager
-                        .getInstance(mContext);
+                WallpaperManager wallpaperManager = WallpaperManager.getInstance(mContext);
                 mDrawableScreen1Wallpaper = wallpaperManager.getDrawable();
             }
             return true;
         } else if (s != null && !s.equals(mScreen1Wallpaper)) {
             mScreen1Wallpaper = s;
-            mDrawableScreen1Wallpaper = Drawable
-                    .createFromPath(WallpaperUI.PATH_WALLPAPER
-                            + mScreen1Wallpaper);
+            mDrawableScreen1Wallpaper = Drawable.createFromPath(WallpaperUI.PATH_WALLPAPER + mScreen1Wallpaper);
             return true;
         }
         return false;
     }
 
     public static void updateScreen1Size() {
-        DisplayManager displayManager = (DisplayManager) mContext
-                .getSystemService(Context.DISPLAY_SERVICE);
+        DisplayManager displayManager = (DisplayManager) mContext.getSystemService(Context.DISPLAY_SERVICE);
         Display[] display = displayManager.getDisplays();
 
         if (display.length > 1) {
@@ -547,8 +516,7 @@ public class GlobalDef {
 
     public static void requestEQInfo() {
         if (mContext != null) {
-            BroadcastUtil.sendToCarServiceMcuEQ(mContext,
-                    ProtocolAk47.SEND_AUDIO_SUB_QUERYAUDIO_INFO, 0x2);
+            BroadcastUtil.sendToCarServiceMcuEQ(mContext, ProtocolAk47.SEND_AUDIO_SUB_QUERYAUDIO_INFO, 0x2);
         }
     }
 
@@ -602,8 +570,7 @@ public class GlobalDef {
 
         mEQModeParam = EQ_MODE[i];
 
-        BroadcastUtil.sendToCarServiceMcuEQ(mContext,
-                ProtocolAk47.SEND_AUDIO_CMD_SET, 0x0, mEQModeParam);
+        BroadcastUtil.sendToCarServiceMcuEQ(mContext, ProtocolAk47.SEND_AUDIO_CMD_SET, 0x0, mEQModeParam);
         return i;
     }
 
@@ -628,8 +595,7 @@ public class GlobalDef {
     public static boolean isAudioFocusGPS() {
         String focus = getFocusPackage();
         if (focus != null) {
-            String gps = SystemConfig.getProperty(mContext,
-                    MachineConfig.KEY_GPS_PACKAGE);
+            String gps = SystemConfig.getProperty(mContext, MachineConfig.KEY_GPS_PACKAGE);
 
             Log.d(TAG, focus + ":" + gps);
             if (focus.equals(gps)) {
@@ -639,8 +605,9 @@ public class GlobalDef {
         return false;
     }
 
-    private final static byte[] EQ_MODE = {EQ_MODE_CLASSICAL, EQ_MODE_POP,
-            EQ_MODE_DBB, EQ_MODE_JAZZ, EQ_MODE_USER, EQ_MODE_NORMAL};
+    private final static byte[] EQ_MODE = {
+            EQ_MODE_CLASSICAL, EQ_MODE_POP, EQ_MODE_DBB, EQ_MODE_JAZZ, EQ_MODE_USER, EQ_MODE_NORMAL
+    };
 
     public static boolean mAutoTest = false;
 
@@ -662,12 +629,8 @@ public class GlobalDef {
 
     public static void wakeLockOnce() {
         if (mContext != null) {
-            PowerManager pm = (PowerManager) mContext
-                    .getSystemService(Context.POWER_SERVICE);
-            WakeLock mWakeLockOne = pm.newWakeLock(
-                    PowerManager.ACQUIRE_CAUSES_WAKEUP
-                            | PowerManager.SCREEN_BRIGHT_WAKE_LOCK
-                            | PowerManager.ON_AFTER_RELEASE, TAG);
+            PowerManager pm = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
+            WakeLock mWakeLockOne = pm.newWakeLock(PowerManager.ACQUIRE_CAUSES_WAKEUP | PowerManager.SCREEN_BRIGHT_WAKE_LOCK | PowerManager.ON_AFTER_RELEASE, TAG);
             if (null != mWakeLockOne) {
                 mWakeLockOne.acquire();
                 mWakeLockOne.release();
@@ -722,10 +685,8 @@ public class GlobalDef {
         Canvas canvas = new Canvas(output);
         final int color = 0xff424242;
         final Paint paint = new Paint();
-        final Rect src = new Rect((int) left, (int) top, (int) right,
-                (int) bottom);
-        final Rect dst = new Rect((int) dst_left, (int) dst_top,
-                (int) dst_right, (int) dst_bottom);
+        final Rect src = new Rect((int) left, (int) top, (int) right, (int) bottom);
+        final Rect dst = new Rect((int) dst_left, (int) dst_top, (int) dst_right, (int) dst_bottom);
         final RectF rectF = new RectF(dst);
         paint.setAntiAlias(true);
         canvas.drawARGB(0, 0, 0, 0);
@@ -737,8 +698,7 @@ public class GlobalDef {
     }
 
 
-    public static Bitmap toRoundBitmap(Bitmap bitmap, int showWidth,
-                                       int showHeight, int angle) {
+    public static Bitmap toRoundBitmap(Bitmap bitmap, int showWidth, int showHeight, int angle) {
         float width = bitmap.getWidth();
         float height = bitmap.getHeight();
 
@@ -753,8 +713,7 @@ public class GlobalDef {
             scaleShow = showHeight / height;
         }
         matrix.postScale(scaleShow, scaleShow);
-        Bitmap output = Bitmap.createBitmap(showWidth, showHeight,
-                Config.ARGB_8888);
+        Bitmap output = Bitmap.createBitmap(showWidth, showHeight, Config.ARGB_8888);
         Canvas canvas = new Canvas(output);
         final int color = 0xfffcfcfc;
         final Paint paint = new Paint();
@@ -772,8 +731,7 @@ public class GlobalDef {
     private static final String KEY_SWITCH = "switch";
 
     public static void getTouch3ConfigValue() {
-        String value = MachineConfig
-                .getPropertyOnce(MachineConfig.KEY_TOUCH3_IDENTIFY);
+        String value = MachineConfig.getPropertyOnce(MachineConfig.KEY_TOUCH3_IDENTIFY);
         // Log.d(TAG, "getTouch3ConfigValue: " + value);
         if (value != null && !value.isEmpty()) {
             JSONObject jobj;

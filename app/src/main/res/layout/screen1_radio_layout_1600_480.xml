@@ -340,7 +340,7 @@
                             android:textSize="24px"
                             android:visibility="gone" />
 
-                        <com.common.view.MarqueeTextView
+                        <com.octopus.android.carapps.common.view.MarqueeTextView
                             android:id="@+id/radio_rds_rt"
                             style="@style/shadowText"
                             android:layout_width="match_parent"

@@ -8,7 +8,7 @@
     android:fitsSystemWindows="true"
     android:orientation="vertical"
     android:gravity="center"
-    android:padding="0px" >
+    android:padding="0px">
 
     <!-- <View -->
     <!-- android:layout_width="match_parent" -->
@@ -18,12 +18,12 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:gravity="center" >
+        android:gravity="center">
 
         <FrameLayout
             android:id="@+id/list_content"
             android:layout_width="248px"
-            android:layout_height="317px" >
+            android:layout_height="317px">
 
             <ListView
                 android:id="@+id/list_view"
@@ -38,7 +38,7 @@
 
         <RelativeLayout
             android:layout_width="552px"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
             <!-- <ImageView -->
             <!-- android:layout_width="560px" -->
@@ -49,7 +49,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center_horizontal"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/cd_title"
@@ -74,7 +74,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:gravity="center"
-                    android:orientation="horizontal" >
+                    android:orientation="horizontal">
 
                     <TextView
                         android:id="@+id/currenttime"
@@ -86,7 +86,7 @@
 
                     <RelativeLayout
                         android:layout_width="320px"
-                        android:layout_height="42px" >
+                        android:layout_height="42px">
 
                         <SeekBar
                             android:id="@+id/progress"
@@ -114,7 +114,7 @@
                         android:textSize="18px" />
                 </LinearLayout>
             </LinearLayout>
-            
+
             <ImageView
                 android:id="@+id/play_repeat_tag"
                 android:layout_width="37px"
@@ -132,31 +132,31 @@
                 android:gravity="left|center_vertical"
                 android:textColor="#ffffffff"
                 android:textSize="20px" />
-            
+
         </RelativeLayout>
     </LinearLayout>
 
     <LinearLayout
-            android:id="@+id/bottom_button_layout"
+        android:id="@+id/bottom_button_layout"
         android:layout_width="fill_parent"
         android:orientation="horizontal"
         android:layout_height="108px"
         android:visibility="gone"
         android:background="@drawable/radio_bottom_bg"
-        android:gravity="center" >
+        android:gravity="center">
 
         <com.octopus.android.carapps.common.view.KeyButtonView
             android:id="@+id/cd_prev_button"
             style="@style/ButtonStyleCD"
             android:clickable="true"
-                                android:layout_width="160px"
+            android:layout_width="160px"
             android:scaleType="center"
             android:src="@drawable/prev" />
 
         <com.octopus.android.carapps.common.view.KeyButtonView
             android:id="@+id/cd_play_pause_button"
             style="@style/ButtonStyleCD"
-                                android:layout_width="160px"
+            android:layout_width="160px"
             android:clickable="true"
             android:scaleType="center"
             android:src="@drawable/play_level" />
@@ -165,7 +165,7 @@
             android:id="@+id/cd_next_button"
             style="@style/ButtonStyleCD"
             android:clickable="true"
-                                android:layout_width="160px"
+            android:layout_width="160px"
             android:scaleType="center"
             android:src="@drawable/next" />
 
@@ -173,7 +173,7 @@
             android:id="@+id/cd_fr_button"
             style="@style/ButtonStyleCD"
             android:clickable="true"
-                                android:layout_width="160px"
+            android:layout_width="160px"
             android:scaleType="center"
             android:visibility="gone"
             android:src="@drawable/fr" />
@@ -182,7 +182,7 @@
             android:id="@+id/cd_ff_button"
             style="@style/ButtonStyleCD"
             android:visibility="gone"
-                                android:layout_width="160px"
+            android:layout_width="160px"
             android:clickable="true"
             android:scaleType="center"
             android:src="@drawable/ff" />
@@ -192,14 +192,14 @@
             style="@style/ButtonStyleCD"
             android:clickable="true"
             android:scaleType="center"
-                                android:layout_width="160px"
+            android:layout_width="160px"
             android:src="@drawable/repeat" />
 
         <com.octopus.android.carapps.common.view.KeyButtonView
             android:id="@+id/cd_shuffle"
             style="@style/ButtonStyleCD"
             android:clickable="true"
-                                android:layout_width="160px"
+            android:layout_width="160px"
             android:scaleType="center"
             android:src="@drawable/shuffle" />
 
@@ -207,7 +207,7 @@
             android:id="@+id/cd_eq_button"
             style="@style/ButtonStyleCD"
             android:clickable="true"
-                                android:layout_width="160px"
+            android:layout_width="160px"
             android:scaleType="center"
             android:visibility="gone"
             android:src="@drawable/eq" />

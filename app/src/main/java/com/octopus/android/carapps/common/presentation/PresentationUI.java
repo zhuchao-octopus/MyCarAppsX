@@ -1,8 +1,5 @@
 package com.octopus.android.carapps.common.presentation;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import android.app.Presentation;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -48,6 +45,9 @@ import com.octopus.android.carapps.screen1.launcher.Screen1SaverUI;
 import com.octopus.android.carapps.settings.SettingsUI;
 import com.octopus.android.carapps.video.VideoUI;
 import com.octopus.android.carapps.wallpaper.WallpaperUI;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class PresentationUI extends Presentation implements OnTouchListener, OnGestureListener {
 
@@ -195,10 +195,10 @@ public class PresentationUI extends Presentation implements OnTouchListener, OnG
         }
     }
 
-    private static final int[] BUTTON_ON_CLICK = new int[]{R.id.home,
-            R.id.back, R.id.screen1_settings, R.id.set_wallpaper,
-            R.id.screen_save_click, R.id.screen1_eject, R.id.button_dvr,
-            R.id.screen1_air_control, R.id.screen1_air_add, R.id.screen1_air_minus, R.id.screen1_air_rear};
+    private static final int[] BUTTON_ON_CLICK = new int[]{
+            R.id.home, R.id.back, R.id.screen1_settings, R.id.set_wallpaper, R.id.screen_save_click, R.id.screen1_eject, R.id.button_dvr, R.id.screen1_air_control, R.id.screen1_air_add,
+            R.id.screen1_air_minus, R.id.screen1_air_rear
+    };
 
     private void initClick() {
         for (int i : BUTTON_ON_CLICK) {
@@ -234,12 +234,10 @@ public class PresentationUI extends Presentation implements OnTouchListener, OnG
                 } else if (mSource != SOURCE_LAUCNHER) {
                     mPrepareToLacher = true;
                     mUIBase0 = GlobalDef.getCurrentScreen0();
-                    if (mUIBase0 != null && mUIBase0.mSource == mSource
-                            && !mUIBase0.mPause) {
+                    if (mUIBase0 != null && mUIBase0.mSource == mSource && !mUIBase0.mPause) {
                         Kernel.doKeyEvent(Kernel.KEY_BACK);
                     } else {
-                        BroadcastUtil.sendToCarServiceSetSource(mContext,
-                                MyCmd.SOURCE_MX51);
+                        BroadcastUtil.sendToCarServiceSetSource(mContext, MyCmd.SOURCE_MX51);
                     }
                 }
             } else if (id == R.id.screen_save_click) {
@@ -249,20 +247,15 @@ public class PresentationUI extends Presentation implements OnTouchListener, OnG
             } else if (id == R.id.screen1_settings) {
                 doUpdate(SOURCE_SETTINGS);
             } else if (id == R.id.screen1_air_control) {
-                BroadcastUtil.sendToCarService(mContext,
-                        MyCmd.Cmd.SHOW_AIR_CONTROL, 0);
+                BroadcastUtil.sendToCarService(mContext, MyCmd.Cmd.SHOW_AIR_CONTROL, 0);
             } else if (id == R.id.screen1_air_add) {
-                BroadcastUtil.sendToCarService(mContext,
-                        MyCmd.Cmd.SHOW_AIR_CONTROL, 0xa);
+                BroadcastUtil.sendToCarService(mContext, MyCmd.Cmd.SHOW_AIR_CONTROL, 0xa);
             } else if (id == R.id.screen1_air_minus) {
-                BroadcastUtil.sendToCarService(mContext,
-                        MyCmd.Cmd.SHOW_AIR_CONTROL, 0x9);
+                BroadcastUtil.sendToCarService(mContext, MyCmd.Cmd.SHOW_AIR_CONTROL, 0x9);
             } else if (id == R.id.screen1_air_rear) {
-                BroadcastUtil.sendToCarService(mContext,
-                        MyCmd.Cmd.SHOW_AIR_CONTROL, 0x2a);
+                BroadcastUtil.sendToCarService(mContext, MyCmd.Cmd.SHOW_AIR_CONTROL, 0x2a);
             } else if (id == R.id.screen1_eject) {
-                BroadcastUtil.sendToCarService(mContext,
-                        MyCmd.Cmd.APP_REQUEST_SEND_KEY, MyCmd.Keycode.EJECT);
+                BroadcastUtil.sendToCarService(mContext, MyCmd.Cmd.APP_REQUEST_SEND_KEY, MyCmd.Keycode.EJECT);
             } else if (id == R.id.button_dvr) {// Intent it = new Intent(MyCmd.BROADCAST_DVR_SCREEN1_UPDATE);
                 // mContext.sendBroadcast(it);
                 Intent it = new Intent(Intent.ACTION_RUN);
@@ -303,41 +296,45 @@ public class PresentationUI extends Presentation implements OnTouchListener, OnG
     }
 
     private final static int LAYOUT_ID[][] = new int[][]{
-            {SOURCE_AUX, R.layout.aux_player, R.layout.aux_player,
-                    R.layout.aux_player},
+            {
+                    SOURCE_AUX, R.layout.aux_player, R.layout.aux_player, R.layout.aux_player
+            },
 
-            {SOURCE_SCREEN_SAVER, R.layout.screen1_saver,
-                    R.layout.screen1_saver_800, R.layout.screen1_saver_800},
+            {
+                    SOURCE_SCREEN_SAVER, R.layout.screen1_saver, R.layout.screen1_saver_800, R.layout.screen1_saver_800
+            },
 
-            {SOURCE_LAUCNHER, R.layout.screen1_launcher,
-                    R.layout.screen1_launcher_800,
-                    R.layout.screen1_launcher_1600_480},
+            {
+                    SOURCE_LAUCNHER, R.layout.screen1_launcher, R.layout.screen1_launcher_800, R.layout.screen1_launcher_1600_480
+            },
 
-            {SOURCE_RADIO, R.layout.screen1_radio_layout,
-                    R.layout.screen1_radio_layout_800,
-                    R.layout.screen1_radio_layout_1600_480},
+            {
+                    SOURCE_RADIO, R.layout.screen1_radio_layout, R.layout.screen1_radio_layout_800, R.layout.screen1_radio_layout_1600_480
+            },
 
-            {SOURCE_MUSIC, R.layout.screen1_music_layout,
-                    R.layout.screen1_music_layout_800,
-                    R.layout.screen1_music_layout_1600_480},
+            {
+                    SOURCE_MUSIC, R.layout.screen1_music_layout, R.layout.screen1_music_layout_800, R.layout.screen1_music_layout_1600_480
+            },
 
-            {SOURCE_VIDEO, R.layout.screen1_video_layout,
-                    R.layout.screen1_video_layout_800,
-                    R.layout.screen1_video_layout_1600_480},
+            {
+                    SOURCE_VIDEO, R.layout.screen1_video_layout, R.layout.screen1_video_layout_800, R.layout.screen1_video_layout_1600_480
+            },
 
-            {SOURCE_BT_MUSIC, R.layout.screen1_bt_music,
-                    R.layout.screen1_bt_music_800,
-                    R.layout.screen1_bt_music_1600_480},
+            {
+                    SOURCE_BT_MUSIC, R.layout.screen1_bt_music, R.layout.screen1_bt_music_800, R.layout.screen1_bt_music_1600_480
+            },
 
-            {SOURCE_DVD, R.layout.screen1_dvd_player,
-                    R.layout.screen1_dvd_player_800,
-                    R.layout.screen1_dvd_player_1600_480},
+            {
+                    SOURCE_DVD, R.layout.screen1_dvd_player, R.layout.screen1_dvd_player_800, R.layout.screen1_dvd_player_1600_480
+            },
 
-            {SOURCE_WALLPAPER, R.layout.wallpaper_chooser,
-                    R.layout.wallpaper_chooser, R.layout.wallpaper_chooser},
+            {
+                    SOURCE_WALLPAPER, R.layout.wallpaper_chooser, R.layout.wallpaper_chooser, R.layout.wallpaper_chooser
+            },
 
-            {SOURCE_SETTINGS, R.layout.settings, R.layout.settings,
-                    R.layout.settings},
+            {
+                    SOURCE_SETTINGS, R.layout.settings, R.layout.settings, R.layout.settings
+            },
 
     };
 
@@ -424,47 +421,47 @@ public class PresentationUI extends Presentation implements OnTouchListener, OnG
 
             switch (source) {
                 case SOURCE_SCREEN_SAVER:
-                    mUIBase = Screen1SaverUI.getInstanse(mContext,findViewById(R.id.screen1_main), 1);
+                    mUIBase = Screen1SaverUI.getInstanse(mContext, findViewById(R.id.screen1_main), 1);
                     break;
                 case SOURCE_LAUCNHER:
 
-                    mUIBase = Screen1LauncherUI.getInstanse(mContext,findViewById(R.id.screen1_main), 1);
+                    mUIBase = Screen1LauncherUI.getInstanse(mContext, findViewById(R.id.screen1_main), 1);
                     break;
                 case SOURCE_RADIO:
 
-                    mUIBase = RadioUI.getInstanse(mContext,findViewById(R.id.screen1_main), 1);
+                    mUIBase = RadioUI.getInstanse(mContext, findViewById(R.id.screen1_main), 1);
                     // hideDvd();
                     break;
                 case SOURCE_MUSIC:
 
-                    mUIBase = MusicUI.getInstanse(mContext,findViewById(R.id.screen1_main), 1);
+                    mUIBase = MusicUI.getInstance(mContext, findViewById(R.id.screen1_main), 1);
                     // hideDvd();
                     break;
                 case SOURCE_VIDEO:
 
-                    mUIBase = VideoUI.getInstanse(mContext,findViewById(R.id.screen1_main), 1);
+                    mUIBase = VideoUI.getInstanse(mContext, findViewById(R.id.screen1_main), 1);
                     // hideDvd();
                     break;
                 case SOURCE_BT_MUSIC:
 
-                    mUIBase = BTMusicUI.getInstanse(mContext,findViewById(R.id.screen1_main), 1);
+                    mUIBase = BTMusicUI.getInstanse(mContext, findViewById(R.id.screen1_main), 1);
                     // hideDvd();
                     break;
                 case SOURCE_AUX:
-                    mUIBase = AuxInUI.getInstanse(mContext,findViewById(R.id.screen1_main), 1);
+                    mUIBase = AuxInUI.getInstanse(mContext, findViewById(R.id.screen1_main), 1);
                     // hideScreen0Camera();
                     break;
                 case SOURCE_DVD:
-                    mUIBase = DVDUI.getInstanse(mContext,findViewById(R.id.screen1_main), 1);
+                    mUIBase = DVDUI.getInstanse(mContext, findViewById(R.id.screen1_main), 1);
                     // hideAuxIn();
                     // hideFrontCamera();
                     // hideDvd();
                     break;
                 case SOURCE_WALLPAPER:
-                    mUIBase = WallpaperUI.getInstanse(mContext,findViewById(R.id.screen1_main), 1);
+                    mUIBase = WallpaperUI.getInstanse(mContext, findViewById(R.id.screen1_main), 1);
                     break;
                 case SOURCE_SETTINGS:
-                    mUIBase = SettingsUI.getInstanse(getContext(),findViewById(R.id.screen1_main), 1);
+                    mUIBase = SettingsUI.getInstanse(getContext(), findViewById(R.id.screen1_main), 1);
                     break;
                 default:
                     break;
@@ -476,7 +473,7 @@ public class PresentationUI extends Presentation implements OnTouchListener, OnG
             if (source != SOURCE_WALLPAPER /* && source!=SOURCE_SETTINGS */) {
                 initClick();
                 initTime();
-                BroadcastUtil.sendToCarService(mContext,MyCmd.Cmd.SET_SCREEN1_SOURCE, source);
+                BroadcastUtil.sendToCarService(mContext, MyCmd.Cmd.SET_SCREEN1_SOURCE, source);
             }
         }
     }
@@ -488,40 +485,32 @@ public class PresentationUI extends Presentation implements OnTouchListener, OnG
             if (force) {
                 switch (source) {
                     case SOURCE_RADIO:
-                        if ((AppConfig.CAR_UI_DVD.equals(s))
-                                || (AppConfig.CAR_UI_RADIO.equals(s))) {
+                        if ((AppConfig.CAR_UI_DVD.equals(s)) || (AppConfig.CAR_UI_RADIO.equals(s))) {
                             toHome = true;
                         }
                         break;
                     case SOURCE_MUSIC:
-                        if ((AppConfig.CAR_UI_DVD.equals(s))
-                                || (AppConfig.CAR_UI_AUDIO.equals(s))) {
+                        if ((AppConfig.CAR_UI_DVD.equals(s)) || (AppConfig.CAR_UI_AUDIO.equals(s))) {
                             toHome = true;
                         }
                         break;
                     case SOURCE_VIDEO:
-                        if ((AppConfig.CAR_UI_DVD.equals(s))
-                                || (AppConfig.CAR_UI_VIDEO.equals(s))) {
+                        if ((AppConfig.CAR_UI_DVD.equals(s)) || (AppConfig.CAR_UI_VIDEO.equals(s))) {
                             toHome = true;
                         }
                         break;
                     case SOURCE_BT_MUSIC:
-                        if ((AppConfig.CAR_UI_DVD.equals(s))
-                                || (AppConfig.CAR_UI_BT_MUSIC.equals(s))) {
+                        if ((AppConfig.CAR_UI_DVD.equals(s)) || (AppConfig.CAR_UI_BT_MUSIC.equals(s))) {
                             toHome = true;
                         }
                         break;
                     case SOURCE_AUX:
-                        if ((AppConfig.CAR_UI_DVD.equals(s))
-                                || AppConfig.CAR_UI_FRONT_CAMERA.equals(s)
-                                || (AppConfig.CAR_UI_AUX_IN.equals(s))) {
+                        if ((AppConfig.CAR_UI_DVD.equals(s)) || AppConfig.CAR_UI_FRONT_CAMERA.equals(s) || (AppConfig.CAR_UI_AUX_IN.equals(s))) {
                             toHome = true;
                         }
                         break;
                     case SOURCE_DVD:
-                        if ((AppConfig.CAR_UI_DVD.equals(s))
-                                || AppConfig.CAR_UI_FRONT_CAMERA.equals(s)
-                                || (AppConfig.CAR_UI_AUX_IN.equals(s))) {
+                        if ((AppConfig.CAR_UI_DVD.equals(s)) || AppConfig.CAR_UI_FRONT_CAMERA.equals(s) || (AppConfig.CAR_UI_AUX_IN.equals(s))) {
                             toHome = true;
                         }
                         break;
@@ -531,9 +520,7 @@ public class PresentationUI extends Presentation implements OnTouchListener, OnG
             } else {
                 switch (source) {
                     case SOURCE_AUX:
-                        if ((AppConfig.CAR_UI_DVD.equals(s))
-                                || AppConfig.CAR_UI_FRONT_CAMERA.equals(s)
-                                || (AppConfig.CAR_UI_AUX_IN.equals(s))) {
+                        if ((AppConfig.CAR_UI_DVD.equals(s)) || AppConfig.CAR_UI_FRONT_CAMERA.equals(s) || (AppConfig.CAR_UI_AUX_IN.equals(s))) {
                             toHome = true;
                         }
                         break;
@@ -542,8 +529,7 @@ public class PresentationUI extends Presentation implements OnTouchListener, OnG
                             mDvd = DVDService.getDVideoSpec();
                         }
 
-                        if (AppConfig.CAR_UI_FRONT_CAMERA.equals(s)
-                                || (AppConfig.CAR_UI_AUX_IN.equals(s))) {
+                        if (AppConfig.CAR_UI_FRONT_CAMERA.equals(s) || (AppConfig.CAR_UI_AUX_IN.equals(s))) {
                             toHome = true;
                         } else if ((AppConfig.CAR_UI_DVD.equals(s))) {
                             if (mDvd.mDiskType != DVideoSpec.DVD_DISK_TYPE_CD) {
@@ -558,24 +544,16 @@ public class PresentationUI extends Presentation implements OnTouchListener, OnG
         }
 
         if (toHome) {
-            mContext.startActivity(new Intent(Intent.ACTION_MAIN).addFlags(
-                    Intent.FLAG_ACTIVITY_NEW_TASK
-                            | Intent.FLAG_ACTIVITY_CLEAR_TOP).addCategory(
-                    Intent.CATEGORY_HOME));
+            mContext.startActivity(new Intent(Intent.ACTION_MAIN).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP).addCategory(Intent.CATEGORY_HOME));
             Util.doSleep(5);
         }
     }
 
     private void hideScreen0Camera() {
         String s = AppConfig.getTopActivity();
-        if ((s != null)
-                && (AppConfig.CAR_UI_FRONT_CAMERA.equals(s) || AppConfig.CAR_UI_DVD
-                .equals(s))) {
+        if ((s != null) && (AppConfig.CAR_UI_FRONT_CAMERA.equals(s) || AppConfig.CAR_UI_DVD.equals(s))) {
 
-            mContext.startActivity(new Intent(Intent.ACTION_MAIN).addFlags(
-                    Intent.FLAG_ACTIVITY_NEW_TASK
-                            | Intent.FLAG_ACTIVITY_CLEAR_TOP).addCategory(
-                    Intent.CATEGORY_HOME));
+            mContext.startActivity(new Intent(Intent.ACTION_MAIN).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP).addCategory(Intent.CATEGORY_HOME));
         }
 
     }
@@ -584,10 +562,7 @@ public class PresentationUI extends Presentation implements OnTouchListener, OnG
         String s = AppConfig.getTopActivity();
         if ((s != null) && (AppConfig.CAR_UI_DVD.equals(s))) {
 
-            mContext.startActivity(new Intent(Intent.ACTION_MAIN).addFlags(
-                    Intent.FLAG_ACTIVITY_NEW_TASK
-                            | Intent.FLAG_ACTIVITY_CLEAR_TOP).addCategory(
-                    Intent.CATEGORY_HOME));
+            mContext.startActivity(new Intent(Intent.ACTION_MAIN).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP).addCategory(Intent.CATEGORY_HOME));
         }
 
     }
@@ -596,10 +571,7 @@ public class PresentationUI extends Presentation implements OnTouchListener, OnG
         String s = AppConfig.getTopActivity();
         if ((s != null) && (AppConfig.CAR_UI_FRONT_CAMERA.equals(s))) {
 
-            mContext.startActivity(new Intent(Intent.ACTION_MAIN).addFlags(
-                    Intent.FLAG_ACTIVITY_NEW_TASK
-                            | Intent.FLAG_ACTIVITY_CLEAR_TOP).addCategory(
-                    Intent.CATEGORY_HOME));
+            mContext.startActivity(new Intent(Intent.ACTION_MAIN).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP).addCategory(Intent.CATEGORY_HOME));
         }
 
     }
@@ -608,10 +580,7 @@ public class PresentationUI extends Presentation implements OnTouchListener, OnG
         String s = AppConfig.getTopActivity();
         if ((s != null) && (AppConfig.CAR_UI_AUX_IN.equals(s))) {
 
-            mContext.startActivity(new Intent(Intent.ACTION_MAIN).addFlags(
-                    Intent.FLAG_ACTIVITY_NEW_TASK
-                            | Intent.FLAG_ACTIVITY_CLEAR_TOP).addCategory(
-                    Intent.CATEGORY_HOME));
+            mContext.startActivity(new Intent(Intent.ACTION_MAIN).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP).addCategory(Intent.CATEGORY_HOME));
         }
 
     }
@@ -624,8 +593,7 @@ public class PresentationUI extends Presentation implements OnTouchListener, OnG
         switch (source) {
             case MyCmd.SOURCE_AUX:
                 if (show == 0) {
-                    if (mSource == SOURCE_SCREEN_SAVER
-                            || mSource == SOURCE_LAUCNHER) {
+                    if (mSource == SOURCE_SCREEN_SAVER || mSource == SOURCE_LAUCNHER) {
                         doUpdate(source);
                     }
                 } else {
@@ -634,8 +602,7 @@ public class PresentationUI extends Presentation implements OnTouchListener, OnG
                 break;
             case MyCmd.SOURCE_VIDEO:
                 if (show == 0) {
-                    if (mSource == SOURCE_SCREEN_SAVER
-                            || mSource == SOURCE_LAUCNHER) {
+                    if (mSource == SOURCE_SCREEN_SAVER || mSource == SOURCE_LAUCNHER) {
                         doUpdate(source);
                     }
                 } else {
@@ -671,15 +638,13 @@ public class PresentationUI extends Presentation implements OnTouchListener, OnG
                             doUpdate(source);
                         }
                     }
-                    if (mSource == SOURCE_SCREEN_SAVER
-                            || mSource == SOURCE_LAUCNHER) {
+                    if (mSource == SOURCE_SCREEN_SAVER || mSource == SOURCE_LAUCNHER) {
                         if (mDvd.mDiskType == DVideoSpec.DVD_DISK_TYPE_CD) {
                             doUpdate(source);
                         }
                     }
                 } else if (show == 0) {
-                    if (mSource == SOURCE_SCREEN_SAVER
-                            || mSource == SOURCE_LAUCNHER) {
+                    if (mSource == SOURCE_SCREEN_SAVER || mSource == SOURCE_LAUCNHER) {
 
                         if (mDvd.mDiskType != DVideoSpec.DVD_DISK_TYPE_CD) {
                             doUpdate(source);
@@ -746,17 +711,14 @@ public class PresentationUI extends Presentation implements OnTouchListener, OnG
     }
 
     private int updateScreen1Status(int source) {
-        if (source == SOURCE_AUX || source == SOURCE_VIDEO
-                || source == SOURCE_DVD) {
+        if (source == SOURCE_AUX || source == SOURCE_VIDEO || source == SOURCE_DVD) {
             mUIBase0 = GlobalDef.getCurrentScreen0();
             if (source == SOURCE_AUX) {
-                if (mUIBase0 != null && mUIBase0.mSource == SOURCE_AUX
-                        && !mUIBase0.mPause) {
+                if (mUIBase0 != null && mUIBase0.mSource == SOURCE_AUX && !mUIBase0.mPause) {
                     source = SOURCE_SCREEN_SAVER;
                 }
             } else if (source == SOURCE_VIDEO) {
-                if (mUIBase0 != null && mUIBase0.mSource == SOURCE_VIDEO
-                        && !mUIBase0.mPause
+                if (mUIBase0 != null && mUIBase0.mSource == SOURCE_VIDEO && !mUIBase0.mPause
                     /* && mUIBase0.getScreen0Type() == UIBase.SCREEN0_SHOW_VIDEO */) {
                     source = SOURCE_SCREEN_SAVER;
                 }
@@ -765,9 +727,7 @@ public class PresentationUI extends Presentation implements OnTouchListener, OnG
                     mDvd = DVDService.getDVideoSpec();
                 }
 
-                if (mUIBase0 != null && mUIBase0.mSource == SOURCE_DVD
-                        && !mUIBase0.mPause
-                        && (mDvd.mDiskType != DVideoSpec.DVD_DISK_TYPE_CD)
+                if (mUIBase0 != null && mUIBase0.mSource == SOURCE_DVD && !mUIBase0.mPause && (mDvd.mDiskType != DVideoSpec.DVD_DISK_TYPE_CD)
                     /* && mUIBase0.getScreen0Type() == UIBase.SCREEN0_SHOW_VIDEO */) {
                     source = SOURCE_SCREEN_SAVER;
                 }
@@ -825,8 +785,7 @@ public class PresentationUI extends Presentation implements OnTouchListener, OnG
                 public void onReceive(Context context, Intent intent) {
                     String action = intent.getAction();
                     // Log.d("ff", action);
-                    if (action
-                            .equals(WallpaperUI.BROADCAST_SCREEN1_WALLPAPER_CHANGE)) {
+                    if (action.equals(WallpaperUI.BROADCAST_SCREEN1_WALLPAPER_CHANGE)) {
                         udpateWallPaper();
                         if (mSource == SOURCE_WALLPAPER) {
                             doUpdate(mPreSource);
@@ -843,11 +802,7 @@ public class PresentationUI extends Presentation implements OnTouchListener, OnG
         }
         if (mContentOb == null) {
             mContentOb = new SettingsValueChangeContentObserver();
-            mContext.getContentResolver()
-                    .registerContentObserver(
-                            Settings.System
-                                    .getUriFor(android.provider.Settings.System.TIME_12_24),
-                            true, mContentOb);// 注册监听
+            mContext.getContentResolver().registerContentObserver(Settings.System.getUriFor(android.provider.Settings.System.TIME_12_24), true, mContentOb);// 注册监听
         }
 
     }
@@ -910,14 +865,12 @@ public class PresentationUI extends Presentation implements OnTouchListener, OnG
     }
 
     @Override
-    public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX,
-                            float distanceY) {
+    public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
         // TODO Auto-generated method stub
-//		Log.d("tt", (e2.getY() - e1.getY())+"::"+distanceY);
+        //		Log.d("tt", (e2.getY() - e1.getY())+"::"+distanceY);
         if (e2.getY() - e1.getY() > 50 && Math.abs(distanceY) > 0) {
 
-            BroadcastUtil.sendToCarService(mContext,
-                    MyCmd.Cmd.SHOW_AIR_CONTROL, 0);
+            BroadcastUtil.sendToCarService(mContext, MyCmd.Cmd.SHOW_AIR_CONTROL, 0);
             return true;
         }
         return false;
@@ -930,9 +883,8 @@ public class PresentationUI extends Presentation implements OnTouchListener, OnG
     }
 
     @Override
-    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
-                           float velocityY) {
-//		Log.d("tt", (e2.getY() - e1.getY())+"::"+velocityY);
+    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+        //		Log.d("tt", (e2.getY() - e1.getY())+"::"+velocityY);
 
 
         return false;

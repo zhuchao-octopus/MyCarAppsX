@@ -1,8 +1,22 @@
 package com.octopus.android.carapps.tv;
 
-import java.io.File;
-import java.util.List;
-import java.util.Timer;
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.hardware.Camera;
+import android.hardware.Camera.Size;
+import android.opengl.GLSurfaceView;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import android.util.Log;
+import android.view.SurfaceHolder;
+import android.view.SurfaceView;
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.FrameLayout;
+import android.widget.TextView;
 
 import com.common.util.BroadcastUtil;
 import com.common.util.Kernel;
@@ -15,25 +29,9 @@ import com.octopus.android.carapps.common.camera.CameraHolder;
 import com.octopus.android.carapps.common.ui.UIBase;
 import com.octopus.android.carapps.common.utils.ParkBrake;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.hardware.Camera;
-import android.hardware.Camera.Size;
-import android.opengl.GLSurfaceView;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import android.util.AttributeSet;
-import android.util.Log;
-import android.view.SurfaceHolder;
-import android.view.SurfaceView;
-import android.view.View;
-import android.view.WindowManager;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import java.io.File;
+import java.util.List;
+import java.util.Timer;
 
 public class TvUICvbs extends UIBase implements View.OnClickListener, SurfaceHolder.Callback {
     private static final String TAG = "TvUICvbs";
@@ -55,12 +53,9 @@ public class TvUICvbs extends UIBase implements View.OnClickListener, SurfaceHol
     }
 
     private static final int[] BUTTON_ON_CLICK = new int[]{
-            R.id.camera_surfaceview, R.id.radio_keyboard, R.id.dtv_scan,
-            R.id.dtv_next, R.id.dtv_power, R.id.dtv_prev, R.id.num0, R.id.num1,
-            R.id.num2, R.id.num3, R.id.num4, R.id.num5, R.id.num6, R.id.num7,
-            R.id.num8, R.id.num9, R.id.num_del, R.id.num_ok, R.id.dtv_menu,
-            R.id.dtv_exit, R.id.num_rec, R.id.num_usb, R.id.dtv_up,
-            R.id.dtv_down, R.id.dtv_left, R.id.dtv_right};
+            R.id.camera_surfaceview, R.id.radio_keyboard, R.id.dtv_scan, R.id.dtv_next, R.id.dtv_power, R.id.dtv_prev, R.id.num0, R.id.num1, R.id.num2, R.id.num3, R.id.num4, R.id.num5, R.id.num6,
+            R.id.num7, R.id.num8, R.id.num9, R.id.num_del, R.id.num_ok, R.id.dtv_menu, R.id.dtv_exit, R.id.num_rec, R.id.num_usb, R.id.dtv_up, R.id.dtv_down, R.id.dtv_left, R.id.dtv_right
+    };
 
     // private static final int[][] VIEW_HIDE = new int[][] {
     // {0 },
@@ -107,8 +102,7 @@ public class TvUICvbs extends UIBase implements View.OnClickListener, SurfaceHol
     public void onCreate() {
         super.onCreate();
 
-        mSurfaceView = (SurfaceView) mMainView
-                .findViewById(R.id.camera_surfaceview);
+        mSurfaceView = (SurfaceView) mMainView.findViewById(R.id.camera_surfaceview);
         if (!(com.common.util.Util.isAndroidP() || com.common.util.Util.isAndroidQ())) {
             SurfaceHolder holder = mSurfaceView.getHolder();
             holder.addCallback(this);
@@ -331,14 +325,11 @@ public class TvUICvbs extends UIBase implements View.OnClickListener, SurfaceHol
     private void setFullScreen() {
 
         if (this.mDisplayIndex == SCREEN0) {
-            ((Activity) mContext).getWindow().setFlags(
-                    WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                    WindowManager.LayoutParams.FLAG_FULLSCREEN);
+            ((Activity) mContext).getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
             mMainView.findViewById(R.id.tv_control).setVisibility(View.GONE);
         } else {
-            mMainView.findViewById(R.id.common_status_bar_main).setVisibility(
-                    View.GONE);
+            mMainView.findViewById(R.id.common_status_bar_main).setVisibility(View.GONE);
         }
     }
 
@@ -348,17 +339,14 @@ public class TvUICvbs extends UIBase implements View.OnClickListener, SurfaceHol
 
         if (mDisplayIndex == SCREEN1) {
 
-            mMainView.findViewById(R.id.common_status_bar_main).setVisibility(
-                    View.VISIBLE);
+            mMainView.findViewById(R.id.common_status_bar_main).setVisibility(View.VISIBLE);
 
         } else {
 
-            final WindowManager.LayoutParams attrs = ((Activity) mContext)
-                    .getWindow().getAttributes();
+            final WindowManager.LayoutParams attrs = ((Activity) mContext).getWindow().getAttributes();
             attrs.flags &= (~WindowManager.LayoutParams.FLAG_FULLSCREEN);
             ((Activity) mContext).getWindow().setAttributes(attrs);
-            ((Activity) mContext).getWindow().clearFlags(
-                    WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+            ((Activity) mContext).getWindow().clearFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
             mMainView.findViewById(R.id.tv_control).setVisibility(View.VISIBLE);
         }
 
@@ -428,8 +416,7 @@ public class TvUICvbs extends UIBase implements View.OnClickListener, SurfaceHol
     private Size getOptimalPreviewSize(List<Size> sizes, int w, int h) {
         final double ASPECT_TOLERANCE = 0.05;
         double targetRatio = (double) w / h;
-        if (sizes == null)
-            return null;
+        if (sizes == null) return null;
 
         Size optimalSize = null;
         double minDiff = Double.MAX_VALUE;
@@ -439,8 +426,7 @@ public class TvUICvbs extends UIBase implements View.OnClickListener, SurfaceHol
         // Try to find an size match aspect ratio and size
         for (Size size : sizes) {
             double ratio = (double) size.width / size.height;
-            if (Math.abs(ratio - targetRatio) > ASPECT_TOLERANCE)
-                continue;
+            if (Math.abs(ratio - targetRatio) > ASPECT_TOLERANCE) continue;
             if (Math.abs(size.height - targetHeight) < minDiff) {
                 optimalSize = size;
                 minDiff = Math.abs(size.height - targetHeight);
@@ -460,16 +446,13 @@ public class TvUICvbs extends UIBase implements View.OnClickListener, SurfaceHol
         return optimalSize;
     }
 
-    public void surfaceChanged(SurfaceHolder holder, int format, int width,
-                               int height) {
+    public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
         if (holder.getSurface() == null) {
             return;
         }
         mSurfaceHolder = holder;
-        if (mCameraDevice == null)
-            return;
-        if (mPause)
-            return;
+        if (mCameraDevice == null) return;
+        if (mPause) return;
         if (mPreviewing && holder.isCreating()) {
             setPreviewDisplay(holder);
             Camera.Parameters parameters = mCameraDevice.getParameters();
@@ -511,8 +494,7 @@ public class TvUICvbs extends UIBase implements View.OnClickListener, SurfaceHol
             showBlackEx(true, 100);
             if (mCloseByReverse) {
 
-                Log.d(TAG,
-                        "mCloseByReverse!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                Log.d(TAG, "mCloseByReverse!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
                 releaseCamera();
             }
         } catch (Exception e) {
@@ -526,9 +508,7 @@ public class TvUICvbs extends UIBase implements View.OnClickListener, SurfaceHol
         mHandler.removeMessages(MSG_DELAY_RESTART_CAMERA);
         if (GlobalDef.isGLCamera()) {
             if (mGLSufaceView != null) {
-                Log.d(TAG,
-                        ">>releaseCamera ret:" + mPreviewing + ":"
-                                + GlobalDef.getCameraPreview());
+                Log.d(TAG, ">>releaseCamera ret:" + mPreviewing + ":" + GlobalDef.getCameraPreview());
                 if (mPreviewing && GlobalDef.getCameraPreview() == mCameraOpenIndex) {
                     //mGLSufaceView.stoptPreview();
 
@@ -536,8 +516,8 @@ public class TvUICvbs extends UIBase implements View.OnClickListener, SurfaceHol
                     GlobalDef.setCameraPreview(0);
 
                 }
-//				mGLSufaceView.release();
-//				mGLSufaceView = null;
+                //				mGLSufaceView.release();
+                //				mGLSufaceView = null;
             }
             return;
         }
@@ -569,8 +549,7 @@ public class TvUICvbs extends UIBase implements View.OnClickListener, SurfaceHol
         // mSurfaceHolder = null;
     }
 
-    private void startPreview(SurfaceHolder surfaceHolder)
-            throws Exception { //
+    private void startPreview(SurfaceHolder surfaceHolder) throws Exception { //
 
         Log.d(TAG, "startPreview");
 
@@ -581,27 +560,22 @@ public class TvUICvbs extends UIBase implements View.OnClickListener, SurfaceHol
         }
 
         if (GlobalDef.isGLCamera()) {
-//			if (mGLSufaceView == null) {
-//				FrameLayout v = (FrameLayout) mMainView
-//						.findViewById(R.id.glsuface_main);
-//				mGLSufaceView = new GLSufaceView(mContext, v);				
-//			}
-            Log.d(TAG,
-                    ">>startPreview ret:" + mPreviewing + ":"
-                            + GlobalDef.getCameramOpenCameraPreview());
+            //			if (mGLSufaceView == null) {
+            //				FrameLayout v = (FrameLayout) mMainView
+            //						.findViewById(R.id.glsuface_main);
+            //				mGLSufaceView = new GLSufaceView(mContext, v);
+            //			}
+            Log.d(TAG, ">>startPreview ret:" + mPreviewing + ":" + GlobalDef.getCameramOpenCameraPreview());
             if (mPause) {
-                Log.d(TAG,
-                        "<<startPreview pause:");
+                Log.d(TAG, "<<startPreview pause:");
                 return;
             }
             if ((GlobalDef.getCameraPreview() != 0) || GlobalDef.getCameramOpenCameraPreview()) {
-                Log.d(TAG, "<<startPreview 22:"
-                        + GlobalDef.isCameraTryNumMax());
+                Log.d(TAG, "<<startPreview 22:" + GlobalDef.isCameraTryNumMax());
                 if (!GlobalDef.isCameraTryNumMax()) {
                     showBlackEx(true, 500);
                     mHandler.removeMessages(MSG_DELAY_RESTART_CAMERA);
-                    mHandler.sendEmptyMessageDelayed(MSG_DELAY_RESTART_CAMERA,
-                            500);
+                    mHandler.sendEmptyMessageDelayed(MSG_DELAY_RESTART_CAMERA, 500);
                 }
                 return;
             }
@@ -614,9 +588,7 @@ public class TvUICvbs extends UIBase implements View.OnClickListener, SurfaceHol
                 GlobalDef.setCameraPreview(0);
             }
             GlobalDef.setCameramOpenCameraPreview(false);
-            Log.d(TAG,
-                    "<<startPreview ret:" + mPreviewing + ":"
-                            + GlobalDef.getCameraPreview());
+            Log.d(TAG, "<<startPreview ret:" + mPreviewing + ":" + GlobalDef.getCameraPreview());
             return;
         }
 
@@ -627,8 +599,7 @@ public class TvUICvbs extends UIBase implements View.OnClickListener, SurfaceHol
         // return;
         // }
         ensureCameraDevice();
-        if (mPreviewing)
-            return;// stopPreview(); //why stop?
+        if (mPreviewing) return;// stopPreview(); //why stop?
 
         setPreviewDisplay(surfaceHolder);
         try {
@@ -636,7 +607,7 @@ public class TvUICvbs extends UIBase implements View.OnClickListener, SurfaceHol
             List<Size> sizes = parameters.getSupportedPreviewSizes();
             Size s = sizes.get(0);
             parameters.setPreviewSize(s.width, s.height);
-//			parameters.setPictureSize(s.width, s.height);
+            //			parameters.setPictureSize(s.width, s.height);
             if (Util.isPX5()) {
                 parameters.set("soc_camera_channel", MyCmd.CAMERA_SOURCE_DTV_CVBS);
             }
@@ -714,13 +685,13 @@ public class TvUICvbs extends UIBase implements View.OnClickListener, SurfaceHol
     }
 
     private void stopCheckSignal() {
-//		Log.d("dddd", "stopCheckSignal");
+        //		Log.d("dddd", "stopCheckSignal");
         mHandler.removeMessages(MSG_CHECK_SIGNAL);
     }
 
     private void startCheckSignal(boolean check) {
 
-//		Log.d("dddd", "startCheckSignal");
+        //		Log.d("dddd", "startCheckSignal");
         int time = TIME_CHECK_SIGNAL;
         if (check) {
             if (GlobalDef.mReverseStatus != 1) {
@@ -738,9 +709,7 @@ public class TvUICvbs extends UIBase implements View.OnClickListener, SurfaceHol
 
                 if (GlobalDef.mAutoTest) {
                     if (mDisplayIndex == 0) {
-                        BroadcastUtil.sendToCarService(mContext,
-                                MyCmd.Cmd.AUTO_TEST_RESULT,
-                                MyCmd.SOURCE_DTV_CVBS, s == 1 ? 0 : 1);
+                        BroadcastUtil.sendToCarService(mContext, MyCmd.Cmd.AUTO_TEST_RESULT, MyCmd.SOURCE_DTV_CVBS, s == 1 ? 0 : 1);
                     }
                 }
             }

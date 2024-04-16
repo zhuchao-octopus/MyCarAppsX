@@ -65,8 +65,8 @@
         <item name="android:focusable">false</item>
         <item name="android:clickable">false</item>
     </style>
-    
-        <style name="RadioButtonStyle">            
+
+    <style name="RadioButtonStyle">
         <item name="android:tag">ak_paramter=100,50</item>
         <item name="android:layout_width">98px</item>
         <item name="android:layout_height">51.0px</item>
@@ -76,7 +76,7 @@
         <item name="android:focusable">false</item>
         <item name="android:clickable">false</item>
     </style>
-    
+
     <style name="RadioText1">
         <item name="android:layout_width">60px</item>
         <item name="android:layout_height">30.0px</item>
@@ -84,8 +84,8 @@
         <item name="android:textColor">@android:color/white</item>
         <item name="android:gravity">center</item>
     </style>
-    
-        
+
+
     <style name="MusicButtonStyle1">
         <item name="android:tag">ak_paramter=100,50</item>
         <item name="android:layout_width">160px</item>

@@ -50,8 +50,7 @@ public class TVService extends ServiceBase {
     private static void callBackToUI(int what, int status, Object obj) {
         for (int i = 0; i < mHandlerUICallBack.length; ++i) {
             if (mHandlerUICallBack[i] != null) {
-                mHandlerUICallBack[i].sendMessageDelayed(mHandlerUICallBack[i]
-                        .obtainMessage(what, status, 0, obj), 20);
+                mHandlerUICallBack[i].sendMessageDelayed(mHandlerUICallBack[i].obtainMessage(what, status, 0, obj), 20);
             }
         }
     }
@@ -63,8 +62,7 @@ public class TVService extends ServiceBase {
             case MyCmd.Cmd.REVERSE_STATUS:
                 int status = intent.getIntExtra(MyCmd.EXTRA_COMMON_DATA, 0);
 
-                if (status == 1)
-                {
+                if (status == 1) {
                     TvUICvbs aui;
                     for (int i = 0; i < 2; i++) {
                         aui = TvUICvbs.mUI[i];
@@ -75,9 +73,7 @@ public class TVService extends ServiceBase {
                             break;
                         }
                     }
-                }
-                else
-                {
+                } else {
                     if (mReoverSource >= 0 && mReoverSource < 2) {
                         TvUICvbs.mUI[mReoverSource].reverseStop();
                         mReoverSource = -1;
@@ -109,8 +105,7 @@ public class TVService extends ServiceBase {
                             // if (mServiceBase.mPlayStatus ==
                             // BTMusicService.A2DP_INFO_PLAY) {
                             mPausedByTransientLossOfFocus = true;
-                            GlobalDef.setSource(GlobalDef.mContext,
-                                    MyCmd.SOURCE_OTHERS_APPS);
+                            GlobalDef.setSource(GlobalDef.mContext, MyCmd.SOURCE_OTHERS_APPS);
                             // }
                         }
                     }

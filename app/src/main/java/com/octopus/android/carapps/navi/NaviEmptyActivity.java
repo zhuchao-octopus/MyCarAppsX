@@ -24,11 +24,11 @@ import android.os.Bundle;
  */
 public class NaviEmptyActivity extends Activity {
 
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		// UtilCarKey.doKeyGps(this);//launcher do?
-		finish();
-	}
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // UtilCarKey.doKeyGps(this);//launcher do?
+        finish();
+    }
 
 }

@@ -1,6 +1,16 @@
 package com.octopus.android.carapps.btmusic;
 
-import java.util.ArrayList;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Handler;
+import android.os.Message;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import com.common.util.BroadcastUtil;
 import com.common.util.MachineConfig;
@@ -12,17 +22,7 @@ import com.octopus.android.carapps.adapter.MyListViewAdapterBTMusic;
 import com.octopus.android.carapps.car.ui.GlobalDef;
 import com.octopus.android.carapps.common.ui.UIBase;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.Intent;
-import android.os.Handler;
-import android.os.Message;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.AdapterView.OnItemClickListener;
+import java.util.ArrayList;
 
 public class BTMusicUI extends UIBase implements View.OnClickListener {
 
@@ -45,9 +45,9 @@ public class BTMusicUI extends UIBase implements View.OnClickListener {
         mSource = SOURCE;
     }
 
-    private static final int[] BUTTON_ON_CLICK = new int[]{R.id.pp,
-            R.id.prev, R.id.next, R.id.eq, R.id.bt, R.id.list, R.id.list_up,
-            R.id.root};//, R.id.mic, R.id.vol};
+    private static final int[] BUTTON_ON_CLICK = new int[]{
+            R.id.pp, R.id.prev, R.id.next, R.id.eq, R.id.bt, R.id.list, R.id.list_up, R.id.root
+    };//, R.id.mic, R.id.vol};
 
     // private static final int[][] VIEW_HIDE = new int[][] {
     // {0 },
@@ -91,30 +91,23 @@ public class BTMusicUI extends UIBase implements View.OnClickListener {
 
     private void setPlayButtonStatus(boolean playing) {
         if (playing) {
-            ((ImageView) mMainView.findViewById(R.id.pp)).getDrawable()
-                    .setLevel(1);
+            ((ImageView) mMainView.findViewById(R.id.pp)).getDrawable().setLevel(1);
         } else {
-            ((ImageView) mMainView.findViewById(R.id.pp)).getDrawable()
-                    .setLevel(0);
+            ((ImageView) mMainView.findViewById(R.id.pp)).getDrawable().setLevel(0);
         }
     }
 
     private void updateConnectView() {
-        View v
-                = mMainView.findViewById(R.id.disconnect_info);
+        View v = mMainView.findViewById(R.id.disconnect_info);
         if (v != null) {
             if (BTMusicService.mPlayStatus < BTMusicService.A2DP_INFO_CONNECTED) {
 
 
                 if (v instanceof TextView) {
                     TextView tv = (TextView) v;
-                    String s = String.format(
-                            mContext.getString(R.string.a2dp_disconnect_info),
-                            BTMusicService.mBtName);
+                    String s = String.format(mContext.getString(R.string.a2dp_disconnect_info), BTMusicService.mBtName);
 
-                    s += String.format(
-                            mContext.getString(R.string.a2dp_disconnect_info2),
-                            BTMusicService.mBtPin);
+                    s += String.format(mContext.getString(R.string.a2dp_disconnect_info2), BTMusicService.mBtPin);
                     tv.setText(s);
                 }
 
@@ -197,8 +190,7 @@ public class BTMusicUI extends UIBase implements View.OnClickListener {
         int hours = totalSeconds / 3600;
 
         if (hours > 0) {
-            return String.format("%d:%02d:%02d", hours, minutes, seconds)
-                    .toString();
+            return String.format("%d:%02d:%02d", hours, minutes, seconds).toString();
         } else {
             return String.format("%02d:%02d", minutes, seconds).toString();
         }
@@ -209,10 +201,8 @@ public class BTMusicUI extends UIBase implements View.OnClickListener {
     private void updateTimeView() {
 
         if (mTime != null) {
-            if (BTMusicService.mTotalTime > BTMusicService.mCurTime
-                    && BTMusicService.mPlayStatus == BTMusicService.A2DP_INFO_PLAY) {
-                mTime.setText(stringForTime(BTMusicService.mCurTime) + "/"
-                        + stringForTime(BTMusicService.mTotalTime));
+            if (BTMusicService.mTotalTime > BTMusicService.mCurTime && BTMusicService.mPlayStatus == BTMusicService.A2DP_INFO_PLAY) {
+                mTime.setText(stringForTime(BTMusicService.mCurTime) + "/" + stringForTime(BTMusicService.mTotalTime));
             }
         }
     }
@@ -254,8 +244,7 @@ public class BTMusicUI extends UIBase implements View.OnClickListener {
         if (id == R.id.prev) {
             mServiceBase.doKeyControl(MyCmd.Keycode.PREVIOUS);
             if (BTMusicService.mPlayStatus >= BTMusicService.A2DP_INFO_CONNECTED) {
-                GlobalDef.reactiveSource(mContext, SOURCE,
-                        BTMusicService.mAudioFocusListener);
+                GlobalDef.reactiveSource(mContext, SOURCE, BTMusicService.mAudioFocusListener);
             }
         } else if (id == R.id.pp) {
             if (BTMusicService.mPlayStatus == BTMusicService.A2DP_INFO_PLAY) {
@@ -265,22 +254,20 @@ public class BTMusicUI extends UIBase implements View.OnClickListener {
 
                 mServiceBase.doKeyControl(MyCmd.Keycode.PLAY);
                 if (BTMusicService.mPlayStatus >= BTMusicService.A2DP_INFO_CONNECTED) {
-                    GlobalDef.reactiveSource(mContext, SOURCE,
-                            BTMusicService.mAudioFocusListener);
+                    GlobalDef.reactiveSource(mContext, SOURCE, BTMusicService.mAudioFocusListener);
                 }
             }
         } else if (id == R.id.next) {
             mServiceBase.doKeyControl(MyCmd.Keycode.NEXT);
             if (BTMusicService.mPlayStatus >= BTMusicService.A2DP_INFO_CONNECTED) {
-                GlobalDef.reactiveSource(mContext, SOURCE,
-                        BTMusicService.mAudioFocusListener);
+                GlobalDef.reactiveSource(mContext, SOURCE, BTMusicService.mAudioFocusListener);
             }
         } else if (id == R.id.eq) {
             try {
                 Intent it = new Intent(mContext.getString(R.string.app_eq));
                 mContext.startActivity(it);
             } catch (Exception e) {
-//				Log.e(TAG, e.getMessage());
+                //				Log.e(TAG, e.getMessage());
             }
         } else if (id == R.id.bt) {
             UtilCarKey.doKeyBT(mContext);
@@ -325,15 +312,13 @@ public class BTMusicUI extends UIBase implements View.OnClickListener {
         BTMusicService.setHandler(mHandler, mDisplayIndex);
         // if (BTMusicService.mPlayStatus >= BTMusicService.A2DP_INFO_CONNECTED)
         // {
-        GlobalDef.reactiveSource(mContext, SOURCE,
-                BTMusicService.mAudioFocusListener);
+        GlobalDef.reactiveSource(mContext, SOURCE, BTMusicService.mAudioFocusListener);
 
         BroadcastUtil.sendToCarServiceSetSource(mContext, SOURCE);
         // }
 
         mPrePlayStatus = BTMusicService.mPlayStatus;
-        if (BTMusicService.mPlayStatus >= BTMusicService.A2DP_INFO_CONNECTED &&
-                BTMusicService.mPlayStatus != BTMusicService.A2DP_INFO_PLAY) {
+        if (BTMusicService.mPlayStatus >= BTMusicService.A2DP_INFO_CONNECTED && BTMusicService.mPlayStatus != BTMusicService.A2DP_INFO_PLAY) {
             // Log.d("a", "doKeyControl(MyCmd.Keycode.PLAY);");
             if (mServiceBase == null) {
                 mServiceBase = BTMusicService.getInstanse();
@@ -432,8 +417,7 @@ public class BTMusicUI extends UIBase implements View.OnClickListener {
         if (mListView != null) {
             mTextViewRoot = (TextView) mMainView.findViewById(R.id.list_root);
             mListView.setOnItemClickListener(new OnItemClickListener() {
-                public void onItemClick(AdapterView<?> arg0, View view,
-                                        int postion, long id) {
+                public void onItemClick(AdapterView<?> arg0, View view, int postion, long id) {
 
                     BTMusicNode node = mListContent.get(postion);
                     if (node.flag == 0) {
@@ -448,13 +432,11 @@ public class BTMusicUI extends UIBase implements View.OnClickListener {
                 }
             });
         }
-        mListViewPLaying = (ListView) mMainView
-                .findViewById(R.id.bt_playing_list);
+        mListViewPLaying = (ListView) mMainView.findViewById(R.id.bt_playing_list);
         if (mListViewPLaying != null) {
             mListViewPLaying.setVisibility(View.GONE);
             mListViewPLaying.setOnItemClickListener(new OnItemClickListener() {
-                public void onItemClick(AdapterView<?> arg0, View view,
-                                        int postion, long id) {
+                public void onItemClick(AdapterView<?> arg0, View view, int postion, long id) {
 
                     BTMusicNode node = mListPlaying.get(postion);
                     if (node.flag == 0) {
@@ -510,8 +492,7 @@ public class BTMusicUI extends UIBase implements View.OnClickListener {
                 for (BTMusicNode node : mListContent) {
                     mListPlaying.add(node);
                 }
-                mAdapterPLaying = new MyListViewAdapterBTMusic(
-                        mContext, R.layout.tl_list, mListPlaying);
+                mAdapterPLaying = new MyListViewAdapterBTMusic(mContext, R.layout.tl_list, mListPlaying);
                 mListViewPLaying.setAdapter(mAdapterPLaying);
             }
 
@@ -526,8 +507,7 @@ public class BTMusicUI extends UIBase implements View.OnClickListener {
                 btList.setVisibility(View.GONE);
             } else {
                 btList.setVisibility(View.VISIBLE);
-                mMainView.findViewById(R.id.bt_list_updating).setVisibility(
-                        View.GONE);
+                mMainView.findViewById(R.id.bt_list_updating).setVisibility(View.GONE);
                 sendListCmd(REQUEST_CMD_DGCD, null);
                 // sendListCmd(REQUEST_CMD_DGEC, null);
             }
@@ -583,12 +563,10 @@ public class BTMusicUI extends UIBase implements View.OnClickListener {
 
                 }
 
-                BTMusicNode node = new BTMusicNode((mListContent.size() + 1)
-                        + "," + ss[0].substring(1, ss[0].length()), flag, count);
+                BTMusicNode node = new BTMusicNode((mListContent.size() + 1) + "," + ss[0].substring(1, ss[0].length()), flag, count);
                 mListContent.add(node);
             }
-            MyListViewAdapterBTMusic adapter = new MyListViewAdapterBTMusic(
-                    mContext, R.layout.tl_list, mListContent);
+            MyListViewAdapterBTMusic adapter = new MyListViewAdapterBTMusic(mContext, R.layout.tl_list, mListContent);
             mListView.setAdapter(adapter);
 
             updateListPath(mCurPath, mListContent);
@@ -598,10 +576,8 @@ public class BTMusicUI extends UIBase implements View.OnClickListener {
     private String mCurPath = null;
 
     private void updateListProcess(int pos, int total) {
-        mMainView.findViewById(R.id.bt_list_updating).setVisibility(
-                View.VISIBLE);
-        ((TextView) mMainView.findViewById(R.id.bt_list_progress_text))
-                .setText(pos + "/" + total);
+        mMainView.findViewById(R.id.bt_list_updating).setVisibility(View.VISIBLE);
+        ((TextView) mMainView.findViewById(R.id.bt_list_progress_text)).setText(pos + "/" + total);
     }
 
     public void updateListRoot(String root) {
@@ -624,8 +600,7 @@ public class BTMusicUI extends UIBase implements View.OnClickListener {
                     for (BTMusicNode node : l) {
                         mListContent.add(node);
                     }
-                    MyListViewAdapterBTMusic adapter = new MyListViewAdapterBTMusic(
-                            mContext, R.layout.tl_list, mListContent);
+                    MyListViewAdapterBTMusic adapter = new MyListViewAdapterBTMusic(mContext, R.layout.tl_list, mListContent);
                     mListView.setAdapter(adapter);
                 }
             }

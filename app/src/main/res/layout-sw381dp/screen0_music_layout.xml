@@ -5,40 +5,40 @@
     android:layout_width="393px"
     android:layout_height="fill_parent"
     android:background="@drawable/background"
-    android:fitsSystemWindows="true" >
+    android:fitsSystemWindows="true">
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
         <LinearLayout
             android:id="@+id/playing_content"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:orientation="horizontal" >
+            android:orientation="horizontal">
 
             <LinearLayout
                 android:id="@+id/tr"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:orientation="vertical" >
+                    android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="fill_parent"
                         android:layout_height="50px"
                         android:orientation="horizontal"
-                        android:visibility="invisible" >
+                        android:visibility="invisible">
 
                         <HorizontalScrollView
                             android:layout_width="0px"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1" >
+                            android:layout_weight="1">
 
                             <LinearLayout
                                 android:id="@+id/tb"
@@ -46,7 +46,7 @@
                                 android:layout_height="fill_parent"
                                 android:layout_gravity="right"
                                 android:layout_marginLeft="10px"
-                                android:gravity="right" >
+                                android:gravity="right">
 
                                 <Button
                                     android:id="@+id/btn_usb"
@@ -163,13 +163,13 @@
                         android:layout_width="fill_parent"
                         android:layout_height="290px"
                         android:gravity="center"
-                        android:orientation="horizontal" >
+                        android:orientation="horizontal">
 
                         <LinearLayout
                             android:layout_width="fill_parent"
                             android:layout_height="fill_parent"
                             android:gravity="bottom"
-                            android:orientation="vertical" >
+                            android:orientation="vertical">
 
                             <TextView
                                 android:id="@+id/song"
@@ -199,7 +199,7 @@
                             android:layout_width="284px"
                             android:layout_height="284px"
                             android:layout_x="54px"
-                            android:layout_y="-33px" >
+                            android:layout_y="-33px">
 
                             <com.octopus.android.carapps.common.view.MusicRollImage
                                 android:id="@+id/album_art"
@@ -251,7 +251,7 @@
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="70px"
-                    android:gravity="center_horizontal|bottom" >
+                    android:gravity="center_horizontal|bottom">
 
                     <ImageView
                         android:id="@+id/eq"
@@ -302,7 +302,7 @@
                 android:id="@+id/list_content"
                 android:layout_width="250px"
                 android:layout_height="fill_parent"
-                android:orientation="horizontal" >
+                android:orientation="horizontal">
 
                 <ListView
                     android:id="@+id/tv_all_list"
@@ -318,7 +318,7 @@
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:orientation="vertical" >
+                    android:orientation="vertical">
 
                     <Button
                         android:id="@+id/btn_add_all"

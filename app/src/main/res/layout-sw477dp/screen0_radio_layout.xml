@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:radio="http://schemas.android.com/apk/res-auto"
     android:id="@+id/screen1_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    android:fitsSystemWindows="true" >
+    android:fitsSystemWindows="true">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,18 +12,18 @@
         android:layout_margin="0px"
         android:fitsSystemWindows="true"
         android:orientation="vertical"
-        android:padding="0px" >
+        android:padding="0px">
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="100.0px" >
+            android:layout_height="100.0px">
 
             <LinearLayout
                 android:id="@+id/rds_buttons"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical|bottom"
-                android:paddingBottom="10px" >
+                android:paddingBottom="10px">
 
                 <Button
                     android:id="@+id/radio_function_button_ps_search"
@@ -124,7 +123,7 @@
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingBottom="0px"
-            android:paddingTop="0px" >
+            android:paddingTop="0px">
 
             <LinearLayout
                 android:layout_width="320px"
@@ -132,7 +131,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginLeft="10px"
                 android:gravity="center_vertical"
-                android:paddingLeft="10px" >
+                android:paddingLeft="10px">
 
                 <TextView
                     android:id="@+id/radio_tp"
@@ -168,7 +167,7 @@
 
         <FrameLayout
             android:layout_width="fill_parent"
-            android:layout_height="130px" >
+            android:layout_height="130px">
 
             <ImageView
                 android:id="@+id/radio_function_button_seek_previous_and_step"
@@ -243,9 +242,9 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="30px" >
+            android:layout_height="30px">
 
-            <com.common.view.MarqueeTextView
+            <com.octopus.android.carapps.common.view.MarqueeTextView
                 android:id="@+id/radio_rds_rt"
                 style="@style/shadowText"
                 android:layout_width="match_parent"
@@ -260,7 +259,7 @@
             android:layout_height="150px"
             android:orientation="vertical"
             android:paddingBottom="10px"
-            android:paddingTop="20px" >
+            android:paddingTop="20px">
 
             <!-- <HorizontalScrollView -->
             <!-- android:id="@+id/HorizontalScrollView_pty" -->
@@ -305,17 +304,17 @@
                 android:layout_height="fill_parent"
                 android:paddingLeft="92px"
                 android:paddingRight="92px"
-                android:scrollbars="none" >
+                android:scrollbars="none">
 
                 <FrameLayout
                     android:layout_width="fill_parent"
-                    android:layout_height="fill_parent" >
+                    android:layout_height="fill_parent">
 
                     <LinearLayout
                         android:id="@+id/radio_gridview_layout"
                         android:layout_width="4200px"
                         android:layout_height="fill_parent"
-                        android:orientation="vertical" >
+                        android:orientation="vertical">
 
                         <GridView
                             android:id="@+id/radio_frequency_list"
@@ -340,19 +339,19 @@
             android:layout_height="100.0px"
             android:background="@drawable/music_bottom_bg"
             android:gravity="center"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="784px"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:orientation="horizontal"
-                android:paddingTop="0px" >
+                android:paddingTop="0px">
 
                 <LinearLayout
                     android:layout_width="fill_parent"
-                android:layout_height="match_parent"
-                    android:gravity="center" >
+                    android:layout_height="match_parent"
+                    android:gravity="center">
 
                     <ImageView
                         android:id="@+id/radio_function_button_scan"
@@ -388,7 +387,7 @@
         android:id="@+id/radio_pty_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone" >
+        android:visibility="gone">
 
         <RelativeLayout
             android:layout_width="230px"
@@ -396,7 +395,7 @@
             android:layout_marginLeft="360px"
             android:layout_marginTop="120px"
             android:background="@drawable/rds_wrap"
-            android:paddingTop="13px" >
+            android:paddingTop="13px">
 
             <ListView
                 android:id="@+id/radio_pty_list"

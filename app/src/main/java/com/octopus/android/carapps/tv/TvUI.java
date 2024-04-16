@@ -1,13 +1,5 @@
 package com.octopus.android.carapps.tv;
 
-import com.common.util.BroadcastUtil;
-import com.common.util.Kernel;
-import com.common.util.MyCmd;
-import com.common.util.Util;
-import com.octopus.android.carapps.R;
-import com.octopus.android.carapps.car.ui.GlobalDef;
-import com.octopus.android.carapps.common.ui.UIBase;
-
 import android.app.Activity;
 import android.content.Context;
 import android.os.Handler;
@@ -17,6 +9,14 @@ import android.util.Log;
 import android.view.GestureDetector;
 import android.view.View;
 import android.view.WindowManager;
+
+import com.common.util.BroadcastUtil;
+import com.common.util.Kernel;
+import com.common.util.MyCmd;
+import com.common.util.Util;
+import com.octopus.android.carapps.R;
+import com.octopus.android.carapps.car.ui.GlobalDef;
+import com.octopus.android.carapps.common.ui.UIBase;
 
 public class TvUI extends UIBase {
 
@@ -75,8 +75,7 @@ public class TvUI extends UIBase {
         super.onPause();
         recoverVideoOutForHDMITV();
         mHandler.removeMessages(MSG_CHECK_TV);
-        BroadcastUtil.sendToCarService(mContext, MyCmd.Cmd.SET_SCREEN0_SOURCE,
-                0);
+        BroadcastUtil.sendToCarService(mContext, MyCmd.Cmd.SET_SCREEN0_SOURCE, 0);
     }
 
     @Override
@@ -86,11 +85,10 @@ public class TvUI extends UIBase {
         mTimeToCheck = 0;
         mLockVideo = 0;
 
-        mMainView.findViewById(R.id.no_tv).setVisibility(
-                View.GONE);
+        mMainView.findViewById(R.id.no_tv).setVisibility(View.GONE);
         Util.setFileValue(DTV_SWITCH, 1);// open dtv
         checkDTVStatus();
-//		setFullScreen();
+        //		setFullScreen();
 
         mLeftVideo = Util.getFileValue(MCU_VIDEO_OUT_L_NODE);
         mRightVideo = Util.getFileValue(MCU_VIDEO_OUT_R_NODE);
@@ -99,9 +97,7 @@ public class TvUI extends UIBase {
     private void setFullScreen() {
 
         if (this.mDisplayIndex == SCREEN0) {
-            ((Activity) mContext).getWindow().setFlags(
-                    WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                    WindowManager.LayoutParams.FLAG_FULLSCREEN);
+            ((Activity) mContext).getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         }
     }
 
@@ -109,12 +105,10 @@ public class TvUI extends UIBase {
 
     private void quitFullScreen() {
 
-        final WindowManager.LayoutParams attrs = ((Activity) mContext)
-                .getWindow().getAttributes();
+        final WindowManager.LayoutParams attrs = ((Activity) mContext).getWindow().getAttributes();
         attrs.flags &= (~WindowManager.LayoutParams.FLAG_FULLSCREEN);
         ((Activity) mContext).getWindow().setAttributes(attrs);
-        ((Activity) mContext).getWindow().clearFlags(
-                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        ((Activity) mContext).getWindow().clearFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
     }
 
@@ -199,11 +193,9 @@ public class TvUI extends UIBase {
                 mMainView.findViewById(R.id.loading).setVisibility(View.GONE);
                 // mMainView.findViewById(R.id.no_signal).setVisibility(View.VISIBLE);
 
-                GlobalDef.reactiveSource(mContext, SOURCE,
-                        TVService.mAudioFocusListener);
+                GlobalDef.reactiveSource(mContext, SOURCE, TVService.mAudioFocusListener);
 
-                BroadcastUtil.sendToCarService(mContext,
-                        MyCmd.Cmd.SET_SCREEN0_SOURCE, 1);
+                BroadcastUtil.sendToCarService(mContext, MyCmd.Cmd.SET_SCREEN0_SOURCE, 1);
                 setFullScreen();
 
 
@@ -222,11 +214,10 @@ public class TvUI extends UIBase {
 
                 ++mTimeToCheck;
             } else {
-//				 ((Activity)mContext).finish();
+                //				 ((Activity)mContext).finish();
                 mMainView.findViewById(R.id.loading).setVisibility(View.GONE);
-                mMainView.findViewById(R.id.no_tv).setVisibility(
-                        View.VISIBLE);
-//				quitFullScreen();
+                mMainView.findViewById(R.id.no_tv).setVisibility(View.VISIBLE);
+                //				quitFullScreen();
 
                 mHandler.removeMessages(MSG_WILL_QUIT);
                 mHandler.sendEmptyMessageDelayed(MSG_WILL_QUIT, 1000);

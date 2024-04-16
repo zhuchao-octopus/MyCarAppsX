@@ -18,62 +18,55 @@ package com.octopus.android.carapps.wallpaper;
 
 
 import android.app.Activity;
-import android.app.DialogFragment;
-import android.app.Fragment;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 
 import com.octopus.android.carapps.R;
 
 public class WallpaperChooser extends Activity {
-	@SuppressWarnings("unused")
-	private static final String TAG = "FileManager.WallpaperChooser";
+    @SuppressWarnings("unused")
+    private static final String TAG = "FileManager.WallpaperChooser";
 
-	WallpaperUI mUI;
+    WallpaperUI mUI;
 
-	@Override
-	public void onCreate(Bundle icicle) {
-		super.onCreate(icicle);
-		setContentView(R.layout.wallpaper_chooser);
+    @Override
+    public void onCreate(Bundle icicle) {
+        super.onCreate(icicle);
+        setContentView(R.layout.wallpaper_chooser);
 
-		mUI = WallpaperUI.getInstanse(this, findViewById(R.id.screen1_main), 0);
-		mUI.onCreate();
-		updateIntent(getIntent());
-	}
+        mUI = WallpaperUI.getInstanse(this, findViewById(R.id.screen1_main), 0);
+        mUI.onCreate();
+        updateIntent(getIntent());
+    }
 
-	private void updateIntent(Intent it) {
-		if (it != null) {
-			int i = it.getIntExtra("type", 0);
-			if (i != 0) {
-				mUI.mType = 1;
-			}
-		}
-	}
+    private void updateIntent(Intent it) {
+        if (it != null) {
+            int i = it.getIntExtra("type", 0);
+            if (i != 0) {
+                mUI.mType = 1;
+            }
+        }
+    }
 
-	@Override
-	protected void onResume() {
-		super.onResume();
-		if (mUI != null)
-			mUI.onResume();
-	}
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (mUI != null) mUI.onResume();
+    }
 
-	@Override
-	protected void onPause() {
-		super.onPause();
-		if (mUI != null)
-			mUI.onPause();
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (mUI != null) mUI.onPause();
 
-		finish();
+        finish();
 
-	}
+    }
 
-	@Override
-	protected void onDestroy() {
-		super.onDestroy();
-		if (mUI != null)
-			mUI.onDestroy();
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mUI != null) mUI.onDestroy();
 
-	}
+    }
 }

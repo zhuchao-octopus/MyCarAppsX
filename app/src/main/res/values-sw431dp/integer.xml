@@ -1,7 +1,7 @@
 <!-- ?xml version="1.0" encoding="utf-8"? -->
 <resources>
 
-    
+
     <integer name="freq_x1">-1</integer>
     <integer name="freq_x2">-1</integer>
     <integer name="freq_x3">-1</integer>
@@ -10,8 +10,8 @@
     <integer name="freq_x6">-1</integer>
 
     <integer name="freq_text_y">50</integer>
-    
+
     <integer name="start_freq_px">19</integer>
     <integer name="end_freq_px">380</integer>
-    
+
 </resources>

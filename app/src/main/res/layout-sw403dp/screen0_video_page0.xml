@@ -3,7 +3,7 @@
     android:layout_width="800.0px"
     android:layout_height="420.0px"
     android:background="@drawable/music_background"
-    android:orientation="horizontal" >
+    android:orientation="horizontal">
 
     <ImageView
         android:layout_width="210.0px"
@@ -16,19 +16,19 @@
         android:layout_height="fill_parent"
         android:layout_weight="1"
         android:background="@android:color/transparent"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <Button
                 android:id="@+id/btn_add_all"
                 style="@style/CommonStyleFonts"
                 android:layout_width="fill_parent"
                 android:layout_height="78px"
-                        android:background="@drawable/music_list_selector"
+                android:background="@drawable/music_list_selector"
                 android:drawableLeft="@drawable/button_add"
                 android:drawablePadding="10.0px"
                 android:gravity="left|center"
@@ -68,7 +68,7 @@
 
             <ListView
                 android:id="@+id/tv_local_list"
-                style="@style/CommonListViewStyle1"/>
+                style="@style/CommonListViewStyle1" />
         </LinearLayout>
     </LinearLayout>
 
@@ -79,7 +79,7 @@
 
     <ScrollView
         android:layout_width="89.0px"
-        android:layout_height="fill_parent" >
+        android:layout_height="fill_parent">
 
         <LinearLayout
             android:id="@+id/tb"
@@ -88,7 +88,7 @@
             android:layout_marginLeft="1px"
             android:layout_marginTop="0px"
             android:gravity="left"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <Button
                 android:id="@+id/btn_all"
@@ -108,13 +108,13 @@
                 android:id="@+id/btn_local"
                 android:layout_width="match_parent"
                 android:layout_height="105.0px"
-                 
+
                 android:clickable="true"
                 android:drawablePadding="0.0px"
                 android:drawableTop="@drawable/type_arm"
                 android:gravity="center"
                 android:tag="ak_paramter=100,50"
-                    android:background="@drawable/com_focus_select"
+                android:background="@drawable/com_focus_select"
                 android:text="@string/media"
                 android:textColor="#ffffffff"
                 android:textSize="20.0px" />
@@ -123,7 +123,7 @@
                 android:id="@+id/btn_sd"
                 android:layout_width="match_parent"
                 android:layout_height="135px"
-                    android:background="@drawable/com_focus_select"
+                android:background="@drawable/com_focus_select"
                 android:clickable="true"
                 android:drawablePadding="1.0px"
                 android:drawableTop="@drawable/type_sd"
@@ -137,9 +137,9 @@
                 android:id="@+id/btn_sd2"
                 android:layout_width="match_parent"
                 android:layout_height="105.0px"
-		
+
                 android:clickable="true"
-                    android:background="@drawable/com_focus_select"
+                android:background="@drawable/com_focus_select"
                 android:drawablePadding="1.0px"
                 android:drawableTop="@drawable/type_sd"
                 android:gravity="center"
@@ -152,7 +152,7 @@
                 android:id="@+id/btn_usb"
                 android:layout_width="match_parent"
                 android:layout_height="105.0px"
-                    android:background="@drawable/com_focus_select"
+                android:background="@drawable/com_focus_select"
                 android:clickable="true"
                 android:drawablePadding="1.0px"
                 android:drawableTop="@drawable/type_usb"
@@ -166,7 +166,7 @@
                 android:id="@+id/btn_usb2"
                 android:layout_width="match_parent"
                 android:layout_height="105.0px"
-                    android:background="@drawable/com_focus_select"
+                android:background="@drawable/com_focus_select"
                 android:clickable="true"
                 android:drawablePadding="1.0px"
                 android:drawableTop="@drawable/type_usb"
@@ -180,7 +180,7 @@
                 android:id="@+id/btn_usb3"
                 android:layout_width="match_parent"
                 android:layout_height="135px"
-                    android:background="@drawable/com_focus_select"
+                android:background="@drawable/com_focus_select"
                 android:clickable="true"
                 android:drawablePadding="1.0px"
                 android:drawableTop="@drawable/type_usb"
@@ -193,9 +193,9 @@
             <Button
                 android:id="@+id/btn_usb4"
                 android:layout_width="match_parent"
-                    android:background="@drawable/com_focus_select"
+                android:background="@drawable/com_focus_select"
                 android:layout_height="105.0px"
-		
+
                 android:clickable="true"
                 android:drawablePadding="1.0px"
                 android:drawableTop="@drawable/type_usb"

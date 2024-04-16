@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string-array name="screen1_view_select">
+    <string-array name="screen1_view_select">
         <item>蓝牙通话</item>
         <item>倒车</item>
     </string-array>

@@ -21,26 +21,25 @@
         <item name="android:textSize">46px</item>
     </style>
 
-        <style name="ButtonStyleCD">
+    <style name="ButtonStyleCD">
         <item name="android:background">@drawable/com_focus_select</item>
         <item name="android:tag">ak_paramter=100,50</item>
         <item name="android:textColor">#FFFFFF</item>
         <item name="android:layout_height">match_parent</item>
-        <item name="android:layout_width">0px</item>  
-        <item name="android:layout_weight">1</item>    
-        
+        <item name="android:layout_width">0px</item>
+        <item name="android:layout_weight">1</item>
+
         <item name="android:focusable">true</item>
-        
-        
+
+
         <item name="android:textSize">34px</item>
     </style>
-    
+
     <style name="shadowTextCommonStyleFonts" parent="shadowText">
         <item name="android:fontFamily">sans-serif-medium</item>
     </style>
-    
-    
-    
+
+
     <style name="CommonWeightAkParamter">
         <item name="android:tag">ak_paramter=100,50</item>
         <item name="android:layout_width">0.0px</item>
@@ -69,15 +68,15 @@
         <item name="android:scrollingCache">false</item>
     </style>
 
-            <style name="channelTextStyle" parent="shadowText">
+    <style name="channelTextStyle" parent="shadowText">
         <item name="android:layout_width">150.0px</item>
         <item name="android:layout_height">98.0px</item>
-        <item name="android:layout_marginLeft">16px</item>        
+        <item name="android:layout_marginLeft">16px</item>
         <item name="android:textSize">34px</item>
         <item name="android:textColor">#FFFFFF</item>
         <item name="android:gravity">center</item>
-        
+
         <item name="android:background">@drawable/c_bg_button</item>
     </style>
-    
+
 </resources>

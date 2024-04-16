@@ -4,19 +4,19 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@drawable/music_list_back"
-    android:fitsSystemWindows="true" >
+    android:fitsSystemWindows="true">
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
         <LinearLayout
             android:id="@+id/playing_content"
             android:layout_width="fill_parent"
             android:layout_height="530.0px"
             android:gravity="center_vertical"
-            android:orientation="horizontal" >
+            android:orientation="horizontal">
 
             <RelativeLayout
                 android:layout_width="432px"
@@ -24,13 +24,13 @@
                 android:paddingBottom="2px"
                 android:paddingLeft="12px"
                 android:paddingRight="6px"
-                android:paddingTop="12px" >
+                android:paddingTop="12px">
 
                 <LinearLayout
                     android:id="@+id/list_content"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:orientation="horizontal" >
+                    android:orientation="horizontal">
 
                     <ListView
                         android:id="@+id/tv_all_list"
@@ -46,7 +46,7 @@
                     <LinearLayout
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
-                        android:orientation="vertical" >
+                        android:orientation="vertical">
 
                         <Button
                             android:id="@+id/btn_add_all"
@@ -143,7 +143,7 @@
                     android:id="@+id/folder_listview_same_layout"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:visibility="gone" >
+                    android:visibility="gone">
 
                     <LinearLayout
                         android:id="@+id/tb"
@@ -152,7 +152,7 @@
                         android:layout_marginLeft="1px"
                         android:layout_marginTop="0px"
                         android:gravity="left"
-                        android:orientation="vertical" >
+                        android:orientation="vertical">
 
                         <Button
                             android:id="@+id/btn_all"
@@ -288,31 +288,31 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="0.0px"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:orientation="vertical" >
+                    android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="fill_parent"
                         android:layout_height="350px"
                         android:gravity="center"
-                        android:orientation="horizontal" >
+                        android:orientation="horizontal">
 
                         <LinearLayout
                             android:layout_width="fill_parent"
                             android:layout_height="fill_parent"
                             android:gravity="center"
                             android:orientation="horizontal"
-                            android:paddingRight="10px" >
+                            android:paddingRight="10px">
 
                             <RelativeLayout
                                 android:layout_width="238px"
                                 android:layout_height="238px"
                                 android:layout_marginLeft="35px"
-                                android:layout_marginTop="10px" >
+                                android:layout_marginTop="10px">
 
                                 <com.common.view.MusicRollImage
                                     android:id="@+id/album_art"
@@ -339,18 +339,18 @@
                                 android:layout_marginStart="30px"
                                 android:layout_marginTop="0px"
                                 android:orientation="vertical"
-                                android:paddingRight="2px" >
+                                android:paddingRight="2px">
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
-                                    android:orientation="vertical" >
+                                    android:orientation="vertical">
 
                                     <LinearLayout
                                         android:layout_width="match_parent"
                                         android:layout_height="80px"
-                                        android:layout_gravity="center_vertical" >
+                                        android:layout_gravity="center_vertical">
 
                                         <ImageView
                                             android:layout_width="wrap_content"
@@ -358,7 +358,7 @@
                                             android:gravity="center"
                                             android:src="@drawable/music_name" />
 
-                                        <com.common.view.MarqueeTextView
+                                        <com.octopus.android.carapps.common.view.MarqueeTextView
                                             android:id="@+id/song"
                                             style="@style/shadowTextCommonStyleFonts"
                                             android:layout_width="match_parent"
@@ -381,17 +381,17 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
-                                    android:orientation="vertical" >
+                                    android:orientation="vertical">
 
                                     <LinearLayout
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:gravity="center"
-                                        android:orientation="vertical" >
+                                        android:orientation="vertical">
 
                                         <LinearLayout
                                             android:layout_width="match_parent"
-                                            android:layout_height="80px" >
+                                            android:layout_height="80px">
 
                                             <ImageView
                                                 android:layout_width="wrap_content"
@@ -422,11 +422,11 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:gravity="center"
-                                        android:orientation="vertical" >
+                                        android:orientation="vertical">
 
                                         <LinearLayout
                                             android:layout_width="match_parent"
-                                            android:layout_height="80px" >
+                                            android:layout_height="80px">
 
                                             <ImageView
                                                 android:layout_width="wrap_content"
@@ -466,11 +466,11 @@
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
                                     android:orientation="vertical"
-                                    android:visibility="gone" >
+                                    android:visibility="gone">
 
                                     <LinearLayout
                                         android:layout_width="match_parent"
-                                        android:layout_height="wrap_content" >
+                                        android:layout_height="wrap_content">
 
                                         <ImageView
                                             style="@style/shadowText"
@@ -506,13 +506,13 @@
                     android:layout_width="fill_parent"
                     android:layout_height="50px"
                     android:gravity="center_vertical"
-                    android:orientation="horizontal" >
+                    android:orientation="horizontal">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:orientation="horizontal" >
+                        android:orientation="horizontal">
 
                         <TextView
                             android:id="@+id/tv_no_lyric"
@@ -523,12 +523,11 @@
                             android:textColor="#ffe0e0e0"
                             android:textSize="28.0dip" />
 
-                        <cn.qylk.myview.LrcView
+                        <com.octopus.android.carapps.qylk.myview.LrcView
                             android:id="@+id/lrcshow"
                             android:layout_width="fill_parent"
                             android:layout_height="120px"
-                            android:visibility="visible" >
-                        </cn.qylk.myview.LrcView>
+                            android:visibility="visible"></com.octopus.android.carapps.qylk.myview.LrcView>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -539,7 +538,7 @@
                     android:orientation="vertical"
                     android:paddingLeft="20px"
                     android:paddingRight="20px"
-                    android:paddingTop="10px" >
+                    android:paddingTop="10px">
 
                     <SeekBar
                         android:id="@+id/progress"
@@ -554,7 +553,7 @@
                     <LinearLayout
                         android:layout_width="fill_parent"
                         android:layout_height="40px"
-                        android:orientation="horizontal" >
+                        android:orientation="horizontal">
 
                         <TextView
                             android:id="@+id/currenttime"
@@ -582,13 +581,13 @@
             android:layout_width="fill_parent"
             android:layout_height="120px"
             android:background="@drawable/bottom_menu_bg"
-            android:gravity="center" >
+            android:gravity="center">
 
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:gravity="center"
-                android:paddingTop="10px" >
+                android:paddingTop="10px">
 
                 <ImageView
                     android:id="@+id/folder_switch"
@@ -642,7 +641,7 @@
         android:clickable="true"
         android:gravity="center"
         android:orientation="vertical"
-        android:visibility="gone" >
+        android:visibility="gone">
 
         <ProgressBar
             style="?android:attr/progressBarStyleLarge"

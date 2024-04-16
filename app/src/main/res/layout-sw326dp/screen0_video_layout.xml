@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/screen1_main"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+    android:layout_height="fill_parent">
 
     <LinearLayout
         android:id="@+id/video_main"
@@ -10,7 +10,7 @@
         android:layout_height="fill_parent"
         android:background="@drawable/background"
         android:fitsSystemWindows="true"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
         <!-- <View -->
         <!-- android:layout_width="fill_parent" -->
@@ -21,18 +21,18 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="1.0"
-            android:gravity="center_vertical" >
+            android:gravity="center_vertical">
 
             <LinearLayout
                 android:id="@+id/list_content"
                 android:layout_width="319px "
                 android:layout_height="417px"
-                android:gravity="center_vertical" >
+                android:gravity="center_vertical">
 
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:orientation="horizontal" >
+                    android:orientation="horizontal">
 
                     <ListView
                         android:id="@+id/tv_all_list"
@@ -48,7 +48,7 @@
                     <LinearLayout
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
-                        android:orientation="vertical" >
+                        android:orientation="vertical">
 
                         <Button
                             android:id="@+id/btn_add_all"
@@ -152,121 +152,121 @@
                 android:id="@+id/tr"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <HorizontalScrollView
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content" >
+                    android:layout_height="wrap_content">
 
                     <LinearLayout
                         android:id="@+id/rightButtonLayout"
                         android:layout_width="fill_parent"
                         android:layout_height="70px"
                         android:layout_marginLeft="10px"
-                        android:gravity="left" >
+                        android:gravity="left">
 
-                            <Button
-                                android:id="@+id/btn_all"
-                                style="@style/PageSelectButtonButton"
+                        <Button
+                            android:id="@+id/btn_all"
+                            style="@style/PageSelectButtonButton"
                             android:layout_width="wrap_content"
-                                android:layout_height="fill_parent"
-                                android:clickable="true"
-                                android:drawableLeft="@drawable/type_playing"
-                                android:drawablePadding="1.0px"
-                                android:gravity="left|center"
-                                android:text="@string/playlist"
-                                android:textColor="#ffffffff"
+                            android:layout_height="fill_parent"
+                            android:clickable="true"
+                            android:drawableLeft="@drawable/type_playing"
+                            android:drawablePadding="1.0px"
+                            android:gravity="left|center"
+                            android:text="@string/playlist"
+                            android:textColor="#ffffffff"
                             android:textSize="24.0px" />
 
-                            <Button
-                                android:id="@+id/btn_local"
-                                style="@style/PageSelectButtonButton"
-                                android:layout_width="wrap_content"
-                                android:layout_height="fill_parent"
-                                android:clickable="true"
-                                android:drawableLeft="@drawable/type_arm"
-                                android:drawablePadding="1.0px"
-                                android:gravity="left|center"
-                                android:text="@string/media"
-                                android:textColor="#ffffffff"
+                        <Button
+                            android:id="@+id/btn_local"
+                            style="@style/PageSelectButtonButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="fill_parent"
+                            android:clickable="true"
+                            android:drawableLeft="@drawable/type_arm"
+                            android:drawablePadding="1.0px"
+                            android:gravity="left|center"
+                            android:text="@string/media"
+                            android:textColor="#ffffffff"
                             android:textSize="24.0px" />
 
-                            <Button
-                                android:id="@+id/btn_sd"
-                                style="@style/PageSelectButtonButton"
-                                android:layout_width="wrap_content"
-                                android:layout_height="fill_parent"
-                                android:clickable="true"
-                                android:drawableLeft="@drawable/type_sd"
-                                android:drawablePadding="1.0px"
-                                android:gravity="left|center"
-                                android:text="@string/sd"
-                                android:textColor="#ffffffff"
+                        <Button
+                            android:id="@+id/btn_sd"
+                            style="@style/PageSelectButtonButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="fill_parent"
+                            android:clickable="true"
+                            android:drawableLeft="@drawable/type_sd"
+                            android:drawablePadding="1.0px"
+                            android:gravity="left|center"
+                            android:text="@string/sd"
+                            android:textColor="#ffffffff"
                             android:textSize="24.0px" />
 
-                            <Button
-                                android:id="@+id/btn_sd2"
-                                style="@style/PageSelectButtonButton"
-                                android:layout_width="wrap_content"
-                                android:layout_height="fill_parent"
-                                android:clickable="true"
-                                android:drawableLeft="@drawable/type_sd"
-                                android:drawablePadding="1.0px"
-                                android:gravity="left|center"
-                                android:text="@string/sd2"
-                                android:textColor="#ffffffff"
+                        <Button
+                            android:id="@+id/btn_sd2"
+                            style="@style/PageSelectButtonButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="fill_parent"
+                            android:clickable="true"
+                            android:drawableLeft="@drawable/type_sd"
+                            android:drawablePadding="1.0px"
+                            android:gravity="left|center"
+                            android:text="@string/sd2"
+                            android:textColor="#ffffffff"
                             android:textSize="24.0px" />
 
-                            <Button
-                                android:id="@+id/btn_usb"
-                                style="@style/PageSelectButtonButton"
-                                android:layout_width="wrap_content"
-                                android:layout_height="fill_parent"
-                                android:clickable="true"
-                                android:drawableLeft="@drawable/type_usb"
-                                android:drawablePadding="1.0px"
-                                android:gravity="left|center"
-                                android:text="@string/usb"
-                                android:textColor="#ffffffff"
+                        <Button
+                            android:id="@+id/btn_usb"
+                            style="@style/PageSelectButtonButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="fill_parent"
+                            android:clickable="true"
+                            android:drawableLeft="@drawable/type_usb"
+                            android:drawablePadding="1.0px"
+                            android:gravity="left|center"
+                            android:text="@string/usb"
+                            android:textColor="#ffffffff"
                             android:textSize="24.0px" />
 
-                            <Button
-                                android:id="@+id/btn_usb2"
-                                style="@style/PageSelectButtonButton"
-                                android:layout_width="wrap_content"
-                                android:layout_height="fill_parent"
-                                android:clickable="true"
-                                android:drawableLeft="@drawable/type_usb"
-                                android:drawablePadding="1.0px"
-                                android:gravity="left|center"
-                                android:text="@string/usb2"
-                                android:textColor="#ffffffff"
+                        <Button
+                            android:id="@+id/btn_usb2"
+                            style="@style/PageSelectButtonButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="fill_parent"
+                            android:clickable="true"
+                            android:drawableLeft="@drawable/type_usb"
+                            android:drawablePadding="1.0px"
+                            android:gravity="left|center"
+                            android:text="@string/usb2"
+                            android:textColor="#ffffffff"
                             android:textSize="24.0px" />
 
-                            <Button
-                                android:id="@+id/btn_usb3"
-                                style="@style/PageSelectButtonButton"
-                                android:layout_width="wrap_content"
-                                android:layout_height="fill_parent"
-                                android:clickable="true"
-                                android:drawableLeft="@drawable/type_usb"
-                                android:drawablePadding="1.0px"
-                                android:gravity="left|center"
-                                android:text="@string/usb3"
-                                android:textColor="#ffffffff"
+                        <Button
+                            android:id="@+id/btn_usb3"
+                            style="@style/PageSelectButtonButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="fill_parent"
+                            android:clickable="true"
+                            android:drawableLeft="@drawable/type_usb"
+                            android:drawablePadding="1.0px"
+                            android:gravity="left|center"
+                            android:text="@string/usb3"
+                            android:textColor="#ffffffff"
                             android:textSize="24.0px" />
 
-                            <Button
-                                android:id="@+id/btn_usb4"
-                                style="@style/PageSelectButtonButton"
-                                android:layout_width="wrap_content"
-                                android:layout_height="fill_parent"
-                                android:clickable="true"
-                                android:drawableLeft="@drawable/type_usb"
-                                android:drawablePadding="1.0px"
-                                android:gravity="left|center"
-                                android:text="@string/usb4"
-                                android:textColor="#ffffffff"
+                        <Button
+                            android:id="@+id/btn_usb4"
+                            style="@style/PageSelectButtonButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="fill_parent"
+                            android:clickable="true"
+                            android:drawableLeft="@drawable/type_usb"
+                            android:drawablePadding="1.0px"
+                            android:gravity="left|center"
+                            android:text="@string/usb4"
+                            android:textColor="#ffffffff"
                             android:textSize="24.0px" />
                     </LinearLayout>
                 </HorizontalScrollView>
@@ -274,9 +274,9 @@
                 <RelativeLayout
                     android:layout_width="fill_parent"
                     android:background="#ff000000"
-                    android:layout_height="fill_parent" >
+                    android:layout_height="fill_parent">
 
-                    <com.my.video.MoviceView
+                    <com.octopus.android.carapps.video.MoviceView
                         android:id="@+id/surface_view"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent" />
@@ -285,8 +285,8 @@
                         android:id="@+id/fake_black_cover_video"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
-                        android:background="@drawable/fake_background_black"/>
-                    
+                        android:background="@drawable/fake_background_black" />
+
                     <TextView
                         android:id="@+id/brake_warning_text"
                         style="@style/CommonStyleFonts"
@@ -313,7 +313,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
                         android:layout_marginBottom="18.0px"
-                        android:gravity="center" >
+                        android:gravity="center">
 
                         <TextView
                             android:id="@+id/currenttime2"
@@ -357,7 +357,7 @@
             android:layout_width="fill_parent"
             android:layout_height="118px"
             android:gravity="center_horizontal"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <!-- <View -->
             <!-- android:layout_width="fill_parent" -->
@@ -371,13 +371,13 @@
         android:id="@+id/bottom_button_layout"
         android:layout_width="fill_parent"
         android:layout_height="118px"
-        android:layout_alignParentBottom="true" >
+        android:layout_alignParentBottom="true">
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/radio_bottom_bg"
-            android:gravity="center" >
+            android:gravity="center">
 
             <com.octopus.android.carapps.common.view.KeyButtonView
                 android:id="@+id/prev"
@@ -413,7 +413,7 @@
                 android:clickable="true"
                 android:scaleType="center"
                 android:src="@drawable/full" />
-            
+
             <com.common.view.KeyButton
                 android:id="@+id/eq_mode_switch"
                 style="@style/ButtonStyle1"

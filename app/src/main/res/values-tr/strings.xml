@@ -6,7 +6,7 @@
     <string name="toolbar_text_music">"Müzik"</string>
     <string name="toolbar_text_video">"Video"</string>
     <string name="toolbar_text_tv">"TV"</string>
-<!--     <string name="toolbar_text_dvd">"DVD"</string> -->
+    <!--     <string name="toolbar_text_dvd">"DVD"</string> -->
     <string name="toolbar_text_dvr">"DVR"</string>
     <string name="toolbar_text_auxin">"AUX"</string>
     <string name="playlist">"Çalma Listesi"</string>

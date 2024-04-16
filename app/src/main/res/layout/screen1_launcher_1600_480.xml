@@ -4,14 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/screen1_background"
-    android:orientation="horizontal" >
+    android:orientation="horizontal">
 
     <LinearLayout
         android:id="@+id/button_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:orientation="horizontal" >
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/button_radio"
@@ -54,8 +54,8 @@
             android:background="@drawable/screen1_button2_selector"
             android:drawableTop="@drawable/custom1_auxin"
             android:text="@string/toolbar_text_auxin" />
-        
-           <Button
+
+        <Button
             android:id="@+id/button_dvr"
             style="@style/WorkspaceButton800"
             android:background="@drawable/screen1_button6_selector"

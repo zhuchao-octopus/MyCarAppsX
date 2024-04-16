@@ -3,7 +3,7 @@
     android:layout_width="800.0px"
     android:layout_height="420.0px"
     android:orientation="horizontal"
-    android:background="@drawable/music_background" >
+    android:background="@drawable/music_background">
 
     <ImageView
         android:layout_width="210px"
@@ -16,20 +16,20 @@
         android:layout_height="fill_parent"
         android:layout_weight="1"
         android:background="@android:color/transparent"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:background="@android:color/transparent"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <Button
                 android:id="@+id/btn_add_all"
                 style="@style/CommonStyleFonts"
                 android:layout_width="fill_parent"
                 android:layout_height="61px"
-                        android:background="@drawable/music_list_selector"
+                android:background="@drawable/music_list_selector"
                 android:drawableLeft="@drawable/button_add"
                 android:drawablePadding="10.0px"
                 android:gravity="left|center"
@@ -81,7 +81,7 @@
 
     <ScrollView
         android:layout_width="89.0px"
-        android:layout_height="fill_parent" >
+        android:layout_height="fill_parent">
 
         <LinearLayout
             android:id="@+id/tb"
@@ -90,7 +90,7 @@
             android:layout_marginLeft="1px"
             android:layout_marginTop="0px"
             android:gravity="left"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <Button
                 android:id="@+id/btn_all"
@@ -106,98 +106,98 @@
                 android:textSize="20.0px"
                 android:visibility="gone" />
 
-                <Button
-                    android:id="@+id/btn_local"
-                    android:layout_width="match_parent"
-                    android:layout_height="105.0px"
-                 
-                    android:clickable="true"
-                    android:drawablePadding="0.0px"
-                    android:drawableTop="@drawable/type_arm"
-                    android:gravity="center"
-                    android:tag="ak_paramter=100,50"
-                    android:text="@string/media"
-                    android:background="@drawable/com_focus_select"
-                    android:textColor="#ffffffff"
-                    android:textSize="20.0px" />
+            <Button
+                android:id="@+id/btn_local"
+                android:layout_width="match_parent"
+                android:layout_height="105.0px"
 
-                <Button
-                    android:id="@+id/btn_sd"
-                    android:layout_width="match_parent"
-                    android:layout_height="105.0px"
-                 
-                    android:clickable="true"
-                    android:background="@drawable/com_focus_select"
-                    android:drawablePadding="1.0px"
-                    android:drawableTop="@drawable/type_sd"
-                    android:gravity="center"
-                    android:tag="ak_paramter=100,50"
-                    android:text="@string/sd"
-                    android:textColor="#ffffffff"
-                    android:textSize="20.0px" />
+                android:clickable="true"
+                android:drawablePadding="0.0px"
+                android:drawableTop="@drawable/type_arm"
+                android:gravity="center"
+                android:tag="ak_paramter=100,50"
+                android:text="@string/media"
+                android:background="@drawable/com_focus_select"
+                android:textColor="#ffffffff"
+                android:textSize="20.0px" />
 
-                <Button
-                    android:id="@+id/btn_sd2"
-                    android:layout_width="match_parent"
-                    android:layout_height="105.0px"
-                    android:background="@drawable/com_focus_select"
-                    android:clickable="true"
-                    android:drawablePadding="1.0px"
-                    android:drawableTop="@drawable/type_sd"
-                    android:gravity="center"
-                    android:tag="ak_paramter=100,50"
-                    android:text="@string/sd2"
-                    android:textColor="#ffffffff"
-                    android:textSize="20.0px" />
+            <Button
+                android:id="@+id/btn_sd"
+                android:layout_width="match_parent"
+                android:layout_height="105.0px"
 
-                <Button
-                    android:id="@+id/btn_usb"
-                    android:layout_width="match_parent"
-                    android:layout_height="105.0px"
-                 
-                    android:clickable="true"
-                    android:background="@drawable/com_focus_select"
-                    android:drawablePadding="1.0px"
-                    android:drawableTop="@drawable/type_usb"
-                    android:gravity="center"
-                    android:tag="ak_paramter=100,50"
-                    android:text="@string/usb"
-                    android:textColor="#ffffffff"
-                    android:textSize="20.0px" />
+                android:clickable="true"
+                android:background="@drawable/com_focus_select"
+                android:drawablePadding="1.0px"
+                android:drawableTop="@drawable/type_sd"
+                android:gravity="center"
+                android:tag="ak_paramter=100,50"
+                android:text="@string/sd"
+                android:textColor="#ffffffff"
+                android:textSize="20.0px" />
 
-                <Button
-                    android:id="@+id/btn_usb2"
-                    android:layout_width="match_parent"
-                    android:layout_height="105.0px"
-                    android:background="@drawable/com_focus_select"
-                    android:clickable="true"
-                    android:drawablePadding="1.0px"
-                    android:drawableTop="@drawable/type_usb"
-                    android:gravity="center"
-                    android:tag="ak_paramter=100,50"
-                    android:text="@string/usb2"
-                    android:textColor="#ffffffff"
-                    android:textSize="20.0px" />
+            <Button
+                android:id="@+id/btn_sd2"
+                android:layout_width="match_parent"
+                android:layout_height="105.0px"
+                android:background="@drawable/com_focus_select"
+                android:clickable="true"
+                android:drawablePadding="1.0px"
+                android:drawableTop="@drawable/type_sd"
+                android:gravity="center"
+                android:tag="ak_paramter=100,50"
+                android:text="@string/sd2"
+                android:textColor="#ffffffff"
+                android:textSize="20.0px" />
 
-                <Button
-                    android:id="@+id/btn_usb3"
-                    android:layout_width="match_parent"
-                    android:layout_height="105.0px"
-                    android:background="@drawable/com_focus_select"
-                    android:clickable="true"
-                    android:drawablePadding="1.0px"
-                    android:drawableTop="@drawable/type_usb"
-                    android:gravity="center"
-                    android:tag="ak_paramter=100,50"
-                    android:text="@string/usb3"
-                    android:textColor="#ffffffff"
-                    android:textSize="20.0px" />
+            <Button
+                android:id="@+id/btn_usb"
+                android:layout_width="match_parent"
+                android:layout_height="105.0px"
 
-                <Button
-                    android:id="@+id/btn_usb4"
-                    android:layout_width="match_parent"
-                    android:layout_height="105.0px"
-                    android:background="@drawable/com_focus_select"
+                android:clickable="true"
+                android:background="@drawable/com_focus_select"
+                android:drawablePadding="1.0px"
+                android:drawableTop="@drawable/type_usb"
+                android:gravity="center"
+                android:tag="ak_paramter=100,50"
+                android:text="@string/usb"
+                android:textColor="#ffffffff"
+                android:textSize="20.0px" />
+
+            <Button
+                android:id="@+id/btn_usb2"
+                android:layout_width="match_parent"
+                android:layout_height="105.0px"
+                android:background="@drawable/com_focus_select"
+                android:clickable="true"
+                android:drawablePadding="1.0px"
+                android:drawableTop="@drawable/type_usb"
+                android:gravity="center"
+                android:tag="ak_paramter=100,50"
+                android:text="@string/usb2"
+                android:textColor="#ffffffff"
+                android:textSize="20.0px" />
+
+            <Button
+                android:id="@+id/btn_usb3"
+                android:layout_width="match_parent"
+                android:layout_height="105.0px"
+                android:background="@drawable/com_focus_select"
+                android:clickable="true"
+                android:drawablePadding="1.0px"
+                android:drawableTop="@drawable/type_usb"
+                android:gravity="center"
+                android:tag="ak_paramter=100,50"
+                android:text="@string/usb3"
+                android:textColor="#ffffffff"
+                android:textSize="20.0px" />
+
+            <Button
+                android:id="@+id/btn_usb4"
+                android:layout_width="match_parent"
+                android:layout_height="105.0px"
+                android:background="@drawable/com_focus_select"
                 android:clickable="true"
                 android:drawablePadding="1.0px"
                 android:drawableTop="@drawable/type_usb"
@@ -208,13 +208,14 @@
                 android:textSize="20.0px" />
         </LinearLayout>
     </ScrollView>
+
     <LinearLayout
         android:id="@+id/progressBar1"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:clickable="true"
         android:gravity="center"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
         <ProgressBar
             style="?android:attr/progressBarStyleLarge"

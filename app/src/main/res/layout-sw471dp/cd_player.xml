@@ -4,11 +4,11 @@
     android:layout_width="800px"
     android:layout_height="480px"
     android:layout_margin="0px"
-    android:supportsRtl="false" 
+    android:supportsRtl="false"
     android:background="@drawable/background"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
-    android:padding="0px" >
+    android:padding="0px">
 
     <!-- <View -->
     <!-- android:layout_width="match_parent" -->
@@ -19,12 +19,12 @@
         android:layout_width="fill_parent"
         android:layout_height="0.0dip"
         android:layout_weight="1.0"
-        android:gravity="center_vertical" >
+        android:gravity="center_vertical">
 
         <FrameLayout
             android:id="@+id/list_content"
             android:layout_width="250px"
-            android:layout_height="fill_parent" >
+            android:layout_height="fill_parent">
 
             <ListView
                 android:id="@+id/list_view"
@@ -39,7 +39,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
             <!-- <ImageView -->
             <!-- android:layout_width="560px" -->
@@ -50,7 +50,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center_horizontal"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/cd_title"
@@ -61,12 +61,12 @@
                     android:textColor="#ffffffff"
                     android:textSize="26px" />
 
-                                                <RelativeLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="0px" >
+                    android:layout_marginTop="0px">
 
-                     <com.common.view.MusicRollImage
+                    <com.common.view.MusicRollImage
                         android:id="@+id/disc"
                         android:layout_width="200px"
                         android:layout_height="200px"
@@ -74,7 +74,7 @@
                         android:layout_marginTop="30px"
                         android:scaleType="fitCenter"
                         android:src="@drawable/cd2" />
-                    
+
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -89,7 +89,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="0dp"
                     android:gravity="center"
-                    android:orientation="horizontal" >
+                    android:orientation="horizontal">
 
                     <TextView
                         android:id="@+id/currenttime"
@@ -101,7 +101,7 @@
 
                     <RelativeLayout
                         android:layout_width="320px"
-                        android:layout_height="42px" >
+                        android:layout_height="42px">
 
                         <SeekBar
                             android:id="@+id/progress"
@@ -129,7 +129,7 @@
                         android:textSize="22px" />
                 </LinearLayout>
             </LinearLayout>
-            
+
             <ImageView
                 android:id="@+id/play_repeat_tag"
                 android:layout_width="37px"
@@ -147,7 +147,7 @@
                 android:gravity="left|center_vertical"
                 android:textColor="#ffffffff"
                 android:textSize="28px" />
-            
+
         </RelativeLayout>
     </LinearLayout>
 
@@ -157,7 +157,7 @@
         android:layout_height="80px"
         android:paddingTop="4px"
         android:background="#cc000000"
-        android:gravity="center" >
+        android:gravity="center">
 
         <ImageView
             android:id="@+id/cd_prev_button"
@@ -210,13 +210,13 @@
             android:scaleType="center"
             android:src="@drawable/shuffle" />
 
-          <Button
-                            android:id="@+id/cd_eq_mode_switch"
-                            style="@style/ButtonStyleCD"
-                            android:clickable="true"
-                            android:scaleType="center"
-                            android:text="@string/eq_text_normal" />
-          
+        <Button
+            android:id="@+id/cd_eq_mode_switch"
+            style="@style/ButtonStyleCD"
+            android:clickable="true"
+            android:scaleType="center"
+            android:text="@string/eq_text_normal" />
+
 
     </LinearLayout>
 

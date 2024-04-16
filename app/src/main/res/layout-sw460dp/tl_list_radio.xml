@@ -3,7 +3,7 @@
     android:layout_width="170.0px"
     android:layout_height="80px"
     android:paddingLeft="5px"
-    android:paddingRight="5px" >
+    android:paddingRight="5px">
 
     <TextView
         android:id="@+id/list_text1"
@@ -26,7 +26,7 @@
         android:layout_height="80px"
         android:layout_x="0px"
         android:layout_y="0px"
-       android:background="@drawable/button_click_back2"
+        android:background="@drawable/button_click_back2"
         android:ellipsize="end"
         android:gravity="center"
         android:singleLine="true"

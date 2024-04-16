@@ -42,8 +42,8 @@
         <item name="android:clickable">true</item>
         <item name="android:background">@drawable/c_bg_button</item>
     </style>
-    
-        <style name="CommonWeightAkParamterVideo">
+
+    <style name="CommonWeightAkParamterVideo">
         <item name="android:tag">ak_paramter=100,50</item>
         <item name="android:layout_width">0.0px</item>
         <item name="android:layout_weight">1</item>
@@ -82,8 +82,8 @@
         <item name="android:paddingLeft">50px</item>
         <item name="android:background">@drawable/c_bg_button</item>
     </style>
-    
-        <style name="channelButtonTextStyle">
+
+    <style name="channelButtonTextStyle">
         <item name="android:layout_width">58px</item>
         <item name="android:layout_height">58.0px</item>
         <item name="android:layout_marginLeft">340.0px</item>
@@ -92,5 +92,5 @@
         <item name="android:textColor">@android:color/white</item>
         <item name="android:gravity">center</item>
     </style>
-    
+
 </resources>

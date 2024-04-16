@@ -2,11 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="604px"
     android:layout_height="fill_parent"
-    android:orientation="horizontal" >
+    android:orientation="horizontal">
 
     <ScrollView
         android:layout_width="wrap_content"
-        android:layout_height="fill_parent" >
+        android:layout_height="fill_parent">
 
         <LinearLayout
             android:id="@+id/tb"
@@ -15,7 +15,7 @@
             android:layout_marginLeft="1px"
             android:layout_marginTop="0px"
             android:gravity="left"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <Button
                 android:id="@+id/btn_all"
@@ -140,19 +140,19 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:background="#0d1720"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <Button
                 android:id="@+id/btn_add_all"
                 style="@style/CommonStyleFonts"
                 android:layout_width="fill_parent"
                 android:layout_height="88px"
-             android:background="@drawable/tl_l_bg"
+                android:background="@drawable/tl_l_bg"
                 android:drawableLeft="@drawable/button_add"
                 android:drawablePadding="10.0px"
                 android:gravity="left|center"

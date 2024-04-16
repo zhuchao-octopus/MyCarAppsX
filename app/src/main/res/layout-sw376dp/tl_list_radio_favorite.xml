@@ -2,7 +2,7 @@
 <AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="160.0px"
     android:layout_height="138px"
-    android:background="@drawable/button_click_back2" >
+    android:background="@drawable/button_click_back2">
 
     <TextView
         android:id="@+id/list_text1"

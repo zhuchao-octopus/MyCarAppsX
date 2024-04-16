@@ -3,56 +3,53 @@
     android:id="@+id/screen1_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ff000000" >
+    android:background="#ff000000">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center" >
+        android:gravity="center">
 
         <RelativeLayout
             android:layout_width="400px"
             android:layout_height="400px"
-            android:background="@drawable/clock_back" >
+            android:background="@drawable/clock_back">
 
             <ImageView
                 android:id="@+id/clock_hour"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/clock_hour" >
-            </ImageView>
+                android:src="@drawable/clock_hour"></ImageView>
 
             <ImageView
                 android:id="@+id/clock_minute"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/clock_minute" >
-            </ImageView>
+                android:src="@drawable/clock_minute"></ImageView>
         </RelativeLayout>
     </LinearLayout>
 
     <include layout="@layout/screen1_saver2" />
 
-   
+
     <RelativeLayout
         android:id="@+id/obd_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingLeft="15px"
-        android:paddingTop="15px" >
+        android:paddingTop="15px">
 
         <RelativeLayout
             android:layout_width="160px"
             android:layout_height="160px"
-            android:background="@drawable/obd_back" >
+            android:background="@drawable/obd_back">
 
             <ImageView
                 android:id="@+id/obd_speed"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/obd_point" >
-            </ImageView>
-            
+                android:src="@drawable/obd_point"></ImageView>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -64,41 +61,39 @@
         </RelativeLayout>
 
         <TextView
-                android:layout_width="160px"
-                android:layout_height="wrap_content"
-                android:text="@string/num_0"
-                android:gravity="center"
-                android:textColor="#ffffff"
-                android:textSize="14px"
-                android:layout_marginTop="160px" />
-        
-         <TextView
-                android:layout_width="160px"
-                android:layout_height="wrap_content"
-                android:text="@string/num_0"
-                android:gravity="center"
-                android:textColor="#ffffff"
+            android:layout_width="160px"
+            android:layout_height="wrap_content"
+            android:text="@string/num_0"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:textSize="14px"
+            android:layout_marginTop="160px" />
+
+        <TextView
+            android:layout_width="160px"
+            android:layout_height="wrap_content"
+            android:text="@string/num_0"
+            android:gravity="center"
+            android:textColor="#ffffff"
             android:layout_alignParentRight="true"
             android:layout_marginRight="15px"
-                android:textSize="14px"
-                android:layout_marginTop="160px" />
-         
+            android:textSize="14px"
+            android:layout_marginTop="160px" />
+
         <RelativeLayout
             android:layout_width="160px"
             android:layout_height="160px"
             android:layout_alignParentRight="true"
             android:layout_marginRight="15px"
-            android:background="@drawable/obd_back" >
+            android:background="@drawable/obd_back">
 
             <ImageView
                 android:id="@+id/obd_rpm"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/obd_point" >
-            </ImageView>
-            
-            
-            
+                android:src="@drawable/obd_point"></ImageView>
+
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -106,7 +101,7 @@
                 android:gravity="center"
                 android:textColor="#ffffff"
                 android:textSize="14px"
-                android:layout_marginTop="54px"/>
+                android:layout_marginTop="54px" />
         </RelativeLayout>
     </RelativeLayout>
 
@@ -114,7 +109,6 @@
         android:id="@+id/screen_save_click"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:clickable="true" >
-    </View>
+        android:clickable="true"></View>
 
 </RelativeLayout>

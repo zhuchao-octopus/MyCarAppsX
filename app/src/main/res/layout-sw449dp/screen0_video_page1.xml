@@ -2,15 +2,15 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="633px"
     android:background="@drawable/background"
-    android:layout_height="fill_parent" >
+    android:layout_height="fill_parent">
 
     <AbsoluteLayout
         android:layout_width="fill_parent"
         android:layout_height="720px"
         android:background="#ff000000"
-        android:gravity="center" >
+        android:gravity="center">
 
-        <com.my.video.MoviceView
+        <com.octopus.android.carapps.video.MoviceView
             android:id="@+id/surface_view"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent" />
@@ -21,7 +21,7 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:fitsSystemWindows="true"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
         <!-- <View -->
         <!-- android:layout_width="fill_parent" -->
@@ -32,17 +32,17 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="1.0"
-            android:gravity="center_vertical" >
+            android:gravity="center_vertical">
 
             <LinearLayout
                 android:id="@+id/tr"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <RelativeLayout
                     android:layout_width="fill_parent"
-                    android:layout_height="fill_parent" >
+                    android:layout_height="fill_parent">
 
                     <TextView
                         android:id="@+id/brake_warning_text"
@@ -70,7 +70,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
                         android:layout_marginBottom="18.0px"
-                        android:gravity="center" >
+                        android:gravity="center">
 
                         <TextView
                             android:id="@+id/currenttime2"
@@ -115,7 +115,7 @@
             android:layout_width="fill_parent"
             android:layout_height="120px"
             android:gravity="center_horizontal"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <!-- <View -->
             <!-- android:layout_width="fill_parent" -->
@@ -131,21 +131,20 @@
         android:layout_height="120px"
 
         android:background="#ff000000"
-        android:layout_alignParentBottom="true" >
+        android:layout_alignParentBottom="true">
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:gravity="center" >
+            android:gravity="center">
 
-             <ImageView
+            <ImageView
                 android:id="@+id/list"
                 style="@style/CommonWeightAkParamter"
                 android:clickable="true"
                 android:scaleType="center"
                 android:src="@drawable/list2" />
-             
-           
+
 
             <ImageView
                 android:id="@+id/repeat2"
@@ -182,7 +181,8 @@
                 android:clickable="true"
                 android:scaleType="centerInside"
                 android:src="@drawable/full" />
- <Button
+
+            <Button
                 android:id="@+id/eq_mode_switch"
                 style="@style/CommonWeightAkParamter"
                 android:background="@null"

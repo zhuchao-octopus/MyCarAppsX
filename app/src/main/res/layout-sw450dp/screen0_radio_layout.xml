@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:radio="http://schemas.android.com/apk/res-auto"
     android:id="@+id/screen1_main"
     android:layout_width="800px"
     android:layout_height="480px"
@@ -8,38 +7,38 @@
     android:background="#ff000000"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
-    android:padding="0px" >
+    android:padding="0px">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
         <LinearLayout
             android:id="@+id/list_content"
             android:layout_width="match_parent"
             android:layout_height="152px"
             android:gravity="center"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <RelativeLayout
                 android:layout_width="fill_parent"
                 android:layout_height="25px"
                 android:gravity="center_vertical"
                 android:paddingLeft="20px"
-                android:paddingRight="20px" >
+                android:paddingRight="20px">
 
                 <LinearLayout
-                        android:id="@+id/rds_tag"
+                    android:id="@+id/rds_tag"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal" >
+                    android:orientation="horizontal">
 
                     <TextView
                         style="@style/RadioText1"
                         android:text="@string/radio_rds"
                         android:textColor="#ff40b2b3" />
-                    
+
                     <TextView
                         android:id="@+id/radio_tag_color_af"
                         style="@style/RadioText1"
@@ -63,7 +62,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:orientation="horizontal" >
+                    android:orientation="horizontal">
 
                     <TextView
                         android:id="@+id/radio_tag_color_ams"
@@ -95,15 +94,15 @@
                 android:layout_width="fill_parent"
                 android:layout_height="80px"
                 android:gravity="center_horizontal"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="600px"
                     android:layout_height="fill_parent"
-                    android:orientation="horizontal" >
+                    android:orientation="horizontal">
 
                     <ImageView
-                            android:id="@+id/radio_function_button_seek_previous_and_step"
+                        android:id="@+id/radio_function_button_seek_previous_and_step"
                         android:layout_width="68px"
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
@@ -113,11 +112,11 @@
                     <LinearLayout
                         android:layout_width="464px"
                         android:layout_height="fill_parent"
-                        android:gravity="center_horizontal" >
+                        android:gravity="center_horizontal">
 
                         <AbsoluteLayout
                             android:layout_width="fill_parent"
-                            android:layout_height="fill_parent" >
+                            android:layout_height="fill_parent">
 
                             <TextView
                                 android:id="@+id/debug"
@@ -194,7 +193,7 @@
                 android:gravity="center"
                 android:orientation="horizontal"
                 android:paddingLeft="20px"
-                android:paddingRight="20px" >
+                android:paddingRight="20px">
 
                 <ImageView
                     android:id="@+id/radio_keyboard"
@@ -207,7 +206,7 @@
                     android:id="@+id/rds_buttons"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="100px" >
+                    android:layout_marginLeft="100px">
 
                     <ImageView
                         android:id="@+id/radio_function_button_af"
@@ -252,7 +251,7 @@
                     android:src="@drawable/botton_set_eq" />
             </RelativeLayout>
 
-            <ccom.octopus.android.carapps.radio.MarkFaceView
+            <com.octopus.android.carapps.radio.MarkFaceView
                 android:id="@+id/radio_mark_face_view"
                 android:layout_width="fill_parent"
                 android:layout_height="60px"
@@ -267,13 +266,13 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="175.0px" >
+            android:layout_height="175.0px">
 
             <RelativeLayout
                 android:id="@+id/rds_texts"
                 android:layout_width="fill_parent"
                 android:layout_height="30px"
-                android:orientation="horizontal" >
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/radio_rds_ps"
@@ -284,7 +283,7 @@
                     android:textColor="@color/radio_rds_info1"
                     android:textSize="20px" />
 
-                <com.common.view.MarqueeTextView
+                <com.octopus.android.carapps.common.view.MarqueeTextView
                     android:id="@+id/radio_rds_rt"
                     style="@style/shadowText"
                     android:layout_width="match_parent"
@@ -313,34 +312,34 @@
                 android:focusable="false"
                 android:orientation="vertical"
                 android:paddingBottom="10px"
-                android:paddingTop="30px" >
+                android:paddingTop="30px">
 
                 <com.octopus.android.carapps.common.view.MyScrollView
                     android:id="@+id/radio_frequency_scrollview"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:scrollbars="none"
-                    android:tag="0,800,1600,2400,3200,4000:0" >
+                    android:tag="0,800,1600,2400,3200,4000:0">
 
                     <LinearLayout
                         android:id="@+id/radio_scrollview_content_width"
                         android:layout_width="4000px"
                         android:layout_height="fill_parent"
-                        android:orientation="horizontal" >
+                        android:orientation="horizontal">
 
                         <LinearLayout
                             android:layout_width="800px"
                             android:layout_height="fill_parent"
-                            android:orientation="vertical" >
+                            android:orientation="vertical">
 
                             <LinearLayout
                                 android:layout_width="fill_parent"
-                                android:layout_height="fill_parent" >
+                                android:layout_height="fill_parent">
 
                                 <RelativeLayout
                                     android:layout_width="0px"
                                     android:layout_height="fill_parent"
-                                    android:layout_weight="1" >
+                                    android:layout_weight="1">
 
                                     <TextView
                                         android:id="@+id/channel_00"
@@ -358,7 +357,7 @@
                                 <RelativeLayout
                                     android:layout_width="0px"
                                     android:layout_height="fill_parent"
-                                    android:layout_weight="1" >
+                                    android:layout_weight="1">
 
                                     <TextView
                                         android:id="@+id/channel_01"
@@ -376,7 +375,7 @@
                                 <RelativeLayout
                                     android:layout_width="0px"
                                     android:layout_height="fill_parent"
-                                    android:layout_weight="1" >
+                                    android:layout_weight="1">
 
                                     <TextView
                                         android:id="@+id/channel_02"
@@ -394,7 +393,7 @@
                                 <RelativeLayout
                                     android:layout_width="0px"
                                     android:layout_height="fill_parent"
-                                    android:layout_weight="1" >
+                                    android:layout_weight="1">
 
                                     <TextView
                                         android:id="@+id/channel_03"
@@ -412,7 +411,7 @@
                                 <RelativeLayout
                                     android:layout_width="0px"
                                     android:layout_height="fill_parent"
-                                    android:layout_weight="1" >
+                                    android:layout_weight="1">
 
                                     <TextView
                                         android:id="@+id/channel_04"
@@ -430,7 +429,7 @@
                                 <RelativeLayout
                                     android:layout_width="0px"
                                     android:layout_height="fill_parent"
-                                    android:layout_weight="1" >
+                                    android:layout_weight="1">
 
                                     <TextView
                                         android:id="@+id/channel_05"
@@ -450,16 +449,16 @@
                         <LinearLayout
                             android:layout_width="800px"
                             android:layout_height="fill_parent"
-                            android:orientation="vertical" >
+                            android:orientation="vertical">
 
                             <LinearLayout
                                 android:layout_width="fill_parent"
-                                android:layout_height="wrap_content" >
+                                android:layout_height="wrap_content">
 
                                 <RelativeLayout
                                     android:layout_width="0px"
                                     android:layout_height="fill_parent"
-                                    android:layout_weight="1" >
+                                    android:layout_weight="1">
 
                                     <TextView
                                         android:id="@+id/channel_06"
@@ -477,7 +476,7 @@
                                 <RelativeLayout
                                     android:layout_width="0px"
                                     android:layout_height="fill_parent"
-                                    android:layout_weight="1" >
+                                    android:layout_weight="1">
 
                                     <TextView
                                         android:id="@+id/channel_07"
@@ -495,7 +494,7 @@
                                 <RelativeLayout
                                     android:layout_width="0px"
                                     android:layout_height="fill_parent"
-                                    android:layout_weight="1" >
+                                    android:layout_weight="1">
 
                                     <TextView
                                         android:id="@+id/channel_08"
@@ -513,7 +512,7 @@
                                 <RelativeLayout
                                     android:layout_width="0px"
                                     android:layout_height="fill_parent"
-                                    android:layout_weight="1" >
+                                    android:layout_weight="1">
 
                                     <TextView
                                         android:id="@+id/channel_09"
@@ -531,7 +530,7 @@
                                 <RelativeLayout
                                     android:layout_width="0px"
                                     android:layout_height="fill_parent"
-                                    android:layout_weight="1" >
+                                    android:layout_weight="1">
 
                                     <TextView
                                         android:id="@+id/channel_10"
@@ -549,7 +548,7 @@
                                 <RelativeLayout
                                     android:layout_width="0px"
                                     android:layout_height="fill_parent"
-                                    android:layout_weight="1" >
+                                    android:layout_weight="1">
 
                                     <TextView
                                         android:id="@+id/channel_11"
@@ -570,21 +569,21 @@
                             android:id="@+id/radio_am_hide_layout"
                             android:layout_width="wrap_content"
                             android:layout_height="fill_parent"
-                            android:orientation="horizontal" >
+                            android:orientation="horizontal">
 
                             <LinearLayout
                                 android:layout_width="800px"
                                 android:layout_height="fill_parent"
-                                android:orientation="vertical" >
+                                android:orientation="vertical">
 
                                 <LinearLayout
                                     android:layout_width="fill_parent"
-                                    android:layout_height="wrap_content" >
+                                    android:layout_height="wrap_content">
 
                                     <RelativeLayout
                                         android:layout_width="0px"
                                         android:layout_height="fill_parent"
-                                        android:layout_weight="1" >
+                                        android:layout_weight="1">
 
                                         <TextView
                                             android:id="@+id/channel_12"
@@ -602,7 +601,7 @@
                                     <RelativeLayout
                                         android:layout_width="0px"
                                         android:layout_height="fill_parent"
-                                        android:layout_weight="1" >
+                                        android:layout_weight="1">
 
                                         <TextView
                                             android:id="@+id/channel_13"
@@ -620,7 +619,7 @@
                                     <RelativeLayout
                                         android:layout_width="0px"
                                         android:layout_height="fill_parent"
-                                        android:layout_weight="1" >
+                                        android:layout_weight="1">
 
                                         <TextView
                                             android:id="@+id/channel_14"
@@ -638,7 +637,7 @@
                                     <RelativeLayout
                                         android:layout_width="0px"
                                         android:layout_height="fill_parent"
-                                        android:layout_weight="1" >
+                                        android:layout_weight="1">
 
                                         <TextView
                                             android:id="@+id/channel_15"
@@ -656,7 +655,7 @@
                                     <RelativeLayout
                                         android:layout_width="0px"
                                         android:layout_height="fill_parent"
-                                        android:layout_weight="1" >
+                                        android:layout_weight="1">
 
                                         <TextView
                                             android:id="@+id/channel_16"
@@ -674,7 +673,7 @@
                                     <RelativeLayout
                                         android:layout_width="0px"
                                         android:layout_height="fill_parent"
-                                        android:layout_weight="1" >
+                                        android:layout_weight="1">
 
                                         <TextView
                                             android:id="@+id/channel_17"
@@ -694,16 +693,16 @@
                             <LinearLayout
                                 android:layout_width="800px"
                                 android:layout_height="fill_parent"
-                                android:orientation="vertical" >
+                                android:orientation="vertical">
 
                                 <LinearLayout
                                     android:layout_width="fill_parent"
-                                    android:layout_height="wrap_content" >
+                                    android:layout_height="wrap_content">
 
                                     <RelativeLayout
                                         android:layout_width="0px"
                                         android:layout_height="fill_parent"
-                                        android:layout_weight="1" >
+                                        android:layout_weight="1">
 
                                         <TextView
                                             android:id="@+id/channel_18"
@@ -721,7 +720,7 @@
                                     <RelativeLayout
                                         android:layout_width="0px"
                                         android:layout_height="fill_parent"
-                                        android:layout_weight="1" >
+                                        android:layout_weight="1">
 
                                         <TextView
                                             android:id="@+id/channel_19"
@@ -739,7 +738,7 @@
                                     <RelativeLayout
                                         android:layout_width="0px"
                                         android:layout_height="fill_parent"
-                                        android:layout_weight="1" >
+                                        android:layout_weight="1">
 
                                         <TextView
                                             android:id="@+id/channel_20"
@@ -757,7 +756,7 @@
                                     <RelativeLayout
                                         android:layout_width="0px"
                                         android:layout_height="fill_parent"
-                                        android:layout_weight="1" >
+                                        android:layout_weight="1">
 
                                         <TextView
                                             android:id="@+id/channel_21"
@@ -775,7 +774,7 @@
                                     <RelativeLayout
                                         android:layout_width="0px"
                                         android:layout_height="fill_parent"
-                                        android:layout_weight="1" >
+                                        android:layout_weight="1">
 
                                         <TextView
                                             android:id="@+id/channel_22"
@@ -793,7 +792,7 @@
                                     <RelativeLayout
                                         android:layout_width="0px"
                                         android:layout_height="fill_parent"
-                                        android:layout_weight="1" >
+                                        android:layout_weight="1">
 
                                         <TextView
                                             android:id="@+id/channel_23"
@@ -813,16 +812,16 @@
                             <LinearLayout
                                 android:layout_width="800px"
                                 android:layout_height="fill_parent"
-                                android:orientation="vertical" >
+                                android:orientation="vertical">
 
                                 <LinearLayout
                                     android:layout_width="fill_parent"
-                                    android:layout_height="wrap_content" >
+                                    android:layout_height="wrap_content">
 
                                     <RelativeLayout
                                         android:layout_width="0px"
                                         android:layout_height="fill_parent"
-                                        android:layout_weight="1" >
+                                        android:layout_weight="1">
 
                                         <TextView
                                             android:id="@+id/channel_24"
@@ -840,7 +839,7 @@
                                     <RelativeLayout
                                         android:layout_width="0px"
                                         android:layout_height="fill_parent"
-                                        android:layout_weight="1" >
+                                        android:layout_weight="1">
 
                                         <TextView
                                             android:id="@+id/channel_25"
@@ -858,7 +857,7 @@
                                     <RelativeLayout
                                         android:layout_width="0px"
                                         android:layout_height="fill_parent"
-                                        android:layout_weight="1" >
+                                        android:layout_weight="1">
 
                                         <TextView
                                             android:id="@+id/channel_26"
@@ -876,7 +875,7 @@
                                     <RelativeLayout
                                         android:layout_width="0px"
                                         android:layout_height="fill_parent"
-                                        android:layout_weight="1" >
+                                        android:layout_weight="1">
 
                                         <TextView
                                             android:id="@+id/channel_27"
@@ -894,7 +893,7 @@
                                     <RelativeLayout
                                         android:layout_width="0px"
                                         android:layout_height="fill_parent"
-                                        android:layout_weight="1" >
+                                        android:layout_weight="1">
 
                                         <TextView
                                             android:id="@+id/channel_28"
@@ -912,7 +911,7 @@
                                     <RelativeLayout
                                         android:layout_width="0px"
                                         android:layout_height="fill_parent"
-                                        android:layout_weight="1" >
+                                        android:layout_weight="1">
 
                                         <TextView
                                             android:id="@+id/channel_29"
@@ -938,18 +937,18 @@
             android:layout_width="match_parent"
             android:layout_height="65.0px"
             android:background="@drawable/radio_bottom_bg2"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:orientation="horizontal" >
+                android:orientation="horizontal">
 
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center" >
+                    android:gravity="center">
 
                     <!-- <ImageView -->
                     <!-- android:id="@+id/btn_list" -->
@@ -1013,7 +1012,7 @@
         android:id="@+id/radio_pty_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone" >
+        android:visibility="gone">
 
         <RelativeLayout
             android:layout_width="230px"
@@ -1021,7 +1020,7 @@
             android:layout_marginLeft="670px"
             android:layout_marginTop="200px"
             android:background="@drawable/rds_wrap"
-            android:paddingTop="13px" >
+            android:paddingTop="13px">
 
             <ListView
                 android:id="@+id/radio_pty_list"

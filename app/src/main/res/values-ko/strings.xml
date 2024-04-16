@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    
+
     <string name="toolbar_text_gps">"내비게이션"</string>
     <string name="toolbar_text_bluetooth_music">"BT 음악"</string>
     <string name="toolbar_text_radio">"라디오"</string>

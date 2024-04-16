@@ -1,7 +1,7 @@
 <!-- ?xml version="1.0" encoding="utf-8"? -->
 <resources>
 
-    
+
     <integer name="freq_x1">31</integer>
     <integer name="freq_x2">177</integer>
     <integer name="freq_x3">321</integer>
@@ -10,13 +10,13 @@
     <integer name="freq_x6">743</integer>
 
     <integer name="freq_text_y">50</integer>
-    
+
     <integer name="start_freq_px">49</integer>
     <integer name="end_freq_px">756</integer>
-    
-    
+
+
     <integer name="video_def_width">550</integer>
     <integer name="video_def_height">265</integer>
-    
+
     <integer name="lrc_text_size">18</integer>
 </resources>

@@ -5,20 +5,20 @@
     android:layout_height="match_parent"
     android:background="@drawable/background"
     android:fitsSystemWindows="true"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/playing_content"
         android:layout_width="fill_parent"
         android:layout_height="800px"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="115px"
             android:gravity="center"
             android:layout_marginTop="7px"
-            android:orientation="horizontal" >
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/disconnect_info"
@@ -34,7 +34,7 @@
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="105px"
-            android:orientation="horizontal" >
+            android:orientation="horizontal">
 
             <ImageView
                 android:id="@+id/iv_bt_music_pic"
@@ -50,11 +50,11 @@
                 android:layout_marginLeft="90px"
                 android:layout_marginTop="00px"
                 android:gravity="center_vertical"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="720px"
-                    android:layout_height="90px" >
+                    android:layout_height="90px">
 
                     <ImageView
                         android:layout_width="75px"
@@ -78,7 +78,7 @@
 
                 <LinearLayout
                     android:layout_width="720px"
-                    android:layout_height="90px" >
+                    android:layout_height="90px">
 
                     <ImageView
                         android:layout_width="75px"
@@ -102,7 +102,7 @@
 
                 <LinearLayout
                     android:layout_width="720px"
-                    android:layout_height="90px" >
+                    android:layout_height="90px">
 
                     <ImageView
                         android:layout_width="75px"
@@ -144,7 +144,7 @@
             android:layout_marginTop="10dp"
             android:gravity="center"
             android:orientation="horizontal"
-            android:visibility="gone" >
+            android:visibility="gone">
 
             <TextView
                 android:id="@+id/currenttime"
@@ -156,7 +156,7 @@
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content">
 
                 <SeekBar
                     android:id="@+id/progress"
@@ -185,12 +185,12 @@
         android:layout_height="180px"
         android:background="@drawable/radio_bottom_bg"
         android:gravity="center"
-        android:orientation="horizontal" >
+        android:orientation="horizontal">
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
-            android:gravity="center" >
+            android:gravity="center">
 
             <ImageView
                 android:id="@+id/prev"

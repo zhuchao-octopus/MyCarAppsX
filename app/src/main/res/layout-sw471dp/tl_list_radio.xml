@@ -4,7 +4,7 @@
     android:layout_height="70px"
     android:minHeight="70.0px"
     android:paddingLeft="1px"
-    android:paddingRight="1px" >
+    android:paddingRight="1px">
 
     <TextView
         android:id="@+id/list_text1"
@@ -33,6 +33,7 @@
         android:singleLine="true"
         android:textColor="#ffffffff"
         android:textSize="32.0px" />
+
     <TextView
         android:id="@+id/list_ps_name"
         style="@style/CommonStyleFonts"
@@ -46,6 +47,7 @@
         android:singleLine="true"
         android:textColor="#ffffffff"
         android:textSize="32.0px" />
+
     <TextView
         android:id="@+id/list_text3"
         style="@style/CommonStyleFonts"

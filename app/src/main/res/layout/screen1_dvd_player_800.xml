@@ -3,22 +3,22 @@
     android:id="@+id/screen1_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
         <RelativeLayout
             android:id="@+id/dvd_player"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1" >
+                android:layout_weight="1">
 
                 <SurfaceView
                     android:id="@+id/camera_surfaceview"
@@ -64,13 +64,13 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="138px"
                 android:orientation="vertical"
-                android:visibility="gone" >
+                android:visibility="gone">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="78px"
                     android:gravity="center"
-                    android:orientation="horizontal" >
+                    android:orientation="horizontal">
 
                     <ImageView
                         android:id="@+id/up"
@@ -86,7 +86,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="78px"
                     android:gravity="center"
-                    android:orientation="horizontal" >
+                    android:orientation="horizontal">
 
                     <ImageView
                         android:id="@+id/left"
@@ -120,7 +120,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="78px"
                     android:gravity="center"
-                    android:orientation="horizontal" >
+                    android:orientation="horizontal">
 
                     <ImageView
                         android:id="@+id/down"
@@ -140,7 +140,7 @@
                 android:layout_alignParentBottom="true"
                 android:background="#dd000000"
                 android:gravity="center"
-                android:orientation="horizontal" >
+                android:orientation="horizontal">
 
                 <ImageView
                     android:layout_width="fill_parent"
@@ -152,19 +152,19 @@
                     android:layout_height="fill_parent"
                     android:gravity="left|center_vertical"
                     android:orientation="horizontal"
-                    android:paddingLeft="0px" >
+                    android:paddingLeft="0px">
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="center" >
+                        android:gravity="center">
 
                         <LinearLayout
                             android:id="@+id/dvd_page1_layout"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" >
+                            android:layout_height="wrap_content">
 
-                          <com.octopus.android.carapps.common.view.KeyButtonView
+                            <com.octopus.android.carapps.common.view.KeyButtonView
                                 android:id="@+id/dvd_prev_button"
                                 style="@style/ButtonStyle3"
                                 android:layout_width="120px"
@@ -212,21 +212,21 @@
                                 android:scaleType="center"
                                 android:src="@drawable/ff" />
 
-<!--                             <com.octopus.android.carapps.common.view.KeyButtonView -->
-<!--                                 android:id="@+id/dvd_eq_button" -->
-<!--                                 style="@style/ButtonStyle3" -->
-<!--                                 android:clickable="true" -->
-<!--                                 android:scaleType="center" -->
-<!--                                 android:src="@drawable/eq" -->
-<!--                                 android:visibility="gone" /> -->
-                                         <Button
-                android:id="@+id/dvd_eq_mode_switch"
-                style="@style/Screen1ButtonStyle800"
-                                android:visibility="gone" 
-                android:clickable="true"
-                android:scaleType="center"
-                android:textSize="28px" />
-                                         
+                            <!--                             <com.octopus.android.carapps.common.view.KeyButtonView -->
+                            <!--                                 android:id="@+id/dvd_eq_button" -->
+                            <!--                                 style="@style/ButtonStyle3" -->
+                            <!--                                 android:clickable="true" -->
+                            <!--                                 android:scaleType="center" -->
+                            <!--                                 android:src="@drawable/eq" -->
+                            <!--                                 android:visibility="gone" /> -->
+                            <Button
+                                android:id="@+id/dvd_eq_mode_switch"
+                                style="@style/Screen1ButtonStyle800"
+                                android:visibility="gone"
+                                android:clickable="true"
+                                android:scaleType="center"
+                                android:textSize="28px" />
+
                         </LinearLayout>
 
                         <LinearLayout
@@ -234,7 +234,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
-                            android:visibility="gone" >
+                            android:visibility="gone">
 
                             <com.common.view.KeyButton
                                 android:id="@+id/dvd_title_button"
@@ -355,7 +355,7 @@
                     android:layout_alignParentRight="true"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:paddingRight="2px" >
+                    android:paddingRight="2px">
 
                     <com.octopus.android.carapps.common.view.KeyButtonView
                         android:id="@+id/dvd_prev_page_button"
@@ -382,10 +382,11 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="60px" >
-        <include
-            layout="@layout/screen1_cd_player_800"
-            android:visibility="gone" />
+            android:layout_marginTop="60px">
+
+            <include
+                layout="@layout/screen1_cd_player_800"
+                android:visibility="gone" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -394,7 +395,7 @@
             android:layout_height="fill_parent"
             android:background="@drawable/background"
             android:gravity="center"
-            android:visibility="gone" >
+            android:visibility="gone">
 
             <ImageView
                 android:id="@+id/loading_image"
@@ -405,12 +406,12 @@
             <RelativeLayout
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:gravity="center" >
+                android:gravity="center">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical" >
+                    android:orientation="vertical">
 
                     <ProgressBar
                         android:id="@+id/progressBar1"
@@ -423,8 +424,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/loading"
                         android:textColor="#ffffff"
-                        android:textSize="32px" >
-                    </TextView>
+                        android:textSize="32px"></TextView>
                 </LinearLayout>
             </RelativeLayout>
         </RelativeLayout>
@@ -438,8 +438,7 @@
             android:text="@string/no_disk"
             android:textColor="#ffffff"
             android:textSize="38px"
-            android:visibility="gone" >
-        </TextView>
+            android:visibility="gone"></TextView>
     </RelativeLayout>
 
 </RelativeLayout>

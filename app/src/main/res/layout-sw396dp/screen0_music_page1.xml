@@ -5,8 +5,8 @@
     android:fitsSystemWindows="true"
     android:orientation="horizontal"
     android:background="@drawable/music_background"
-    android:padding="0px" >
-    
+    android:padding="0px">
+
     <ImageView
         android:layout_width="270px"
         android:layout_height="552.0px"
@@ -21,27 +21,27 @@
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="170.0px"
         android:background="@android:color/transparent"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
         <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="64px"
             android:gravity="center_vertical"
             android:paddingLeft="20px"
-            android:paddingRight="30px" >
-            
-           <TextView
-                        android:id="@+id/playing_files"
-                        android:layout_width="wrap_content"
-                        android:layout_height="fill_parent"
-                        android:gravity="center"
-                        android:layout_marginLeft="110px"
-                        
-                        android:layout_marginTop="20px"
-                        android:textColor="#ffffff"
-                        android:textSize="24.0px" />
-               
-               
+            android:paddingRight="30px">
+
+            <TextView
+                android:id="@+id/playing_files"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:gravity="center"
+                android:layout_marginLeft="110px"
+
+                android:layout_marginTop="20px"
+                android:textColor="#ffffff"
+                android:textSize="24.0px" />
+
+
         </RelativeLayout>
 
         <LinearLayout
@@ -49,19 +49,19 @@
             android:layout_width="fill_parent"
             android:layout_height="220px"
             android:gravity="left"
-            android:orientation="horizontal" >
+            android:orientation="horizontal">
 
             <RelativeLayout
                 android:layout_width="158.0px"
                 android:layout_height="158.0px"
-                android:layout_marginLeft="80.0px" >
+                android:layout_marginLeft="80.0px">
 
-                                <ImageView
-                                android:id="@+id/album_art"
-                                android:layout_width="fill_parent"
-                                android:layout_height="fill_parent"
-                                android:scaleType="center"
-                                android:src="@drawable/music_pic" />
+                <ImageView
+                    android:id="@+id/album_art"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:scaleType="center"
+                    android:src="@drawable/music_pic" />
 
                 <!-- <ImageView
                     android:layout_width="238px"
@@ -72,7 +72,7 @@
 
             <RelativeLayout
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent" >
+                android:layout_height="fill_parent">
 
                 <FrameLayout
                     android:layout_width="fill_parent"
@@ -91,12 +91,11 @@
                         android:textColor="#ffe0e0e0"
                         android:textSize="28.0dip" />
 
-                    <cn.qylk.myview.LrcView
+                    <com.octopus.android.carapps.qylk.myview.LrcView
                         android:id="@+id/lrcshow"
                         android:visibility="gone"
                         android:layout_width="fill_parent"
-                        android:layout_height="fill_parent" >
-                    </cn.qylk.myview.LrcView>
+                        android:layout_height="fill_parent"></com.octopus.android.carapps.qylk.myview.LrcView>
                 </FrameLayout>
 
                 <LinearLayout
@@ -104,30 +103,30 @@
                     android:layout_height="fill_parent"
                     android:gravity="top"
                     android:orientation="horizontal"
-                    android:paddingRight="15px" >
+                    android:paddingRight="15px">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="0px"
-                        android:orientation="vertical" >
+                        android:orientation="vertical">
 
                         <LinearLayout
                             android:id="@+id/id3_artist_album"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:orientation="vertical" >
+                            android:orientation="vertical">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
-                                android:orientation="vertical" >
+                                android:orientation="vertical">
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
-                                    android:layout_height="50.0px" >
+                                    android:layout_height="50.0px">
 
                                     <ImageView
                                         android:layout_width="50.0px"
@@ -160,11 +159,11 @@
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
                                 android:orientation="vertical"
-                                android:visibility="gone" >
+                                android:visibility="gone">
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
-                                    android:layout_height="70px" >
+                                    android:layout_height="70px">
 
                                     <ImageView
                                         android:layout_width="wrap_content"
@@ -191,18 +190,18 @@
                                     android:src="@drawable/music_line" />
                             </LinearLayout>
                         </LinearLayout>
-                        
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10.0px"
                             android:gravity="center"
-                            android:orientation="vertical" >
+                            android:orientation="vertical">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="50.0px"
-                                android:layout_gravity="center_vertical" >
+                                android:layout_gravity="center_vertical">
 
                                 <ImageView
                                     android:layout_width="50.0px"
@@ -229,14 +228,14 @@
                                 android:layout_height="0px"
                                 android:src="@drawable/music_line" />
                         </LinearLayout>
-                        
+
                         <LinearLayout
                             android:layout_width="220.0px"
                             android:layout_height="50.0px"
                             android:layout_marginTop="10px"
                             android:gravity="center"
-                            android:orientation="horizontal" >
-                            
+                            android:orientation="horizontal">
+
                             <ImageView
                                 android:id="@+id/play_repeat_tag"
                                 android:layout_width="50.0px"
@@ -244,7 +243,7 @@
                                 android:clickable="true"
                                 android:focusable="false"
                                 android:scaleType="fitXY"
-                    android:background="@drawable/com_focus_select"
+                                android:background="@drawable/com_focus_select"
                                 android:src="@drawable/common_repeat_tag_level" />
 
                             <View
@@ -258,10 +257,10 @@
                                 android:layout_height="50.0px"
                                 android:clickable="true"
                                 android:focusable="false"
-                    android:background="@drawable/com_focus_select"
+                                android:background="@drawable/com_focus_select"
                                 android:scaleType="fitXY"
                                 android:src="@drawable/music_seq_ieq" />
-                            
+
                             <View
                                 android:layout_width="0.0px"
                                 android:layout_height="fill_parent"
@@ -272,32 +271,32 @@
                                 android:layout_width="50.0px"
                                 android:layout_height="50.0px"
                                 android:clickable="true"
-                    android:background="@drawable/com_focus_select"
+                                android:background="@drawable/com_focus_select"
                                 android:scaleType="fitXY"
                                 android:focusable="false"
                                 android:src="@drawable/music_folder" />
 
                         </LinearLayout>
 
-<!--                         <ImageView -->
-<!--                             android:id="@+id/play_repeat_tag" -->
-<!--                             android:layout_width="37px" -->
-<!--                             android:layout_height="27px" -->
-<!--                             android:layout_marginLeft="10px" -->
-<!--                             android:layout_marginTop="3px" -->
-<!--                             android:src="@drawable/common_repeat_tag_level" -->
-<!--                             android:visibility="gone" /> -->
+                        <!--                         <ImageView -->
+                        <!--                             android:id="@+id/play_repeat_tag" -->
+                        <!--                             android:layout_width="37px" -->
+                        <!--                             android:layout_height="27px" -->
+                        <!--                             android:layout_marginLeft="10px" -->
+                        <!--                             android:layout_marginTop="3px" -->
+                        <!--                             android:src="@drawable/common_repeat_tag_level" -->
+                        <!--                             android:visibility="gone" /> -->
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:orientation="vertical"
-                            android:visibility="gone" >
+                            android:visibility="gone">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content" >
+                                android:layout_height="wrap_content">
 
                                 <ImageView
                                     style="@style/shadowText"
@@ -336,7 +335,7 @@
             android:gravity="center"
             android:paddingLeft="100px"
             android:paddingRight="50px"
-            android:orientation="horizontal" >
+            android:orientation="horizontal">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -358,7 +357,7 @@
                     android:thumb="@drawable/thumb" />
 
             </LinearLayout>
-            
+
             <TextView
                 android:id="@+id/currenttime"
                 style="@style/shadowTextCommonStyleFonts"
@@ -385,13 +384,13 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:background="#00000000"
-            android:gravity="left" >
+            android:gravity="left">
 
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20px"
-                android:gravity="center" >
+                android:gravity="center">
 
                 <!-- <Button
                     android:id="@+id/eq_mode_switch"
@@ -473,7 +472,7 @@
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-    
+
     <ListView
         android:id="@+id/tv_all_list"
         style="@style/CommonListViewStyle1"

@@ -1,9 +1,8 @@
 <!-- ?xml version="1.0" encoding="utf-8"? -->
 <resources>
 
-    
 
-        <integer name="video_def_width">934</integer>
+    <integer name="video_def_width">934</integer>
     <integer name="video_def_height">600</integer>
-    
+
 </resources>

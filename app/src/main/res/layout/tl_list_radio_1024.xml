@@ -5,7 +5,7 @@
     android:layout_gravity="center"
     android:background="@drawable/tl_l_bg"
     android:minHeight="71px"
-    android:paddingLeft="16.0px" >
+    android:paddingLeft="16.0px">
 
     <TextView
         android:id="@+id/list_text1"

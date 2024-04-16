@@ -3,7 +3,7 @@
     android:layout_width="1280.0px"
     android:layout_height="420.0px"
     android:background="#ff000000"
-    android:orientation="horizontal" >
+    android:orientation="horizontal">
 
     <ImageView
         android:layout_width="800px"
@@ -13,7 +13,7 @@
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent" >
+        android:layout_height="fill_parent">
 
         <ImageView
             android:layout_width="210px"
@@ -28,13 +28,13 @@
             android:paddingRight="30px"
             android:layout_weight="1"
             android:background="@android:color/transparent"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:background="@android:color/transparent"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <Button
                     android:id="@+id/btn_add_all"
@@ -92,7 +92,7 @@
 
         <ScrollView
             android:layout_width="149.0px"
-            android:layout_height="fill_parent" >
+            android:layout_height="fill_parent">
 
             <LinearLayout
                 android:id="@+id/tb"
@@ -101,7 +101,7 @@
                 android:layout_marginLeft="1px"
                 android:layout_marginTop="0px"
                 android:gravity="left"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <Button
                     android:id="@+id/btn_all"
@@ -121,7 +121,7 @@
                     android:id="@+id/btn_local"
                     android:layout_width="match_parent"
                     android:layout_height="105.0px"
-                 
+
                     android:clickable="true"
                     android:drawablePadding="0.0px"
                     android:drawableTop="@drawable/type_arm"
@@ -136,7 +136,7 @@
                     android:id="@+id/btn_sd"
                     android:layout_width="match_parent"
                     android:layout_height="105.0px"
-                 
+
                     android:clickable="true"
                     android:background="@drawable/com_focus_select"
                     android:drawablePadding="1.0px"
@@ -165,7 +165,7 @@
                     android:id="@+id/btn_usb"
                     android:layout_width="match_parent"
                     android:layout_height="105.0px"
-                 
+
                     android:clickable="true"
                     android:background="@drawable/com_focus_select"
                     android:drawablePadding="1.0px"
@@ -220,13 +220,14 @@
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/progressBar1"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:clickable="true"
         android:gravity="center"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
         <ProgressBar
             style="?android:attr/progressBarStyleLarge"

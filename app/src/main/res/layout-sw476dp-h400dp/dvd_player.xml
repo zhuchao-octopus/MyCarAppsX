@@ -3,17 +3,17 @@
     android:id="@+id/screen1_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <RelativeLayout
         android:id="@+id/dvd_player"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1" >
+            android:layout_weight="1">
 
             <SurfaceView
                 android:id="@+id/camera_surfaceview"
@@ -68,7 +68,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginRight="50px"
             android:layout_marginTop="220px"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <include layout="@layout/dvd_keyboard" />
         </LinearLayout>
@@ -81,7 +81,7 @@
             android:background="#dd000000"
             android:gravity="center"
             android:orientation="horizontal"
-            android:paddingTop="10px" >
+            android:paddingTop="10px">
 
             <ImageView
                 android:layout_width="fill_parent"
@@ -92,7 +92,7 @@
                 android:layout_height="fill_parent"
                 android:gravity="left|center_vertical"
                 android:orientation="horizontal"
-                android:paddingLeft="2px" >
+                android:paddingLeft="2px">
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
@@ -100,7 +100,7 @@
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
                     android:paddingLeft="10px"
-                    android:paddingRight="0px" >
+                    android:paddingRight="0px">
 
                     <ImageView
                         android:id="@+id/dvd_prev_page_button"
@@ -126,14 +126,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="28px"
-                    android:gravity="center" >
+                    android:gravity="center">
 
                     <LinearLayout
                         android:id="@+id/dvd_page1_layout"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:gravity="center"
-                        android:visibility="visible" >
+                        android:visibility="visible">
 
                         <ImageView
                             android:id="@+id/dvd_prev_button"
@@ -201,7 +201,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:orientation="horizontal"
-                        android:visibility="gone" >
+                        android:visibility="gone">
 
                         <Button
                             android:id="@+id/dvd_title_button"
@@ -353,7 +353,7 @@
         android:layout_height="fill_parent"
         android:background="#ff000000"
         android:gravity="center"
-        android:visibility="gone" >
+        android:visibility="gone">
 
         <ImageView
             android:id="@+id/loading_image"
@@ -364,12 +364,12 @@
         <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:gravity="center" >
+            android:gravity="center">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <ProgressBar
                     android:id="@+id/progressBar1"
@@ -382,8 +382,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/loading"
                     android:textColor="#ffffff"
-                    android:textSize="32px" >
-                </TextView>
+                    android:textSize="32px"></TextView>
             </LinearLayout>
         </RelativeLayout>
     </RelativeLayout>
@@ -397,7 +396,6 @@
         android:text="@string/no_disk"
         android:textColor="#ffffff"
         android:textSize="38px"
-        android:visibility="gone" >
-    </TextView>
+        android:visibility="gone"></TextView>
 
 </RelativeLayout>

@@ -30,8 +30,8 @@
         <item name="android:gravity">center</item>
         <item name="android:textStyle">bold</item>
     </style>
-    
-        <style name="MusicButtonStyle1">
+
+    <style name="MusicButtonStyle1">
         <item name="android:tag">ak_paramter=100,50</item>
         <item name="android:layout_width">160px</item>
         <item name="android:layout_height">160px</item>

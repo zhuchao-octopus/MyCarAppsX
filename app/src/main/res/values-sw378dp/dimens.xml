@@ -31,7 +31,7 @@
     <dimen name="right_margin_left">50.0px</dimen>
 
 
-     <dimen name="bottom_y">420dip</dimen>
- <dimen name="reverse_page_right_x">649dip</dimen>
- <dimen name="buttom_page_right_x">740dip</dimen>
+    <dimen name="bottom_y">420dip</dimen>
+    <dimen name="reverse_page_right_x">649dip</dimen>
+    <dimen name="buttom_page_right_x">740dip</dimen>
 </resources>

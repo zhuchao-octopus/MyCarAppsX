@@ -3,7 +3,7 @@
     android:layout_width="280px"
     android:layout_height="fill_parent"
     android:background="#0d1720"
-    android:orientation="horizontal" >
+    android:orientation="horizontal">
 
     <View
         android:layout_width="1px"

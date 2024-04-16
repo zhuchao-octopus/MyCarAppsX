@@ -1,35 +1,35 @@
 <!-- ?xml version="1.0" encoding="utf-8"? -->
 <resources>
-    
+
     <integer name="freq_x1">103</integer>
     <integer name="freq_x2">264</integer>
     <integer name="freq_x3">426</integer>
     <integer name="freq_x4">590</integer>
     <integer name="freq_x5">750</integer>
     <integer name="freq_x6">910</integer>
-    
+
     <integer name="start_freq_px">112</integer>
     <integer name="end_freq_px">920</integer>
 
     <integer name="point_y">40</integer>
 
-    
+
     <integer name="freq_text_y">34</integer>
     <integer name="freq_text_size">18</integer>
     <integer name="freq_bitmap_point">0</integer>
-    
+
     <integer name="audio_ui_type">0</integer>
-    
+
     <integer name="lrc_text_size">22</integer>
-    
-    
+
+
     <integer name="video_def_width">550</integer>
     <integer name="video_def_height">265</integer>
-    
-    
+
+
     <integer name="radio_grid_fm_widht">0</integer>
     <integer name="radio_grid_am_widht">0</integer>
-    
+
     <!-- for lrc -->
     <integer name="lrc_lines">1</integer>
     <integer name="lrc_margin_top">0</integer>

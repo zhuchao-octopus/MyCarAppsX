@@ -5,13 +5,13 @@
     android:layout_height="fill_parent"
     android:background="@drawable/background"
     android:fitsSystemWindows="true"
-    android:orientation="horizontal" >
+    android:orientation="horizontal">
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_gravity="center"
-        android:orientation="horizontal" >
+        android:orientation="horizontal">
 
         <LinearLayout
             android:id="@+id/disconnect_info"
@@ -19,19 +19,19 @@
             android:layout_height="fill_parent"
             android:gravity="center"
             android:orientation="vertical"
-            android:visibility="gone" >
+            android:visibility="gone">
 
             <LinearLayout
                 android:layout_width="520px"
                 android:layout_height="180px"
                 android:background="@drawable/music_alarm"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="126px"
                     android:gravity="center_vertical"
-                    android:orientation="horizontal" >
+                    android:orientation="horizontal">
 
                     <ImageView
                         android:layout_width="96px"
@@ -43,7 +43,7 @@
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:orientation="vertical" >
+                        android:orientation="vertical">
 
                         <TextView
                             style="@style/CommonStyleFonts"
@@ -71,7 +71,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:orientation="horizontal"
-                    android:paddingLeft="8px" >
+                    android:paddingLeft="8px">
 
                     <TextView
                         style="@style/CommonStyleFonts"
@@ -116,20 +116,20 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <LinearLayout
                 android:id="@+id/playing_content"
                 android:layout_width="fill_parent"
                 android:layout_height="328.0px"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10px"
                     android:gravity="center_horizontal"
-                    android:orientation="vertical" >
+                    android:orientation="vertical">
 
                     <ImageView
                         android:id="@+id/iv_bt_music_pic"
@@ -142,11 +142,11 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="0px"
                         android:gravity="center_horizontal"
-                        android:orientation="vertical" >
+                        android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="fill_parent"
-                            android:layout_height="42px" >
+                            android:layout_height="42px">
 
                             <!-- <ImageView -->
                             <!-- android:layout_width="wrap_content" -->
@@ -154,7 +154,7 @@
                             <!-- android:gravity="center" -->
                             <!-- android:src="@drawable/music_name" /> -->
 
-                            <com.common.view.MarqueeTextView
+                            <com.octopus.android.carapps.common.view.MarqueeTextView
                                 android:id="@+id/song"
                                 style="@style/shadowTextCommonStyleFonts"
                                 android:layout_width="match_parent"
@@ -169,7 +169,7 @@
 
                         <LinearLayout
                             android:layout_width="fill_parent"
-                            android:layout_height="42px" >
+                            android:layout_height="42px">
 
                             <!-- <ImageView -->
                             <!-- android:layout_width="wrap_content" -->
@@ -177,7 +177,7 @@
                             <!-- android:gravity="center" -->
                             <!-- android:src="@drawable/music_artist" /> -->
 
-                            <com.common.view.MarqueeTextView
+                            <com.octopus.android.carapps.common.view.MarqueeTextView
                                 android:id="@+id/artist"
                                 style="@style/shadowTextCommonStyleFonts"
                                 android:layout_width="match_parent"
@@ -193,7 +193,7 @@
                         <LinearLayout
                             android:layout_width="580px"
                             android:layout_height="72px"
-                            android:visibility="gone" >
+                            android:visibility="gone">
 
                             <ImageView
                                 android:layout_width="wrap_content"
@@ -201,7 +201,7 @@
                                 android:gravity="center"
                                 android:src="@drawable/music_album" />
 
-                            <com.common.view.MarqueeTextView
+                            <com.octopus.android.carapps.common.view.MarqueeTextView
                                 android:id="@+id/album"
                                 style="@style/shadowTextCommonStyleFonts"
                                 android:layout_width="match_parent"
@@ -235,7 +235,7 @@
                     android:layout_marginTop="12dp"
                     android:gravity="center"
                     android:orientation="horizontal"
-                    android:visibility="gone" >
+                    android:visibility="gone">
 
                     <TextView
                         android:id="@+id/currenttime"
@@ -247,7 +247,7 @@
 
                     <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" >
+                        android:layout_height="wrap_content">
 
                         <SeekBar
                             android:id="@+id/progress"
@@ -278,12 +278,12 @@
                 android:layout_marginBottom="3.0px"
                 android:background="#44000000"
                 android:gravity="center"
-                android:orientation="horizontal" >
+                android:orientation="horizontal">
 
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:gravity="center" >
+                    android:gravity="center">
 
                     <ImageView
                         android:id="@+id/prev"

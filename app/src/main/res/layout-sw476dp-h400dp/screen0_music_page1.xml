@@ -4,13 +4,13 @@
     android:layout_height="fill_parent"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
-    android:padding="0px" >
+    android:padding="0px">
 
     <LinearLayout
         android:layout_width="934px"
         android:layout_height="fill_parent"
         android:layout_marginTop="10px"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
         <LinearLayout
             android:id="@+id/playing_content"
@@ -18,12 +18,12 @@
             android:layout_height="345px"
             android:layout_marginTop="10px"
             android:gravity="center"
-            android:orientation="horizontal" >
+            android:orientation="horizontal">
 
             <RelativeLayout
                 android:layout_width="238px"
                 android:layout_height="238px"
-                android:layout_marginLeft="105px" >
+                android:layout_marginLeft="105px">
 
                 <com.common.view.MusicRollImage
                     android:id="@+id/album_art"
@@ -42,26 +42,26 @@
                     android:layout_height="238px"
                     android:scaleType="fitCenter"
                     android:src="@drawable/music_pic_front" />
-                
-                       <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="-40px"
-                        android:layout_centerHorizontal="true"
-                        android:scaleType="center"
-                        android:src="@drawable/cd3" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="-40px"
+                    android:layout_centerHorizontal="true"
+                    android:scaleType="center"
+                    android:src="@drawable/cd3" />
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent" >
+                android:layout_height="fill_parent">
 
                 <FrameLayout
                     android:layout_width="fill_parent"
                     android:layout_height="160px"
                     android:layout_marginTop="100px"
                     android:paddingLeft="80px"
-                    android:paddingRight="60px" >
+                    android:paddingRight="60px">
 
                     <TextView
                         android:id="@+id/tv_no_lyric"
@@ -72,12 +72,11 @@
                         android:textColor="#ffe0e0e0"
                         android:textSize="28.0dip" />
 
-                    <cn.qylk.myview.LrcView
+                    <com.octopus.android.carapps.qylk.myview.LrcView
                         android:id="@+id/lrcshow"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
-                        android:visibility="gone" >
-                    </cn.qylk.myview.LrcView>
+                        android:visibility="gone"></com.octopus.android.carapps.qylk.myview.LrcView>
                 </FrameLayout>
 
                 <LinearLayout
@@ -85,24 +84,24 @@
                     android:layout_height="fill_parent"
                     android:gravity="center"
                     android:orientation="horizontal"
-                    android:paddingRight="15px" >
+                    android:paddingRight="15px">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="45px"
-                        android:orientation="vertical" >
+                        android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:orientation="vertical" >
+                            android:orientation="vertical">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="70px"
-                                android:layout_gravity="center_vertical" >
+                                android:layout_gravity="center_vertical">
 
                                 <ImageView
                                     android:layout_width="wrap_content"
@@ -134,17 +133,17 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:orientation="vertical" >
+                            android:orientation="vertical">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
-                                android:orientation="vertical" >
+                                android:orientation="vertical">
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
-                                    android:layout_height="70px" >
+                                    android:layout_height="70px">
 
                                     <ImageView
                                         android:layout_width="wrap_content"
@@ -175,11 +174,11 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
-                                android:orientation="vertical" >
+                                android:orientation="vertical">
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
-                                    android:layout_height="70px" >
+                                    android:layout_height="70px">
 
                                     <ImageView
                                         android:layout_width="wrap_content"
@@ -221,11 +220,11 @@
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:orientation="vertical"
-                            android:visibility="gone" >
+                            android:visibility="gone">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content" >
+                                android:layout_height="wrap_content">
 
                                 <ImageView
                                     style="@style/shadowText"
@@ -264,7 +263,7 @@
             android:paddingLeft="60px"
             android:paddingRight="60px"
             android:paddingBottom="10px"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <SeekBar
                 android:id="@+id/progress"
@@ -280,9 +279,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-            android:paddingLeft="20px"
-            android:paddingRight="40px"
-                android:orientation="horizontal" >
+                android:paddingLeft="20px"
+                android:paddingRight="40px"
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/currenttime"
@@ -309,12 +308,12 @@
             android:layout_width="fill_parent"
             android:layout_height="115px"
             android:background="@drawable/music_bottom_bg"
-            android:gravity="center" >
+            android:gravity="center">
 
             <LinearLayout
                 android:layout_width="784px"
                 android:layout_height="fill_parent"
-                android:gravity="center" >
+                android:gravity="center">
 
                 <ImageView
                     android:id="@+id/prev"

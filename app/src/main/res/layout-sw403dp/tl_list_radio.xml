@@ -3,7 +3,7 @@
     android:layout_width="341px"
     android:layout_height="90px"
     android:background="#ffff0000"
-    android:minHeight="90px" >
+    android:minHeight="90px">
 
     <TextView
         android:id="@+id/list_ps_name"

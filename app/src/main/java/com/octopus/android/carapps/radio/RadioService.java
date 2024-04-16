@@ -1,17 +1,16 @@
 package com.octopus.android.carapps.radio;
 
 
-import com.common.util.MyCmd;
-import com.common.util.Util;
-import com.octopus.android.carapps.car.ui.GlobalDef;
-import com.octopus.android.carapps.common.service.ServiceBase;
-
 import android.content.Context;
 import android.content.Intent;
 import android.media.AudioManager;
 import android.media.AudioManager.OnAudioFocusChangeListener;
 import android.os.Handler;
 import android.util.Log;
+
+import com.common.util.MyCmd;
+import com.octopus.android.carapps.car.ui.GlobalDef;
+import com.octopus.android.carapps.common.service.ServiceBase;
 
 public class RadioService extends ServiceBase {
     public static final String TAG = "RadioService";
@@ -87,8 +86,7 @@ public class RadioService extends ServiceBase {
                 if (ret != 0) {
                     returnInfoToUI(ret);
                     if (AkRadio.MRD_RDS_INFO == ret) {
-                        if (((mAkRadio.mMRDRdsFlag & 0x2) != 0)
-                                && ((mAkRadio.mMRDRdsFlag & 0x20) != 0)) {
+                        if (((mAkRadio.mMRDRdsFlag & 0x2) != 0) && ((mAkRadio.mMRDRdsFlag & 0x20) != 0)) {
                             showTA();
                         } else {
                             hideTA();
@@ -207,10 +205,10 @@ public class RadioService extends ServiceBase {
     }
 
     //	public static OnAudioFocusChangeListener mAudioFocusListener = new OnAudioFocusChangeListener() {
-//		public void onAudioFocusChange(int focusChange) {
-//			MyCmd.SOURCE_OTHERS_APPS
-//		}
-//	};
+    //		public void onAudioFocusChange(int focusChange) {
+    //			MyCmd.SOURCE_OTHERS_APPS
+    //		}
+    //	};
     private static boolean mPausedByTransientLossOfFocus = false;
     public static OnAudioFocusChangeListener mAudioFocusListener = new OnAudioFocusChangeListener() {
         public void onAudioFocusChange(int focusChange) {
@@ -226,10 +224,8 @@ public class RadioService extends ServiceBase {
                 case AudioManager.AUDIOFOCUS_LOSS:
                 case AudioManager.AUDIOFOCUS_LOSS_TRANSIENT:
                 case AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK:
-                    if (!GlobalDef.isAudioFocusGPS())
-                    {
-                        if (GlobalDef.mSource == RadioUI.SOURCE)
-                        {
+                    if (!GlobalDef.isAudioFocusGPS()) {
+                        if (GlobalDef.mSource == RadioUI.SOURCE) {
                             //if (mServiceBase.mPlayStatus == BTMusicService.A2DP_INFO_PLAY) {
                             mPausedByTransientLossOfFocus = true;
                             GlobalDef.setSource(GlobalDef.mContext, MyCmd.SOURCE_OTHERS_APPS);
@@ -257,8 +253,8 @@ public class RadioService extends ServiceBase {
 
 
     //	public  OnAudioFocusChangeListener getAudioFocusChangeListener(){
-//		return mAudioFocusListener;
-//	}
+    //		return mAudioFocusListener;
+    //	}
     public int getSource() {
         return RadioUI.SOURCE;
     }

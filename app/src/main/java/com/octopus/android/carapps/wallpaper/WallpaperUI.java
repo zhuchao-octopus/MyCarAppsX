@@ -39,15 +39,13 @@ import android.widget.ListAdapter;
 import android.widget.SpinnerAdapter;
 
 import com.common.util.SystemConfig;
-import com.common.util.Util;
 import com.octopus.android.carapps.R;
 import com.octopus.android.carapps.common.ui.UIBase;
 
 import java.io.File;
 import java.util.ArrayList;
 
-public class WallpaperUI extends UIBase implements
-        AdapterView.OnItemSelectedListener, AdapterView.OnItemClickListener {
+public class WallpaperUI extends UIBase implements AdapterView.OnItemSelectedListener, AdapterView.OnItemClickListener {
 
     private static final String TAG = "WallpaperUI";
 
@@ -115,8 +113,7 @@ public class WallpaperUI extends UIBase implements
     }
 
     private void cancelLoader() {
-        if (mLoader != null
-                && mLoader.getStatus() != WallpaperLoader.Status.FINISHED) {
+        if (mLoader != null && mLoader.getStatus() != WallpaperLoader.Status.FINISHED) {
             mLoader.cancel(true);
             mLoader = null;
         }
@@ -142,8 +139,7 @@ public class WallpaperUI extends UIBase implements
             }
         } else {
             if (mCurWallPapaer != null) {
-                Intent it = new Intent(
-                        WallpaperUI.BROADCAST_SCREEN1_WALLPAPER_CHANGE);
+                Intent it = new Intent(WallpaperUI.BROADCAST_SCREEN1_WALLPAPER_CHANGE);
                 it.setPackage(mContext.getPackageName());
                 mContext.sendBroadcast(it);
             }
@@ -157,22 +153,15 @@ public class WallpaperUI extends UIBase implements
                 if (mContext instanceof Activity) {
                     Activity activity = (Activity) mContext;
 
-                    WallpaperManager wpm = (WallpaperManager) activity
-                            .getSystemService(Context.WALLPAPER_SERVICE);
+                    WallpaperManager wpm = (WallpaperManager) activity.getSystemService(Context.WALLPAPER_SERVICE);
 
                     wpm.setBitmap(mWallpaperDrawable.getBitmap());
 
-                    if (0 != SystemConfig.getIntProperty(mContext,
-                            SystemConfig.KEY_CE_STYLE
-                    )) {
+                    if (0 != SystemConfig.getIntProperty(mContext, SystemConfig.KEY_CE_STYLE)) {
 
-                        SystemConfig.setProperty(mContext,
-                                SystemConfig.KEY_CE_STYLE_WALLPAPER_NAME,
-                                mCurWallPapaer);
+                        SystemConfig.setProperty(mContext, SystemConfig.KEY_CE_STYLE_WALLPAPER_NAME, mCurWallPapaer);
                     } else {
-                        SystemConfig.setProperty(mContext,
-                                SystemConfig.KEY_SCREEN0_WALLPAPER_NAME,
-                                mCurWallPapaer);
+                        SystemConfig.setProperty(mContext, SystemConfig.KEY_SCREEN0_WALLPAPER_NAME, mCurWallPapaer);
                     }
 
 
@@ -181,12 +170,9 @@ public class WallpaperUI extends UIBase implements
                 }
             } else {
                 if (mCurWallPapaer != null) {
-                    SystemConfig.setProperty(mContext,
-                            SystemConfig.KEY_SCREEN1_WALLPAPER_NAME,
-                            mCurWallPapaer);
+                    SystemConfig.setProperty(mContext, SystemConfig.KEY_SCREEN1_WALLPAPER_NAME, mCurWallPapaer);
 
-                    Intent it = new Intent(
-                            WallpaperUI.BROADCAST_SCREEN1_WALLPAPER_CHANGE);
+                    Intent it = new Intent(WallpaperUI.BROADCAST_SCREEN1_WALLPAPER_CHANGE);
                     it.setPackage(mContext.getPackageName());
                     mContext.sendBroadcast(it);
                 }
@@ -199,17 +185,14 @@ public class WallpaperUI extends UIBase implements
 
     // Click handler for the Dialog's GridView
     @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position,
-                            long id) {
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         selectWallpaper(position);
     }
 
     // Selection handler for the embedded Gallery view
     @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position,
-                               long id) {
-        if (mLoader != null
-                && mLoader.getStatus() != WallpaperLoader.Status.FINISHED) {
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        if (mLoader != null && mLoader.getStatus() != WallpaperLoader.Status.FINISHED) {
             mLoader.cancel();
         }
         mLoader = (WallpaperLoader) new WallpaperLoader().execute(position);
@@ -240,8 +223,7 @@ public class WallpaperUI extends UIBase implements
         }
     }
 
-    private class ImageAdapter extends BaseAdapter implements ListAdapter,
-            SpinnerAdapter {
+    private class ImageAdapter extends BaseAdapter implements ListAdapter, SpinnerAdapter {
         private LayoutInflater mLayoutInflater;
 
         ImageAdapter(Context activity) {
@@ -264,21 +246,17 @@ public class WallpaperUI extends UIBase implements
             View view;
 
             if (convertView == null) {
-                view = mLayoutInflater.inflate(R.layout.wallpaper_item, parent,
-                        false);
+                view = mLayoutInflater.inflate(R.layout.wallpaper_item, parent, false);
             } else {
                 view = convertView;
             }
 
-            ImageView image = (ImageView) view
-                    .findViewById(R.id.wallpaper_image);
+            ImageView image = (ImageView) view.findViewById(R.id.wallpaper_image);
 
             // int thumbRes = mThumbs.get(position);
             // image.setImageResource(thumbRes);
 
-            Drawable thumbDrawable = Drawable
-                    .createFromPath(PATH_WALLPAPER_SMALL
-                            + mThumbs.get(position));
+            Drawable thumbDrawable = Drawable.createFromPath(PATH_WALLPAPER_SMALL + mThumbs.get(position));
 
             image.setImageDrawable(thumbDrawable);
 
@@ -286,10 +264,7 @@ public class WallpaperUI extends UIBase implements
             if (thumbDrawable != null) {
                 thumbDrawable.setDither(true);
             } else {
-                Log.e(TAG,
-                        "Error decoding thumbnail resId="
-                                + mThumbs.get(position) + " for wallpaper #"
-                                + position);
+                Log.e(TAG, "Error decoding thumbnail resId=" + mThumbs.get(position) + " for wallpaper #" + position);
             }
 
             return view;
@@ -304,12 +279,10 @@ public class WallpaperUI extends UIBase implements
 
         @Override
         protected Bitmap doInBackground(Integer... params) {
-            if (isCancelled())
-                return null;
+            if (isCancelled()) return null;
             try {
                 mCurWallPapaer = mThumbs.get(params[0]);
-                return BitmapFactory.decodeFile(PATH_WALLPAPER
-                        + mThumbs.get(params[0]));
+                return BitmapFactory.decodeFile(PATH_WALLPAPER + mThumbs.get(params[0]));
             } catch (Exception e) {
                 mCurWallPapaer = null;
                 return null;
@@ -318,8 +291,7 @@ public class WallpaperUI extends UIBase implements
 
         @Override
         protected void onPostExecute(Bitmap b) {
-            if (b == null)
-                return;
+            if (b == null) return;
 
             if (!isCancelled()) {
                 if (mWallpaperDrawable.getBitmap() != null) {
@@ -355,8 +327,7 @@ public class WallpaperUI extends UIBase implements
 
         /* package */void setBitmap(Bitmap bitmap) {
             mBitmap = bitmap;
-            if (mBitmap == null)
-                return;
+            if (mBitmap == null) return;
             mIntrinsicWidth = mBitmap.getWidth();
             mIntrinsicHeight = mBitmap.getHeight();
             mMatrix = null;
@@ -364,8 +335,7 @@ public class WallpaperUI extends UIBase implements
 
         @Override
         public void draw(Canvas canvas) {
-            if (mBitmap == null)
-                return;
+            if (mBitmap == null) return;
 
             if (mMatrix == null) {
                 final int vwidth = canvas.getWidth();
@@ -376,8 +346,7 @@ public class WallpaperUI extends UIBase implements
                 float scale = 1.0f;
 
                 if (dwidth < vwidth || dheight < vheight) {
-                    scale = Math.max((float) vwidth / (float) dwidth,
-                            (float) vheight / (float) dheight);
+                    scale = Math.max((float) vwidth / (float) dwidth, (float) vheight / (float) dheight);
                 }
 
                 float dx = (vwidth - dwidth * scale) * 0.5f + 0.5f;

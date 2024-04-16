@@ -2,17 +2,17 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="460px"
     android:layout_height="fill_parent"
-    android:orientation="horizontal" >
+    android:orientation="horizontal">
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:orientation="horizontal" >
+        android:orientation="horizontal">
 
         <ScrollView
-       		android:layout_marginBottom="15px"
+            android:layout_marginBottom="15px"
             android:layout_width="wrap_content"
-            android:layout_height="fill_parent" >
+            android:layout_height="fill_parent">
 
             <LinearLayout
                 android:id="@+id/tb"
@@ -21,7 +21,7 @@
                 android:layout_marginLeft="1px"
                 android:layout_marginTop="0px"
                 android:gravity="left"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <Button
                     android:id="@+id/btn_all"
@@ -41,7 +41,7 @@
                     android:id="@+id/btn_local"
                     android:layout_width="match_parent"
                     android:layout_height="105px"
-                   android:background="@drawable/empty_back_focus"
+                    android:background="@drawable/empty_back_focus"
                     android:clickable="true"
                     android:drawablePadding="0.0px"
                     android:drawableTop="@drawable/type2_arm"
@@ -55,7 +55,7 @@
                     android:id="@+id/btn_sd"
                     android:layout_width="match_parent"
                     android:layout_height="105px"
-                   android:background="@drawable/empty_back_focus"
+                    android:background="@drawable/empty_back_focus"
                     android:clickable="true"
                     android:drawablePadding="1.0px"
                     android:drawableTop="@drawable/type2_sd"
@@ -69,7 +69,7 @@
                     android:id="@+id/btn_sd2"
                     android:layout_width="match_parent"
                     android:layout_height="105px"
-                   android:background="@drawable/empty_back_focus"
+                    android:background="@drawable/empty_back_focus"
                     android:clickable="true"
                     android:drawablePadding="1.0px"
                     android:drawableTop="@drawable/type2_sd"
@@ -83,7 +83,7 @@
                     android:id="@+id/btn_usb"
                     android:layout_width="match_parent"
                     android:layout_height="105px"
-                   android:background="@drawable/empty_back_focus"
+                    android:background="@drawable/empty_back_focus"
                     android:clickable="true"
                     android:drawablePadding="1.0px"
                     android:drawableTop="@drawable/type2_usb"
@@ -97,7 +97,7 @@
                     android:id="@+id/btn_usb2"
                     android:layout_width="match_parent"
                     android:layout_height="105px"
-                   android:background="@drawable/empty_back_focus"
+                    android:background="@drawable/empty_back_focus"
                     android:clickable="true"
                     android:drawablePadding="1.0px"
                     android:drawableTop="@drawable/type2_usb"
@@ -111,7 +111,7 @@
                     android:id="@+id/btn_usb3"
                     android:layout_width="match_parent"
                     android:layout_height="105px"
-                   android:background="@drawable/empty_back_focus"
+                    android:background="@drawable/empty_back_focus"
                     android:clickable="true"
                     android:drawablePadding="1.0px"
                     android:drawableTop="@drawable/type2_usb"
@@ -125,7 +125,7 @@
                     android:id="@+id/btn_usb4"
                     android:layout_width="match_parent"
                     android:layout_height="105px"
-                   android:background="@drawable/empty_back_focus"
+                    android:background="@drawable/empty_back_focus"
                     android:clickable="true"
                     android:drawablePadding="1.0px"
                     android:drawableTop="@drawable/type2_usb"
@@ -146,12 +146,12 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:background="#0d1720"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <Button
                     android:id="@+id/btn_add_all"
@@ -251,7 +251,7 @@
         android:layout_height="fill_parent"
         android:clickable="true"
         android:gravity="center"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
         <ProgressBar
             style="?android:attr/progressBarStyleLarge"

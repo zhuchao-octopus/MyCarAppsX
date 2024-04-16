@@ -3,7 +3,7 @@
     android:layout_width="341px"
     android:layout_height="90px"
     android:background="@drawable/radio_list_back"
-    android:minHeight="90px" >
+    android:minHeight="90px">
 
     <TextView
         android:id="@+id/list_ps_name"
@@ -44,7 +44,7 @@
         android:paddingLeft="1.0px"
         android:singleLine="true"
         android:textColor="#ffffffff"
-        android:textSize="40.0px"/>
+        android:textSize="40.0px" />
 
     <TextView
         android:id="@+id/list_text3"

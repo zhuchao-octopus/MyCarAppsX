@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <RelativeLayout
         android:id="@+id/loading"
@@ -12,7 +12,7 @@
         android:layout_height="fill_parent"
         android:background="@drawable/background"
         android:gravity="center"
-        android:visibility="gone" >
+        android:visibility="gone">
 
         <ImageView
             android:id="@+id/loading_image"
@@ -23,12 +23,12 @@
         <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:gravity="center" >
+            android:gravity="center">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <ProgressBar
                     android:id="@+id/progressBar1"
@@ -41,8 +41,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/loading"
                     android:textColor="#ffffff"
-                    android:textSize="32px" >
-                </TextView>
+                    android:textSize="32px"></TextView>
             </LinearLayout>
         </RelativeLayout>
     </RelativeLayout>
@@ -59,7 +58,7 @@
         android:src="@drawable/no_signal"
         android:textSize="36sp"
         android:visibility="gone" />
-    
+
     <TextView
         android:id="@+id/no_tv"
         android:layout_width="fill_parent"
@@ -68,6 +67,5 @@
         android:gravity="center"
         android:text="@string/no_tv"
         android:textColor="#ffffff"
-        android:textSize="38px" >
-    </TextView>
+        android:textSize="38px"></TextView>
 </LinearLayout>

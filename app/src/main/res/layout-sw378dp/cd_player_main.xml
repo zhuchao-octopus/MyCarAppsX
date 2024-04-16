@@ -4,7 +4,7 @@
     android:layout_height="fill_parent"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
-    android:padding="0px" >
+    android:padding="0px">
 
     <!-- <View -->
     <!-- android:layout_width="match_parent" -->
@@ -16,13 +16,13 @@
         android:layout_height="525px"
         android:background="@drawable/cd_back"
         android:orientation="vertical"
-        android:paddingLeft="290px" >
+        android:paddingLeft="290px">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="85px"
             android:gravity="center_vertical"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/disc"
@@ -36,14 +36,14 @@
             android:layout_width="match_parent"
             android:layout_height="255px"
             android:layout_marginTop="10px"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="70px"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:paddingLeft="180px" >
+                android:paddingLeft="180px">
 
                 <ImageView
                     android:layout_width="40px"
@@ -65,7 +65,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="right|center_vertical"
-                    android:orientation="horizontal" >
+                    android:orientation="horizontal">
 
                     <ImageView
                         android:id="@+id/cd_repeat2"
@@ -93,13 +93,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:orientation="horizontal" >
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/currenttime"
@@ -111,7 +111,7 @@
 
                 <RelativeLayout
                     android:layout_width="600px"
-                    android:layout_height="42px" >
+                    android:layout_height="42px">
 
                     <SeekBar
                         android:id="@id/progress"
@@ -161,7 +161,7 @@
         android:paddingBottom="20px"
         android:paddingLeft="125px"
         android:paddingRight="25px"
-        android:paddingTop="15px" >
+        android:paddingTop="15px">
 
         <Button
             android:id="@+id/cd_eq_mode_switch"

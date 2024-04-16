@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    
+
     <string name="toolbar_text_gps">"Navigace"</string>
     <string name="toolbar_text_bluetooth_music">"Bluetooth hudba"</string>
     <string name="toolbar_text_radio">"Rádio"</string>
@@ -30,9 +30,9 @@
     <string name="radio_st">ST</string>
     <string name="radio_ta">TA</string>
     <string name="radio_tp">TP</string>
-    
-    <string name="radio_ams">AMS</string>   
-    <string name="radio_rds">RDS</string>    
+
+    <string name="radio_ams">AMS</string>
+    <string name="radio_rds">RDS</string>
     <string name="radio_aps">APS</string>
     <string name="radio_megahertz">MHz</string>
     <string name="radio_kilohertz">KHz</string>
@@ -40,7 +40,7 @@
     <string name="radio_pty">PTY:%1$s</string>
     <string name="app_eq">com.eqset.intent.action.EQActivity</string>
     <string name="widget_app_video">Video</string>
-<!--     <string name="mirror">Mirror</string> -->
+    <!--     <string name="mirror">Mirror</string> -->
     <string name="playlist">Playlist</string>
     <string name="sd">SD</string>
     <string name="sd2">SD2</string>
@@ -69,13 +69,13 @@
     <string name="media_scanning">"Skenování médií"</string>
     <string name="button_cancel">Cancel</string>
     <string name="button_ok">OK</string>
-<!--     <string name="crv_sure_set_time">Are you sure set the time?\n It will turn off "update time auto by GPS".You Can turn on it in settings.</string> -->
-<!--     <string name="sd_mounted">SD Mounted</string> -->
-<!--     <string name="sd_eject">SD Eject</string> -->
-<!--     <string name="temp_unic_centigrade">°C</string> -->
-<!--     <string name="temp_unic_fahrenheit">°F</string> -->
-<!--     <string name="outdoor_temp">Temperature Outside:</string> -->
-<!--     <string name="app_name_widget">Source Select</string> -->
+    <!--     <string name="crv_sure_set_time">Are you sure set the time?\n It will turn off "update time auto by GPS".You Can turn on it in settings.</string> -->
+    <!--     <string name="sd_mounted">SD Mounted</string> -->
+    <!--     <string name="sd_eject">SD Eject</string> -->
+    <!--     <string name="temp_unic_centigrade">°C</string> -->
+    <!--     <string name="temp_unic_fahrenheit">°F</string> -->
+    <!--     <string name="outdoor_temp">Temperature Outside:</string> -->
+    <!--     <string name="app_name_widget">Source Select</string> -->
     <string name="a2dp_disconnect_info">device disconnected, search device:%s,  </string>
     <string name="a2dp_disconnect_info2">PIN:%s to connect</string>
     <string name="all_song">"Všechny skladby"</string>
@@ -90,65 +90,64 @@
     <string name="no_tv">"Žádné TV zařízení!"</string>
     <string name="loading">" "</string>
 
-    
-<!--     <string name="wallpaper_instructions">Set wallpaper</string> -->
+
+    <!--     <string name="wallpaper_instructions">Set wallpaper</string> -->
     <string name="pick_wallpaper">Wallpapers</string>
-    
+
     <string name="screen_size_title">Select size of vice screen</string>
     <string name="if_reboot">System will reboot, continue?</string>
     <string name="switch_screen">Switch two screen</string>
-    
+
     <string name="screen_view_select">Select the view show in vice screen</string>
-    
+
     <string name="screen1_backlight">Backlight of the vice screen</string>
-    
-    
+
+
     <string name="cam1">Cam1</string>
     <string name="cam2">Cam2</string>
     <string name="cam3">Cam3</string>
     <string name="cam4">Cam4</string>
-    
+
     <string name="root">ROOT</string>
-    
-        <string name="eq_text_classic">Classic</string>
+
+    <string name="eq_text_classic">Classic</string>
     <string name="eq_text_pop">Pop</string>
     <string name="eq_text_rock">Rock</string>
     <string name="eq_text_jazz">Jazz</string>
     <string name="eq_text_user">User</string>
     <string name="eq_text_normal">Normal</string>
-    
-    
+
+
     <string name="ch">CH</string>
     <string name="ch_a">CH+</string>
     <string name="ch_m">CH-</string>
-    
-    
+
+
     <string name="add">+</string>
     <string name="minus">-</string>
     <string name="rear">REAR</string>
-    
-    <string name="menu">MENU</string>   
-    <string name="rec">REC</string>    
+
+    <string name="menu">MENU</string>
+    <string name="rec">REC</string>
     <string name="exit">EXIT</string>
-    
-    
-           <string name="no_lyric">no lyric</string>
-           
-           <string name="speed">SPEED</string>
-           
-           <string name="rpm">RPM</string>
-           
-           
-           <string name="num_0">0</string>
-           <string name="num_90">90</string>
-           
-               <string name="modulename">Device Name:</string>
+
+
+    <string name="no_lyric">no lyric</string>
+
+    <string name="speed">SPEED</string>
+
+    <string name="rpm">RPM</string>
+
+
+    <string name="num_0">0</string>
+    <string name="num_90">90</string>
+
+    <string name="modulename">Device Name:</string>
     <string name="modulepassword">PIN Number:</string>
     <string name="btdisconnected">Bluetooth Disconnected</string>
     <string name="pleaseconnectedbt">Please connect with the phone</string>
-           
-    
-    
+
+
     <string name="pty00">None</string>
     <string name="pty01">News</string>
     <string name="pty02">Affairs</string>
@@ -179,9 +178,9 @@
     <string name="pty27">Oldies</string>
     <string name="pty28">Folk M</string>
     <string name="pty29">Document</string>
-    <string name="pty30">Test</string>    
+    <string name="pty30">Test</string>
     <string name="pty31">Alarm!</string>
-    
-    
+
+
     <string name="dvr_recording_notice">DVR is recording, open dvr to preview video!</string>
 </resources>

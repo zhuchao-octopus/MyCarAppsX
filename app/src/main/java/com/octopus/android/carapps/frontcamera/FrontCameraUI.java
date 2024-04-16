@@ -1,7 +1,27 @@
 package com.octopus.android.carapps.frontcamera;
 
-import java.util.List;
-import java.util.Timer;
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.hardware.Camera;
+import android.hardware.Camera.Size;
+import android.os.Handler;
+import android.os.Message;
+import android.util.Log;
+import android.view.KeyEvent;
+import android.view.SurfaceHolder;
+import android.view.SurfaceView;
+import android.view.View;
+import android.view.View.OnFocusChangeListener;
+import android.view.View.OnLongClickListener;
+import android.view.WindowManager;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.common.util.BroadcastUtil;
 import com.common.util.Kernel;
@@ -14,43 +34,19 @@ import com.octopus.android.carapps.car.ui.GlobalDef;
 import com.octopus.android.carapps.common.camera.CameraHolder;
 import com.octopus.android.carapps.common.ui.UIBase;
 import com.octopus.android.carapps.common.utils.ParkBrake;
-
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.hardware.Camera;
-import android.hardware.Camera.Size;
-import android.os.Handler;
-import android.os.Message;
-import android.util.AttributeSet;
-import android.util.Log;
-import android.view.KeyEvent;
-
-import android.view.SurfaceHolder;
-import android.view.SurfaceView;
-import android.view.View;
-import android.view.View.OnFocusChangeListener;
-import android.view.View.OnLongClickListener;
-import android.view.WindowManager;
-import android.view.inputmethod.EditorInfo;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 import com.rockchip.gl.GLSurfaceView;
-public class FrontCameraUI extends UIBase implements View.OnClickListener,
-        SurfaceHolder.Callback {
+
+import java.util.List;
+import java.util.Timer;
+
+public class FrontCameraUI extends UIBase implements View.OnClickListener, SurfaceHolder.Callback {
 
     private static final String TAG = "FrontCameraUI";
     public static final int SOURCE = MyCmd.SOURCE_FRONT_CAMERA;
 
     public static FrontCameraUI[] mUI = new FrontCameraUI[MAX_DISPLAY];
 
-    public static FrontCameraUI getInstanse(Context context, View view,
-                                            int index) {
+    public static FrontCameraUI getInstanse(Context context, View view, int index) {
         if (index >= MAX_DISPLAY) {
             return null;
         }
@@ -66,8 +62,9 @@ public class FrontCameraUI extends UIBase implements View.OnClickListener,
     }
 
     private static final int[] BUTTON_ON_CLICK = new int[]{
-            R.id.camera_surfaceview, R.id.switch_camera, R.id.switch_camera_lf,
-            R.id.cam1, R.id.cam2, R.id.cam3, R.id.cam4, R.id.switch_camera_mirror, R.id.switch_camera_f, R.id.switch_camera_m, R.id.switch_camera_b};
+            R.id.camera_surfaceview, R.id.switch_camera, R.id.switch_camera_lf, R.id.cam1, R.id.cam2, R.id.cam3, R.id.cam4, R.id.switch_camera_mirror, R.id.switch_camera_f, R.id.switch_camera_m,
+            R.id.switch_camera_b
+    };
 
     // private static final int[][] VIEW_HIDE = new int[][] {
     // {0 },
@@ -102,8 +99,7 @@ public class FrontCameraUI extends UIBase implements View.OnClickListener,
             View v = mMainView.findViewById(i);
             if (v != null) {
                 v.setOnClickListener(this);
-                if (i == R.id.cam1 || i == R.id.cam2 || i == R.id.cam3
-                        || i == R.id.cam4) {
+                if (i == R.id.cam1 || i == R.id.cam2 || i == R.id.cam3 || i == R.id.cam4) {
                     // v.setOnFocusChangeListener(l);
                     v.setOnLongClickListener(mOnLongClickListener);
                     ((EditText) v).setOnEditorActionListener(mOnEditorActionListener);
@@ -136,10 +132,8 @@ public class FrontCameraUI extends UIBase implements View.OnClickListener,
                 ((EditText) v).setFocusable(false);
                 ((EditText) v).setFocusableInTouchMode(false);
 
-                InputMethodManager im = (InputMethodManager) mContext
-                        .getSystemService(Context.INPUT_METHOD_SERVICE);
-                im.hideSoftInputFromWindow(v.getApplicationWindowToken(),
-                        InputMethodManager.HIDE_NOT_ALWAYS);
+                InputMethodManager im = (InputMethodManager) mContext.getSystemService(Context.INPUT_METHOD_SERVICE);
+                im.hideSoftInputFromWindow(v.getApplicationWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
 
                 saveData("" + v.getId(), v.getText().toString());
 
@@ -152,8 +146,7 @@ public class FrontCameraUI extends UIBase implements View.OnClickListener,
     public void onCreate() {
         super.onCreate();
 
-        mSurfaceView = (SurfaceView) mMainView
-                .findViewById(R.id.camera_surfaceview);
+        mSurfaceView = (SurfaceView) mMainView.findViewById(R.id.camera_surfaceview);
         if (!(com.common.util.Util.isAndroidP() || com.common.util.Util.isAndroidQ())) {
             SurfaceHolder holder = mSurfaceView.getHolder();
             holder.addCallback(this);
@@ -165,9 +158,7 @@ public class FrontCameraUI extends UIBase implements View.OnClickListener,
         initPresentationUI();
 
         mBrakeCarView = mMainView.findViewById(R.id.brake_warning_text);
-        GlobalDef.updateBrakeCarText((TextView) mBrakeCarView,
-                MachineConfig.VALUE_SYSTEM_UI_KLD7_1992,
-                R.string.warning_driving_1992);
+        GlobalDef.updateBrakeCarText((TextView) mBrakeCarView, MachineConfig.VALUE_SYSTEM_UI_KLD7_1992, R.string.warning_driving_1992);
         mSignalView = mMainView.findViewById(R.id.no_signal);
         if (Util.isGLCamera()) {
             FrameLayout v = (FrameLayout) mMainView.findViewById(R.id.glsuface_main);
@@ -184,10 +175,7 @@ public class FrontCameraUI extends UIBase implements View.OnClickListener,
     FrameLayout mGlFrameLayout;
 
     private void initCustomUI() {
-        if (MachineConfig.VALUE_SYSTEM_UI20_RM10_1.equals(GlobalDef
-                .getSystemUI())
-                || MachineConfig.VALUE_SYSTEM_UI21_RM10_2.equals(GlobalDef
-                .getSystemUI())) {
+        if (MachineConfig.VALUE_SYSTEM_UI20_RM10_1.equals(GlobalDef.getSystemUI()) || MachineConfig.VALUE_SYSTEM_UI21_RM10_2.equals(GlobalDef.getSystemUI())) {
 
             View v = mMainView.findViewById(R.id.no_signal_text);
             if (v != null) {
@@ -309,25 +297,17 @@ public class FrontCameraUI extends UIBase implements View.OnClickListener,
         if (mCameraType == MachineConfig.VAULE_CAMERA_FRONT) {
             if (mCameraIndex == 1) {
 
-                ((ImageView) mMainView.findViewById(R.id.switch_camera))
-                        .setImageDrawable(mContext.getResources().getDrawable(
-                                R.drawable.f_camera_b));
+                ((ImageView) mMainView.findViewById(R.id.switch_camera)).setImageDrawable(mContext.getResources().getDrawable(R.drawable.f_camera_b));
             } else {
 
-                ((ImageView) mMainView.findViewById(R.id.switch_camera))
-                        .setImageDrawable(mContext.getResources().getDrawable(
-                                R.drawable.f_camera_f));
+                ((ImageView) mMainView.findViewById(R.id.switch_camera)).setImageDrawable(mContext.getResources().getDrawable(R.drawable.f_camera_f));
             }
 
-            ((ImageView) mMainView.findViewById(R.id.switch_camera_lf))
-                    .setAlpha(0.3f);
-            ((ImageView) mMainView.findViewById(R.id.switch_camera_lf))
-                    .setImageDrawable(mContext.getResources().getDrawable(
-                            R.drawable.f_camera_l));
+            ((ImageView) mMainView.findViewById(R.id.switch_camera_lf)).setAlpha(0.3f);
+            ((ImageView) mMainView.findViewById(R.id.switch_camera_lf)).setImageDrawable(mContext.getResources().getDrawable(R.drawable.f_camera_l));
 
             mMainView.findViewById(R.id.camera4).setVisibility(View.GONE);
-            mMainView.findViewById(R.id.switch_camera).setVisibility(
-                    View.VISIBLE);
+            mMainView.findViewById(R.id.switch_camera).setVisibility(View.VISIBLE);
             // mMainView.findViewById(R.id.switch_camera_lf).setVisibility(View.VISIBLE);
         } else {
 
@@ -356,16 +336,14 @@ public class FrontCameraUI extends UIBase implements View.OnClickListener,
     }
 
     private void saveData(String s, String v) {
-        SharedPreferences.Editor sharedata = mContext.getSharedPreferences(
-                FrontCameraService.SAVE_DATA, 0).edit();
+        SharedPreferences.Editor sharedata = mContext.getSharedPreferences(FrontCameraService.SAVE_DATA, 0).edit();
 
         sharedata.putString(s, v);
         sharedata.commit();
     }
 
     private String getData(String s) {
-        SharedPreferences sharedata = mContext.getSharedPreferences(
-                FrontCameraService.SAVE_DATA, 0);
+        SharedPreferences sharedata = mContext.getSharedPreferences(FrontCameraService.SAVE_DATA, 0);
         return sharedata.getString(s, null);
     }
 
@@ -388,17 +366,12 @@ public class FrontCameraUI extends UIBase implements View.OnClickListener,
         }
 
         if (id != 0) {
-            mMainView.findViewById(R.id.cam1).setBackground(
-                    mContext.getDrawable(R.drawable.button_click_back_camera));
-            mMainView.findViewById(R.id.cam2).setBackground(
-                    mContext.getDrawable(R.drawable.button_click_back_camera));
-            mMainView.findViewById(R.id.cam3).setBackground(
-                    mContext.getDrawable(R.drawable.button_click_back_camera));
-            mMainView.findViewById(R.id.cam4).setBackground(
-                    mContext.getDrawable(R.drawable.button_click_back_camera));
+            mMainView.findViewById(R.id.cam1).setBackground(mContext.getDrawable(R.drawable.button_click_back_camera));
+            mMainView.findViewById(R.id.cam2).setBackground(mContext.getDrawable(R.drawable.button_click_back_camera));
+            mMainView.findViewById(R.id.cam3).setBackground(mContext.getDrawable(R.drawable.button_click_back_camera));
+            mMainView.findViewById(R.id.cam4).setBackground(mContext.getDrawable(R.drawable.button_click_back_camera));
 
-            mMainView.findViewById(id).setBackground(
-                    mContext.getDrawable(R.drawable.com_button14));
+            mMainView.findViewById(id).setBackground(mContext.getDrawable(R.drawable.com_button14));
         }
     }
 
@@ -455,22 +428,15 @@ public class FrontCameraUI extends UIBase implements View.OnClickListener,
     private void toggleCamera() {
         if (mCameraIndex == 4) {
             mCameraIndex = 1;
-            ((ImageView) mMainView.findViewById(R.id.switch_camera))
-                    .setImageDrawable(mContext.getResources().getDrawable(
-                            R.drawable.f_camera_b));
+            ((ImageView) mMainView.findViewById(R.id.switch_camera)).setImageDrawable(mContext.getResources().getDrawable(R.drawable.f_camera_b));
         } else {
             mCameraIndex = 4;
-            ((ImageView) mMainView.findViewById(R.id.switch_camera))
-                    .setImageDrawable(mContext.getResources().getDrawable(
-                            R.drawable.f_camera_f));
+            ((ImageView) mMainView.findViewById(R.id.switch_camera)).setImageDrawable(mContext.getResources().getDrawable(R.drawable.f_camera_f));
         }
 
         ((ImageView) mMainView.findViewById(R.id.switch_camera)).setAlpha(1.0f);
-        ((ImageView) mMainView.findViewById(R.id.switch_camera_lf))
-                .setAlpha(0.3f);
-        ((ImageView) mMainView.findViewById(R.id.switch_camera_lf))
-                .setImageDrawable(mContext.getResources().getDrawable(
-                        R.drawable.f_camera_l));
+        ((ImageView) mMainView.findViewById(R.id.switch_camera_lf)).setAlpha(0.3f);
+        ((ImageView) mMainView.findViewById(R.id.switch_camera_lf)).setImageDrawable(mContext.getResources().getDrawable(R.drawable.f_camera_l));
 
         mPreSignal = mSignal = -1;
         mSignalView.setVisibility(View.GONE);
@@ -488,22 +454,15 @@ public class FrontCameraUI extends UIBase implements View.OnClickListener,
     private void toggleCameraLR() {
         if (mCameraIndex == 5) {
             mCameraIndex = 6;
-            ((ImageView) mMainView.findViewById(R.id.switch_camera_lf))
-                    .setImageDrawable(mContext.getResources().getDrawable(
-                            R.drawable.f_camera_r));
+            ((ImageView) mMainView.findViewById(R.id.switch_camera_lf)).setImageDrawable(mContext.getResources().getDrawable(R.drawable.f_camera_r));
         } else {
             mCameraIndex = 5;
-            ((ImageView) mMainView.findViewById(R.id.switch_camera_lf))
-                    .setImageDrawable(mContext.getResources().getDrawable(
-                            R.drawable.f_camera_l));
+            ((ImageView) mMainView.findViewById(R.id.switch_camera_lf)).setImageDrawable(mContext.getResources().getDrawable(R.drawable.f_camera_l));
         }
 
-        ((ImageView) mMainView.findViewById(R.id.switch_camera_lf))
-                .setAlpha(1.0f);
+        ((ImageView) mMainView.findViewById(R.id.switch_camera_lf)).setAlpha(1.0f);
         ((ImageView) mMainView.findViewById(R.id.switch_camera)).setAlpha(0.3f);
-        ((ImageView) mMainView.findViewById(R.id.switch_camera))
-                .setImageDrawable(mContext.getResources().getDrawable(
-                        R.drawable.f_camera_f));
+        ((ImageView) mMainView.findViewById(R.id.switch_camera)).setImageDrawable(mContext.getResources().getDrawable(R.drawable.f_camera_f));
 
         mPreSignal = mSignal = -1;
         mSignalView.setVisibility(View.GONE);
@@ -548,8 +507,7 @@ public class FrontCameraUI extends UIBase implements View.OnClickListener,
         super.onPause();
 
         if (mCameraIndex == MyCmd.CAMERA_SOURCE_FRONT_CAMERA) {
-            BroadcastUtil.sendToCarService(mContext,
-                    MyCmd.Cmd.SET_FRONT_CAMERA_POWER, 0);
+            BroadcastUtil.sendToCarService(mContext, MyCmd.Cmd.SET_FRONT_CAMERA_POWER, 0);
         }
 
         mSignal = -1;
@@ -615,8 +573,7 @@ public class FrontCameraUI extends UIBase implements View.OnClickListener,
         super.onResume();
 
         if (mCameraIndex == MyCmd.CAMERA_SOURCE_FRONT_CAMERA) {
-            BroadcastUtil.sendToCarService(mContext,
-                    MyCmd.Cmd.SET_FRONT_CAMERA_POWER, 1);
+            BroadcastUtil.sendToCarService(mContext, MyCmd.Cmd.SET_FRONT_CAMERA_POWER, 1);
         }
 
         showBlackEx(true, 800);
@@ -681,14 +638,13 @@ public class FrontCameraUI extends UIBase implements View.OnClickListener,
         }
 
         if (mIsShowUSBCamera == 1) {
-//			String s = SystemConfig.getProperty(mContext,
-//					SystemConfig.KEY_DVR_RECORDING);
+            //			String s = SystemConfig.getProperty(mContext,
+            //					SystemConfig.KEY_DVR_RECORDING);
 
             quitFullScreen();
             prepareFullScreen();
 
-            if ("1".equals(SystemConfig.getProperty(mContext,
-                    SystemConfig.KEY_DVR_RECORDING))) {
+            if ("1".equals(SystemConfig.getProperty(mContext, SystemConfig.KEY_DVR_RECORDING))) {
                 mUSBCameraRecording = true;
             } else {
                 mUSBCameraRecording = false;
@@ -698,11 +654,9 @@ public class FrontCameraUI extends UIBase implements View.OnClickListener,
             if (mShowUSBCamera) {
 
                 if (!mUSBCameraRecording) {
-                    ((ImageView) mMainView.findViewById(R.id.switch_camera))
-                            .setImageDrawable(mContext.getResources().getDrawable(
-                                    R.drawable.f_camera_m));
+                    ((ImageView) mMainView.findViewById(R.id.switch_camera)).setImageDrawable(mContext.getResources().getDrawable(R.drawable.f_camera_m));
                 } else {
-//					toggleCameraWithUSB();
+                    //					toggleCameraWithUSB();
                     showCameraWithUSB(-1);
                 }
             }
@@ -724,9 +678,7 @@ public class FrontCameraUI extends UIBase implements View.OnClickListener,
     private void setFullScreen() {
 
         if (this.mDisplayIndex == SCREEN0) {
-            ((Activity) mContext).getWindow().setFlags(
-                    WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                    WindowManager.LayoutParams.FLAG_FULLSCREEN);
+            ((Activity) mContext).getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
             if (mIsShowUSBCamera == 1) {
                 View v = mMainView.findViewById(R.id.camera_hide_buttons);
@@ -741,17 +693,14 @@ public class FrontCameraUI extends UIBase implements View.OnClickListener,
 
         if (mDisplayIndex == SCREEN1) {
 
-            mMainView.findViewById(R.id.common_status_bar_main).setVisibility(
-                    View.VISIBLE);
+            mMainView.findViewById(R.id.common_status_bar_main).setVisibility(View.VISIBLE);
 
         } else {
 
-            final WindowManager.LayoutParams attrs = ((Activity) mContext)
-                    .getWindow().getAttributes();
+            final WindowManager.LayoutParams attrs = ((Activity) mContext).getWindow().getAttributes();
             attrs.flags &= (~WindowManager.LayoutParams.FLAG_FULLSCREEN);
             ((Activity) mContext).getWindow().setAttributes(attrs);
-            ((Activity) mContext).getWindow().clearFlags(
-                    WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+            ((Activity) mContext).getWindow().clearFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
             if (mIsShowUSBCamera == 1) {
                 View v = mMainView.findViewById(R.id.camera_hide_buttons);
@@ -773,7 +722,7 @@ public class FrontCameraUI extends UIBase implements View.OnClickListener,
     }
 
     private void showBlackEx(boolean on, int time) {
-//		Log.d("abc", time+"showBlackEx:"+on);
+        //		Log.d("abc", time+"showBlackEx:"+on);
         if (on) {
             mMainView.findViewById(R.id.only_black).setVisibility(View.VISIBLE);
             mHandler.removeMessages(MSG_REMOVE_BLACK);
@@ -804,9 +753,7 @@ public class FrontCameraUI extends UIBase implements View.OnClickListener,
     public void prepareFullScreen() {
         if (mIsShowUSBCamera == 1) {
             mHandler.removeMessages(MSG_AUTO_FULLSCREEN);
-            mHandler.sendMessageDelayed(
-                    mHandler.obtainMessage(MSG_AUTO_FULLSCREEN, 0, 0),
-                    TIME_AUTO_FULLSCREEN);
+            mHandler.sendMessageDelayed(mHandler.obtainMessage(MSG_AUTO_FULLSCREEN, 0, 0), TIME_AUTO_FULLSCREEN);
         }
     }
 
@@ -847,8 +794,7 @@ public class FrontCameraUI extends UIBase implements View.OnClickListener,
     private Size getOptimalPreviewSize(List<Size> sizes, int w, int h) {
         final double ASPECT_TOLERANCE = 0.05;
         double targetRatio = (double) w / h;
-        if (sizes == null)
-            return null;
+        if (sizes == null) return null;
 
         Size optimalSize = null;
         double minDiff = Double.MAX_VALUE;
@@ -858,8 +804,7 @@ public class FrontCameraUI extends UIBase implements View.OnClickListener,
         // Try to find an size match aspect ratio and size
         for (Size size : sizes) {
             double ratio = (double) size.width / size.height;
-            if (Math.abs(ratio - targetRatio) > ASPECT_TOLERANCE)
-                continue;
+            if (Math.abs(ratio - targetRatio) > ASPECT_TOLERANCE) continue;
             if (Math.abs(size.height - targetHeight) < minDiff) {
                 optimalSize = size;
                 minDiff = Math.abs(size.height - targetHeight);
@@ -879,16 +824,13 @@ public class FrontCameraUI extends UIBase implements View.OnClickListener,
         return optimalSize;
     }
 
-    public void surfaceChanged(SurfaceHolder holder, int format, int width,
-                               int height) {
+    public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
         if (holder.getSurface() == null) {
             return;
         }
         mSurfaceHolder = holder;
-        if (mCameraDevice == null)
-            return;
-        if (mPause)
-            return;
+        if (mCameraDevice == null) return;
+        if (mPause) return;
         if (mPreviewing && holder.isCreating()) {
             setPreviewDisplay(holder);
             Camera.Parameters parameters = mCameraDevice.getParameters();
@@ -972,12 +914,10 @@ public class FrontCameraUI extends UIBase implements View.OnClickListener,
 
                     mPreviewing = false;
                     GlobalDef.setCameraPreview(0);
-                    Log.d(TAG,
-                            ">>releaseCamera ret:" + mPreviewing + ":"
-                                    + GlobalDef.getCameraPreview());
+                    Log.d(TAG, ">>releaseCamera ret:" + mPreviewing + ":" + GlobalDef.getCameraPreview());
                 }
-//				mGLSufaceView.release();
-//				mGLSufaceView = null;
+                //				mGLSufaceView.release();
+                //				mGLSufaceView = null;
             }
 
             return;
@@ -1026,30 +966,24 @@ public class FrontCameraUI extends UIBase implements View.OnClickListener,
         }
 
         if (GlobalDef.isGLCamera()) {
-//			if (mGLSufaceView == null) {
-//				FrameLayout v = (FrameLayout) mMainView
-//						.findViewById(R.id.glsuface_main);
-//				mGLSufaceView = new GLSufaceView(mContext, v);				
-//			}
+            //			if (mGLSufaceView == null) {
+            //				FrameLayout v = (FrameLayout) mMainView
+            //						.findViewById(R.id.glsuface_main);
+            //				mGLSufaceView = new GLSufaceView(mContext, v);
+            //			}
 
-            Log.d(TAG,
-                    ">>startPreview ret:" + mPreviewing + ":"
-                            + GlobalDef.getCameraPreview() + ":"
-                            + GlobalDef.getCameramOpenCameraPreview());
+            Log.d(TAG, ">>startPreview ret:" + mPreviewing + ":" + GlobalDef.getCameraPreview() + ":" + GlobalDef.getCameramOpenCameraPreview());
             if (mPause) {
-                Log.d(TAG,
-                        "<<startPreview pause:");
+                Log.d(TAG, "<<startPreview pause:");
                 return;
             }
             if ((GlobalDef.getCameraPreview() != 0) || GlobalDef.getCameramOpenCameraPreview()) {
-                Log.d(TAG, "<<startPreview ret22 :"
-                        + GlobalDef.isCameraTryNumMax());
+                Log.d(TAG, "<<startPreview ret22 :" + GlobalDef.isCameraTryNumMax());
                 if (!GlobalDef.isCameraTryNumMax()) {
                     showBlackEx(true, 500);
                     mHandler.removeMessages(MSG_DELAY_RESTART_CAMERA);
                     mHandler.removeMessages(MSG_DELAY_RESTART_CAMERA_HALF_BOTTOM);
-                    mHandler.sendEmptyMessageDelayed(MSG_DELAY_RESTART_CAMERA,
-                            500);
+                    mHandler.sendEmptyMessageDelayed(MSG_DELAY_RESTART_CAMERA, 500);
                 }
                 return;
             }
@@ -1069,9 +1003,7 @@ public class FrontCameraUI extends UIBase implements View.OnClickListener,
             } else {
                 GlobalDef.setCameraPreview(0);
             }
-            Log.d(TAG,
-                    "<<startPreview ret:" + mPreviewing + ":"
-                            + GlobalDef.getCameraPreview());
+            Log.d(TAG, "<<startPreview ret:" + mPreviewing + ":" + GlobalDef.getCameraPreview());
 
             return;
         }
@@ -1081,8 +1013,7 @@ public class FrontCameraUI extends UIBase implements View.OnClickListener,
         }
 
         ensureCameraDevice();
-        if (mPreviewing)
-            return;// stopPreview(); //why stop?
+        if (mPreviewing) return;// stopPreview(); //why stop?
 
         setPreviewDisplay(surfaceHolder);
         try {
@@ -1090,7 +1021,7 @@ public class FrontCameraUI extends UIBase implements View.OnClickListener,
             List<Size> sizes = parameters.getSupportedPreviewSizes();
             Size s = sizes.get(0);
             parameters.setPreviewSize(s.width, s.height);
-//			parameters.setPictureSize(s.width, s.height);
+            //			parameters.setPictureSize(s.width, s.height);
             if (Util.isPX5()) {
                 parameters.set("soc_camera_channel", mCameraIndex);
             }
@@ -1181,8 +1112,7 @@ public class FrontCameraUI extends UIBase implements View.OnClickListener,
                 if (!mShowUSBCamera) {
                     s = ParkBrake.isSignal();
                 } else {
-                    if (android.hardware.Camera.getNumberOfCameras() > 1
-                            && !mUSBCameraRecording) {
+                    if (android.hardware.Camera.getNumberOfCameras() > 1 && !mUSBCameraRecording) {
                         s = 1;
                     }
                 }
@@ -1194,13 +1124,7 @@ public class FrontCameraUI extends UIBase implements View.OnClickListener,
                     }
                     if (GlobalDef.mAutoTest) {
                         if (mDisplayIndex == 0) {
-                            BroadcastUtil
-                                    .sendToCarService(
-                                            mContext,
-                                            MyCmd.Cmd.AUTO_TEST_RESULT,
-                                            mCameraIndex == 4 ? MyCmd.SOURCE_FRONT_CAMERA
-                                                    : MyCmd.SOURCE_REVERSE,
-                                            s == 1 ? 0 : 1);
+                            BroadcastUtil.sendToCarService(mContext, MyCmd.Cmd.AUTO_TEST_RESULT, mCameraIndex == 4 ? MyCmd.SOURCE_FRONT_CAMERA : MyCmd.SOURCE_REVERSE, s == 1 ? 0 : 1);
                         }
                     }
                 } else {
@@ -1220,13 +1144,13 @@ public class FrontCameraUI extends UIBase implements View.OnClickListener,
     }
 
     private void brakeCarShowText(boolean brake) {
-//		if (mBrakeCarView != null) {
-//			if (brake) {
-//				mBrakeCarView.setVisibility(View.GONE);
-//			} else {
-//				mBrakeCarView.setVisibility(View.VISIBLE);
-//			}
-//		}
+        //		if (mBrakeCarView != null) {
+        //			if (brake) {
+        //				mBrakeCarView.setVisibility(View.GONE);
+        //			} else {
+        //				mBrakeCarView.setVisibility(View.VISIBLE);
+        //			}
+        //		}
     }
 
     private void stopCheckBrakeCar() {
@@ -1235,13 +1159,13 @@ public class FrontCameraUI extends UIBase implements View.OnClickListener,
 
     private void startCheckBrakeCar() {//no brake in camera
         // stopCheckBrakeCar();
-//		boolean brake = ParkBrake.isBrake();
-//		int brake1 = brake?1:0;
-//		if (brake1 != mBrake) {
-//			brakeCarShowText(brake);
-//
-//			mBrake = brake1;
-//		}
+        //		boolean brake = ParkBrake.isBrake();
+        //		int brake1 = brake?1:0;
+        //		if (brake1 != mBrake) {
+        //			brakeCarShowText(brake);
+        //
+        //			mBrake = brake1;
+        //		}
         // mHandler.sendEmptyMessageDelayed(MSG_CHECK_BRAKE, TIME_CHECK_BRAKE);
 
     }
@@ -1257,9 +1181,7 @@ public class FrontCameraUI extends UIBase implements View.OnClickListener,
 
         if (mShowUSBCamera) {
             mCameraIndex = 1;
-            ((ImageView) mMainView.findViewById(R.id.switch_camera))
-                    .setImageDrawable(mContext.getResources().getDrawable(
-                            R.drawable.f_camera_b));
+            ((ImageView) mMainView.findViewById(R.id.switch_camera)).setImageDrawable(mContext.getResources().getDrawable(R.drawable.f_camera_b));
 
             mShowUSBCamera = false;
 
@@ -1270,9 +1192,7 @@ public class FrontCameraUI extends UIBase implements View.OnClickListener,
         } else {
             if (mCameraIndex == 4) {
                 mShowUSBCamera = true;
-                ((ImageView) mMainView.findViewById(R.id.switch_camera))
-                        .setImageDrawable(mContext.getResources().getDrawable(
-                                R.drawable.f_camera_m));
+                ((ImageView) mMainView.findViewById(R.id.switch_camera)).setImageDrawable(mContext.getResources().getDrawable(R.drawable.f_camera_m));
 
                 //mGLSufaceView.release();
                 //mGLSufaceView = new GLSufaceView(mContext, mGlFrameLayout, 1);
@@ -1286,19 +1206,14 @@ public class FrontCameraUI extends UIBase implements View.OnClickListener,
 
             } else {
                 mCameraIndex = 4;
-                ((ImageView) mMainView.findViewById(R.id.switch_camera))
-                        .setImageDrawable(mContext.getResources().getDrawable(
-                                R.drawable.f_camera_f));
+                ((ImageView) mMainView.findViewById(R.id.switch_camera)).setImageDrawable(mContext.getResources().getDrawable(R.drawable.f_camera_f));
                 v.setVisibility(View.GONE);
             }
         }
 
         ((ImageView) mMainView.findViewById(R.id.switch_camera)).setAlpha(1.0f);
-        ((ImageView) mMainView.findViewById(R.id.switch_camera_lf))
-                .setAlpha(0.3f);
-        ((ImageView) mMainView.findViewById(R.id.switch_camera_lf))
-                .setImageDrawable(mContext.getResources().getDrawable(
-                        R.drawable.f_camera_l));
+        ((ImageView) mMainView.findViewById(R.id.switch_camera_lf)).setAlpha(0.3f);
+        ((ImageView) mMainView.findViewById(R.id.switch_camera_lf)).setImageDrawable(mContext.getResources().getDrawable(R.drawable.f_camera_l));
 
         mPreSignal = mSignal = -1;
         mSignalView.setVisibility(View.GONE);

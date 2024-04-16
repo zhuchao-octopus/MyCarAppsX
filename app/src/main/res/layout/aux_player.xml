@@ -3,12 +3,12 @@
     android:id="@+id/screen1_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0px"
-        android:layout_weight="1" >
+        android:layout_weight="1">
 
         <SurfaceView
             android:id="@+id/camera_surfaceview"
@@ -24,7 +24,7 @@
         <FrameLayout
             android:id="@+id/brake_warning_and_nosignal"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/brake_warning_text"
@@ -44,7 +44,7 @@
                 android:background="#000000"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:visibility="gone" >
+                android:visibility="gone">
 
                 <ImageView
                     android:id="@+id/no_signal_image"
@@ -85,7 +85,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#00000000"
-            android:visibility="gone" >
+            android:visibility="gone">
 
             <com.common.view.GifView
                 android:id="@+id/gif_singal"

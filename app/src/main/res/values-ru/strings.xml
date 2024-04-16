@@ -8,35 +8,35 @@
     <string name="toolbar_text_radio">Радио</string>
     <string name="toolbar_text_music">Музыка</string>
     <string name="toolbar_text_bluetooth_music">Музыка BT</string>
-<!--     <string name="bluetooth_settings"></string> -->
-<!--     <string name="f_camera"></string> -->
+    <!--     <string name="bluetooth_settings"></string> -->
+    <!--     <string name="f_camera"></string> -->
 
-<!--     <string name="device_eject">оборудование  уже  разгрузки</string> -->
-     <string name="device_mount">устройство подключено</string>
-     <string name="device_eject">устройство отключено</string> 
+    <!--     <string name="device_eject">оборудование  уже  разгрузки</string> -->
+    <string name="device_mount">устройство подключено</string>
+    <string name="device_eject">устройство отключено</string>
     <string name="media">"Память"</string>   <!--     <string name="localfile">Flash</string> -->
     <string name="play_fail">Ошибка воспроизведения!</string>
     <string name="scanning">Поиск медиафайлов</string>
-    
+
     <string name="all_song">Все песни</string>    <!--     <string name="all_medianame">Všechny písně</string> -->
     <string name="all_video">"Все видео"</string>
-	<string name="artist">Исполнитель:</string>
-	<string name="album">Альбом:</string>
-	<string name="song">Композиция:</string>
-	<string name="media_scanning">Поиск медиа</string>
+    <string name="artist">Исполнитель:</string>
+    <string name="album">Альбом:</string>
+    <string name="song">Композиция:</string>
+    <string name="media_scanning">Поиск медиа</string>
     <string name="button_cancel">"Отмена"</string>
 
-	<string name="unknown">Неизвестно</string>
-	<string name="text_reverse_warning">внимание</string>
-	
-	<string name="f_camera">Передняя камера</string>
-	<string name="f_camera4">4 камеры</string>
+    <string name="unknown">Неизвестно</string>
+    <string name="text_reverse_warning">внимание</string>
 
-     <string name="warning_driving">"Просмотр видео во время движения запрещен настройками"</string> 
+    <string name="f_camera">Передняя камера</string>
+    <string name="f_camera4">4 камеры</string>
+
+    <string name="warning_driving">"Просмотр видео во время движения запрещен настройками"</string>
     <string name="warning_driving_1050">"Чтобы запустить приложение, эакройте другие\nприложения, использующие камеру, закрывать ли\nвидеорегистратор?"</string>
-    <string name="playlist">плейлист</string> 
-    <string name="disconnect_video">Нет сигнала!</string> 
-     <string name="a2dp_disconnect_info">"BLUETOOTH система не подключена, поиск устройства:%s, "</string> 
+    <string name="playlist">плейлист</string>
+    <string name="disconnect_video">Нет сигнала!</string>
+    <string name="a2dp_disconnect_info">"BLUETOOTH система не подключена, поиск устройства:%s, "</string>
     <string name="a2dp_disconnect_info2">"PIN:%s для подключения"</string>
     <!-- <string name="no_disk">无碟！即将退出!</string> -->
     <!-- <string name="loading">加载中...</string> -->
@@ -54,15 +54,14 @@
 
     <string name="bluetooth_device_context_connect">Соединить?</string>
     <string name="bluetooth_device_context_disconnect">Разъединить?</string>
-        <string name="modulename">Название устройства:</string>
+    <string name="modulename">Название устройства:</string>
     <string name="modulepassword">Пароль:</string>
 
-    
-    
+
     <string name="radio_function_text_band">AM/FM</string>
     <string name="radio_st">Стерео</string>
-    
-    
+
+
     <string name="pty00">Нет</string>
     <string name="pty01">Новости</string>
     <string name="pty02">Актуальное</string>
@@ -104,7 +103,7 @@
     <string name="eq_text_normal">"Плоский"</string>
 
     <string name="rear">"ЗАД."</string>
-    <string name="menu">"МЕНЮ"</string>   
+    <string name="menu">"МЕНЮ"</string>
     <string name="exit">"ВЫХОД"</string>
     <string name="speed">"СКОРОСТЬ"</string>
     <string name="dvr_recording_notice">"DVR записывает, откройте DVR для предварительного просмотра видео!"</string>

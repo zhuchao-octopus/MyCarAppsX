@@ -15,14 +15,14 @@
         <attr name="selectedTextColor" format="color" />
     </declare-styleable>
 
-      <declare-styleable name="RadioMarkFaceView">
+    <declare-styleable name="RadioMarkFaceView">
 
         <!-- The first screen the workspace should display. -->
         <attr name="start_freq_px" format="integer" />
         <attr name="end_freq_px" format="integer" />
-        
+
         <attr name="point_y" format="integer" />
-        
+
         <attr name="freq_x1" format="integer" />
         <attr name="freq_x2" format="integer" />
         <attr name="freq_x3" format="integer" />
@@ -30,13 +30,13 @@
         <attr name="freq_x5" format="integer" />
         <attr name="freq_x6" format="integer" />
     </declare-styleable>
-    
-          <declare-styleable name="CircleSeekBar">
+
+    <declare-styleable name="CircleSeekBar">
         <attr name="wheel_max_process" format="integer" />
         <attr name="wheel_cur_process" format="integer" />
         <attr name="wheel_reached_color" format="color" />
         <attr name="wheel_reached_width" format="dimension" />
-        <attr name="wheel_reached_has_corner_round" format="boolean"/>
+        <attr name="wheel_reached_has_corner_round" format="boolean" />
         <attr name="wheel_unreached_color" format="color" />
         <attr name="wheel_unreached_width" format="dimension" />
         <attr name="wheel_pointer_color" format="color" />

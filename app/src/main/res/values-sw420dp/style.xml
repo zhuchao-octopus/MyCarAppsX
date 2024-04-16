@@ -50,7 +50,7 @@
         <item name="android:gravity">center</item>
     </style>
 
-        <style name="ButtonStyleRadioButton2">
+    <style name="ButtonStyleRadioButton2">
         <item name="android:textColor">#BEBEBE</item>
         <item name="android:layout_height">64px</item>
         <item name="android:layout_width">54px</item>
@@ -59,7 +59,7 @@
         <item name="android:background">@drawable/radio_button2</item>
         <item name="android:textStyle">italic</item>
     </style>
-    
+
     <style name="channelButtonStyle">
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">60.0px</item>
@@ -67,7 +67,7 @@
         <item name="android:layout_marginLeft">0.0px</item>
         <item name="android:textSize">28.0px</item>
         <item name="android:textColor">@android:color/white</item>
-        <item name="android:gravity">center</item>   
+        <item name="android:gravity">center</item>
         <item name="android:background">@drawable/c_bg_button</item>
     </style>
 
@@ -82,7 +82,7 @@
         <item name="android:background">@drawable/radio_channel_index_bg</item>
     </style>
 
-        <style name="ButtonStyleRadioButton1">
+    <style name="ButtonStyleRadioButton1">
         <item name="android:background">@drawable/radio_button1</item>
         <item name="android:textColor">#FFFFFF</item>
         <item name="android:layout_height">112px</item>
@@ -91,5 +91,5 @@
         <item name="android:textSize">46px</item>
     </style>
 
-    
+
 </resources>

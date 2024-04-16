@@ -4,8 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.GestureDetector;
-import android.view.MotionEvent;
 import android.view.GestureDetector.OnGestureListener;
+import android.view.MotionEvent;
 
 import com.common.util.BroadcastUtil;
 import com.common.util.Kernel;
@@ -34,9 +34,7 @@ public class TVActivity extends Activity implements OnGestureListener {
             setContentView(R.layout.tv_player);
             mUI = TvUI.getInstanse(this, findViewById(R.id.screen1_main), 0);
             detector = new GestureDetector(this, this);
-        }
-        else
-        {
+        } else {
             int layout = R.layout.tv_player_cvbs;
             switch (TV.mType) {
                 case 1:
@@ -100,8 +98,7 @@ public class TVActivity extends Activity implements OnGestureListener {
     protected void onStart() {
         super.onStart();
 
-        if (mUI != null)
-            mUI.onResume();
+        if (mUI != null) mUI.onResume();
         GlobalDef.openGps(this, getIntent());
         setIntent(null);
     }
@@ -119,8 +116,7 @@ public class TVActivity extends Activity implements OnGestureListener {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (mUI != null)
-            mUI.onDestroy();
+        if (mUI != null) mUI.onDestroy();
 
         if (GlobalDef.mSource == mUI.mSource /*&& BTMusicService.mPlayStatus >= BTMusicService.A2DP_INFO_CONNECTED*/) {
             BroadcastUtil.sendToCarServiceSetSource(this, MyCmd.SOURCE_MX51);
@@ -146,17 +142,14 @@ public class TVActivity extends Activity implements OnGestureListener {
     private GestureDetector detector;
 
     @Override
-    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
-                           float velocityY) {
-        if (e1.getX() - e2.getX() > verticalMinDistance
-                && Math.abs(velocityX) > minVelocity) {
+    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+        if (e1.getX() - e2.getX() > verticalMinDistance && Math.abs(velocityX) > minVelocity) {
 
             BroadcastUtil.sendToCarService(this, MyCmd.Cmd.SET_SCREEN0_SOURCE, 0);
 
             Kernel.doKeyEvent(Kernel.KEY_HOMEPAGE);
             // Toast.makeText(this, "向左手势", Toast.LENGTH_SHORT).show();
-        } else if (e2.getX() - e1.getX() > verticalMinDistance
-                && Math.abs(velocityX) > minVelocity) {
+        } else if (e2.getX() - e1.getX() > verticalMinDistance && Math.abs(velocityX) > minVelocity) {
 
             Kernel.doKeyEvent(Kernel.KEY_BACK);
             // Toast.makeText(this, "向右手势", Toast.LENGTH_SHORT).show();
@@ -172,8 +165,7 @@ public class TVActivity extends Activity implements OnGestureListener {
     }
 
     @Override
-    public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX,
-                            float distanceY) {
+    public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
         // TODO Auto-generated method stub
         return false;
     }

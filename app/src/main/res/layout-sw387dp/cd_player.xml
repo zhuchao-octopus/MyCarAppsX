@@ -7,7 +7,7 @@
     android:background="@drawable/background"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
-    android:padding="0px" >
+    android:padding="0px">
 
     <!-- <View -->
     <!-- android:layout_width="match_parent" -->
@@ -19,12 +19,12 @@
         android:layout_height="0.0dip"
         android:layout_weight="1.0"
         android:gravity="center_vertical"
-        android:orientation="horizontal" >
+        android:orientation="horizontal">
 
         <RelativeLayout
             android:layout_width="0px"
             android:layout_height="match_parent"
-            android:layout_weight="1.0" >
+            android:layout_weight="1.0">
 
             <!-- <ImageView -->
             <!-- android:layout_width="560px" -->
@@ -35,7 +35,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/cd_title"
@@ -60,7 +60,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:gravity="center"
-                    android:orientation="horizontal" >
+                    android:orientation="horizontal">
 
                     <TextView
                         android:id="@+id/currenttime"
@@ -72,7 +72,7 @@
 
                     <RelativeLayout
                         android:layout_width="520px"
-                        android:layout_height="42px" >
+                        android:layout_height="42px">
 
                         <SeekBar
                             android:id="@+id/progress"
@@ -123,7 +123,7 @@
         <FrameLayout
             android:id="@+id/list_content"
             android:layout_width="@dimen/list_view_width"
-            android:layout_height="435px" >
+            android:layout_height="435px">
 
             <ListView
                 android:id="@+id/list_view"
@@ -142,7 +142,7 @@
         android:layout_height="100px"
         android:background="@drawable/radio_bottom_bg"
         android:gravity="center"
-        android:orientation="horizontal" >
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/cd_eq_mode_switch"

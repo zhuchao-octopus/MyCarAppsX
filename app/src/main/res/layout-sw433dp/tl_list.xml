@@ -5,7 +5,7 @@
     android:layout_gravity="center_horizontal"
     android:minHeight="70px"
     android:paddingLeft="0px"
-    android:background="@drawable/tl_l_bg" >
+    android:background="@drawable/tl_l_bg">
 
     <!-- <ImageView -->
     <!-- android:id="@id/icon" -->

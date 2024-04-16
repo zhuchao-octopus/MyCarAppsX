@@ -17,7 +17,6 @@
 package com.octopus.android.carapps.common.camera;
 
 import android.hardware.Camera.Parameters;
-import android.hardware.Camera.Size;
 import android.os.Build;
 import android.os.Handler;
 import android.os.HandlerThread;
@@ -55,6 +54,7 @@ public class CameraHolder {
 
     // Use a singleton.
     private static CameraHolder sHolder;
+
     public static synchronized CameraHolder instance() {
         if (sHolder == null) {
             sHolder = new CameraHolder();
@@ -63,6 +63,7 @@ public class CameraHolder {
     }
 
     private static final int RELEASE_CAMERA = 1;
+
     private class MyHandler extends Handler {
         MyHandler(Looper looper) {
             super(looper);
@@ -70,7 +71,7 @@ public class CameraHolder {
 
         @Override
         public void handleMessage(Message msg) {
-            switch(msg.what) {
+            switch (msg.what) {
                 case RELEASE_CAMERA:
                     synchronized (CameraHolder.this) {
                         // In 'CameraHolder.open', the 'RELEASE_CAMERA' message
@@ -91,16 +92,15 @@ public class CameraHolder {
         mHandler = new MyHandler(ht.getLooper());
     }
 
-    public synchronized android.hardware.Camera open()
-            throws Exception {
+    public synchronized android.hardware.Camera open() throws Exception {
         Assert(mUsers == 0);
         if (mCameraDevice == null) {
             try {
-				//if (android.os.Build.MODEL.equals("SABRESD-MX6DQ")) {// 61
-            	mCameraDevice = android.hardware.Camera.open();
-				//} else {
-					//mCameraDevice = android.hardware.Camera.open();
-				//}            	
+                //if (android.os.Build.MODEL.equals("SABRESD-MX6DQ")) {// 61
+                mCameraDevice = android.hardware.Camera.open();
+                //} else {
+                //mCameraDevice = android.hardware.Camera.open();
+                //}
             } catch (RuntimeException e) {
                 Log.e(TAG, "fail to connect Camera", e);
                 throw new Exception(e);
@@ -150,8 +150,7 @@ public class CameraHolder {
         Assert(mCameraDevice != null);
         long now = System.currentTimeMillis();
         if (now < mKeepBeforeTime) {
-            mHandler.sendEmptyMessageDelayed(RELEASE_CAMERA,
-                    mKeepBeforeTime - now);
+            mHandler.sendEmptyMessageDelayed(RELEASE_CAMERA, mKeepBeforeTime - now);
             return;
         }
         mCameraDevice.release();
@@ -159,11 +158,11 @@ public class CameraHolder {
     }
 
     private void Assert(boolean b) {
-		// TODO Auto-generated method stub
-		
-	}
+        // TODO Auto-generated method stub
 
-	public synchronized void keep() {
+    }
+
+    public synchronized void keep() {
         // We allow (mUsers == 0) for the convenience of the calling activity.
         // The activity may not have a chance to call open() before the user
         // choose the menu item to switch to another activity.

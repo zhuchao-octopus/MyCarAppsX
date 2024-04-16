@@ -24,12 +24,12 @@
         <item name="android:background">@drawable/button_click_back1</item>
         <item name="android:textColor">#FFFFFF</item>
         <item name="android:layout_height">match_parent</item>
-        <item name="android:layout_width">20px</item>  
-        <item name="android:layout_weight">1</item>    
-        
+        <item name="android:layout_width">20px</item>
+        <item name="android:layout_weight">1</item>
+
         <item name="android:focusable">true</item>
-        
-        
+
+
         <item name="android:textSize">32px</item>
     </style>
 
@@ -37,13 +37,13 @@
         <item name="android:fontFamily">sans-serif-medium</item>
     </style>
 
-        <style name="channelTextStyle" parent="shadowText">
+    <style name="channelTextStyle" parent="shadowText">
         <item name="android:layout_width">160.0px</item>
         <item name="android:layout_height">64.0px</item>
         <item name="android:textSize">24px</item>
         <item name="android:textColor">#FFFFFF</item>
         <item name="android:gravity">center</item>
-        
+
         <item name="android:background">@drawable/c_bg_button</item>
     </style>
 

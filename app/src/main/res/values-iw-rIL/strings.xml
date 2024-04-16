@@ -6,23 +6,23 @@
     <string name="toolbar_text_radio">רדיו</string>
     <string name="toolbar_text_music">מוסיקה</string>
     <string name="toolbar_text_bluetooth_music">מוסיקת בלוטות</string>
-<!--     <string name="bluetooth_settings"></string> -->
-<!--     <string name="f_camera"></string> -->
+    <!--     <string name="bluetooth_settings"></string> -->
+    <!--     <string name="f_camera"></string> -->
 
     <string name="warning_driving">"הסרטון מושבת בשל בטיחותך!"</string>
-     <string name="device_eject">התקן האחסון הוסר</string> 
-     <string name="device_mount">התקן אחסון נטען</string> 
- <string name="pick_wallpaper">"טפטים"</string>
+    <string name="device_eject">התקן האחסון הוסר</string>
+    <string name="device_mount">התקן אחסון נטען</string>
+    <string name="pick_wallpaper">"טפטים"</string>
     <string name="screen_view_select">בחר את הצג הצג במסך סגן</string>
 
-    
-     <string name="playlist">רשימה</string>
-     
+
+    <string name="playlist">רשימה</string>
+
     <string name="eq_text_classic">קלַאסִי</string>
     <string name="eq_text_pop">פּוֹפּ</string>
     <string name="eq_text_rock">רוק</string>
     <string name="eq_text_jazz">"ג'אז"</string>
     <string name="eq_text_user">משתמש</string>
     <string name="eq_text_normal">נוֹרמָלִי</string>
-    
+
 </resources>

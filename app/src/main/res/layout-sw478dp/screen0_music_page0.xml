@@ -2,25 +2,25 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="1280px"
     android:layout_height="fill_parent"
-    android:orientation="horizontal" >
+    android:orientation="horizontal">
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:orientation="horizontal" >
+        android:orientation="horizontal">
 
         <ScrollView
             android:layout_width="wrap_content"
-            android:layout_height="fill_parent" >
+            android:layout_height="fill_parent">
 
             <LinearLayout
                 android:id="@+id/tb"
-            android:layout_width="204px"
+                android:layout_width="204px"
                 android:layout_height="fill_parent"
                 android:layout_marginLeft="1px"
                 android:layout_marginTop="0px"
                 android:gravity="left"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <Button
                     android:id="@+id/btn_all"
@@ -144,18 +144,18 @@
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <Button
                     android:id="@+id/btn_add_all"
                     style="@style/CommonStyleFonts"
                     android:layout_width="fill_parent"
-                android:layout_height="88px"
+                    android:layout_height="88px"
                     android:background="@drawable/tl_l_bg"
                     android:drawableLeft="@drawable/button_add"
                     android:drawablePadding="10.0px"
@@ -250,7 +250,7 @@
         android:clickable="true"
         android:gravity="center"
         android:orientation="vertical"
-        android:visibility="gone" >
+        android:visibility="gone">
 
         <ProgressBar
             style="?android:attr/progressBarStyleLarge"

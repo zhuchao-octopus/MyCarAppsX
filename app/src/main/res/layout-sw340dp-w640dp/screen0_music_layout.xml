@@ -3,23 +3,23 @@
     android:id="@+id/screen1_main"
     android:background="#ff0e1e2a"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+    android:layout_height="fill_parent">
 
-    <com.common.view.MyScrollView
+    <com.octopus.android.carapps.common.view.MyScrollView
         android:id="@+id/music_page_scroll_view"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:background="@drawable/background"
         android:fitsSystemWindows="true"
         android:orientation="horizontal"
-        android:tag="0,960,1280:1" >
+        android:tag="0,960,1280:1">
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:background="@drawable/background"
             android:fitsSystemWindows="true"
-            android:orientation="horizontal" >
+            android:orientation="horizontal">
 
             <include layout="@layout/screen0_music_page0" />
 
@@ -27,6 +27,6 @@
 
             <include layout="@layout/screen0_music_page2" />
         </LinearLayout>
-    </com.common.view.MyScrollView>
+    </com.octopus.android.carapps.common.view.MyScrollView>
 
 </RelativeLayout>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:radio="http://schemas.android.com/apk/res-auto"
     android:id="@+id/screen1_main"
     android:layout_width="1024px"
     android:layout_height="600px"
@@ -8,20 +7,20 @@
     android:background="@drawable/background"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
-    android:padding="0px" >
+    android:padding="0px">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentBottom="true"
-        android:background="@drawable/music_background" >
+        android:background="@drawable/music_background">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="220.0px"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <!-- <View -->
             <!-- android:layout_width="fill_parent" -->
@@ -34,7 +33,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_alignParentTop="true"
-                android:gravity="center_vertical" >
+                android:gravity="center_vertical">
 
                 <!-- <View -->
                 <!-- android:layout_width="1.0px" -->
@@ -44,38 +43,37 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
+                    android:layout_height="match_parent">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent" >
+                        android:layout_height="match_parent">
 
-<TextView
-    android:id="@+id/freq_text_ps2"
-    android:layout_width="220.0px"
-    android:layout_height="190.0px"
-    android:layout_centerHorizontal="true"
-    android:layout_marginTop="80px"
-    android:gravity="center"
-    android:orientation="horizontal"
-    android:singleLine="true"
-    android:textColor="#ffffff"
-    android:textSize="32px"
-    android:visibility="visible" />
+                        <TextView
+                            android:id="@+id/freq_text_ps2"
+                            android:layout_width="220.0px"
+                            android:layout_height="190.0px"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="80px"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:singleLine="true"
+                            android:textColor="#ffffff"
+                            android:textSize="32px"
+                            android:visibility="visible" />
 
                         <RelativeLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"     
+                            android:layout_height="wrap_content"
                             android:layout_marginTop="70px"
-                            android:gravity="top" >
+                            android:gravity="top">
 
-                             
-                             
+
                             <LinearLayout
                                 android:layout_marginLeft="0px"
-                            android:layout_centerInParent="true"   
+                                android:layout_centerInParent="true"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" >
+                                android:layout_height="wrap_content">
 
                                 <TextView
                                     android:id="@+id/radio_fm_text"
@@ -86,10 +84,10 @@
                                     android:gravity="center"
                                     android:textColor="#ffffff"
                                     android:textSize="30.0px" />
-                                
+
                                 <RelativeLayout
                                     android:layout_width="220.0px"
-                                    android:layout_height="80.0px" >                                   
+                                    android:layout_height="80.0px">
 
                                     <TextView
                                         android:id="@+id/freq_text"
@@ -121,11 +119,11 @@
                                 android:layout_height="fill_parent"
                                 android:layout_x="92px"
                                 android:gravity="center_horizontal"
-                                android:visibility="gone" >
+                                android:visibility="gone">
 
                                 <AbsoluteLayout
                                     android:layout_width="fill_parent"
-                                    android:layout_height="124px" >
+                                    android:layout_height="124px">
 
                                     <LinearLayout
                                         android:layout_width="fill_parent"
@@ -133,7 +131,7 @@
                                         android:layout_x="40px"
                                         android:layout_y="10px"
                                         android:gravity="left"
-                                        android:orientation="horizontal" >
+                                        android:orientation="horizontal">
 
                                         <TextView
                                             android:id="@+id/radio_ta"
@@ -183,7 +181,6 @@
                                         android:textSize="20px"
                                         android:visibility="visible" />
 
-                                    
 
                                     <!--
                                     <LinearLayout
@@ -285,9 +282,7 @@
                             android:layout_marginBottom="10px"
                             android:layout_marginTop="0px"
                             android:gravity="right"
-                            android:paddingRight="20px" >
-
-
+                            android:paddingRight="20px">
 
 
                             <ToggleButton
@@ -307,7 +302,7 @@
                             android:layout_width="fill_parent"
                             android:layout_height="90px"
                             android:background="@drawable/com_background"
-                            android:orientation="horizontal" >
+                            android:orientation="horizontal">
 
                             <TextView
                                 android:id="@+id/radio_rds_ps"
@@ -318,7 +313,7 @@
                                 android:textColor="@color/radio_rds_info1"
                                 android:textSize="24px" />
 
-                            <com.common.view.MarqueeTextView
+                            <com.octopus.android.carapps.common.view.MarqueeTextView
                                 android:id="@+id/radio_rds_rt"
                                 style="@style/shadowText"
                                 android:layout_width="match_parent"
@@ -341,7 +336,7 @@
                         </RelativeLayout>
                     </RelativeLayout>
 
-                    <ccom.octopus.android.carapps.radio.MarkFaceView
+                    <com.octopus.android.carapps.radio.MarkFaceView
                         android:id="@+id/radio_mark_face_view"
                         android:layout_width="766px"
                         android:layout_height="80.0px"
@@ -355,33 +350,33 @@
                 android:layout_height="280.0px"
                 android:layout_above="@+id/tb_bottom"
                 android:layout_marginLeft="0px"
-                
-                        android:focusable="false"
+
+                android:focusable="false"
                 android:layout_alignParentRight="true"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <com.octopus.android.carapps.common.view.MyScrollView
                     android:id="@+id/radio_frequency_scrollview"
                     android:layout_width="800px"
                     android:layout_height="fill_parent"
                     android:scrollbars="none"
-                        android:focusable="false"
-                    android:tag="0,800,1600,2400,3200,4000:0" >
-                    
+                    android:focusable="false"
+                    android:tag="0,800,1600,2400,3200,4000:0">
+
                     <LinearLayout
-               		android:id="@+id/radio_scrollview_content_width"
+                        android:id="@+id/radio_scrollview_content_width"
                         android:layout_width="4000px"
                         android:orientation="horizontal"
-                        android:layout_height="fill_parent" >
+                        android:layout_height="fill_parent">
 
                         <LinearLayout
                             android:layout_width="800px"
-                       		android:orientation="vertical"
-                            android:layout_height="wrap_content" >
+                            android:orientation="vertical"
+                            android:layout_height="wrap_content">
 
                             <RelativeLayout
                                 android:layout_width="800px"
-                                android:layout_height="wrap_content" >
+                                android:layout_height="wrap_content">
 
                                 <Button
                                     android:id="@+id/channel_00"
@@ -390,54 +385,51 @@
                                 <Button
                                     android:id="@+id/channel_01"
                                     style="@style/channelTextStyle"
-                                    android:layout_alignParentRight="true"
-                                      />
+                                    android:layout_alignParentRight="true" />
                             </RelativeLayout>
-                             <RelativeLayout
+
+                            <RelativeLayout
                                 android:layout_width="800px"
                                 android:paddingLeft="60px"
                                 android:paddingRight="60px"
-                                android:layout_height="wrap_content" >
+                                android:layout_height="wrap_content">
 
                                 <Button
                                     android:id="@+id/channel_02"
-                                    style="@style/channelTextStyle"
-                                      />
+                                    style="@style/channelTextStyle" />
 
                                 <Button
                                     android:id="@+id/channel_03"
                                     style="@style/channelTextStyle"
-                                    android:layout_alignParentRight="true"
-                                      />
+                                    android:layout_alignParentRight="true" />
                             </RelativeLayout>
-                             <RelativeLayout
+
+                            <RelativeLayout
                                 android:layout_width="800px"
                                 android:paddingLeft="120px"
                                 android:paddingRight="120px"
-                                android:layout_height="wrap_content" >
+                                android:layout_height="wrap_content">
 
                                 <Button
                                     android:id="@+id/channel_04"
-                                    style="@style/channelTextStyle"
-                                      />
+                                    style="@style/channelTextStyle" />
 
                                 <Button
                                     android:id="@+id/channel_05"
                                     style="@style/channelTextStyle"
-                                    android:layout_alignParentRight="true"
-                                      />
+                                    android:layout_alignParentRight="true" />
                             </RelativeLayout>
                         </LinearLayout>
 
-                        
-                         <LinearLayout
+
+                        <LinearLayout
                             android:layout_width="800px"
-                       		android:orientation="vertical"
-                            android:layout_height="wrap_content" >
+                            android:orientation="vertical"
+                            android:layout_height="wrap_content">
 
                             <RelativeLayout
                                 android:layout_width="800px"
-                                android:layout_height="wrap_content" >
+                                android:layout_height="wrap_content">
 
                                 <Button
                                     android:id="@+id/channel_06"
@@ -446,220 +438,207 @@
                                 <Button
                                     android:id="@+id/channel_07"
                                     style="@style/channelTextStyle"
-                                    android:layout_alignParentRight="true"
-                                      />
+                                    android:layout_alignParentRight="true" />
                             </RelativeLayout>
-                             <RelativeLayout
+
+                            <RelativeLayout
                                 android:layout_width="800px"
                                 android:paddingLeft="60px"
                                 android:paddingRight="60px"
-                                android:layout_height="wrap_content" >
+                                android:layout_height="wrap_content">
 
                                 <Button
                                     android:id="@+id/channel_08"
-                                    style="@style/channelTextStyle"
-                                      />
+                                    style="@style/channelTextStyle" />
 
                                 <Button
                                     android:id="@+id/channel_09"
                                     style="@style/channelTextStyle"
-                                    android:layout_alignParentRight="true"
-                                      />
+                                    android:layout_alignParentRight="true" />
                             </RelativeLayout>
-                             <RelativeLayout
+
+                            <RelativeLayout
                                 android:layout_width="800px"
                                 android:paddingLeft="120px"
                                 android:paddingRight="120px"
-                                android:layout_height="wrap_content" >
+                                android:layout_height="wrap_content">
 
                                 <Button
                                     android:id="@+id/channel_10"
-                                    style="@style/channelTextStyle"
-                                      />
+                                    style="@style/channelTextStyle" />
 
                                 <Button
                                     android:id="@+id/channel_11"
                                     style="@style/channelTextStyle"
-                                    android:layout_alignParentRight="true"
-                                      />
+                                    android:layout_alignParentRight="true" />
                             </RelativeLayout>
                         </LinearLayout>
-                        
-                              <LinearLayout
-               		android:id="@+id/radio_am_hide_layout"
-                    android:layout_width="wrap_content"
-                    android:layout_height="fill_parent"
-                    android:orientation="horizontal" >
-                        
-                         <LinearLayout
-                            android:layout_width="800px"
-                       		android:orientation="vertical"
-                            android:layout_height="wrap_content" >
 
-                            <RelativeLayout
+                        <LinearLayout
+                            android:id="@+id/radio_am_hide_layout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="fill_parent"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
                                 android:layout_width="800px"
-                                android:layout_height="wrap_content" >
+                                android:orientation="vertical"
+                                android:layout_height="wrap_content">
 
-                                <Button
-                                    android:id="@+id/channel_12"
-                                    style="@style/channelTextStyle" />
+                                <RelativeLayout
+                                    android:layout_width="800px"
+                                    android:layout_height="wrap_content">
 
-                                <Button
-                                    android:id="@+id/channel_13"
-                                    style="@style/channelTextStyle"
-                                    android:layout_alignParentRight="true"
-                                      />
-                            </RelativeLayout>
-                             <RelativeLayout
+                                    <Button
+                                        android:id="@+id/channel_12"
+                                        style="@style/channelTextStyle" />
+
+                                    <Button
+                                        android:id="@+id/channel_13"
+                                        style="@style/channelTextStyle"
+                                        android:layout_alignParentRight="true" />
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:layout_width="800px"
+                                    android:paddingLeft="60px"
+                                    android:paddingRight="60px"
+                                    android:layout_height="wrap_content">
+
+                                    <Button
+                                        android:id="@+id/channel_14"
+                                        style="@style/channelTextStyle" />
+
+                                    <Button
+                                        android:id="@+id/channel_15"
+                                        style="@style/channelTextStyle"
+                                        android:layout_alignParentRight="true" />
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:layout_width="800px"
+                                    android:paddingLeft="120px"
+                                    android:paddingRight="120px"
+                                    android:layout_height="wrap_content">
+
+                                    <Button
+                                        android:id="@+id/channel_16"
+                                        style="@style/channelTextStyle" />
+
+                                    <Button
+                                        android:id="@+id/channel_17"
+                                        style="@style/channelTextStyle"
+                                        android:layout_alignParentRight="true" />
+                                </RelativeLayout>
+                            </LinearLayout>
+
+
+                            <LinearLayout
                                 android:layout_width="800px"
-                                android:paddingLeft="60px"
-                                android:paddingRight="60px"
-                                android:layout_height="wrap_content" >
+                                android:orientation="vertical"
+                                android:layout_height="wrap_content">
 
-                                <Button
-                                    android:id="@+id/channel_14"
-                                    style="@style/channelTextStyle"
-                                      />
+                                <RelativeLayout
+                                    android:layout_width="800px"
+                                    android:layout_height="wrap_content">
 
-                                <Button
-                                    android:id="@+id/channel_15"
-                                    style="@style/channelTextStyle"
-                                    android:layout_alignParentRight="true"
-                                      />
-                            </RelativeLayout>
-                             <RelativeLayout
+                                    <Button
+                                        android:id="@+id/channel_18"
+                                        style="@style/channelTextStyle" />
+
+                                    <Button
+                                        android:id="@+id/channel_19"
+                                        style="@style/channelTextStyle"
+                                        android:layout_alignParentRight="true" />
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:layout_width="800px"
+                                    android:paddingLeft="60px"
+                                    android:paddingRight="60px"
+                                    android:layout_height="wrap_content">
+
+                                    <Button
+                                        android:id="@+id/channel_20"
+                                        style="@style/channelTextStyle" />
+
+                                    <Button
+                                        android:id="@+id/channel_21"
+                                        style="@style/channelTextStyle"
+                                        android:layout_alignParentRight="true" />
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:layout_width="800px"
+                                    android:paddingLeft="120px"
+                                    android:paddingRight="120px"
+                                    android:layout_height="wrap_content">
+
+                                    <Button
+                                        android:id="@+id/channel_22"
+                                        style="@style/channelTextStyle" />
+
+                                    <Button
+                                        android:id="@+id/channel_23"
+                                        style="@style/channelTextStyle"
+                                        android:layout_alignParentRight="true" />
+                                </RelativeLayout>
+                            </LinearLayout>
+
+
+                            <LinearLayout
                                 android:layout_width="800px"
-                                android:paddingLeft="120px"
-                                android:paddingRight="120px"
-                                android:layout_height="wrap_content" >
+                                android:orientation="vertical"
+                                android:layout_height="wrap_content">
 
-                                <Button
-                                    android:id="@+id/channel_16"
-                                    style="@style/channelTextStyle"
-                                      />
+                                <RelativeLayout
+                                    android:layout_width="800px"
+                                    android:layout_height="wrap_content">
 
-                                <Button
-                                    android:id="@+id/channel_17"
-                                    style="@style/channelTextStyle"
-                                    android:layout_alignParentRight="true"
-                                      />
-                            </RelativeLayout>
+                                    <Button
+                                        android:id="@+id/channel_24"
+                                        style="@style/channelTextStyle" />
+
+                                    <Button
+                                        android:id="@+id/channel_25"
+                                        style="@style/channelTextStyle"
+                                        android:layout_alignParentRight="true" />
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:layout_width="800px"
+                                    android:paddingLeft="60px"
+                                    android:paddingRight="60px"
+                                    android:layout_height="wrap_content">
+
+                                    <Button
+                                        android:id="@+id/channel_26"
+                                        style="@style/channelTextStyle" />
+
+                                    <Button
+                                        android:id="@+id/channel_27"
+                                        style="@style/channelTextStyle"
+                                        android:layout_alignParentRight="true" />
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:layout_width="800px"
+                                    android:paddingLeft="120px"
+                                    android:paddingRight="120px"
+                                    android:layout_height="wrap_content">
+
+                                    <Button
+                                        android:id="@+id/channel_28"
+                                        style="@style/channelTextStyle" />
+
+                                    <Button
+                                        android:id="@+id/channel_29"
+                                        style="@style/channelTextStyle"
+                                        android:layout_alignParentRight="true" />
+                                </RelativeLayout>
+                            </LinearLayout>
                         </LinearLayout>
-                        
-                         
-                        
-                         <LinearLayout
-                            android:layout_width="800px"
-                       		android:orientation="vertical"
-                            android:layout_height="wrap_content" >
-
-                            <RelativeLayout
-                                android:layout_width="800px"
-                                android:layout_height="wrap_content" >
-
-                                <Button
-                                    android:id="@+id/channel_18"
-                                    style="@style/channelTextStyle" />
-
-                                <Button
-                                    android:id="@+id/channel_19"
-                                    style="@style/channelTextStyle"
-                                    android:layout_alignParentRight="true"
-                                      />
-                            </RelativeLayout>
-                             <RelativeLayout
-                                android:layout_width="800px"
-                                android:paddingLeft="60px"
-                                android:paddingRight="60px"
-                                android:layout_height="wrap_content" >
-
-                                <Button
-                                    android:id="@+id/channel_20"
-                                    style="@style/channelTextStyle"
-                                      />
-
-                                <Button
-                                    android:id="@+id/channel_21"
-                                    style="@style/channelTextStyle"
-                                    android:layout_alignParentRight="true"
-                                      />
-                            </RelativeLayout>
-                             <RelativeLayout
-                                android:layout_width="800px"
-                                android:paddingLeft="120px"
-                                android:paddingRight="120px"
-                                android:layout_height="wrap_content" >
-
-                                <Button
-                                    android:id="@+id/channel_22"
-                                    style="@style/channelTextStyle"
-                                      />
-
-                                <Button
-                                    android:id="@+id/channel_23"
-                                    style="@style/channelTextStyle"
-                                    android:layout_alignParentRight="true"
-                                      />
-                            </RelativeLayout>
-                        </LinearLayout>
-                        
-                         
-                        
-                         <LinearLayout
-                            android:layout_width="800px"
-                       		android:orientation="vertical"
-                            android:layout_height="wrap_content" >
-
-                            <RelativeLayout
-                                android:layout_width="800px"
-                                android:layout_height="wrap_content" >
-
-                                <Button
-                                    android:id="@+id/channel_24"
-                                    style="@style/channelTextStyle" />
-
-                                <Button
-                                    android:id="@+id/channel_25"
-                                    style="@style/channelTextStyle"
-                                    android:layout_alignParentRight="true"
-                                      />
-                            </RelativeLayout>
-                             <RelativeLayout
-                                android:layout_width="800px"
-                                android:paddingLeft="60px"
-                                android:paddingRight="60px"
-                                android:layout_height="wrap_content" >
-
-                                <Button
-                                    android:id="@+id/channel_26"
-                                    style="@style/channelTextStyle"
-                                      />
-
-                                <Button
-                                    android:id="@+id/channel_27"
-                                    style="@style/channelTextStyle"
-                                    android:layout_alignParentRight="true"
-                                      />
-                            </RelativeLayout>
-                             <RelativeLayout
-                                android:layout_width="800px"
-                                android:paddingLeft="120px"
-                                android:paddingRight="120px"
-                                android:layout_height="wrap_content" >
-
-                                <Button
-                                    android:id="@+id/channel_28"
-                                    style="@style/channelTextStyle"
-                                      />
-
-                                <Button
-                                    android:id="@+id/channel_29"
-                                    style="@style/channelTextStyle"
-                                    android:layout_alignParentRight="true"
-                                      />
-                            </RelativeLayout>
-                        </LinearLayout>
-                    </LinearLayout></LinearLayout>
+                    </LinearLayout>
                 </com.octopus.android.carapps.common.view.MyScrollView>
 
 
@@ -673,18 +652,18 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginBottom="3.0px"
                 android:background="@android:color/transparent"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:orientation="horizontal" >
+                    android:orientation="horizontal">
 
                     <LinearLayout
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
-                        android:gravity="center" >
+                        android:gravity="center">
 
                         <ImageView
                             android:id="@+id/radio_function_button_band"
@@ -724,7 +703,7 @@
                             android:src="@drawable/eq"
                             android:visibility="gone" />
 
-                        
+
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
@@ -734,7 +713,7 @@
             android:id="@+id/radio_pty_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="gone" >
+            android:visibility="gone">
 
             <RelativeLayout
                 android:layout_width="230px"
@@ -742,7 +721,7 @@
                 android:layout_marginLeft="690px"
                 android:layout_marginTop="160px"
                 android:background="@drawable/rds_wrap"
-                android:paddingTop="13px" >
+                android:paddingTop="13px">
 
                 <ListView
                     android:id="@+id/radio_pty_list"
@@ -761,13 +740,13 @@
             android:background="@drawable/radio_background2"
             android:scaleType="fitCenter" />
     </RelativeLayout>
-    
+
     <RelativeLayout
         android:id="@+id/layout_set"
         android:visibility="gone"
         android:clickable="true"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="408px"
@@ -775,14 +754,14 @@
             android:layout_marginLeft="360px"
             android:layout_marginTop="70px"
             android:orientation="vertical"
-            android:background="@drawable/dialogbg" >
+            android:background="@drawable/dialogbg">
 
-             <RelativeLayout
+            <RelativeLayout
                 android:layout_width="fill_parent"
                 android:layout_height="88px"
                 android:background="@drawable/c_bg_normal"
                 android:gravity="center"
-                android:orientation="horizontal" >
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="120px"
@@ -805,13 +784,13 @@
                     android:scaleType="center"
                     android:src="@drawable/btn_on" />
             </RelativeLayout>
-            
-             <RelativeLayout
+
+            <RelativeLayout
                 android:layout_width="fill_parent"
                 android:layout_height="88px"
                 android:background="@drawable/c_bg_normal"
                 android:gravity="center"
-                android:orientation="horizontal" >
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="120px"
@@ -834,103 +813,103 @@
                     android:scaleType="center"
                     android:src="@drawable/btn_on" />
             </RelativeLayout>
-            
-                     <LinearLayout
-                            android:id="@+id/rds_buttons"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" >
-                
-            <RelativeLayout
-                android:layout_width="fill_parent"
-                android:layout_height="88px"
-                android:background="@drawable/c_bg_normal"
-                android:gravity="center"
-                android:orientation="horizontal" >
 
-                <TextView
-                    android:layout_width="120px"
+            <LinearLayout
+                android:id="@+id/rds_buttons"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
                     android:layout_height="88px"
-                    android:layout_marginLeft="50px"
-                    android:clickable="true"
-                    android:gravity="left|center_vertical"
-                    android:scaleType="center"
-                    android:text="@string/radio_function_text_af"
-                    android:textColor="#ffffff"
-                    android:textSize="28px" />
+                    android:background="@drawable/c_bg_normal"
+                    android:gravity="center"
+                    android:orientation="horizontal">
 
-                <ImageView
-                    android:id="@+id/radio_function_button_af"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="40px"
-                    android:clickable="true"
-                    android:scaleType="center"
-                    android:src="@drawable/btn_on" />
-            </RelativeLayout>
+                    <TextView
+                        android:layout_width="120px"
+                        android:layout_height="88px"
+                        android:layout_marginLeft="50px"
+                        android:clickable="true"
+                        android:gravity="left|center_vertical"
+                        android:scaleType="center"
+                        android:text="@string/radio_function_text_af"
+                        android:textColor="#ffffff"
+                        android:textSize="28px" />
 
-            <RelativeLayout
-                android:layout_width="fill_parent"
-                android:layout_height="88px"
-                android:background="@drawable/c_bg_normal"
-                android:gravity="center"
-                android:orientation="horizontal" >
+                    <ImageView
+                        android:id="@+id/radio_function_button_af"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="40px"
+                        android:clickable="true"
+                        android:scaleType="center"
+                        android:src="@drawable/btn_on" />
+                </RelativeLayout>
 
-                <TextView
-                    android:layout_width="120px"
+                <RelativeLayout
+                    android:layout_width="fill_parent"
                     android:layout_height="88px"
-                    android:layout_marginLeft="50px"
-                    android:clickable="true"
-                    android:gravity="left|center_vertical"
-                    android:scaleType="center"
-                    android:text="@string/radio_function_text_ta"
-                    android:textColor="#ffffff"
-                    android:textSize="28px" />
+                    android:background="@drawable/c_bg_normal"
+                    android:gravity="center"
+                    android:orientation="horizontal">
 
-                <ImageView
-                    android:id="@+id/radio_function_button_ta"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="40px"
-                    android:clickable="true"
-                    android:scaleType="center"
-                    android:src="@drawable/btn_on" />
-            </RelativeLayout>
+                    <TextView
+                        android:layout_width="120px"
+                        android:layout_height="88px"
+                        android:layout_marginLeft="50px"
+                        android:clickable="true"
+                        android:gravity="left|center_vertical"
+                        android:scaleType="center"
+                        android:text="@string/radio_function_text_ta"
+                        android:textColor="#ffffff"
+                        android:textSize="28px" />
 
-            <RelativeLayout
-                android:layout_width="fill_parent"
-                android:layout_height="88px"
-                android:background="@drawable/c_bg_normal"
-                android:gravity="center"
-                android:orientation="horizontal" >
+                    <ImageView
+                        android:id="@+id/radio_function_button_ta"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="40px"
+                        android:clickable="true"
+                        android:scaleType="center"
+                        android:src="@drawable/btn_on" />
+                </RelativeLayout>
 
-                <TextView
-                    android:layout_width="120px"
+                <RelativeLayout
+                    android:layout_width="fill_parent"
                     android:layout_height="88px"
-                    android:layout_marginLeft="50px"
-                    android:clickable="true"
-                    android:gravity="left|center_vertical"
-                    android:scaleType="center"
-                    android:text="@string/radio_function_text_pty"
-                    android:textColor="#ffffff"
-                    android:textSize="28px" />
+                    android:background="@drawable/c_bg_normal"
+                    android:gravity="center"
+                    android:orientation="horizontal">
 
-                <ImageView
-                    android:id="@+id/radio_function_button_pty"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="40px"
-                    android:clickable="true"
-                    android:scaleType="center"
-                    android:src="@drawable/btn_on" />
-            </RelativeLayout>
-            
-             </LinearLayout>
-            
-            
+                    <TextView
+                        android:layout_width="120px"
+                        android:layout_height="88px"
+                        android:layout_marginLeft="50px"
+                        android:clickable="true"
+                        android:gravity="left|center_vertical"
+                        android:scaleType="center"
+                        android:text="@string/radio_function_text_pty"
+                        android:textColor="#ffffff"
+                        android:textSize="28px" />
+
+                    <ImageView
+                        android:id="@+id/radio_function_button_pty"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="40px"
+                        android:clickable="true"
+                        android:scaleType="center"
+                        android:src="@drawable/btn_on" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
         </LinearLayout>
     </RelativeLayout>
 

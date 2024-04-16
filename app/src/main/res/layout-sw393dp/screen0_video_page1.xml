@@ -2,25 +2,26 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="1280.0px"
     android:layout_height="fill_parent"
-    android:background="@drawable/background" >
+    android:background="@drawable/background">
 
     <AbsoluteLayout
         android:layout_width="1280.0px"
         android:layout_height="fill_parent"
         android:background="#ff000000"
-        android:gravity="center" >
+        android:gravity="center">
 
-        <com.my.video.MoviceView
+        <com.octopus.android.carapps.video.MoviceView
             android:id="@+id/surface_view"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent" />
-         <LinearLayout
+
+        <LinearLayout
             android:id="@+id/no_signal"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
             android:orientation="vertical"
-                android:background="#000000"
+            android:background="#000000"
             android:visibility="gone">
 
             <ImageView
@@ -30,7 +31,7 @@
                 android:layout_centerInParent="true"
                 android:background="#000000"
                 android:gravity="center"
-            android:paddingBottom="60px"
+                android:paddingBottom="60px"
                 android:scaleType="center"
                 android:src="@drawable/no_signal" />
 
@@ -45,23 +46,25 @@
                 android:textSize="28px" />
         </LinearLayout>
     </AbsoluteLayout>
-                    <TextView
-                        android:id="@+id/brake_warning_text"
-                        style="@style/CommonStyleFonts"
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:layout_centerInParent="true"
-                        android:background="#ff000000"
-                        android:gravity="center"
-                        android:paddingBottom="10px"
-                        android:text="@string/warning_driving"
-                        android:textSize="36sp" />
+
+    <TextView
+        android:id="@+id/brake_warning_text"
+        style="@style/CommonStyleFonts"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerInParent="true"
+        android:background="#ff000000"
+        android:gravity="center"
+        android:paddingBottom="10px"
+        android:text="@string/warning_driving"
+        android:textSize="36sp" />
+
     <LinearLayout
         android:id="@+id/video_main"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:fitsSystemWindows="true"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
         <!-- <View -->
         <!-- android:layout_width="fill_parent" -->
@@ -72,18 +75,18 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="1.0"
-            android:gravity="center_vertical" >
+            android:gravity="center_vertical">
 
             <LinearLayout
                 android:id="@+id/tr"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <RelativeLayout
                     android:layout_width="fill_parent"
                     android:layout_marginBottom="80px"
-                    android:layout_height="fill_parent" >
+                    android:layout_height="fill_parent">
 
 
                     <ImageView
@@ -101,7 +104,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
                         android:layout_marginBottom="58.0px"
-                        android:gravity="center" >
+                        android:gravity="center">
 
                         <TextView
                             android:id="@+id/currenttime2"
@@ -118,10 +121,10 @@
                             android:paddingLeft="12.0px"
                             android:paddingRight="16.0px"
                             android:maxHeight="6.0px"
-		                    android:minHeight="6.0px"
-		                    android:thumbOffset="13.0px"
+                            android:minHeight="6.0px"
+                            android:thumbOffset="13.0px"
                             android:focusable="false"
-		                    android:progressDrawable="@drawable/music_seekbar"
+                            android:progressDrawable="@drawable/music_seekbar"
                             android:thumb="@drawable/thumb" />
 
                         <TextView
@@ -149,7 +152,7 @@
             android:layout_width="fill_parent"
             android:layout_height="0px"
             android:gravity="center_horizontal"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <!-- <View -->
             <!-- android:layout_width="fill_parent" -->
@@ -164,13 +167,13 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="10.0px" >
+        android:layout_marginBottom="10.0px">
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:background="#00000000"
-            android:gravity="center" >
+            android:gravity="center">
 
             <Button
                 android:id="@+id/eq_mode_switch"
@@ -190,13 +193,13 @@
                 android:src="@drawable/common_repeat_tag_level"
                 android:tag="ak_paramter=100,50"
                 android:visibility="gone" />
-        
+
             <ImageView
                 android:id="@+id/prev"
                 android:layout_width="115.0px"
                 android:layout_height="115.0px"
                 android:clickable="true"
-                    android:background="@drawable/com_focus_select"
+                android:background="@drawable/com_focus_select"
                 android:scaleType="fitXY"
                 android:src="@drawable/music_button_last" />
 
@@ -206,23 +209,23 @@
                 android:layout_height="115.0px"
                 android:layout_marginLeft="30px"
                 android:clickable="true"
-                    android:background="@drawable/com_focus_select"
+                android:background="@drawable/com_focus_select"
                 android:scaleType="fitXY"
-                    android:src="@drawable/play_level2" />
+                android:src="@drawable/play_level2" />
 
             <ImageView
                 android:id="@+id/next"
                 android:layout_width="115.0px"
                 android:layout_height="115.0px"
                 android:layout_marginLeft="30px"
-                    android:background="@drawable/com_focus_select"
+                android:background="@drawable/com_focus_select"
                 android:clickable="true"
                 android:scaleType="fitXY"
                 android:src="@drawable/music_button_next" />
 
             <ImageView
                 android:id="@+id/full2"
-                    android:background="@drawable/com_focus_select"
+                android:background="@drawable/com_focus_select"
                 style="@style/CommonWeightAkParamter"
                 android:clickable="true"
                 android:scaleType="centerInside"

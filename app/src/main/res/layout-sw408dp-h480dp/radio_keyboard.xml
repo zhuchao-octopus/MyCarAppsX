@@ -3,21 +3,21 @@
     android:id="@+id/radio_keyboard_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-            android:focusable="false"
-    android:gravity="center" >
+    android:focusable="false"
+    android:gravity="center">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:focusable="false"
         android:paddingLeft="240px"
-        android:paddingTop="100px" >
+        android:paddingTop="100px">
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/radio_key_bg"
-            android:focusable="false" >
+            android:focusable="false">
 
             <TextView
                 android:id="@+id/result"

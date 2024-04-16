@@ -3,42 +3,42 @@
     xmlns:my="http://schemas.android.com/apk/res-auto"
     android:id="@+id/screen1_main"
     android:layout_width="1280px"
-    android:layout_height="480px"    
-    android:fitsSystemWindows="true" >
+    android:layout_height="480px"
+    android:fitsSystemWindows="true">
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
         <LinearLayout
             android:id="@+id/playing_content"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:orientation="horizontal" >
+            android:orientation="horizontal">
 
             <LinearLayout
                 android:id="@+id/tr"
                 android:layout_width="700px"
                 android:layout_height="wrap_content"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:orientation="vertical" >
+                    android:orientation="vertical">
 
 
                     <AbsoluteLayout
                         android:layout_width="fill_parent"
                         android:layout_height="340px"
                         android:gravity="center"
-                        android:orientation="horizontal" >
+                        android:orientation="horizontal">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="fill_parent"
-                            android:gravity="bottom" >
+                            android:gravity="bottom">
 
                             <TextView
                                 android:id="@+id/tv_no_lyric"
@@ -48,13 +48,12 @@
                                 android:text="@string/no_lyric"
                                 android:textColor="#ffe0e0e0"
                                 android:textSize="28.0dip" />
-                            
-                            <cn.qylk.myview.LrcView
+
+                            <com.octopus.android.carapps.qylk.myview.LrcView
                                 android:id="@+id/lrcshow"
                                 android:layout_width="fill_parent"
                                 android:layout_height="50px"
-                                android:visibility="gone">
-                            </cn.qylk.myview.LrcView>
+                                android:visibility="gone"></com.octopus.android.carapps.qylk.myview.LrcView>
 
                         </LinearLayout>
 
@@ -63,7 +62,7 @@
                             android:layout_width="fill_parent"
                             android:layout_height="fill_parent"
                             android:gravity="bottom"
-                            android:orientation="vertical" >
+                            android:orientation="vertical">
 
                             <TextView
                                 android:id="@+id/song"
@@ -93,7 +92,7 @@
                             android:layout_width="334px"
                             android:layout_height="334px"
                             android:layout_x="195px"
-                            android:layout_y="-38px" >
+                            android:layout_y="-38px">
 
                             <com.octopus.android.carapps.common.view.MusicRollImage
                                 android:id="@+id/album_art"
@@ -123,7 +122,7 @@
                             android:layout_width="220px"
                             android:layout_height="wrap_content"
                             android:layout_x="0px"
-                            android:layout_y="62px"                            
+                            android:layout_y="62px"
                             android:gravity="right"
                             android:textColor="#ffffffff"
                             android:textSize="22px" />
@@ -145,7 +144,7 @@
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="76px"
-                    android:gravity="center_horizontal|bottom" >
+                    android:gravity="center_horizontal|bottom">
 
                     <Button
                         android:id="@+id/eq_mode_switch"
@@ -192,56 +191,58 @@
                         android:layout_marginLeft="35px"
                         android:background="@drawable/button_click_back3"
                         android:clickable="true"
-                        android:scaleType="center"                      
-			  android:src="@drawable/folder" />
+                        android:scaleType="center"
+                        android:src="@drawable/folder" />
                 </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="180px"
                 android:layout_height="fill_parent"
-                android:orientation="vertical" >
-                    <LinearLayout
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/repeat2"
                         android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:orientation="vertical" >
-                        <ImageView
-                            android:id="@+id/repeat2"
-                            android:layout_width="fill_parent"
-                            android:layout_height="68px"
-                            android:layout_marginTop="10px"
-                            android:background="@drawable/button_click_back3"
-                            android:clickable="true"
-                            android:scaleType="center"
-                            android:src="@drawable/common_repeat_tag_level" />
+                        android:layout_height="68px"
+                        android:layout_marginTop="10px"
+                        android:background="@drawable/button_click_back3"
+                        android:clickable="true"
+                        android:scaleType="center"
+                        android:src="@drawable/common_repeat_tag_level" />
 
-                        <ImageView
-                            android:id="@+id/eq"
-                            android:layout_width="fill_parent"
-                            android:layout_height="68px"
-                            android:layout_marginTop="10px"
-                            android:background="@drawable/button_click_back3"
-                            android:clickable="true"
-                            android:scaleType="fitCenter"
-                            android:src="@drawable/eq" />
+                    <ImageView
+                        android:id="@+id/eq"
+                        android:layout_width="fill_parent"
+                        android:layout_height="68px"
+                        android:layout_marginTop="10px"
+                        android:background="@drawable/button_click_back3"
+                        android:clickable="true"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/eq" />
 
-                        <ImageView
-                            android:id="@+id/id3"
-                            android:layout_width="fill_parent"
-                            android:layout_marginTop="10px"
-                            android:layout_height="68px"
-                            android:background="@drawable/button_click_back3"
-                            android:clickable="true"
-                            android:scaleType="center"
-                            android:src="@drawable/ico_artist_album" />
+                    <ImageView
+                        android:id="@+id/id3"
+                        android:layout_width="fill_parent"
+                        android:layout_marginTop="10px"
+                        android:layout_height="68px"
+                        android:background="@drawable/button_click_back3"
+                        android:clickable="true"
+                        android:scaleType="center"
+                        android:src="@drawable/ico_artist_album" />
 
-                    </LinearLayout>
+                </LinearLayout>
             </LinearLayout>
-	    
+
             <ScrollView
                 android:id="@+id/folder_listview_same_layout"
                 android:layout_width="250px"
-                android:layout_height="fill_parent" >
+                android:layout_height="fill_parent">
 
                 <LinearLayout
                     android:id="@+id/tb"
@@ -250,7 +251,7 @@
                     android:layout_marginLeft="1px"
                     android:layout_marginTop="0px"
                     android:gravity="left"
-                    android:orientation="vertical" >
+                    android:orientation="vertical">
 
                     <Button
                         android:id="@+id/btn_all"
@@ -385,7 +386,7 @@
                 android:layout_width="400px"
                 android:visibility="gone"
                 android:layout_height="fill_parent"
-                android:orientation="horizontal" >
+                android:orientation="horizontal">
 
                 <ListView
                     android:id="@+id/tv_all_list"
@@ -401,7 +402,7 @@
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:orientation="vertical" >
+                    android:orientation="vertical">
 
                     <Button
                         android:id="@+id/btn_add_all"
@@ -495,13 +496,14 @@
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/progressBar1"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:clickable="true"
         android:gravity="center"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
         <ProgressBar
             style="?android:attr/progressBarStyleLarge"

@@ -5,7 +5,7 @@
     android:layout_gravity="center_horizontal"
     android:minHeight="61.0px"
     android:paddingLeft="7.8px"
-    android:background="@drawable/music_list_selector" >
+    android:background="@drawable/music_list_selector">
 
     <!-- <ImageView -->
     <!-- android:id="@id/icon" -->
@@ -23,18 +23,18 @@
         android:layout_centerVertical="true"
         android:layout_marginRight="6.0px"
         android:src="@drawable/play_indicator" />
-    
-	<TextView
-	    android:id="@+id/list_text"
-	    style="@style/CommonStyleFonts"
-	    android:layout_width="match_parent"
-	    android:layout_height="wrap_content"
-	    android:layout_marginTop="17.0px"
-	    android:layout_toRightOf="@+id/play_indicator"
-	    android:ellipsize="end"
-	    android:gravity="left"
-	    android:singleLine="true"
-	    android:textColor="#ffc0c0c0"
-	    android:textSize="20.0px" />
+
+    <TextView
+        android:id="@+id/list_text"
+        style="@style/CommonStyleFonts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17.0px"
+        android:layout_toRightOf="@+id/play_indicator"
+        android:ellipsize="end"
+        android:gravity="left"
+        android:singleLine="true"
+        android:textColor="#ffc0c0c0"
+        android:textSize="20.0px" />
 
 </RelativeLayout>

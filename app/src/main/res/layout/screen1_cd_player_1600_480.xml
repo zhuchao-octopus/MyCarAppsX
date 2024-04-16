@@ -8,7 +8,7 @@
     android:fitsSystemWindows="true"
     android:gravity="center"
     android:orientation="vertical"
-    android:padding="0px" >
+    android:padding="0px">
 
     <!-- <View -->
     <!-- android:layout_width="match_parent" -->
@@ -18,12 +18,12 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:gravity="center" >
+        android:gravity="center">
 
         <FrameLayout
             android:id="@+id/list_content"
             android:layout_width="406px"
-            android:layout_height="317px" >
+            android:layout_height="317px">
 
             <ListView
                 android:id="@+id/list_view"
@@ -38,7 +38,7 @@
 
         <RelativeLayout
             android:layout_width="1182px"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
             <!-- <ImageView -->
             <!-- android:layout_width="560px" -->
@@ -49,7 +49,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center_horizontal"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/cd_title"
@@ -74,7 +74,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:gravity="center"
-                    android:orientation="horizontal" >
+                    android:orientation="horizontal">
 
                     <TextView
                         android:id="@+id/currenttime"
@@ -86,7 +86,7 @@
 
                     <RelativeLayout
                         android:layout_width="520px"
-                        android:layout_height="42px" >
+                        android:layout_height="42px">
 
                         <SeekBar
                             android:id="@+id/progress"
@@ -141,12 +141,12 @@
         android:layout_height="108px"
         android:background="@drawable/radio_bottom_bg"
         android:gravity="center"
-        android:orientation="horizontal" >
+        android:orientation="horizontal">
 
         <LinearLayout
             android:layout_width="1000px"
             android:layout_height="fill_parent"
-            android:orientation="horizontal" >
+            android:orientation="horizontal">
 
             <ImageView
                 android:id="@+id/cd_prev_button"

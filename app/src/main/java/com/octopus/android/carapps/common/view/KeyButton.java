@@ -20,25 +20,27 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
+import android.widget.Button;
 
 import com.octopus.android.carapps.common.utils.ResourceUtil;
 
 
-public class KeyButton extends androidx.appcompat.widget.AppCompatButton {
+@SuppressLint("AppCompatCustomView")
+public class KeyButton extends Button {
 
-	// TODO: Get rid of this
+    // TODO: Get rid of this
 
-	public KeyButton(Context context, AttributeSet attrs) {
-		this(context, attrs, 0);
-	}
-	@SuppressLint("UseCompatLoadingForDrawables")
-	public KeyButton(Context context, AttributeSet attrs, int defStyle) {
-		super(context, attrs);
-		Drawable d = context.getDrawable(ResourceUtil.getDrawableId(context, "button_common_keyview"));
-		if (d != null) {
-			setBackground(d);
-		} else {
-			//setBackground(new KeyButtonRipple(context, this));
-		}
-	}
+    public KeyButton(Context context, AttributeSet attrs) {
+        this(context, attrs, 0);
+    }
+    @SuppressLint("UseCompatLoadingForDrawables")
+    public KeyButton(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs);
+        Drawable d = context.getDrawable(ResourceUtil.getDrawableId(context, "button_common_keyview"));
+        if (d != null) {
+            setBackground(d);
+        } else {
+            //setBackground(new KeyButtonRipple(context, this));
+        }
+    }
 }

@@ -3,14 +3,14 @@
     android:id="@+id/screen1_main"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/screen1_background" >
+    android:background="@drawable/screen1_background">
 
     <LinearLayout
         android:id="@+id/video_main"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:fitsSystemWindows="true"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
         <include layout="@layout/common_status_bar" />
 
@@ -18,18 +18,18 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="1.0"
-            android:gravity="center_vertical" >
+            android:gravity="center_vertical">
 
             <LinearLayout
                 android:id="@+id/list_content"
                 android:layout_width="319px "
                 android:layout_height="417px"
-                android:gravity="center_vertical" >
+                android:gravity="center_vertical">
 
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:orientation="horizontal" >
+                    android:orientation="horizontal">
 
                     <ListView
                         android:id="@+id/tv_all_list"
@@ -45,7 +45,7 @@
                     <LinearLayout
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
-                        android:orientation="vertical" >
+                        android:orientation="vertical">
 
                         <Button
                             android:id="@+id/btn_add_all"
@@ -149,18 +149,18 @@
                 android:id="@+id/tr"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <HorizontalScrollView
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content" >
+                    android:layout_height="wrap_content">
 
                     <LinearLayout
                         android:id="@+id/rightButtonLayout"
                         android:layout_width="fill_parent"
                         android:layout_height="70px"
                         android:layout_marginLeft="10px"
-                        android:gravity="left" >
+                        android:gravity="left">
 
                         <TextView
                             android:id="@+id/btn_all"
@@ -270,9 +270,9 @@
 
                 <RelativeLayout
                     android:layout_width="fill_parent"
-                    android:layout_height="fill_parent" >
+                    android:layout_height="fill_parent">
 
-                    <com.my.video.MoviceView
+                    <com.octopus.android.carapps.video.MoviceView
                         android:id="@+id/surface_view"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent" />
@@ -303,7 +303,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
                         android:layout_marginBottom="18.0px"
-                        android:gravity="center" >
+                        android:gravity="center">
 
                         <TextView
                             android:id="@+id/currenttime2"
@@ -330,8 +330,8 @@
                             android:gravity="left|center"
                             android:textColor="#ffffffff"
                             android:textSize="22px" />
-                        
-                        
+
+
                         <ImageView
                             android:id="@+id/play_repeat_tag"
                             android:layout_width="37px"
@@ -348,7 +348,7 @@
             android:layout_width="fill_parent"
             android:layout_height="118px"
             android:gravity="center_horizontal"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <!-- <View -->
             <!-- android:layout_width="fill_parent" -->
@@ -362,13 +362,13 @@
         android:id="@+id/bottom_button_layout"
         android:layout_width="fill_parent"
         android:layout_height="118px"
-        android:layout_alignParentBottom="true" >
+        android:layout_alignParentBottom="true">
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/radio_bottom_bg"
-            android:gravity="center" >
+            android:gravity="center">
 
             <ImageView
                 android:id="@+id/prev"
@@ -404,7 +404,7 @@
                 android:clickable="true"
                 android:scaleType="center"
                 android:src="@drawable/full" />
-            
+
             <Button
                 android:id="@+id/eq_mode_switch"
                 style="@style/Screen1ButtonStyle1024"

@@ -1,31 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:sharedUserId="android.uid.system"
-    android:sharedUserMaxSdkVersion="32">
+    xmlns:tools="http://schemas.android.com/tools">
 
+    <!--android:sharedUserId="android.uid.system"
+        android:sharedUserMaxSdkVersion="32"
+        tools:targetApi="tiramisu"-->
 
     <uses-feature
         android:name="android.hardware.camera"
         android:required="false" />
 
-    <uses-permission android:name="android.permission.READ_WALLPAPER_INTERNAL" />
-    <uses-permission android:name="android.permission.WRITE_SETTINGS"
+    <uses-permission
+        android:name="android.permission.READ_WALLPAPER_INTERNAL"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission
+        android:name="android.permission.WRITE_SETTINGS"
         tools:ignore="ProtectedPermissions" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="32"
         tools:ignore="ScopedStorage" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.BROADCAST_STICKY" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS"
+    <uses-permission
+        android:name="android.permission.INTERACT_ACROSS_USERS"
         tools:ignore="ProtectedPermissions" />
-    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL"
+    <uses-permission
+        android:name="android.permission.INTERACT_ACROSS_USERS_FULL"
         tools:ignore="ProtectedPermissions" />
 
     <uses-permission android:name="android.permission.SET_WALLPAPER" />
@@ -62,13 +69,13 @@
 
         <activity
             android:name="com.octopus.android.carapps.settings.SettingsActivityUser"
+            android:exported="true"
             android:finishOnCloseSystemDialogs="true"
             android:icon="@mipmap/ic_launcher_wallpaper"
             android:label="@string/pick_wallpaper"
             android:launchMode="singleInstance"
             android:resizeableActivity="true"
-            android:theme="@android:style/Theme.Material.NoActionBar"
-            android:exported="true">
+            android:theme="@android:style/Theme.Material.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
@@ -81,13 +88,13 @@
 
         <activity
             android:name="com.octopus.android.carapps.settings.SettingsActivity"
+            android:exported="true"
             android:finishOnCloseSystemDialogs="true"
             android:icon="@mipmap/ic_launcher_wallpaper"
             android:label="@string/pick_wallpaper"
             android:launchMode="singleInstance"
             android:resizeableActivity="true"
-            android:theme="@android:style/Theme.Material.NoActionBar"
-            android:exported="true">
+            android:theme="@android:style/Theme.Material.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
@@ -99,13 +106,13 @@
 
         <activity
             android:name="com.octopus.android.carapps.wallpaper.WallpaperChooser"
+            android:exported="true"
             android:finishOnCloseSystemDialogs="true"
             android:icon="@mipmap/ic_launcher_wallpaper"
             android:label="@string/pick_wallpaper"
             android:launchMode="singleInstance"
             android:resizeableActivity="true"
-            android:theme="@android:style/Theme.Holo.NoActionBar"
-            android:exported="true">
+            android:theme="@android:style/Theme.Holo.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
@@ -119,12 +126,12 @@
         <activity
             android:name="com.octopus.android.carapps.radio.RadioActivity"
             android:excludeFromRecents="true"
+            android:exported="true"
             android:icon="@drawable/radio_icon"
             android:label="@string/toolbar_text_radio"
             android:launchMode="singleInstance"
             android:resizeableActivity="true"
-            android:theme="@style/TranslucentTheme"
-            android:exported="true">
+            android:theme="@style/TranslucentTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -135,12 +142,12 @@
             android:name="com.octopus.android.carapps.audio.MusicActivity"
             android:excludeFromRecents="true"
 
+            android:exported="true"
             android:icon="@drawable/music_icon"
             android:label="@string/toolbar_text_music"
             android:launchMode="singleInstance"
             android:resizeableActivity="true"
-            android:theme="@style/TranslucentTheme"
-            android:exported="true">
+            android:theme="@style/TranslucentTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -150,12 +157,12 @@
         <activity
             android:name="com.octopus.android.carapps.dvd.DVDPlayer"
             android:excludeFromRecents="true"
+            android:exported="true"
             android:icon="@drawable/dvd_icon"
             android:label="@string/toolbar_text_dvd"
             android:launchMode="singleInstance"
             android:resizeableActivity="false"
-            android:theme="@style/TranslucentTheme"
-            android:exported="true">
+            android:theme="@style/TranslucentTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -165,12 +172,12 @@
         <activity
             android:name="com.octopus.android.carapps.tv.TVActivity"
             android:excludeFromRecents="true"
+            android:exported="true"
             android:icon="@drawable/tv_icon"
             android:label="@string/toolbar_text_tv"
             android:launchMode="singleInstance"
             android:resizeableActivity="false"
-            android:theme="@style/TranslucentTheme2"
-            android:exported="true">
+            android:theme="@style/TranslucentTheme2">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -181,12 +188,12 @@
             android:name="com.octopus.android.carapps.video.VideoActivity"
             android:configChanges="orientation|keyboardHidden"
             android:excludeFromRecents="true"
+            android:exported="true"
             android:icon="@drawable/video_icon"
             android:label="@string/toolbar_text_video"
             android:launchMode="singleInstance"
             android:resizeableActivity="true"
-            android:theme="@style/TranslucentTheme"
-            android:exported="true">
+            android:theme="@style/TranslucentTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -196,12 +203,12 @@
         <activity
             android:name="com.octopus.android.carapps.auxplayer.AUXPlayer"
             android:excludeFromRecents="true"
+            android:exported="true"
             android:icon="@drawable/auxin_icon"
             android:label="@string/toolbar_text_auxin"
             android:launchMode="singleInstance"
             android:resizeableActivity="false"
-            android:theme="@style/TranslucentTheme2"
-            android:exported="true">
+            android:theme="@style/TranslucentTheme2">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -212,12 +219,12 @@
         <activity
             android:name="com.octopus.android.carapps.btmusic.BTMusicActivity"
             android:excludeFromRecents="true"
+            android:exported="true"
             android:icon="@drawable/btmusic_icon"
             android:label="@string/toolbar_text_bluetooth_music"
             android:launchMode="singleInstance"
             android:resizeableActivity="true"
-            android:theme="@style/TranslucentTheme"
-            android:exported="true">
+            android:theme="@style/TranslucentTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -227,12 +234,12 @@
 
         <activity
             android:name="com.octopus.android.carapps.frontcamera.FrontCameraActivity"
+            android:exported="true"
             android:icon="@drawable/front_camera_icon"
             android:label="@string/f_camera"
             android:launchMode="singleInstance"
             android:resizeableActivity="false"
-            android:theme="@style/TranslucentTheme2"
-            android:exported="true">
+            android:theme="@style/TranslucentTheme2">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -242,12 +249,12 @@
 
         <activity
             android:name="com.octopus.android.carapps.frontcamera.BackCameraActivity"
+            android:exported="true"
             android:icon="@drawable/camera"
             android:label="@string/camera"
             android:launchMode="singleInstance"
             android:resizeableActivity="false"
-            android:theme="@style/TranslucentTheme2"
-            android:exported="true">
+            android:theme="@style/TranslucentTheme2">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -256,12 +263,12 @@
 
         <activity
             android:name="com.octopus.android.carapps.frontcamera.SideCameraActivity"
+            android:exported="true"
             android:icon="@drawable/front_camera_icon"
             android:label="@string/side_camera"
             android:launchMode="singleInstance"
             android:resizeableActivity="true"
-            android:theme="@style/TranslucentTheme2"
-            android:exported="true">
+            android:theme="@style/TranslucentTheme2">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
@@ -270,13 +277,13 @@
 
         <activity-alias
             android:name="com.my.frontcamera.FrontCameraActivity4"
+            android:exported="true"
             android:icon="@drawable/front_camera_icon"
             android:label="@string/f_camera4"
             android:launchMode="singleInstance"
             android:resizeableActivity="true"
             android:targetActivity="com.octopus.android.carapps.frontcamera.FrontCameraActivity"
-            android:theme="@style/TranslucentTheme2"
-            android:exported="true">
+            android:theme="@style/TranslucentTheme2">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -285,19 +292,20 @@
 
         <activity
             android:name="com.octopus.android.carapps.navi.NaviEmptyActivity"
+            android:exported="true"
             android:icon="@drawable/navi_icon"
             android:label="@string/toolbar_text_gps"
             android:launchMode="singleInstance"
             android:resizeableActivity="true"
-            android:theme="@style/TranslucentTheme"
-            android:exported="true">
+            android:theme="@style/TranslucentTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <receiver android:name="com.octopus.android.carapps.car.ui.BR"
+        <receiver
+            android:name="com.octopus.android.carapps.car.ui.BR"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
@@ -308,6 +316,7 @@
         <service
             android:name="com.octopus.android.carapps.car.service.UIService"
             android:exported="true"></service>
+
     </application>
 
 </manifest>

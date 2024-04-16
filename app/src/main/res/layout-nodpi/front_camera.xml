@@ -3,12 +3,12 @@
     android:id="@+id/screen1_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0px"
-        android:layout_weight="1" >
+        android:layout_weight="1">
 
         <SurfaceView
             android:id="@+id/camera_surfaceview"
@@ -40,7 +40,7 @@
             android:background="#000000"
             android:gravity="center"
             android:orientation="vertical"
-            android:visibility="gone" >
+            android:visibility="gone">
 
             <ImageView
                 style="@style/CommonStyleFonts"
@@ -64,29 +64,29 @@
                 android:textSize="28px"
                 android:visibility="gone" />
         </LinearLayout>
-        
-    <RelativeLayout
-        android:id="@+id/switch_camera_parent"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" >
 
-        <com.octopus.android.carapps.common.view.KeyButtonView
-            android:id="@+id/switch_camera"
-            style="@style/Screen1ButtonStyle800"
-            android:layout_marginLeft="2px"
-            android:layout_marginTop="80px"
-            android:clickable="true"
-            android:focusable="true"
-            android:scaleType="center"
-            android:src="@drawable/f_camera_f" />
-    </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/switch_camera_parent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.octopus.android.carapps.common.view.KeyButtonView
+                android:id="@+id/switch_camera"
+                style="@style/Screen1ButtonStyle800"
+                android:layout_marginLeft="2px"
+                android:layout_marginTop="80px"
+                android:clickable="true"
+                android:focusable="true"
+                android:scaleType="center"
+                android:src="@drawable/f_camera_f" />
+        </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/camera_hide_buttons"
             android:layout_width="match_parent"
             android:paddingLeft="25px"
             android:paddingRight="5px"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
             <LinearLayout
                 android:id="@+id/camera_3"
@@ -94,7 +94,7 @@
                 android:layout_height="match_parent"
                 android:gravity="left"
                 android:orientation="vertical"
-                android:visibility="gone" >
+                android:visibility="gone">
 
                 <TextView
                     android:id="@+id/switch_camera_f"
@@ -183,7 +183,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginTop="60px"
             android:orientation="horizontal"
-            android:paddingRight="8px" >
+            android:paddingRight="8px">
 
             <EditText
                 android:id="@+id/cam1"
@@ -209,9 +209,9 @@
                 android:focusable="false"
                 android:text="@string/cam4" />
         </LinearLayout>
-        
-        
-    <include layout="@layout/dacia_360" />
+
+
+        <include layout="@layout/dacia_360" />
     </RelativeLayout>
 
 </LinearLayout>

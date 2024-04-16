@@ -2,7 +2,7 @@
 <AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="220.0px"
     android:layout_height="160px"
-    android:background="@drawable/button_radio_grid" >
+    android:background="@drawable/button_radio_grid">
 
     <TextView
         android:id="@+id/list_text1"

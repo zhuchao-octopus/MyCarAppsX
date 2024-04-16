@@ -2,36 +2,37 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="1280px"
     android:background="@drawable/background"
-    android:layout_height="fill_parent" >
+    android:layout_height="fill_parent">
 
     <AbsoluteLayout
         android:layout_width="1280px"
         android:layout_height="720px"
         android:background="#ff000000"
-        android:gravity="center" >
+        android:gravity="center">
 
-        <com.my.video.MoviceView
+        <com.octopus.android.carapps.video.MoviceView
             android:id="@+id/surface_view"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent" />
     </AbsoluteLayout>
 
     <TextView
-                        android:id="@+id/brake_warning_text"
-                        style="@style/CommonStyleFonts"
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:layout_centerInParent="true"
-                        android:background="#000000"
-                        android:gravity="center"
-                        android:text="@string/warning_driving"
-                        android:textSize="36sp" />
+        android:id="@+id/brake_warning_text"
+        style="@style/CommonStyleFonts"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerInParent="true"
+        android:background="#000000"
+        android:gravity="center"
+        android:text="@string/warning_driving"
+        android:textSize="36sp" />
+
     <LinearLayout
         android:id="@+id/video_main"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:fitsSystemWindows="true"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
         <!-- <View -->
         <!-- android:layout_width="fill_parent" -->
@@ -42,19 +43,18 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="1.0"
-            android:gravity="center_vertical" >
+            android:gravity="center_vertical">
 
             <LinearLayout
                 android:id="@+id/tr"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <RelativeLayout
                     android:layout_width="fill_parent"
-                    android:layout_height="fill_parent" >
+                    android:layout_height="fill_parent">
 
-                    
 
                     <ImageView
                         android:id="@+id/video_hide"
@@ -71,7 +71,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
                         android:layout_marginBottom="18.0px"
-                        android:gravity="center" >
+                        android:gravity="center">
 
                         <TextView
                             android:id="@+id/currenttime2"
@@ -116,7 +116,7 @@
             android:layout_width="fill_parent"
             android:layout_height="120px"
             android:gravity="center_horizontal"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <!-- <View -->
             <!-- android:layout_width="fill_parent" -->
@@ -130,13 +130,13 @@
         android:id="@+id/bottom_button_layout"
         android:layout_width="fill_parent"
         android:layout_height="120px"
-        android:layout_alignParentBottom="true" >
+        android:layout_alignParentBottom="true">
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:background="@drawable/radio_bottom_bg"
-            android:gravity="center" >
+            android:gravity="center">
 
             <Button
                 android:id="@+id/eq_mode_switch"
