@@ -166,11 +166,11 @@
                                         android:textColor="#ffe0e0e0"
                                         android:textSize="30.0dip" />
 
-                                    <com.octopus.android.carapps.qylk.myview.LrcView
+                                    <com.octopus.android.carapps.common.qylk.myview.LrcView
                                         android:id="@+id/lrcshow"
                                         android:layout_width="fill_parent"
                                         android:layout_height="120px"
-                                        android:visibility="gone"></com.octopus.android.carapps.qylk.myview.LrcView>
+                                        android:visibility="gone"></com.octopus.android.carapps.common.qylk.myview.LrcView>
                                 </LinearLayout>
 
                                 <LinearLayout

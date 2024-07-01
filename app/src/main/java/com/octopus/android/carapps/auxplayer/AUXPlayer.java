@@ -9,7 +9,7 @@ import android.os.PowerManager.WakeLock;
 import com.common.util.BroadcastUtil;
 import com.common.util.MyCmd;
 import com.octopus.android.carapps.R;
-import com.octopus.android.carapps.car.ui.GlobalDef;
+import com.octopus.android.carapps.common.ui.GlobalDef;
 import com.octopus.android.carapps.common.utils.ResourceUtil;
 
 public class AUXPlayer extends Activity {
@@ -18,10 +18,10 @@ public class AUXPlayer extends Activity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        boolean multiWindow = ResourceUtil.updateAppUi(this);
-        if (multiWindow) {
-            GlobalDef.updateMultiWindownActivity(this);
-        }
+        //boolean multiWindow = ResourceUtil.updateAppUi(this);
+        //if (multiWindow) {
+        //    GlobalDef.updateMultiWindowActivity(this);
+        //}
         super.onCreate(savedInstanceState);
         setContentView(R.layout.aux_player);
 

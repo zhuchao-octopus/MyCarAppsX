@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/screen1_main"
+    android:tag="92"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
 
     <LinearLayout
         android:id="@+id/video_main"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:background="@drawable/background"
         android:fitsSystemWindows="true"
         android:orientation="vertical">
 
         <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1.0"
             android:gravity="center_vertical">
 
@@ -159,7 +160,7 @@
                     android:layout_height="fill_parent"
                     android:background="#ff000000">
 
-                    <com.octopus.android.carapps.video.MoviceView
+                    <com.octopus.android.carapps.video.MovieView
                         android:id="@+id/surface_view"
                         android:layout_width="100px"
                         android:layout_height="100px" />
@@ -363,7 +364,7 @@
 
     <LinearLayout
         android:id="@+id/bottom_button_layout"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="150px"
         android:layout_alignParentBottom="true"
         android:background="@drawable/bottom_menu_bg"

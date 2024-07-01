@@ -9,7 +9,7 @@ import com.common.util.MachineConfig;
 import com.common.util.MyCmd;
 import com.common.util.ProtocolAk47;
 import com.common.util.Util;
-import com.octopus.android.carapps.car.ui.GlobalDef;
+import com.octopus.android.carapps.common.ui.GlobalDef;
 
 import java.util.ArrayList;
 

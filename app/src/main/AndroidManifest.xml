@@ -59,6 +59,7 @@
 
 
     <application
+        android:name=".common.ui.MainApp"
         android:allowBackup="true"
         android:hardwareAccelerated="true"
         android:largeHeap="true"
@@ -81,7 +82,6 @@
             </intent-filter>
             <intent-filter>
                 <action android:name="com.octopus.android.carapps.settings.intent.action.SettingsActivityUser" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -118,7 +118,6 @@
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.SET_WALLPAPER" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -141,7 +140,6 @@
         <activity
             android:name="com.octopus.android.carapps.audio.MusicActivity"
             android:excludeFromRecents="true"
-
             android:exported="true"
             android:icon="@drawable/music_icon"
             android:label="@string/toolbar_text_music"
@@ -211,7 +209,6 @@
             android:theme="@style/TranslucentTheme2">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -227,7 +224,6 @@
             android:theme="@style/TranslucentTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -242,7 +238,6 @@
             android:theme="@style/TranslucentTheme2">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -276,7 +271,7 @@
         </activity>
 
         <activity-alias
-            android:name="com.my.frontcamera.FrontCameraActivity4"
+            android:name="com.octopus.android.carapps.frontcamera.FrontCameraActivity4"
             android:exported="true"
             android:icon="@drawable/front_camera_icon"
             android:label="@string/f_camera4"
@@ -305,7 +300,7 @@
         </activity>
 
         <receiver
-            android:name="com.octopus.android.carapps.car.ui.BR"
+            android:name="com.octopus.android.carapps.common.ui.BR"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
@@ -314,7 +309,7 @@
         </receiver>
 
         <service
-            android:name="com.octopus.android.carapps.car.service.UIService"
+            android:name="com.octopus.android.carapps.service.UIService"
             android:exported="true"></service>
 
     </application>

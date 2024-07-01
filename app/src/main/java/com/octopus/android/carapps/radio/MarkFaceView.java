@@ -15,7 +15,7 @@ import android.view.View;
 
 import com.common.util.MachineConfig;
 import com.octopus.android.carapps.R;
-import com.octopus.android.carapps.car.ui.GlobalDef;
+import com.octopus.android.carapps.common.ui.GlobalDef;
 
 public class MarkFaceView extends View {
     private Paint mPaint;

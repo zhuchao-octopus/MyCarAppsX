@@ -19,22 +19,23 @@ import com.common.util.MyCmd;
 import com.common.util.Util;
 import com.octopus.android.carapps.R;
 import com.octopus.android.carapps.adapter.MyListViewAdapterDvd;
-import com.octopus.android.carapps.car.ui.GlobalDef;
+import com.octopus.android.carapps.common.ui.GlobalDef;
 import com.octopus.android.carapps.common.utils.ResourceUtil;
 import com.octopus.android.carapps.hardware.dvs.DVideoSpec;
 
-public class DVDPlayer extends Activity {
+import java.util.Objects;
 
+public class DVDPlayer extends Activity {
     DVDUI mUI;
     private static DVDPlayer mThis;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
 
-        boolean multiWindow = ResourceUtil.updateAppUi(this);
-        if (multiWindow) {
-            GlobalDef.updateMultiWindownActivity(this);
-        }
+        //boolean multiWindow = ResourceUtil.updateAppUi(this);
+        //if (multiWindow) {
+        //    GlobalDef.updateMultiWindowActivity(this);
+        //}
         if (Util.isSufaceFlashInWallpaperApp()) {
             setTheme(R.style.TranslucentTheme2);
         }
@@ -77,8 +78,6 @@ public class DVDPlayer extends Activity {
         if (mUI != null) mUI.onResume();
         GlobalDef.openGps(this, getIntent());
         setIntent(null);
-
-
     }
 
     @Override
@@ -467,7 +466,7 @@ public class DVDPlayer extends Activity {
     }
 
     private MotionEvent mMotionEventDelayed = null;
-    private final Handler mHandler = new Handler(Looper.myLooper()) {
+    private final Handler mHandler = new Handler(Objects.requireNonNull(Looper.myLooper())) {
 
         @Override
         public void handleMessage(Message msg) {

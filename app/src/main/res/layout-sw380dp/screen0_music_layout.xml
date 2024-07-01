@@ -90,13 +90,13 @@
                                 android:textSize="28.0dip"
                                 tools:ignore="Suspicious0dp" />
 
-                            <com.octopus.android.carapps.qylk.myview.LrcView
+                            <com.octopus.android.carapps.common.qylk.myview.LrcView
                                 android:id="@+id/lrcshow"
                                 android:layout_width="fill_parent"
                                 android:layout_height="50px"
                                 android:visibility="gone">
 
-                            </com.octopus.android.carapps.qylk.myview.LrcView>
+                            </com.octopus.android.carapps.common.qylk.myview.LrcView>
 
                         </LinearLayout>
 

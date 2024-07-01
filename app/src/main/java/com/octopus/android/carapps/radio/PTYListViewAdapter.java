@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.octopus.android.carapps.R;
-import com.octopus.android.carapps.car.ui.GlobalDef;
+import com.octopus.android.carapps.common.ui.GlobalDef;
 
 import java.util.ArrayList;
 import java.util.List;

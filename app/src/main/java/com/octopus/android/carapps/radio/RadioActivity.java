@@ -20,7 +20,7 @@ import com.common.util.Kernel;
 import com.common.util.MyCmd;
 import com.common.util.Util;
 import com.octopus.android.carapps.R;
-import com.octopus.android.carapps.car.ui.GlobalDef;
+import com.octopus.android.carapps.common.ui.GlobalDef;
 import com.octopus.android.carapps.common.utils.ResourceUtil;
 
 public class RadioActivity extends Activity {
@@ -30,10 +30,10 @@ public class RadioActivity extends Activity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        boolean multiWindow = ResourceUtil.updateAppUi(this);
-        multiWindow = ResourceUtil.isMultiWindow(this);
+        ResourceUtil.updateAppUi(this);
+        boolean multiWindow = ResourceUtil.isMultiWindow(this);
         if (multiWindow) {
-            GlobalDef.updateMultiWindownActivity(this);
+            GlobalDef.updateMultiWindowActivity(this);
         }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.screen0_radio_layout);
@@ -438,7 +438,7 @@ public class RadioActivity extends Activity {
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-        //			Log.d("RadioActivity", "onConfigurationChanged\n" + newConfig + "\n" + resumeConfiguration);
+        //Log.d("RadioActivity", "onConfigurationChanged\n" + newConfig + "\n" + resumeConfiguration);
         if (resumeConfiguration != null && newConfig != null && resumeConfiguration.screenWidthDp != newConfig.screenWidthDp) {
             Log.w("RadioActivity", "onConfigurationChanged " + resumeConfiguration.screenWidthDp + ", " + newConfig.screenWidthDp + ", " + recreateScreenWidthDp + ", " + ResourceUtil.isMultiWindow(this));
             if (recreateScreenWidthDp != newConfig.screenWidthDp && !ResourceUtil.isMultiWindow(this)) {
@@ -448,7 +448,7 @@ public class RadioActivity extends Activity {
         }
     }
 
-    private Runnable recreateRunnable = new Runnable() {
+    private final Runnable recreateRunnable = new Runnable() {
         @Override
         public void run() {
             Log.e("RadioActivity", "do recreate");

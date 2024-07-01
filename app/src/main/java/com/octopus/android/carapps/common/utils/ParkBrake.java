@@ -2,7 +2,7 @@ package com.octopus.android.carapps.common.utils;
 
 import android.util.Log;
 
-import com.octopus.android.carapps.car.ui.GlobalDef;
+import com.octopus.android.carapps.common.ui.GlobalDef;
 
 import java.io.BufferedReader;
 import java.io.File;

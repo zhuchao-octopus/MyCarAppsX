@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.common.util.MachineConfig;
 import com.octopus.android.carapps.R;
-import com.octopus.android.carapps.car.ui.GlobalDef;
+import com.octopus.android.carapps.common.ui.GlobalDef;
 
 public class MyListViewAdapter extends ArrayAdapter<String> {
 

@@ -59,7 +59,7 @@
                 android:layout_height="238px"
                 android:layout_marginLeft="5px">
 
-                <com.common.view.MusicRollImage
+                <com.octopus.android.carapps.common.view.MusicRollImage
                     android:id="@+id/album_art"
                     android:layout_width="238px"
                     android:layout_height="238px"

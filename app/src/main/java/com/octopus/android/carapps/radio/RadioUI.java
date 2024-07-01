@@ -32,7 +32,7 @@ import com.common.util.MachineConfig;
 import com.common.util.MyCmd;
 import com.common.util.Util;
 import com.octopus.android.carapps.R;
-import com.octopus.android.carapps.car.ui.GlobalDef;
+import com.octopus.android.carapps.common.ui.GlobalDef;
 import com.octopus.android.carapps.common.ui.UIBase;
 
 

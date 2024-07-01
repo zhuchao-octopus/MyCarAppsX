@@ -14,8 +14,10 @@ import android.util.Log;
 import com.common.util.BroadcastUtil;
 import com.common.util.MyCmd;
 import com.common.util.UtilCarKey;
-import com.octopus.android.carapps.car.ui.GlobalDef;
+import com.octopus.android.carapps.common.ui.GlobalDef;
 import com.octopus.android.carapps.common.service.ServiceBase;
+
+import java.util.Objects;
 
 public class BTMusicService extends ServiceBase {
     public static final String TAG = "BTMusicService";
@@ -57,10 +59,8 @@ public class BTMusicService extends ServiceBase {
         mContext.sendBroadcast(it);
     }
 
-
     private final static int MSG_DELAY_PAUSE = 1;
-    private final Handler mHandler = new Handler(Looper.myLooper()) {
-
+    private final Handler mHandler = new Handler(Objects.requireNonNull(Looper.myLooper())) {
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what) {

@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/screen1_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:padding="0px">
+
+    <ImageView
+        android:layout_width="482.0px"
+        android:layout_height="151.0px"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40.0px"
+        android:src="@drawable/channel_back" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/list_content"
+            android:layout_width="match_parent"
+            android:layout_height="236px"
+            android:gravity="center_vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="220px">
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_marginTop="5px"
+                        android:gravity="center">
+
+                        <AbsoluteLayout
+                            android:layout_width="784px"
+                            android:layout_height="95px"
+                            android:layout_marginLeft="0px"
+                            android:layout_marginTop="3px">
+
+                            <ImageButton
+                                android:id="@+id/radio_step_up_button"
+                                android:layout_width="76px"
+                                android:layout_height="76px"
+                                android:layout_gravity="center"
+                                android:layout_x="20px"
+                                android:layout_y="12px"
+                                android:background="@drawable/btn_prev" />
+
+                            <ImageButton
+                                android:id="@+id/radio_step_down_button"
+                                android:layout_width="76px"
+                                android:layout_height="76px"
+                                android:layout_gravity="center"
+                                android:layout_x="688px"
+                                android:layout_y="12px"
+                                android:background="@drawable/btn_next" />
+
+                            <LinearLayout
+                                android:layout_width="568px"
+                                android:layout_height="fill_parent"
+                                android:layout_x="108px"
+                                android:gravity="center_horizontal">
+
+                                <AbsoluteLayout
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="85.0px"
+                                    android:layout_marginTop="10px"
+                                    android:background="@drawable/freq_back">
+
+                                    <LinearLayout
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="40px"
+                                        android:layout_x="40px"
+                                        android:layout_y="1px"
+                                        android:gravity="left"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:id="@+id/radio_ta"
+                                            android:layout_width="40px"
+                                            android:layout_height="30px"
+                                            android:gravity="center"
+                                            android:text="@string/radio_ta"
+                                            android:textColor="@color/radio_rds_info"
+                                            android:textSize="22px"
+                                            android:visibility="invisible" />
+
+                                        <TextView
+                                            android:id="@+id/radio_tp"
+                                            android:layout_width="40px"
+                                            android:layout_height="30px"
+                                            android:gravity="center"
+                                            android:text="@string/radio_tp"
+                                            android:textColor="@color/radio_rds_info"
+                                            android:textSize="22px"
+                                            android:visibility="invisible" />
+
+                                        <ImageView
+                                            android:id="@+id/radio_st"
+                                            android:layout_width="40px"
+                                            android:layout_height="30px"
+                                            android:gravity="center"
+                                            android:scaleType="center"
+                                            android:src="@drawable/radio_icon_stereo"
+                                            android:text="@string/radio_st"
+                                            android:textColor="@color/radio_rds_info"
+                                            android:textSize="22px"
+                                            android:visibility="invisible" />
+
+                                        <!-- <TextView -->
+                                        <!-- android:id="@+id/radio_loc" -->
+                                        <!-- android:layout_width="wrap_content" -->
+                                        <!-- android:layout_height="30px" -->
+                                        <!-- android:gravity="center" -->
+                                        <!-- android:text="@string/radio_function_text_loc" -->
+                                        <!-- android:textColor="@color/radio_rds_info" -->
+                                        <!-- android:textSize="22px" -->
+                                        <!-- android:visibility="invisible" /> -->
+                                    </LinearLayout>
+
+                                    <TextView
+                                        android:id="@+id/debug"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textSize="20px"
+                                        android:visibility="visible" />
+
+                                    <TextView
+                                        android:id="@+id/freq_text_ps"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_x="0px"
+                                        android:layout_y="-8px"
+                                        android:gravity="center"
+                                        android:paddingLeft="10px"
+                                        android:paddingRight="10px"
+                                        android:singleLine="true"
+                                        android:textColor="#3bb874"
+                                        android:textSize="42px"
+                                        android:visibility="visible" />
+
+                                    <TextView
+                                        android:id="@+id/freq_text"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_centerInParent="true"
+                                        android:layout_x="0px"
+                                        android:layout_y="-10px"
+                                        android:gravity="center"
+                                        android:paddingLeft="10px"
+                                        android:paddingRight="10px"
+                                        android:singleLine="true"
+                                        android:textColor="#ff37d379"
+                                        android:textSize="72.0px" />
+
+                                    <LinearLayout
+                                        android:layout_width="480px"
+                                        android:layout_height="94px"
+                                        android:layout_x="50px"
+                                        android:gravity="center"
+                                        android:orientation="horizontal"
+                                        android:visibility="gone">
+
+                                        <AbsoluteLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="144px"
+                                            android:layout_x="80px"
+                                            android:visibility="gone">
+
+                                            <ImageView
+                                                android:id="@+id/rds_digit_p"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="bottom"
+                                                android:layout_x="268px"
+                                                android:layout_y="0px"
+                                                android:background="@drawable/p" />
+
+                                            <ImageView
+                                                android:id="@+id/rds_digit_p2"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_x="400px"
+                                                android:background="@drawable/radio_tr_digit" />
+
+                                            <ImageView
+                                                android:id="@+id/rds_digit_1"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_x="0px"
+                                                android:background="@drawable/radio_tr_digit" />
+
+                                            <ImageView
+                                                android:id="@+id/rds_digit_2"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_x="100px"
+                                                android:background="@drawable/radio_tr_digit" />
+
+                                            <ImageView
+                                                android:id="@+id/rds_digit_3"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginLeft="2.0px"
+                                                android:layout_marginRight="2.0px"
+                                                android:layout_x="200px"
+                                                android:background="@drawable/radio_tr_digit" />
+
+                                            <ImageView
+                                                android:id="@+id/rds_digit_p1"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_x="300px"
+                                                android:background="@drawable/radio_tr_digit" />
+                                        </AbsoluteLayout>
+                                    </LinearLayout>
+
+                                    <TextView
+                                        android:id="@+id/radio_fm_text"
+                                        style="@style/shadowText"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:layout_x="80px"
+                                        android:gravity="center"
+                                        android:textColor="@color/radio_rds_info1"
+                                        android:textSize="32px" />
+
+                                    <TextView
+                                        android:id="@+id/radio_unit_text"
+                                        style="@style/shadowText"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:layout_x="440px"
+                                        android:gravity="center"
+                                        android:textColor="@color/radio_rds_info1"
+                                        android:textSize="32px" />
+                                </AbsoluteLayout>
+                            </LinearLayout>
+                        </AbsoluteLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="38px"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginBottom="5px"
+                        android:gravity="right|center_vertical"
+                        android:paddingRight="50px">
+
+                        <ToggleButton
+                            android:id="@+id/radio_function_button_st"
+                            style="@style/ButtonStyle2"
+                            android:layout_width="84.0px"
+                            android:layout_height="52.0px"
+                            android:background="@drawable/button_bacground"
+                            android:clickable="true"
+                            android:scaleType="center"
+                            android:singleLine="true"
+                            android:textColor="@color/radio_rds_info1"
+                            android:textOff="@string/radio_st"
+                            android:textOn="@string/radio_st"
+                            android:textSize="25px" />
+
+                        <LinearLayout
+                            android:id="@+id/rds_buttons"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <ToggleButton
+                                android:id="@+id/radio_function_button_af"
+                                style="@style/ButtonStyle2"
+                                android:layout_width="84.0px"
+                                android:layout_height="52.0px"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="18.0px"
+                                android:background="@drawable/button_bacground"
+                                android:clickable="true"
+                                android:scaleType="center"
+                                android:textColor="@color/radio_rds_info1"
+                                android:textOff="@string/radio_function_text_af"
+                                android:textOn="@string/radio_function_text_af"
+                                android:textSize="25px" />
+
+                            <ToggleButton
+                                android:id="@+id/radio_function_button_ta"
+                                style="@style/ButtonStyle2"
+                                android:layout_width="84.0px"
+                                android:layout_height="52.0px"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="18.0px"
+                                android:background="@drawable/button_bacground"
+                                android:clickable="true"
+                                android:scaleType="center"
+                                android:textColor="@color/radio_rds_info1"
+                                android:textOff="@string/radio_function_text_ta"
+                                android:textOn="@string/radio_function_text_ta"
+                                android:textSize="25px" />
+
+                            <Button
+                                android:id="@+id/radio_function_button_pty"
+                                style="@style/ButtonStyle2"
+                                android:layout_width="84.0px"
+                                android:layout_height="52.0px"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="18.0px"
+                                android:background="@drawable/button_bacground"
+                                android:clickable="true"
+                                android:scaleType="center"
+                                android:text="@string/radio_function_text_pty"
+                                android:textColor="@color/radio_rds_info1"
+                                android:textSize="25px" />
+
+                            <ToggleButton
+                                android:id="@+id/radio_function_button_reg"
+                                style="@style/ButtonStyle2"
+                                android:clickable="true"
+                                android:scaleType="center"
+                                android:textColor="@color/radio_rds_info1"
+                                android:textOff="@string/radio_function_text_reg"
+                                android:textOn="@string/radio_function_text_reg"
+                                android:textSize="25px"
+                                android:visibility="gone" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rds_texts"
+                        android:layout_width="fill_parent"
+                        android:layout_height="22px"
+                        android:layout_marginTop="48px"
+                        android:background="@drawable/com_background"
+                        android:orientation="horizontal">
+
+                        <com.octopus.android.carapps.common.view.MarqueeTextView
+                            android:id="@+id/radio_rds_rt"
+                            style="@style/shadowText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginLeft="150px"
+                            android:textColor="@color/radio_rds_info1"
+                            android:textSize="18px" />
+
+                        <TextView
+                            android:id="@+id/radio_current_pty_type_name"
+                            style="@style/shadowText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginLeft="15px"
+                            android:textColor="@color/radio_rds_info1"
+                            android:textSize="18px" />
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <com.octopus.android.carapps.radio.MarkFaceView
+                    android:id="@+id/radio_mark_face_view"
+                    android:layout_width="fill_parent"
+                    android:layout_height="48px"
+                    android:background="@drawable/markface" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="68.0px"
+            android:layout_marginTop="0.0px"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="0.0px"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0" />
+
+            <ImageView
+                android:id="@+id/radio_function_button_scan"
+                android:layout_width="140.0px"
+                android:layout_height="fill_parent"
+                android:background="@drawable/button_bacground"
+                android:scaleType="center"
+                android:src="@drawable/radio_btn_search_normal" />
+
+            <View
+                android:layout_width="0.0px"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0" />
+
+            <!-- <ImageView -->
+            <!-- android:id="@+id/eq" -->
+            <!-- android:layout_width="180.0px" -->
+            <!-- android:layout_height="fill_parent" -->
+            <!-- android:background="@drawable/button_bacground" -->
+            <!-- android:clickable="true" -->
+            <!-- android:scaleType="center" -->
+            <!-- android:src="@drawable/eq" /> -->
+
+            <ImageView
+                android:id="@+id/radio_keyboard"
+                android:layout_width="140.0px"
+                android:layout_height="fill_parent"
+                android:background="@drawable/button_bacground"
+                android:clickable="true"
+                android:scaleType="center"
+                android:src="@drawable/keyboard" />
+
+            <View
+                android:layout_width="0.0px"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0" />
+
+            <ImageView
+                android:id="@+id/fm_sel"
+                android:layout_width="140.0px"
+                android:layout_height="fill_parent"
+                android:background="@drawable/button_bacground"
+                android:scaleType="center"
+                android:src="@drawable/fm_selector" />
+
+            <View
+                android:layout_width="0.0px"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0" />
+
+            <ImageView
+                android:id="@+id/am_sel"
+                android:layout_width="140.0px"
+                android:layout_height="fill_parent"
+                android:background="@drawable/button_bacground"
+                android:scaleType="center"
+                android:src="@drawable/am_selector" />
+
+            <View
+                android:layout_width="0.0px"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0" />
+
+            <ImageView
+                android:id="@+id/radio_button_loc"
+                android:layout_width="140.0px"
+                android:layout_height="fill_parent"
+                android:background="@drawable/button_bacground"
+                android:clickable="true"
+                android:scaleType="center"
+                android:src="@drawable/ico_distance"
+                android:tag="s" />
+
+            <View
+                android:layout_width="0.0px"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="92.0px"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:paddingLeft="1px"
+        android:paddingRight="1px">
+
+        <com.octopus.android.carapps.common.view.MyScrollView
+            android:id="@+id/radio_frequency_scrollview"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:scrollbars="none"
+            android:tag="0,800,1600,2400,3200,4000:0">
+
+            <FrameLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+                <LinearLayout
+                    android:id="@+id/radio_gridview_layout"
+                    android:layout_width="5115px"
+                    android:layout_height="fill_parent"
+                    android:orientation="vertical">
+
+                    <GridView
+                        android:id="@+id/radio_frequency_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:alwaysDrawnWithCache="true"
+                        android:background="#88000000"
+                        android:columnWidth="160px"
+                        android:drawSelectorOnTop="false"
+                        android:listSelector="@drawable/tl_l_bg"
+                        android:numColumns="auto_fit"
+                        android:padding="0dip"
+                        android:persistentDrawingCache="animation|scrolling"
+                        android:scrollbars="none"
+                        android:stackFromBottom="false"
+                        android:stretchMode="spacingWidth" />
+                </LinearLayout>
+            </FrameLayout>
+        </com.octopus.android.carapps.common.view.MyScrollView>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/radio_pty_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <RelativeLayout
+            android:layout_width="240px"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="400px"
+            android:layout_marginTop="80px"
+            android:background="@drawable/rds_wrap"
+            android:paddingTop="13px">
+
+            <ListView
+                android:id="@+id/radio_pty_list"
+                style="@style/CommonListViewStyle1"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:cacheColorHint="@android:color/transparent"
+                android:divider="@android:color/transparent"
+                android:fadingEdge="none" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout> <!-- 最外围布局 纵向线性布局 -->

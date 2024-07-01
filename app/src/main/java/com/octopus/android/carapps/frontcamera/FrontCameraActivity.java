@@ -7,7 +7,7 @@ import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
 
 import com.octopus.android.carapps.R;
-import com.octopus.android.carapps.car.ui.GlobalDef;
+import com.octopus.android.carapps.common.ui.GlobalDef;
 import com.octopus.android.carapps.common.utils.ResourceUtil;
 
 public class FrontCameraActivity extends Activity {
@@ -16,10 +16,10 @@ public class FrontCameraActivity extends Activity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        boolean multiWindow = ResourceUtil.updateAppUi(this);
-        if (multiWindow) {
-            GlobalDef.updateMultiWindownActivity(this);
-        }
+        //boolean multiWindow = ResourceUtil.updateAppUi(this);
+        //if (multiWindow) {
+        //    GlobalDef.updateMultiWindowActivity(this);
+        //}
         super.onCreate(savedInstanceState);
         setContentView(R.layout.front_camera);
 

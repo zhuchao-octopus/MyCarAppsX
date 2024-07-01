@@ -33,7 +33,7 @@ import com.octopus.android.carapps.R;
 import com.octopus.android.carapps.audio.MusicUI;
 import com.octopus.android.carapps.auxplayer.AuxInUI;
 import com.octopus.android.carapps.btmusic.BTMusicUI;
-import com.octopus.android.carapps.car.ui.GlobalDef;
+import com.octopus.android.carapps.common.ui.GlobalDef;
 import com.octopus.android.carapps.common.ui.UIBase;
 import com.octopus.android.carapps.common.utils.ResourceUtil;
 import com.octopus.android.carapps.dvd.DVDService;
@@ -439,7 +439,7 @@ public class PresentationUI extends Presentation implements OnTouchListener, OnG
                     break;
                 case SOURCE_VIDEO:
 
-                    mUIBase = VideoUI.getInstanse(mContext, findViewById(R.id.screen1_main), 1);
+                    mUIBase = VideoUI.getInstance(mContext, findViewById(R.id.screen1_main), 1);
                     // hideDvd();
                     break;
                 case SOURCE_BT_MUSIC:
@@ -466,7 +466,7 @@ public class PresentationUI extends Presentation implements OnTouchListener, OnG
                 default:
                     break;
             }
-            hideSreen0Apps(source, force);
+            hideScreen0Apps(source, force);
             // show();
             updateOtherUI(source);
             initUI();
@@ -478,7 +478,7 @@ public class PresentationUI extends Presentation implements OnTouchListener, OnG
         }
     }
 
-    private void hideSreen0Apps(int source, boolean force) {
+    private void hideScreen0Apps(int source, boolean force) {
         String s = AppConfig.getTopActivity();
         boolean toHome = false;
         if (s != null) {

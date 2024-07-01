@@ -10,7 +10,7 @@
         android:background="#ff000000"
         android:gravity="center">
 
-        <com.octopus.android.carapps.video.MoviceView
+        <com.octopus.android.carapps.video.MovieView
             android:id="@+id/surface_view"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent" />

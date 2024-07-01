@@ -18,8 +18,10 @@ import com.common.util.MyCmd;
 import com.common.util.Util;
 import com.common.util.UtilCarKey;
 import com.octopus.android.carapps.R;
-import com.octopus.android.carapps.car.ui.GlobalDef;
+import com.octopus.android.carapps.common.ui.GlobalDef;
 import com.octopus.android.carapps.common.utils.ResourceUtil;
+
+import java.util.Objects;
 
 public class BTMusicActivity extends Activity {
 
@@ -27,10 +29,10 @@ public class BTMusicActivity extends Activity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        boolean multiWindow = ResourceUtil.updateAppUi(this);
-        multiWindow = ResourceUtil.isMultiWindow(this);
+        //boolean multiWindow = ResourceUtil.updateAppUi(this);
+        boolean multiWindow = ResourceUtil.isMultiWindow(this);
         if (multiWindow) {
-            GlobalDef.updateMultiWindownActivity(this);
+            GlobalDef.updateMultiWindowActivity(this);
         }
         super.onCreate(savedInstanceState);
 
@@ -39,10 +41,9 @@ public class BTMusicActivity extends Activity {
             finish();
             return;
         }
+
         setContentView(R.layout.screen0_bt_music);
-
         mUI = BTMusicUI.getInstanse(this, findViewById(R.id.screen1_main), 0);
-
         mUI.onCreate();
         mThis = this;
     }
@@ -225,7 +226,7 @@ public class BTMusicActivity extends Activity {
     }
 
     private MotionEvent mMotionEventDelayed = null;
-    private final Handler mHandler = new Handler(Looper.myLooper()) {
+    private final Handler mHandler = new Handler(Objects.requireNonNull(Looper.myLooper())) {
         @Override
         public void handleMessage(Message msg) {
             if (mMotionEventDelayed != null) {
@@ -282,7 +283,7 @@ public class BTMusicActivity extends Activity {
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-        //			Log.d("BTMusicActivity", "onConfigurationChanged\n" + newConfig + "\n" + resumeConfiguration);
+        //Log.d("BTMusicActivity", "onConfigurationChanged\n" + newConfig + "\n" + resumeConfiguration);
         if (resumeConfiguration != null && newConfig != null && resumeConfiguration.screenWidthDp != newConfig.screenWidthDp) {
             Log.w("BTMusicActivity", "onConfigurationChanged restart activity " + resumeConfiguration.screenWidthDp + ", " + newConfig.screenWidthDp + ", " + recreateScreenWidthDp + ", " + ResourceUtil.isMultiWindow(this));
             if (recreateScreenWidthDp != newConfig.screenWidthDp && !ResourceUtil.isMultiWindow(this)) {
@@ -292,7 +293,7 @@ public class BTMusicActivity extends Activity {
         }
     }
 
-    private Runnable recreateRunnable = new Runnable() {
+    private final Runnable recreateRunnable = new Runnable() {
         @Override
         public void run() {
             Log.e("BTMusicActivity", "do recreate");

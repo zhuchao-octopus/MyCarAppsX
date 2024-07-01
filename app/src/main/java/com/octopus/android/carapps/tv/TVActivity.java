@@ -11,7 +11,7 @@ import com.common.util.BroadcastUtil;
 import com.common.util.Kernel;
 import com.common.util.MyCmd;
 import com.octopus.android.carapps.R;
-import com.octopus.android.carapps.car.ui.GlobalDef;
+import com.octopus.android.carapps.common.ui.GlobalDef;
 import com.octopus.android.carapps.common.ui.UIBase;
 import com.octopus.android.carapps.common.utils.ResourceUtil;
 
@@ -21,10 +21,10 @@ public class TVActivity extends Activity implements OnGestureListener {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        boolean multiWindow = ResourceUtil.updateAppUi(this);
-        if (multiWindow) {
-            GlobalDef.updateMultiWindownActivity(this);
-        }
+        //boolean multiWindow = ResourceUtil.updateAppUi(this);
+        //if (multiWindow) {
+        //    GlobalDef.updateMultiWindowActivity(this);
+        //}
 
         super.onCreate(savedInstanceState);
 

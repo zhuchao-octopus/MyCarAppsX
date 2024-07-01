@@ -6,17 +6,19 @@ import android.content.Intent;
 import android.media.AudioManager;
 import android.media.AudioManager.OnAudioFocusChangeListener;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
 
 import com.common.util.BroadcastUtil;
 import com.common.util.MyCmd;
 import com.common.util.Util;
-import com.octopus.android.carapps.car.ui.GlobalDef;
 import com.octopus.android.carapps.common.player.ComMediaPlayer;
 import com.octopus.android.carapps.common.player.MoviePlayer;
 import com.octopus.android.carapps.common.player.MusicPlayer;
 import com.octopus.android.carapps.common.service.ServiceBase;
+import com.octopus.android.carapps.common.ui.GlobalDef;
+import com.zhuchao.android.fbase.MMLog;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -43,7 +45,7 @@ public class VideoService extends ServiceBase {
     }
 
 
-    private static Handler[] mHandlerPresentation = new Handler[2];
+    private static final Handler[] mHandlerPresentation = new Handler[2];
 
     public static void setHandler(Handler h, int index) {
         if (index < mHandlerPresentation.length) {
@@ -72,6 +74,7 @@ public class VideoService extends ServiceBase {
         mMediaPlayer = getMediaPlayer();
         //		mMediaPlayer.setIMediaCallBack(mIMediaCallBack);
         //		mMediaPlayer.registerMountListener();
+        MMLog.d(TAG,TAG+" onCreate()");
     }
 
     @Override
@@ -100,17 +103,15 @@ public class VideoService extends ServiceBase {
     }
 
     private final static int MSG_DELAY_PAUSE = 1;
-    private final Handler mHandler = new Handler() {
+    private final Handler mHandler = new Handler(Looper.myLooper()) {
 
         @Override
         public void handleMessage(Message msg) {
-            switch (msg.what) {
-                case MSG_DELAY_PAUSE:
-                    if (GlobalDef.mSource != VideoUI.SOURCE) {
-                        stopReportCanbox();
-                        savePlayStatus();
-                    }
-                    break;
+            if (msg.what == MSG_DELAY_PAUSE) {
+                if (GlobalDef.mSource != VideoUI.SOURCE) {
+                    stopReportCanbox();
+                    savePlayStatus();
+                }
             }
         }
     };
@@ -285,11 +286,11 @@ public class VideoService extends ServiceBase {
 
     private static void doStorageEject() {
 
-        if ((VideoUI.getInstanse(0) != null && !VideoUI.getInstanse(0).mPause)) {
+        if ((VideoUI.getInstance(0) != null && !VideoUI.getInstance(0).mPause)) {
             // Kernel.doKeyEvent(Kernel.KEY_BACK);
             VideoActivity.finishActivity(GlobalDef.mContext);
             BroadcastUtil.sendToCarServiceSetSource(GlobalDef.mContext, MyCmd.SOURCE_MX51);
-        } else if ((VideoUI.getInstanse(1) != null && !VideoUI.getInstanse(1).mPause)) {
+        } else if ((VideoUI.getInstance(1) != null && !VideoUI.getInstance(1).mPause)) {
             // Kernel.doKeyEvent(Kernel.KEY_BACK);
             BroadcastUtil.sendToCarServiceSetSource(GlobalDef.mContext, MyCmd.SOURCE_MX51);
         }

@@ -26,6 +26,7 @@ import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnVideoSizeChangedListener;
 import android.os.AsyncTask;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -55,19 +56,20 @@ import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+
 import com.common.util.BroadcastUtil;
 import com.common.util.MachineConfig;
 import com.common.util.MyCmd;
 import com.common.util.Util;
 import com.octopus.android.carapps.R;
 import com.octopus.android.carapps.adapter.MyListViewAdapter;
-import com.octopus.android.carapps.car.ui.GlobalDef;
 import com.octopus.android.carapps.common.player.ComMediaPlayer;
 import com.octopus.android.carapps.common.player.MoviePlayer;
 import com.octopus.android.carapps.common.player.MusicPlayer;
+import com.octopus.android.carapps.common.ui.GlobalDef;
 import com.octopus.android.carapps.common.ui.UIBase;
 import com.octopus.android.carapps.common.utils.ParkBrake;
-import com.octopus.android.carapps.common.utils.ResourceUtil;
 import com.octopus.android.carapps.common.view.MyScrollView;
 
 import java.io.File;
@@ -77,27 +79,20 @@ import java.util.ArrayList;
  * This activity plays a video from a specified URI.o
  */
 public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapListener, View.OnClickListener {
-
     private final static String TAG = "VideoUI";
-
     private final static boolean VIDEO_PLAY_BACKGROUND_SCREEN0_ONLY = false;
-
-    private boolean mIs3PageSroll = false;
+    private boolean mIs3PageScroll = false;
     public static final int SOURCE = MyCmd.SOURCE_VIDEO;
-
     private static VideoUI[] mUI = new VideoUI[MAX_DISPLAY];
-
-    public static VideoUI getInstanse(Context context, View view, int index) {
+    public static VideoUI getInstance(Context context, View view, int index) {
         if (index >= MAX_DISPLAY) {
             return null;
         }
-
         mUI[index] = new VideoUI(context, view, index);
-
         return mUI[index];
     }
 
-    public static VideoUI getInstanse(int index) {
+    public static VideoUI getInstance(int index) {
         if (index >= MAX_DISPLAY) {
             return null;
         }
@@ -106,7 +101,6 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
 
     public VideoUI(Context context, View view, int index) {
         super(context, view, index);
-
         mSource = SOURCE;
     }
 
@@ -140,94 +134,11 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
             //{ R.id.layout_visulizerView },
             {0}, {R.id.list_content, R.id.rightButtonLayout, R.id.surface_view}
     };
-
     private int mScreen1Type = -1;
     private final static int TYPE_NORMAL = 0;
     private final static int TYPE_VIDEO_ONLY = 1;
     private final static int TYPE_FULL_FUNCTION = 2;
 
-    public void updateFullUI() {
-        if (mDisplayIndex == SCREEN1) {
-
-            int type = TYPE_NORMAL;
-            if (mUI[0] != null) {
-                if (mUI[0].mIsFullScrean && !mUI[0].mPause) {
-                    type = TYPE_VIDEO_ONLY;
-                } else if (mUI[0].mPause) {
-                    type = TYPE_FULL_FUNCTION;
-                }
-            } else {
-                type = TYPE_FULL_FUNCTION;
-            }
-
-            if (type != TYPE_NORMAL) {
-                initMovieView();
-            }
-
-            Log.d(TAG, mScreen1Type + ":" + type);
-            if (type != mScreen1Type) {
-
-                mScreen1Type = type;
-                // if (type == TYPE_VIDEO_ONLY
-                // || type == TYPE_FULL_FUNCTION) {
-                // initMovieView();
-                // }
-                for (int i = 0; i < VIEW_HIDE2[type].length; ++i) {
-                    View v = mMainView.findViewById(VIEW_HIDE2[type][i]);
-                    if (v != null) {
-                        v.setVisibility(View.GONE);
-                    }
-                }
-
-                for (int i = 0; i < VIEW_SHOW2[type].length; ++i) {
-                    View v = mMainView.findViewById(VIEW_SHOW2[type][i]);
-                    if (v != null) {
-                        v.setVisibility(View.VISIBLE);
-                    }
-
-                }
-
-                if (mScreen1InitStatus == SCREEN1_STATUS_FULLSCREEN || mIsFullScrean || type != TYPE_FULL_FUNCTION) {
-                    mScreen1InitStatus = 0;
-                    changeToFullScreen();
-                }
-
-            }
-
-            // for (int i = 0; i < VIEW_HIDE1.length; ++i) {
-            // View v = mMainView.findViewById(VIEW_HIDE2[i]);
-            // if (v != null) {
-            // v.setVisibility((type == TYPE_VIDEO_ONLY) ? View.VISIBLE
-            // : View.GONE);
-            // }
-            // }
-            // if (type != TYPE_FULL_FUNCTION || mIsFullScrean) {
-            // for (int i = 0; i < VIEW_HIDE2.length; ++i) {
-            // View v = mMainView.findViewById(VIEW_HIDE2[i]);
-            // if (v != null) {
-            // v.setVisibility(View.GONE);
-            // }
-            // }
-            // }
-
-            // mScreen1Type = type;
-        } else {
-            // if (mUI[1] != null && !mUI[1].mPause) {
-            // mUI[1].updateFullUI();
-            // }
-            initMovieView();
-        }
-    }
-
-    private void initPresentationUI() {
-        for (int i : BUTTON_ON_CLICK) {
-            View v = mMainView.findViewById(i);
-            if (v != null) {
-                v.setOnClickListener(this);
-            }
-        }
-
-    }
 
     private static final int TIME_HIDE_MENU = 4000;
 
@@ -274,16 +185,72 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
 
     private View mVideoHide = null;
 
-    private MoviceView mMoviceView = null;
+    private MovieView mMovieView = null;
 
+    public void updateFullUI() {
+        if (mDisplayIndex == SCREEN1) {
+            int type = TYPE_NORMAL;
+            if (mUI[0] != null) {
+                if (mUI[0].mIsFullScrean && !mUI[0].mPause) {
+                    type = TYPE_VIDEO_ONLY;
+                } else if (mUI[0].mPause) {
+                    type = TYPE_FULL_FUNCTION;
+                }
+            } else {
+                type = TYPE_FULL_FUNCTION;
+            }
+
+            if (type != TYPE_NORMAL) {
+                initMovieView();
+            }
+
+            Log.d(TAG, mScreen1Type + ":" + type);
+            if (type != mScreen1Type) {
+                mScreen1Type = type;
+                for (int i = 0; i < VIEW_HIDE2[type].length; ++i) {
+                    View v = mMainView.findViewById(VIEW_HIDE2[type][i]);
+                    if (v != null) {
+                        v.setVisibility(View.GONE);
+                    }
+                }
+
+                for (int i = 0; i < VIEW_SHOW2[type].length; ++i) {
+                    View v = mMainView.findViewById(VIEW_SHOW2[type][i]);
+                    if (v != null) {
+                        v.setVisibility(View.VISIBLE);
+                    }
+
+                }
+
+                if (mScreen1InitStatus == SCREEN1_STATUS_FULLSCREEN || mIsFullScrean || type != TYPE_FULL_FUNCTION) {
+                    mScreen1InitStatus = 0;
+                    changeToFullScreen();
+                }
+
+            }
+        } else {
+            initMovieView();
+        }
+    }
+
+    private void initPresentationUI() {
+        for (int i : BUTTON_ON_CLICK) {
+            View v = mMainView.findViewById(i);
+            if (v != null) {
+                v.setOnClickListener(this);
+            }
+        }
+
+    }
+
+
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public void onCreate() {
         super.onCreate();
         mCreate = true;
         mMediaPlayer = VideoService.getMediaPlayer();
-
         mMediaPlayer.setOpeningFile(mMainView.findViewById(R.id.progressBar1));
-
         mGestureDetector = new GestureDetector(this);
         mGestureDetector.setOnDoubleTapListener(this);
 
@@ -291,17 +258,13 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
 
         mProgressBar = (LinearLayout) mMainView.findViewById(R.id.progress_bar);
 
-        mMoviceView = (MoviceView) mMainView.findViewById(R.id.surface_view);
+        mMovieView = (MovieView) mMainView.findViewById(R.id.surface_view);
         mVideoHide = mMainView.findViewById(R.id.video_hide);
 
         mBrakeCarView = mMainView.findViewById(R.id.brake_warning_text);
         GlobalDef.updateBrakeCarText((TextView) mBrakeCarView, MachineConfig.VALUE_SYSTEM_UI_KLD7_1992, R.string.warning_driving_1992);
 
         initPresentationUI();
-
-        // if (mIsShowVideo) {
-        // initMovieView();
-        // }
 
         mProgress = (SeekBar) mMainView.findViewById(R.id.progress2);
         if (mProgress != null) {
@@ -332,7 +295,7 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
 
         View v = mMainView.findViewById(R.id.music_page_scroll_view);
         if (v != null) {
-            mIs3PageSroll = true;
+            mIs3PageScroll = true;
             mMyScrollView = (MyScrollView) v;
             mMyScrollView.setCallback(mICallBack);
             mMyScrollView.setPageType(1);
@@ -342,7 +305,8 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
     }
 
     private void initMovieView() {
-
+        defaultWidth = mContext.getResources().getInteger(R.integer.video_def_width);
+        defaultHeight = mContext.getResources().getInteger(R.integer.video_def_height);
         int index = (mDisplayIndex + 1) % MAX_DISPLAY;
 
         if (mUI[index] != null) {
@@ -357,11 +321,11 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
         mMediaPlayer.setOnVideoSizeChangedListener(mOnVideoSizeChangedListener);
         //		}
         initFullFixButton();
-        mMoviceView.setGestureDetector(mGestureDetector);
+        mMovieView.setGestureDetector(mGestureDetector);
 
-        mMoviceView.getHolder().setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
-        mMoviceView.getHolder().addCallback(mSHCallback);
-        mMoviceView.setVisibility(View.VISIBLE);
+        mMovieView.getHolder().setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
+        mMovieView.getHolder().addCallback(mSHCallback);
+        mMovieView.setVisibility(View.VISIBLE);
 
         if (null != mMediaPlayer && !mSurfaceDestroyed) {
             boolean play = false;
@@ -369,37 +333,15 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
                 play = true;
                 // mMediaPlayer.pause();
             }
-            mMediaPlayer.setDisplay(mMoviceView.getHolder());
+            mMediaPlayer.setDisplay(mMovieView.getHolder());
             if (play) {
                 // mMediaPlayer.start();
             }
         }
 
-        defaultWidth = mContext.getResources().getInteger(R.integer.video_def_width);
-        defaultHeight = mContext.getResources().getInteger(R.integer.video_def_height);
-        //		View v = mMoviceView;
-        //		while(true){
-        //			ViewGroup.LayoutParams lp  = v.getLayoutParams();
-        //			if (lp.width >0 && lp.height>0){
-        //				defaultWidth = lp.width;
-        //				defaultHeight = lp.height;
-        //				break;
-        //			} else {
-        //				ViewParent p = v.getParent();
-        //				if (p == null){
-        //					break;
-        //				} else {
-        //					v = (View)p;
-        //				}
-        //			}
-        //
-        //		}
-
-
         if (mScreen1Type == TYPE_VIDEO_ONLY) {
             hideHomeBackKey();
         }
-
         mVideoHide.setVisibility(View.GONE);
     }
 
@@ -412,30 +354,21 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
 
         // mMoviceView.setVisibility(View.GONE);
         // }
-
     }
 
     @Override
     public boolean onSingleTapConfirmed(MotionEvent e) {
-
-        // if (mDisplayIndex == SCREEN1 && mUI[SCREEN0] != null
-        // && !mUI[SCREEN0].mPause) {
-        // return true;
-        // }
         if (!mIsFullScrean) {
             // changeToFullScreen();
-
             scrollToPlayingPage();
         } else {
             changeToSmallScreen();
         }
         return true;
-
     }
 
     @Override
     public boolean onDoubleTapEvent(MotionEvent e) {
-
         return true;
     }
 
@@ -446,7 +379,6 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
     }
 
     private void quitFullScreen() {
-
         if (this.mDisplayIndex == SCREEN0) {
             final WindowManager.LayoutParams attrs = ((Activity) mContext).getWindow().getAttributes();
             attrs.flags &= (~WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -481,7 +413,6 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
         }
         if (mDialogScan != null) {
             mDialogScan.show();
-
         }
         return mStatus;
     }
@@ -508,37 +439,17 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
     }
 
     public void prepareFullScreen() {
-
-        //		 Log.d(TAG, "prepareFullScreen!!" + this);
-
-        // if (mDisplayIndex == SCREEN1) {
         mHandler.removeMessages(MSG_AUTO_FULLSCREEN);
         mHandler.sendMessageDelayed(mHandler.obtainMessage(MSG_AUTO_FULLSCREEN, 0, 0), TIME_AUTO_FULLSCREEN);
-        // }
     }
 
     private void autoToFullScreen() {
-        // if (mDisplayIndex == SCREEN0) {
-        // if (!mPause) {
-        // if (!mIsFullScrean){
-        // changeToFullScreen();
-        // }
-        // }
-        // } else {
-        //
-        // }
-        // Log.d("allen", "autoToFullScreen!!" + this);
         if (mBrake == 1) {
             changeToFullScreen();
         }
     }
 
     private void changeToFullScreen() {
-
-        if (ResourceUtil.isMultiWindow()) {
-            return;
-        }
-
         if (mMediaPlayer == null || !mMediaPlayer.isInitialized()) {
             return;
         }
@@ -553,24 +464,9 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
         mIsFullScrean = true;
 
         if (mDisplayIndex == SCREEN0) {
-            // PresentationUI.updateVideoShow(true);
-
-            // if (GlobalDef.getScreenNum(mContext) > 1) {
-            // GlobalDef.notifyUIScreen0Change(SOURCE, 1);
-            //
-            // // GlobalDef.reactiveSource(mContext, SOURCE,
-            // VideoService.mAudioFocusListener);
-            //
-            // if (mUI[1] != null) {
-            // mUI[1].updateFullUI();
-            // }
-            // } else {
             changeToFullScreenEx();
-            // }
         } else {
-
             changeToFullScreenEx();
-
         }
     }
 
@@ -578,9 +474,9 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
         if (mContext instanceof Activity) {
             View v = ((Activity) mContext).getCurrentFocus();
             if (v != null) {
-                mMoviceView.setFocusable(true);
-                mMoviceView.requestFocus();
-                mMoviceView.requestFocusFromTouch();
+                mMovieView.setFocusable(true);
+                mMovieView.requestFocus();
+                mMovieView.requestFocusFromTouch();
             }
         }
     }
@@ -605,10 +501,7 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
                 mMainView.findViewById(R.id.rightButtonLayout).setVisibility(View.GONE);
             }
 
-            // mMoviceView.getHolder().setFixedSize(1024, 480);
-
             hideHomeBackKey();
-
             onChangeVideoSize();
             clearFocus();
         }
@@ -619,22 +512,8 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
         mIsFullScrean = false;
 
         if (mDisplayIndex == SCREEN0) {
-            // PresentationUI.updateVideoShow(false);
-
-            // GlobalDef.reactiveSource(mContext, SOURCE,
-            // VideoService.mAudioFocusListener);
-            // if (GlobalDef.getScreenNum(mContext) > 1) {
-            //
-            // GlobalDef.notifyUIScreen0Change(SOURCE, 1);
-            //
-            // updateFullUI();
-            // } else {
-            mMoviceView.setFocusable(false);
+            mMovieView.setFocusable(false);
             changeToSmallScreenEx();
-            // }
-            // if (mUI[0]!=null){
-            // mUI[0].updateFullUI();
-            // }
         } else {
             if (mScreen1Type == TYPE_FULL_FUNCTION) {
                 changeToSmallScreenEx();
@@ -644,14 +523,13 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
                 }
             }
         }
-
         prepareFullScreen();
     }
 
     private void changeToSmallScreenEx() {
         quitFullScreen();
 
-        mMoviceView.getHolder().setFixedSize(defaultWidth, defaultHeight);
+        mMovieView.getHolder().setFixedSize(defaultWidth, defaultHeight);
 
         if (mMainView.findViewById(R.id.list_content) != null) {
             mMainView.findViewById(R.id.list_content).setVisibility(View.VISIBLE);
@@ -693,7 +571,6 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
             mBrake = brake1;
         }
         // mHandler.sendEmptyMessageDelayed(MSG_CHECK_BRAKE, TIME_CHECK_BRAKE);
-
     }
 
     View.OnScrollChangeListener mOnScrollChangeListener = new View.OnScrollChangeListener() {
@@ -823,26 +700,9 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
                 adapter.notifyDataSetChanged();
                 adapter = null;
             }
-            //			if (mCurrentList != null) {
-            //				if ((mCurrentList.getAdapter() == null || !mMediaPlayer
-            //						.equalCurrentPlaylist(((MyListViewAdapter) mCurrentList
-            //								.getAdapter()).getList()))) {
-            //					updateListViewAdapter(mPlayingTVList,
-            //							mMediaPlayer.getStrList(MusicPlayer.LIST_PLAYING,
-            //									-1), 0);
-            //					mCurrentList = mPlayingTVList;
-            //					updateView();
-            //				}
-            //			}
-
             boolean update = false;
             if (mCurrentList != null) {
                 if ((mCurrentList.getAdapter() == null || !mMediaPlayer.equalCurrentPlaylist(((MyListViewAdapter) mCurrentList.getAdapter()).getList()))) {
-                    //					updateListViewAdapter(mPlayingTVList,
-                    //							mMediaPlayer.getStrList(MusicPlayer.LIST_PLAYING,
-                    //									-1), 0);
-                    //					mCurrentList = mPlayingTVList;
-                    //					updateView();
                     update = true;
                 }
             }
@@ -1087,8 +947,7 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
                 la.setSelectItem(folderNum);
             }
 
-        } catch (Exception e) {
-
+        } catch (Exception ignored) {
         }
     }
 
@@ -1154,12 +1013,6 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
                 return;
             }
             prepareSetProcess();
-            // long duration = mMediaPlayer.getDuration();
-            // long newposition = (duration * progress) / 1000L;
-            // mMediaPlayer.seekTo((int) newposition);
-            // if (mCurrentTime != null)
-            // mCurrentTime.setText(stringForTime((int) newposition));
-
             prepareFullScreen();
         }
 
@@ -1167,6 +1020,7 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
         }
     };
 
+    @SuppressLint("DefaultLocale")
     private String stringForTime(int timeMs) {
         int totalSeconds = timeMs / 1000;
 
@@ -1175,9 +1029,9 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
         int hours = totalSeconds / 3600;
 
         if (hours > 0) {
-            return String.format("%d:%02d:%02d", hours, minutes, seconds).toString();
+            return String.format("%d:%02d:%02d", hours, minutes, seconds);
         } else {
-            return String.format("%02d:%02d", minutes, seconds).toString();
+            return String.format("%02d:%02d", minutes, seconds);
         }
         // return str;
     }
@@ -1194,7 +1048,7 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
         return true;
     }
 
-    public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
+    public boolean onScroll(MotionEvent e1, @NonNull MotionEvent e2, float distanceX, float distanceY) {
         return true;
     }
 
@@ -1202,7 +1056,7 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
 
     }
 
-    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+    public boolean onFling(MotionEvent e1, @NonNull MotionEvent e2, float velocityX, float velocityY) {
 
         return true;
     }
@@ -1216,10 +1070,6 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
                 mMediaPlayer.playCurrentMemory();
             }
         } else {
-            // if (MoviePlayer.mFirstRun) {
-            // MoviePlayer.mFirstRun = false;
-            //Log.d("dddd", mMediaPlayer.mSleepInPlay+"!!!!!!!!!!!!!!!!!!!!!!!!!!"+GlobalDef.isOneSleepRemountTime());
-
             if (Util.isRKSystem() && mMediaPlayer.mSaveForSleepPath != null) {
                 if (mFirstPowerOn == 1) {
                     mFirstPowerOn = 0;
@@ -1237,9 +1087,7 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
             if (!mPause /*|| !mMediaPlayer.mSleepInPlay)*/) {
                 mMediaPlayer.playCurrentMemory();
             }
-            // } else {
-            // mMediaPlayer.resetPlayStatus();
-            // }
+
         }
 
         if (mCreate) {
@@ -1327,6 +1175,7 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
 
     UpdateAsyncTask mUpdateAsyncTask;
 
+    @SuppressLint("StaticFieldLeak")
     class UpdateAsyncTask extends AsyncTask<Void, Integer, Integer> {
 
         UpdateAsyncTask() {
@@ -1366,7 +1215,7 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
         mHandler.removeMessages(MSG_UPDATE_SEEK_BAR);
     }
 
-    private Handler mHandler = new Handler() {
+    private Handler mHandler = new Handler(Looper.myLooper()) {
         public void handleMessage(Message msg) {
 
             // Log.e(TAG, "########################### false" + msg.what);
@@ -1384,16 +1233,6 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
                 }
                 break;
                 case MSG_STORAGE_UNMOUNT: {
-                    // clearListView(msg.arg1);
-                    // if (msg.arg2 != 0) {
-                    // if (mMediaPlayer != null) {
-                    // // mMediaPlayer.pause();
-                    // playPath("");
-                    // }
-                    // clearListView(msg.arg2);
-                    // }
-                    // queryVedioFromDB();
-
                 }
                 break;
                 case MSG_FIRST_RUN: {
@@ -1428,43 +1267,6 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
                 case MSG_UPDATE_PLAY_STATUS:
                     updatePlayStatus();
                     break;
-                // case MyServiceBinder.MESSAGE_COMMON_CALLBACK_FROM_SERVICE: {
-                // // Log.e("!!!!!", ""+msg.arg1);
-                // switch (msg.arg1) {
-                // case MyCmd.CALLBACK_COMMON_KEY_NEXT:
-                // onClick(R.id.next2);
-                // break;
-                // case MyCmd.CALLBACK_COMMON_KEY_PLAYPAUSE:
-                // onClick(R.id.pp2);
-                // break;
-                // case MyCmd.CALLBACK_COMMON_KEY_PREVIOUS:
-                // onClick(R.id.prev2);
-                // break;
-                // case MyCmd.CALLBACK_COMMON_VIDEO_SAVE_PLAYSTATUS:
-                // if (mMediaPlayer != null && mMediaPlayer.isPlaying()) {
-                // mMediaPlayer.pause();
-                // mSavePlayerStatus = 1;
-                // }
-                // break;
-                // case MyCmd.CALLBACK_COMMON_VIDEO_RESET_PLAYSTATUS:
-                // if (mSavePlayerStatus != 0) {
-                // mSavePlayerStatus = 0;
-                // if (mMediaPlayer != null) {
-                // mMediaPlayer.start();
-                // }
-                // }
-                // break;
-                // case MyCmd.CALLBACK_COMMON_KEY_FF:
-                // onClick(R.id.ffwd2);
-                // break;
-                // case MyCmd.CALLBACK_COMMON_KEY_FR:
-                // onClick(R.id.rew2);
-                // break;
-                // }
-                //
-                // }
-                // break;
-
             }
 
         }
@@ -1492,7 +1294,7 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
         doSetPage(id);
     }
 
-    private void setPageforce(int id) {
+    private void setPageForce(int id) {
         int ret = 0;
         if (id == R.id.btn_usb) {
             ret = ComMediaPlayer.QUERY_FLAG_USB;
@@ -1522,12 +1324,12 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
         if (id == mResPageId) {
             return;
         }
-        if (mIs3PageSroll && id != R.id.btn_all) {
+        if (mIs3PageScroll && id != R.id.btn_all) {
             mPreStoragePage = id;
         }
         boolean ret = true;
         if (id == R.id.btn_local) {
-            if (!mIs3PageSroll) {
+            if (!mIs3PageScroll) {
                 mMainView.findViewById(R.id.tv_all_list).setVisibility(View.GONE);
             }
             mMainView.findViewById(R.id.tv_local_list).setVisibility(View.VISIBLE);
@@ -1543,7 +1345,7 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
             mCurrentList = mLocalTVList;
             // }
         } else if (id == R.id.btn_sd) {
-            if (!mIs3PageSroll) {
+            if (!mIs3PageScroll) {
                 mMainView.findViewById(R.id.tv_all_list).setVisibility(View.GONE);
             }
             mMainView.findViewById(R.id.tv_local_list).setVisibility(View.GONE);
@@ -1560,7 +1362,7 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
             mCurrentList = mSDTVList;
             // }
         } else if (id == R.id.btn_sd2) {
-            if (!mIs3PageSroll) {
+            if (!mIs3PageScroll) {
                 mMainView.findViewById(R.id.tv_all_list).setVisibility(View.GONE);
             }
             mMainView.findViewById(R.id.tv_local_list).setVisibility(View.GONE);
@@ -1578,7 +1380,7 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
             mCurrentList = mSD2TVList;
             // }
         } else if (id == R.id.btn_usb2) {
-            if (!mIs3PageSroll) {
+            if (!mIs3PageScroll) {
                 mMainView.findViewById(R.id.tv_all_list).setVisibility(View.GONE);
             }
             mMainView.findViewById(R.id.tv_local_list).setVisibility(View.GONE);
@@ -1596,7 +1398,7 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
             mCurrentList = mUsb2TVList;
             // }
         } else if (id == R.id.btn_usb3) {
-            if (!mIs3PageSroll) {
+            if (!mIs3PageScroll) {
                 mMainView.findViewById(R.id.tv_all_list).setVisibility(View.GONE);
             }
             mMainView.findViewById(R.id.tv_local_list).setVisibility(View.GONE);
@@ -1615,7 +1417,7 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
             mCurrentList = mUsb3TVList;
             // }
         } else if (id == R.id.btn_usb4) {
-            if (!mIs3PageSroll) {
+            if (!mIs3PageScroll) {
                 mMainView.findViewById(R.id.tv_all_list).setVisibility(View.GONE);
             }
             mMainView.findViewById(R.id.tv_local_list).setVisibility(View.GONE);
@@ -1634,7 +1436,7 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
             mCurrentList = mUsb4TVList;
             // }
         } else if (id == R.id.btn_usb) {
-            if (!mIs3PageSroll) {
+            if (!mIs3PageScroll) {
                 mMainView.findViewById(R.id.tv_all_list).setVisibility(View.GONE);
             }
             mMainView.findViewById(R.id.tv_local_list).setVisibility(View.GONE);
@@ -1652,7 +1454,7 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
             mCurrentList = mUsbTVList;
             // }
         } else if (id == R.id.btn_all) {
-            if (!mIs3PageSroll) {
+            if (!mIs3PageScroll) {
                 mMainView.findViewById(R.id.tv_all_list).setVisibility(View.VISIBLE);
                 mMainView.findViewById(R.id.tv_local_list).setVisibility(View.GONE);
                 mMainView.findViewById(R.id.tv_sd_list).setVisibility(View.GONE);
@@ -1665,11 +1467,7 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
                 mMainView.findViewById(R.id.tv_usb4_list).setVisibility(View.GONE);
                 mMainView.findViewById(R.id.btn_add_all).setVisibility(View.GONE);
             } else {
-                //				if(MachineConfig.VALUE_SYSTEM_UI20_RM10_1.equals(GlobalDef.getSystemUI())){
-                //
-                //				} else {
                 mMainView.findViewById(R.id.tv_all_list).setVisibility(View.GONE);
-                //				}
             }
             // mHandler.sendMessageDelayed(
             // mHandler.obtainMessage(MSG_UPDATE_LIST, R.id.tv_all_list, 0), 0);
@@ -1696,12 +1494,10 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
                 // mPageSeleteButton.setCompoundDrawables(this.getResources().getDrawable(R.id),
                 // null, null, null);
                 d = mPageSeleteButton.getCompoundDrawables();
-                if (d != null) {
-                    if (d.length > 0 && d[0] != null) {
-                        d[0].setLevel(0);
-                    } else if (d.length > 1 && d[1] != null) {
-                        d[1].setLevel(0);
-                    }
+                if (d.length > 0 && d[0] != null) {
+                    d[0].setLevel(0);
+                } else if (d.length > 1 && d[1] != null) {
+                    d[1].setLevel(0);
                 }
             }
 
@@ -1737,26 +1533,18 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
                     if (R.id.btn_sd2 == id || R.id.btn_sd == id) {
 
                         if (path.contains("GPS")) {
-                            // String s = path.
                             ((Button) v).setText("GPS");
                         } else {
                             ((Button) v).setText("SD");
-                            // int string = R.string.sd;
-                            // if(R.id.btn_sd2 == id){
-                            // string = R.string.sd2;
-                            // }
-                            // ((Button)v).setText(string);
                         }
 
                     } else if (R.id.btn_usb == id || R.id.btn_usb2 == id || R.id.btn_usb3 == id || R.id.btn_usb4 == id) {
-
                         char end = path.charAt(path.length() - 1);
                         String s = "USB";
                         try {
-                            int i = Integer.valueOf(end);
+                            int i = (int) end;
                             s += end;
-                        } catch (Exception e) {
-
+                        } catch (Exception ignored) {
                         }
                         ((Button) v).setText(s);
                     }
@@ -1776,15 +1564,12 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
         checkStorageIsMountedView(ComMediaPlayer.MEDIA_USB4_PATH, R.id.btn_usb4);
         // checkStorageIsMountedView(MusicPlayer.MEDIA_USB2_PATH,
         // R.id.btn_usb2);
-
     }
 
     private void updateView() {
 
         updateStorageView();
-
         if (mCurrentList != null && mMediaPlayer.getCurPosition() >= 0 && mMediaPlayer.getCurPosition() < mCurrentList.getCount() && mCurrentList.getAdapter() != null) {
-
             if (mMediaPlayer.equalPreparePlaylist() || mCurrentList == mPlayingTVList) {
                 ((MyListViewAdapter) mCurrentList.getAdapter()).setSelectItem(mMediaPlayer.getCurPosition() + ((MyListViewAdapter) mCurrentList.getAdapter()).getFolderNum());
 
@@ -1844,43 +1629,21 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
             duration = (int) mMediaPlayer.getDuration();
             if (mProgress != null && position >= 0 && duration > 0 && position <= duration) {
                 long pos = 0;
-                if (duration > 0) {
-                    // use long to avoid overflow
-                    pos = 1000L * position / duration;
-                }
-
+                // use long to avoid overflow
+                pos = 1000L * position / duration;
                 mProgress.setProgress((int) pos);
-
-                // if (position > 3000) {
-                // mMediaPlayer.savePlayTime();
-                // }
             }
 
             if (mEndTime != null) mEndTime.setText(stringForTime(duration));
             if ((mMediaPlayer.getCurSongNum() > 0)) {
                 mCurrentTime.setText(stringForTime(position));
             }
-            // if (mLrcview != null) {
-            // if (mLrcview.getVisibility() == View.VISIBLE) {
-            // if (mCurLyricFile != null && mCurLyricFile.exists()) {
-            // mLrcview.initLrcIndex(position);
-            // } else {
-            // mLrcview.clearView();
-            // mCurLyricFile = null;
-            // }
-            // }
-            // }
         }
 
         return position;
     }
 
     private void setPlayRepeat(int repeat) {
-
-        // Button repeatButton = ((Button) mMainView.findViewById(R.id.repeat));
-        // Drawable repeatButtonDrawable[] =
-        // repeatButton.getCompoundDrawables();
-
         ImageView view = (ImageView) mMainView.findViewById(R.id.repeat);
         if (view != null) {
             if (repeat == MusicPlayer.REPEAT_NONE) {
@@ -1946,37 +1709,12 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
 
             }
         } else if (id == R.id.btn_all || id == R.id.btn_local || id == R.id.btn_sd || id == R.id.btn_sd2 || id == R.id.btn_usb || id == R.id.btn_usb2 || id == R.id.btn_usb3 || id == R.id.btn_usb4) {
-            setPageforce(id);
+            setPageForce(id);
         } else if (id == R.id.btn_add_all) {
             boolean ret = addAllFilePlay(resourceIdToPage(mResPageId));
             if (ret && mMyScrollView != null) {
                 mMyScrollView.scrollToPage(1);
             }
-
-            // case R.id.rew: {
-            // if (mMediaPlayer != null) {
-            // int pos = mMediaPlayer.getCurrentPosition();
-            // pos -= 15000;
-            // mMediaPlayer.seekTo(pos);
-            // if (!mMediaPlayer.isPlaying()) {
-            // mMediaPlayer.start();
-            // startReportCanbox();
-            // }
-            // }
-            // }
-            // break;
-            // case R.id.ffwd: {
-            // if (mMediaPlayer != null) {
-            // int pos = mMediaPlayer.getCurrentPosition();
-            // pos += 15000;
-            // mMediaPlayer.seekTo(pos);
-            // if (!mMediaPlayer.isPlaying()) {
-            // mMediaPlayer.start();
-            // startReportCanbox();
-            // }
-            // }
-            // }
-            // break;
         } else if (id == R.id.repeat) {
             int r = mMediaPlayer.pressRepeatMode();
 
@@ -2112,46 +1850,27 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
     private boolean mSurfaceDestroyed = true;
     SurfaceHolder.Callback mSHCallback = new SurfaceHolder.Callback() {
         public void surfaceChanged(SurfaceHolder holder, int format, int w, int h) {
-            // mMediaPlayer.setDisplay(mSurfaceView.getHolder());
-            // mMediaPlayer.start();
-
-            // if (null != mMediaPlayer) {
-            // mMediaPlayer.setDisplay(mMoviceView.getHolder());
-            // }
-            // mSurfaceDestroyed = false;
-
             Log.d(TAG, "surfaceChanged" + w + "::" + h);
         }
 
         public void surfaceCreated(SurfaceHolder holder) {
-            SurfaceHolder h = mMoviceView.getHolder();
+            SurfaceHolder h = mMovieView.getHolder();
             Log.d(TAG, h + ":hhhhhhh" + holder);
             if (null != mMediaPlayer) {
-                mMediaPlayer.setDisplay(mMoviceView.getHolder());
+                mMediaPlayer.setDisplay(mMovieView.getHolder());
             }
             mSurfaceDestroyed = false;
 
             if (defaultWidth == 0) {
-                defaultWidth = mMoviceView.getWidth();
-                defaultHeight = mMoviceView.getHeight();
+                defaultWidth = mMovieView.getWidth();
+                defaultHeight = mMovieView.getHeight();
             }
-            Log.d(TAG, defaultWidth + ":surfaceCreated" + mMoviceView.getWidth() + "::" + mMoviceView.getHeight());
+            Log.d(TAG, defaultWidth + ":surfaceCreated" + mMovieView.getWidth() + "::" + mMovieView.getHeight());
             // mVideoHide.setVisibility(View.GONE);
         }
 
         public void surfaceDestroyed(SurfaceHolder holder) {
             if (false == mSurfaceDestroyed && null != mMediaPlayer) {
-                // if (mDisplayIndex == SCREEN0) {
-                // if (mUI[1] != null
-                // && (mUI[1].mScreen1Type != TYPE_VIDEO_ONLY ||
-                // mUI[1].mScreen1Type != TYPE_FULL_FUNCTION)) {
-                // mMediaPlayer.setDisplay(null);
-                // }
-                // } else {
-                // if (mUI[0] != null && mUI[0].mPause) {
-                // mMediaPlayer.setDisplay(null);
-                // }
-                // }
             }
             if (isAllAppHide()) {
                 Log.d(TAG, "surfaceDestroyed set null");
@@ -2160,10 +1879,7 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
                 }
             }
             mSurfaceDestroyed = true;
-
             Log.d(TAG, "surfaceDestroyed");
-            // mVideoHide.setVisibility(View.VISIBLE);
-            return;
         }
     };
 
@@ -2201,11 +1917,7 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
     private static final int SCREEN1_STATUS_FULLSCREEN = 1;
 
     private void showScreen1Video() {
-        // test
-
         mScreen1InitStatus = SCREEN1_STATUS_FULLSCREEN;
-        // PresentationUI.updateVideoQuit();
-
     }
 
     private GestureDetector mGestureDetector;
@@ -2213,7 +1925,7 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
     private static boolean mScreen1StartShowFull = false;
 
     public boolean mWillDestory = false;
-    private int mCurrentSeekPos = -1;
+    private final int mCurrentSeekPos = -1;
 
     private void clearListView(int id) {
         switch (id) {
@@ -2276,7 +1988,7 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
                 mResPageId = 0;
                 if (mPageSeleteButton != null) {
                     Drawable d[] = mPageSeleteButton.getCompoundDrawables();
-                    if (d != null && d.length > 0 && d[0] != null) d[0].setLevel(0);
+                    if (d.length > 0 && d[0] != null) d[0].setLevel(0);
 
                     mPageSeleteButton = null;
 
@@ -2289,12 +2001,9 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
     @Override
     public void onPause() {
         super.onPause();
-
         Log.d("allen12", "onPause" + this);
         VideoService.setUICallBack(null, mDisplayIndex);
-
         mHandler.removeMessages(MSG_AUTO_FULLSCREEN);
-
         if (mDisplayIndex == SCREEN0) {
 
             if (GlobalDef.getScreenNum(mContext) > 1
@@ -2336,15 +2045,11 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
         stoptProcessBar();
     }
 
-    private final Handler mHandlerService = new Handler() {
-
+    private final Handler mHandlerService = new Handler(Looper.myLooper()) {
         @Override
         public void handleMessage(Message msg) {
-            switch (msg.what) {
-                case GlobalDef.MSG_UPDATE_EQ_MODE:
-                    GlobalDef.updateEQModeButton(mMainView, R.id.eq_mode_switch);
-
-                    break;
+            if (msg.what == GlobalDef.MSG_UPDATE_EQ_MODE) {
+                GlobalDef.updateEQModeButton(mMainView, R.id.eq_mode_switch);
             }
             super.handleMessage(msg);
         }
@@ -2356,20 +2061,13 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
 
     @Override
     public void onResume() {
-
         super.onResume();
         Log.d("allen12", "onResume" + this);
         VideoService.setHandler(mHandlerService, mDisplayIndex);
         startCheckBrakeCar();
-
         VideoService.setUICallBack(mIMediaCallBack, mDisplayIndex);
-
         updateFullUI();
         if (mDisplayIndex == SCREEN0) {
-            // if (mUI[1] != null && !mUI[1].mPause) {
-            // // test
-            // PresentationUI.updateVideoResume();
-            // }
             GlobalDef.setCurrentScreen0(this);
             GlobalDef.notifyUIScreen0Change(SOURCE, 1);
         } else {
@@ -2395,27 +2093,19 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
             if (mUI[0] == null || mUI[0].mPause) {
                 mHandler.removeMessages(MSG_FIRST_RUN);
                 mHandler.sendMessage(mHandler.obtainMessage(MSG_FIRST_RUN, 0, 150));
-            } else {
-
-                // updateView();
             }
-
         } else {
             int delay = 250;
             if (Util.isRKSystem()) {
                 if (mFirstPowerOn == 2 && mMediaPlayer != null) {
                     int page = mMediaPlayer.getData(ComMediaPlayer.SAVE_DATA_PAGE);
-                    //					Log.d("MusicPlayer", page+"zzzz");
                     if (page == ComMediaPlayer.LIST_USB3 || page == ComMediaPlayer.LIST_USB4) {
                         delay = 1800;
-                        //						Log.d("MusicPlayer", delay+"zzzz!!!!!!!");
                     }
                 }
             }
             mHandler.removeMessages(MSG_FIRST_RUN);
             mHandler.sendEmptyMessageDelayed(MSG_FIRST_RUN, delay);
-
-            //			mHandler.sendMessage(mHandler.obtainMessage(MSG_FIRST_RUN, 0, 5));
             clearQueryFlag();
         }
 
@@ -2425,10 +2115,7 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
         mMediaPlayer.setShowBePlay(true);
         mMediaPlayer.updateCompletionListener(true);
         updatePlayStatus();
-
         GlobalDef.requestEQInfo();
-        // mHandler.sendMessageDelayed(
-        // mHandler.obtainMessage(MSG_FIRST_RUN, 0, 0), 200);
     }
 
     private void clearQueryFlag() {
@@ -2457,7 +2144,6 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
         if (mResPageId != R.id.btn_usb4) {
             mUsb4TVList = null;
         }
-        // mCurrentList = null;
     }
 
     private boolean mCreate = false;
@@ -2467,12 +2153,8 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
 
         super.onDestroy();
         if (mDisplayIndex == SCREEN0) {
-
             mHandler.removeMessages(MSG_SHOW_SCREEN1_VIDEO);
-
         }
-        // VideoService.setUICallBack(null, mDisplayIndex);
-        // releaseMediaplayer();
         if (isAllAppHide()) {
             stopReportCanbox();
             // mAudioManager.abandonAudioFocus(mAudioFocusListener);
@@ -2488,7 +2170,7 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
         }
     }
 
-    private Handler mIMediaCallBack = new Handler() {
+    private Handler mIMediaCallBack = new Handler(Looper.myLooper()) {
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what) {
@@ -2561,18 +2243,7 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
         }
         return ret;
     }
-
-    // private void releaseMediaplayer(){
-    // if(isAllAppHide()) {
-    // stopReportCanbox();
-    // if (mMediaPlayer != null) {
-    // mMediaPlayer.stop();
-    // }
-    // }
-    // }
-
     boolean mIsHomeBackKeyShow = false;
-
     private void hideHomeBackKey() {
         mHomeBackKey.setVisibility(View.GONE);
 
@@ -2620,42 +2291,7 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
         }
     }
 
-    private void startReportCanbox() {
-        // stopReportCanbox();
-        // if (mTimerCanbox == null) {
-        // TimerTask task = new TimerTask() {
-        // public void run() {
-        // // byte min = (byte) (((position() / 1000) / 60) % 60);
-        // // byte sec = (byte) ((position() / 1000) % 60);
-        // // int percent = 0;
-        // // if (duration() > 0) {
-        // // percent = ((int) (position() * 100 / duration()) << 16);
-        // // }
-        // // if (mAkMusic != null) {
-        // // mAkMusic.reportCanboxPlayStatus(MyCmd.SOURCE_MX51,
-        // // mPlayPos + 1,
-        // // (mPlayListLen & 0xffff) | percent, min, sec);
-        // if (mMediaPlayer != null && mMediaPlayer.isPlaying()) {
-        // sendBroadcastInt(
-        // VIDEO_SOURCE_CHANGE,
-        // mCurrentPlayPos,
-        // (int) (mMediaPlayer.getCurrentPosition() / 1000L),
-        // mCurrentTotal);
-        // }
-        // // }
-        // }
-        // };
-        // mTimerCanbox = new Timer();
-        // mTimerCanbox.schedule(task, 1, 1000);
-        // }
-    }
-
     private void stopReportCanbox() {
-        // if (mTimerCanbox != null) {
-        // mTimerCanbox.cancel();
-        // mTimerCanbox.purge();
-        // mTimerCanbox = null;
-        // }
     }
 
     public int getScreen0Type() {
@@ -2674,7 +2310,7 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
 
     private final static int MSG_HIDE_MYTOAST = 1000000;
     private View mTextViewToast;
-    private RelativeLayout.LayoutParams mToastParams = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+    private final RelativeLayout.LayoutParams mToastParams = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 
     private void showMyToast(String s) {
         try {
@@ -2684,12 +2320,6 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
                 mToastParams.addRule(RelativeLayout.CENTER_IN_PARENT);
                 // mTextViewToast = new TextView(mContext);
             }
-
-            //TextView tv = (TextView) mTextViewToast.findViewById(com.android.internal.R.id.message);
-
-            //tv.setText(s);
-
-            // Log.d("allen1", mTextViewToast.getParent() + "");
             if (mTextViewToast.getParent() == null) {
 
                 if (mMainView instanceof RelativeLayout) {
@@ -2698,8 +2328,7 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
                 }
 
             }
-        } catch (Exception e) {
-
+        } catch (Exception ignored) {
         }
         mIMediaCallBack.removeMessages(MSG_HIDE_MYTOAST);
         mIMediaCallBack.sendEmptyMessageDelayed(MSG_HIDE_MYTOAST, 4000);
@@ -2712,8 +2341,7 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
                     RelativeLayout new_name = (RelativeLayout) mMainView;
                     new_name.removeView(mTextViewToast);
                 }
-            } catch (Exception e) {
-
+            } catch (Exception ignored) {
             }
         }
     }
@@ -2727,10 +2355,11 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
 
     private void initFullFixButton() {
         mVideoFixScreenType = mMediaPlayer.getData(SAVE_FULLFIX_SCREEN);
-        udpateFullFixButton();
+        updateFullFixButton();
     }
 
-    private void udpateFullFixButton() {
+    @SuppressLint("UseCompatLoadingForDrawables")
+    private void updateFullFixButton() {
         View v = mMainView.findViewById(R.id.full2);
         if (v != null) {
             ImageView iv = (ImageView) v;
@@ -2752,16 +2381,14 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
             mVideoFixScreenType = VIDEO_FULL_SCREEN;
         }
         mMediaPlayer.saveData(SAVE_FULLFIX_SCREEN, mVideoFixScreenType);
-        udpateFullFixButton();
+        updateFullFixButton();
         onChangeVideoSize();
     }
 
     private void onChangeVideoSize() {
-
-        if (ResourceUtil.isMultiWindow()) {
-            return;
-        }
-
+        //if (ResourceUtil.isMultiWindow()) {
+        //    return;
+        //}
         int videoWidth;
         int videoHeight;
 
@@ -2780,10 +2407,6 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
             windowHeight = defaultHeight;
         }
 
-        //		Log.d("aac", defaultWidth + ":onChangeVideoSize:"+defaultHeight);
-
-        //		Log.d("aac", windowWidth + ":onChangeVideoSize:"+windowHeight);
-
         if (mVideoFixScreenType == VIDEO_FULL_SCREEN) {
             videoWidth = windowWidth;
             videoHeight = windowHeight;
@@ -2792,16 +2415,6 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
             videoHeight = mMediaPlayer.getVideoHeight();
 
             if (windowWidth > windowHeight) { // only support landscapse
-                // now
-
-                // max = Math.max(((float) videoWidth / (float)
-                // mMediaPlayer.getVideoHeight()),
-                // (float) videoHeight / (float) mMediaPlayer.getVideoWidth());
-                //
-                //
-                // videoWidth = (int) Math.ceil((float) videoWidth / max);
-                // videoHeight = (int) Math.ceil((float) videoHeight / max);
-
                 float screen_scale = (windowWidth * 1.0f / windowHeight);
                 float video_scale = (videoWidth * 1.0f / videoHeight);
                 if (screen_scale > video_scale) {
@@ -2819,17 +2432,9 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
                 x = (windowWidth - videoWidth) / 2;
                 y = (windowHeight - videoHeight) / 2;
                 Log.d("aac", videoWidth + ":" + videoHeight + ":" + x + ":" + y);
-            } else {
-
             }
-
         }
-        //		Log.d("fk", videoWidth + ":" + videoHeight + ":"+mMoviceView.getHeight()+":"+mMoviceView.getWidth());
-
-        //		AbsoluteLayout.LayoutParams lp = new AbsoluteLayout.LayoutParams(
-        //				videoWidth, videoHeight, x, y);
-        //		mMoviceView.setLayoutParams(lp);
-        ViewGroup.LayoutParams lp = mMoviceView.getLayoutParams();
+        ViewGroup.LayoutParams lp = mMovieView.getLayoutParams();
 
         if (lp instanceof AbsoluteLayout.LayoutParams) {
             AbsoluteLayout.LayoutParams new_name = (AbsoluteLayout.LayoutParams) lp;
@@ -2840,22 +2445,20 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
             new_name.width = videoWidth;
             new_name.height = videoHeight;
 
-            mMoviceView.setLayoutParams(new_name);
+            mMovieView.setLayoutParams(new_name);
         } else if (lp instanceof RelativeLayout.LayoutParams) {
             RelativeLayout.LayoutParams new_name = (RelativeLayout.LayoutParams) lp;
             Log.d("fk", new_name.width + ":fff:" + new_name.height + ":");
-
             new_name.leftMargin = x;
             new_name.topMargin = y;
             new_name.width = videoWidth;
             new_name.height = videoHeight;
-
-            mMoviceView.setLayoutParams(new_name);
+            mMovieView.setLayoutParams(new_name);
         }
 
     }
 
-    private OnVideoSizeChangedListener mOnVideoSizeChangedListener = new OnVideoSizeChangedListener() {
+    private final OnVideoSizeChangedListener mOnVideoSizeChangedListener = new OnVideoSizeChangedListener() {
         @Override
         public void onVideoSizeChanged(MediaPlayer arg0, int arg1, int arg2) {
             // TODO Auto-generated method stub
@@ -2908,7 +2511,7 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
 
     private void updateSearchListView() {
         if (mResPageId == R.id.btn_local) {
-            if (!mIs3PageSroll) {
+            if (!mIs3PageScroll) {
                 mMainView.findViewById(R.id.tv_all_list).setVisibility(View.GONE);
             }
             mMainView.findViewById(R.id.tv_local_list).setVisibility(View.VISIBLE);
@@ -2924,7 +2527,7 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
             mCurrentList = mLocalTVList;
             // }
         } else if (mResPageId == R.id.btn_sd) {
-            if (!mIs3PageSroll) {
+            if (!mIs3PageScroll) {
                 mMainView.findViewById(R.id.tv_all_list).setVisibility(View.GONE);
             }
             mMainView.findViewById(R.id.tv_local_list).setVisibility(View.GONE);
@@ -2941,7 +2544,7 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
             mCurrentList = mSDTVList;
             // }
         } else if (mResPageId == R.id.btn_sd2) {
-            if (!mIs3PageSroll) {
+            if (!mIs3PageScroll) {
                 mMainView.findViewById(R.id.tv_all_list).setVisibility(View.GONE);
             }
             mMainView.findViewById(R.id.tv_local_list).setVisibility(View.GONE);
@@ -2959,7 +2562,7 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
             mCurrentList = mSD2TVList;
             // }
         } else if (mResPageId == R.id.btn_usb2) {
-            if (!mIs3PageSroll) {
+            if (!mIs3PageScroll) {
                 mMainView.findViewById(R.id.tv_all_list).setVisibility(View.GONE);
             }
             mMainView.findViewById(R.id.tv_local_list).setVisibility(View.GONE);
@@ -2977,7 +2580,7 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
             mCurrentList = mUsb2TVList;
             // }
         } else if (mResPageId == R.id.btn_usb3) {
-            if (!mIs3PageSroll) {
+            if (!mIs3PageScroll) {
                 mMainView.findViewById(R.id.tv_all_list).setVisibility(View.GONE);
             }
             mMainView.findViewById(R.id.tv_local_list).setVisibility(View.GONE);
@@ -2996,7 +2599,7 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
             mCurrentList = mUsb3TVList;
             // }
         } else if (mResPageId == R.id.btn_usb4) {
-            if (!mIs3PageSroll) {
+            if (!mIs3PageScroll) {
                 mMainView.findViewById(R.id.tv_all_list).setVisibility(View.GONE);
             }
             mMainView.findViewById(R.id.tv_local_list).setVisibility(View.GONE);
@@ -3015,7 +2618,7 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
             mCurrentList = mUsb4TVList;
             // }
         } else if (mResPageId == R.id.btn_usb) {
-            if (!mIs3PageSroll) {
+            if (!mIs3PageScroll) {
                 mMainView.findViewById(R.id.tv_all_list).setVisibility(View.GONE);
             }
             mMainView.findViewById(R.id.tv_local_list).setVisibility(View.GONE);
@@ -3033,7 +2636,7 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
             mCurrentList = mUsbTVList;
             // }
         } else if (mResPageId == R.id.btn_all) {
-            if (!mIs3PageSroll) {
+            if (!mIs3PageScroll) {
                 mMainView.findViewById(R.id.tv_all_list).setVisibility(View.VISIBLE);
                 mMainView.findViewById(R.id.tv_local_list).setVisibility(View.GONE);
                 mMainView.findViewById(R.id.tv_sd_list).setVisibility(View.GONE);
@@ -3046,11 +2649,7 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
                 mMainView.findViewById(R.id.tv_usb4_list).setVisibility(View.GONE);
                 mMainView.findViewById(R.id.btn_add_all).setVisibility(View.GONE);
             } else {
-                //				if(MachineConfig.VALUE_SYSTEM_UI20_RM10_1.equals(GlobalDef.getSystemUI())){
-                //
-                //				} else {
                 mMainView.findViewById(R.id.tv_all_list).setVisibility(View.GONE);
-                //				}
             }
             // mHandler.sendMessageDelayed(
             // mHandler.obtainMessage(MSG_UPDATE_LIST, R.id.tv_all_list, 0), 0);
@@ -3077,17 +2676,14 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
 
     private static final int[] BUTTON_FOCUS_CHANGE_1200 = new int[]{R.id.next, R.id.tv_all_list};
     boolean mPreFocusAllList = false;
-    private OnFocusChangeListener mOnFocusChangeListener = new OnFocusChangeListener() {
+    private final OnFocusChangeListener mOnFocusChangeListener = new OnFocusChangeListener() {
         @Override
         public void onFocusChange(View arg0, boolean arg1) {
-
             // TODO Auto-generated method stub
             if (arg1) {
-
                 int id = arg0.getId();
                 if (id == R.id.next) {
                     mHandler.postDelayed(new Runnable() {
-
                         @Override
                         public void run() {
                             if (mMyScrollView != null) {
@@ -3095,7 +2691,6 @@ public class VideoUI extends UIBase implements OnGestureListener, OnDoubleTapLis
                                     mMyScrollView.scrollToPage(1);
                                 }
                             }
-
                         }
                     }, 10);
                 } else if (id == R.id.tv_all_list) {

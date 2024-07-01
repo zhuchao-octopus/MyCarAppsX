@@ -8,7 +8,7 @@ import android.os.Handler;
 import android.util.Log;
 
 import com.common.util.MyCmd;
-import com.octopus.android.carapps.car.ui.GlobalDef;
+import com.octopus.android.carapps.common.ui.GlobalDef;
 import com.octopus.android.carapps.common.service.ServiceBase;
 
 public class AuxInService extends ServiceBase {

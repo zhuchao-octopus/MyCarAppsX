@@ -13,9 +13,9 @@ public class MoviePlayer extends ComMediaPlayer {
 
     public static boolean mFirstRun = true;
 
-    public MoviePlayer(Context ac) {
-        super(ac);
-        //		super.setLockTime(800);
+    public MoviePlayer(Context context) {
+        super(context);
+        //super.setLockTime(800);
         TAG = "MoviePlayer";
         mMediaFile = VIDEO_EXTENSION;
         mSaveDataPath = "video_data";

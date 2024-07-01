@@ -3,8 +3,6 @@ package com.octopus.android.carapps.common.ui;
 import android.content.Context;
 import android.view.View;
 
-import com.octopus.android.carapps.car.ui.GlobalDef;
-
 public class UIBase implements UIInterface {
 
     protected Context mContext;

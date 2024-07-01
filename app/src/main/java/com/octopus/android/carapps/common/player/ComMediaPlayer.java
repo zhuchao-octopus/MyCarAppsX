@@ -25,14 +25,16 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
+
 import com.common.util.AppConfig;
 import com.common.util.MachineConfig;
 import com.common.util.MyCmd;
 import com.common.util.Util;
 import com.octopus.android.carapps.R;
 import com.octopus.android.carapps.audio.MusicUI;
-import com.octopus.android.carapps.car.ui.BR;
-import com.octopus.android.carapps.car.ui.GlobalDef;
+import com.octopus.android.carapps.common.ui.BR;
+import com.octopus.android.carapps.common.ui.GlobalDef;
 import com.zhuchao.android.fbase.MMLog;
 import com.zhuchao.android.fbase.TAppUtils;
 
@@ -43,6 +45,7 @@ import java.io.InputStream;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Random;
 
 public class ComMediaPlayer extends MediaPlayer {
@@ -123,12 +126,11 @@ public class ComMediaPlayer extends MediaPlayer {
 
     public ComMediaPlayer(Context context) {
         if (context == null) {
-           /// ac = ActivityThread.currentApplication();
+            /// ac = ActivityThread.currentApplication();
             context = TAppUtils.getApplicationByReflection();
         }
         mContext = context;
-        if(mContext == null)
-            MMLog.d(TAG,"ComMediaPlayer.mContext==null!!!!!");
+        if (mContext == null) MMLog.d(TAG, "ComMediaPlayer.mContext==null!!!!!");
         initDiskPath();
         updateCompletionListener(true);
     }
@@ -1527,102 +1529,78 @@ public class ComMediaPlayer extends MediaPlayer {
                 @Override
                 public void onReceive(Context context, Intent intent) {
                     String action = intent.getAction();
-                    //					Log.e(TAG, "mediaplayer+" + action);
-                    if (action.equals(Intent.ACTION_MEDIA_EJECT)) {
-
-                        String path = intent.getData().toString().substring("file://".length());
-                        Log.e(TAG, "eject+" + path);
-                        if (path != null && path.toString().contains("cdrom")) {
+                    //Log.e(TAG, "mediaPlayer+" + action);
+                    if (Intent.ACTION_MEDIA_EJECT.equals(action)) {
+                        String path = Objects.requireNonNull(intent.getData()).toString().substring("file://".length());
+                        MMLog.d(TAG, "eject+" + path);
+                        if (path.contains("cdrom")) {
                             return;
                         }
 
                         if (Util.isRKSystem()) {
                             if (GlobalDef.mPowerOffTime != 0) {
-                                Log.d(TAG, "mPowerOffTime == 0 no eject");
+                                MMLog.d(TAG, "mPowerOffTime == 0 no eject");
                                 return;
                             }
 
                             if (GlobalDef.isOneSleepRemountTime()) {
-                                Log.d(TAG, "isOneSleepRemountTime no eject");
+                                MMLog.d(TAG, "isOneSleepRemountTime no eject");
                                 return;
                             } else {
                                 mSaveForSleepPath = null;
                             }
-
-                            //							if(path!=null && (path.endsWith("3") ||
-                            //									path.endsWith("4")) && GlobalDef.isOneSleepRemountTime()){
-                            //								Log.d(TAG, "eeeeeeee222222eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
-                            //								return;
-                            //							}
                         }
+                        // Intent i = new Intent();
+                        MMLog.d(TAG, "eject play size" + mCurrentUriList.size());
+                        if (mCurrentUriList.size() != 0) {
+                            MMLog.d(TAG, "eject play path" + mCurrentUriList.get(0));
+                            if (mCurrentUriList.get(0).startsWith(path)) {
+                                // savePlayForSleepRemount(path);
+                                closeExternalStorageFiles(intent.getData().getPath());
 
+                                mCurrentUriList.clear();
+                                mCurrentTotal = 0;
 
-                        if (path != null) {
+                                if (mSaveForSleepPath == null || mSaveForSleepPath.startsWith(path)) {
 
-                            // Intent i = new Intent();
-                            Log.d(TAG, "eject play size" + mCurrentUriList.size());
-                            if (mCurrentUriList.size() != 0) {
-                                Log.d(TAG, "eject play path" + mCurrentUriList.get(0));
-                                if (mCurrentUriList.get(0).startsWith(path)) {
-                                    // savePlayForSleepRemount(path);
-                                    closeExternalStorageFiles(intent.getData().getPath());
-
-                                    mCurrentUriList.clear();
-                                    mCurrentTotal = 0;
-
-                                    if (mSaveForSleepPath == null || mSaveForSleepPath.startsWith(path)) {
-
-                                        notifyChange(STORAGE_EJECT);
-                                        mCursor = null;
-                                        notifyChange(PLAYSTATE_CHANGED);
-                                    }
+                                    notifyChange(STORAGE_EJECT);
+                                    mCursor = null;
+                                    notifyChange(PLAYSTATE_CHANGED);
                                 }
                             }
-
-                            notifyChange(QUEUE_CHANGED, getIdFromPath(path));
-
-                            cleanMediaChangeStatus(path);
-
-                            if (!GlobalDef.isOneSleepRemountTime() && mScanMusic) {
-                                Toast.makeText(mContext, mContext.getString(R.string.device_eject), Toast.LENGTH_SHORT).show();
-                            }
-
                         }
-
-                    } else if (action.equals(Intent.ACTION_MEDIA_MOUNTED)) {
-                        String path = intent.getData().toString().substring("file://".length());
-                        Log.d(TAG, "mount+" + path);
-                        if (path != null && path.toString().contains("cdrom")) {
+                        notifyChange(QUEUE_CHANGED, getIdFromPath(path));
+                        cleanMediaChangeStatus(path);
+                        if (!GlobalDef.isOneSleepRemountTime() && mScanMusic) {
+                            Toast.makeText(mContext, mContext.getString(R.string.device_eject), Toast.LENGTH_SHORT).show();
+                        }
+                    } else if (Intent.ACTION_MEDIA_MOUNTED.equals(action)) {
+                        String path = Objects.requireNonNull(intent.getData()).toString().substring("file://".length());
+                        MMLog.d(TAG, "mount+" + path);
+                        if (path.contains("cdrom")) {
                             return;
                         }
 
                         if (Util.isRKSystem()) {
                             if (GlobalDef.mPowerOffTime != 0) {
-                                Log.d(TAG, "mount GlobalDef.mPowerOffTime:" + GlobalDef.mPowerOffTime);
+                                MMLog.d(TAG, "mount GlobalDef.mPowerOffTime:" + GlobalDef.mPowerOffTime);
                                 return;
                             }
 
                             initDiskPath();
 
-                            Log.d(TAG, "mBootTime:" + BR.mBootTime + ":currentTimeMillis:" + System.currentTimeMillis());
+                            MMLog.d(TAG, "mBootTime:" + BR.mBootTime + ":currentTimeMillis:" + System.currentTimeMillis());
 
                             if (BR.mBootTime != 0) {
-
-                                Log.d(TAG, GlobalDef.isOneSleepRemountTime() + ":" + path + ":" + mSaveForSleepPath);
-
+                                MMLog.d(TAG, GlobalDef.isOneSleepRemountTime() + ":" + path + ":" + mSaveForSleepPath);
                                 if ((!GlobalDef.isOneSleepRemountTime()) || (mSaveForSleepPath != null && mSaveForSleepPath.startsWith(path))) {
                                     mMountPath = path;
-
                                     GlobalDef.mAutoMountByPowerOn = GlobalDef.isOneSleepRemountTime();
-
-                                    //									Log.d(TAG, GlobalDef.isOneSleepRemountTime()+":"+path + "f222222222222222ff"
-                                    //											+ mSaveForSleepPath);
-
                                     mHandler.postDelayed(new Runnable() {
                                         public void run() {
                                             if (mUpdateAsyncTask == null) {
 
-                                                Log.d(TAG, "do mount scan AsyncTask");
+                                                MMLog.d(TAG, "do mount scan AsyncTask");
 
                                                 mUpdateAsyncTask = new UpdateAsyncTask();
                                                 mUpdateAsyncTask.execute();
@@ -1644,15 +1622,10 @@ public class ComMediaPlayer extends MediaPlayer {
                                     }
                                 }, 150);
                             }
-
                         } else {
                             flashAllCfq();
-
-
                             initDiskPath();
-
                             mMountPath = path;
-
                             mHandler.postDelayed(new Runnable() {
                                 public void run() {
                                     if (mUpdateAsyncTask == null) {
@@ -1661,7 +1634,6 @@ public class ComMediaPlayer extends MediaPlayer {
                                     }
                                 }
                             }, 150);
-
                         }
 
 
@@ -1669,18 +1641,14 @@ public class ComMediaPlayer extends MediaPlayer {
                             Toast.makeText(mContext, mContext.getString(R.string.device_mount), Toast.LENGTH_SHORT).show();
                         }
 
-                    } else if (action.equals(Intent.ACTION_MEDIA_SCANNER_FINISHED)) {
-                        String path = intent.getData().toString().substring("file://".length());
-
-                        Log.d(TAG, "Intent.ACTION_MEDIA_SCANNER_FINISHED:" + mCursor + ":" + path);
-                        if (path != null && path.toString().contains("cdrom")) {
+                    } else if (Intent.ACTION_MEDIA_SCANNER_FINISHED.equals(action)) {
+                        String path = Objects.requireNonNull(intent.getData()).toString().substring("file://".length());
+                        MMLog.d(TAG, "Intent.ACTION_MEDIA_SCANNER_FINISHED:" + mCursor + ":" + path);
+                        if (path.contains("cdrom")) {
                             return;
                         }
                         if (mCurrentUriList.size() != 0) {
-
                             doScanId3Time();
-
-
                             if (mCurrentUriList.get(0).startsWith(path)) {
                                 if (mCursor == null) {
                                     doScan(mFileToPlay);
@@ -1691,7 +1659,8 @@ public class ComMediaPlayer extends MediaPlayer {
                             }
                         }
                     }
-                }
+                    ///////////////////////////////////////////////////////////////////////////////////////////////////////
+                }//onReceive
             };
 
             IntentFilter iFilter = new IntentFilter();
@@ -1702,7 +1671,10 @@ public class ComMediaPlayer extends MediaPlayer {
             }
             iFilter.addDataScheme("file");
 
-            mContext.registerReceiver(mMountReceiver, iFilter);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU)
+                mContext.registerReceiver(mMountReceiver, iFilter, Context.RECEIVER_EXPORTED);
+            else
+                mContext.registerReceiver(mMountReceiver, iFilter);
         }
         if (mScanMusic) {
             registerListener();

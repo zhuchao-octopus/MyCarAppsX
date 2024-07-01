@@ -1,6 +1,6 @@
 package com.octopus.android.carapps.common.view;
 
-import static com.octopus.android.carapps.car.ui.GlobalDef.mContext;
+import static com.octopus.android.carapps.common.ui.GlobalDef.mContext;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

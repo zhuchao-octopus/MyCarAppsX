@@ -11,8 +11,6 @@ public class BtListPathArrayList {
     public BtListPathArrayList(String path, ArrayList<BTMusicNode> list) {
         mPath = path;
         mList = new ArrayList<BTMusicNode>();
-        for (BTMusicNode node : list) {
-            mList.add(node);
-        }
+        mList.addAll(list);
     }
 }

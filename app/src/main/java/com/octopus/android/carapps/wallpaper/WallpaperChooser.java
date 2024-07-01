@@ -26,7 +26,6 @@ import com.octopus.android.carapps.R;
 public class WallpaperChooser extends Activity {
     @SuppressWarnings("unused")
     private static final String TAG = "FileManager.WallpaperChooser";
-
     WallpaperUI mUI;
 
     @Override

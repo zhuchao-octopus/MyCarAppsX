@@ -73,7 +73,7 @@
                 android:layout_height="238px"
                 android:layout_marginLeft="125px">
 
-                <com.common.view.MusicRollImage
+                <com.octopus.android.carapps.common.view.MusicRollImage
                     android:id="@+id/album_art"
                     android:layout_width="238px"
                     android:layout_height="238px"
@@ -112,11 +112,11 @@
                         android:textColor="#ffe0e0e0"
                         android:textSize="28.0dip" />
 
-                    <com.octopus.android.carapps.qylk.myview.LrcView
+                    <com.octopus.android.carapps.common.qylk.myview.LrcView
                         android:id="@+id/lrcshow"
                         android:visibility="gone"
                         android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"></com.octopus.android.carapps.qylk.myview.LrcView>
+                        android:layout_height="fill_parent"></com.octopus.android.carapps.common.qylk.myview.LrcView>
                 </FrameLayout>
 
                 <LinearLayout

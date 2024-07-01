@@ -19,7 +19,7 @@ import com.common.util.UtilCarKey;
 import com.octopus.android.carapps.R;
 import com.octopus.android.carapps.adapter.BTMusicNode;
 import com.octopus.android.carapps.adapter.MyListViewAdapterBTMusic;
-import com.octopus.android.carapps.car.ui.GlobalDef;
+import com.octopus.android.carapps.common.ui.GlobalDef;
 import com.octopus.android.carapps.common.ui.UIBase;
 
 import java.util.ArrayList;

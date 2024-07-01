@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/screen1_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ff0e1e2a"
+    android:tag="93">
+
+    <com.octopus.android.carapps.common.view.MyScrollView
+        android:id="@+id/music_page_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background"
+        android:orientation="horizontal"
+        android:tag="0,460,1230:1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/background"
+            android:fitsSystemWindows="true"
+            android:orientation="horizontal">
+
+            <include layout="@layout/screen0_video_page0" />
+
+            <include layout="@layout/screen0_video_page1" />
+
+            <include layout="@layout/screen0_music_page2" />
+        </LinearLayout>
+
+    </com.octopus.android.carapps.common.view.MyScrollView>
+
+</RelativeLayout>

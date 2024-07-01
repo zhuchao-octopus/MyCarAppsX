@@ -38,7 +38,7 @@ import com.common.util.MyCmd;
 import com.common.util.Util;
 import com.octopus.android.carapps.R;
 import com.octopus.android.carapps.adapter.MyListViewAdapter;
-import com.octopus.android.carapps.car.ui.GlobalDef;
+import com.octopus.android.carapps.common.ui.GlobalDef;
 import com.octopus.android.carapps.common.player.ComMediaPlayer;
 import com.octopus.android.carapps.common.utils.ResourceUtil;
 
@@ -55,35 +55,23 @@ public class MusicActivity extends Activity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        boolean multiWindow = ResourceUtil.updateAppUi(this);
-        multiWindow = ResourceUtil.isMultiWindow(this);
+        ResourceUtil.updateAppUi(this);
+        boolean multiWindow = ResourceUtil.isMultiWindow(this);
         if (multiWindow) {
-            GlobalDef.updateMultiWindownActivity(this);
+            GlobalDef.updateMultiWindowActivity(this);
         }
-        // Configuration c = getResources().getConfiguration();
-        // c.smallestScreenWidthDp = 327;
-        // getResources().updateConfiguration(c, null);//test
-
         super.onCreate(savedInstanceState);
-        // DisplayMetrics dm = getResources().getDisplayMetrics();
-
-        // Log.d(TAG, dm.widthPixels+"onCreate"+isInMultiWindowMode());
-
         setContentView(R.layout.screen0_music_layout);
-
         // setContentView(R.layout.screen0_music_layout);
 
         mMusicUI = MusicUI.getInstance(MusicActivity.this, findViewById(R.id.screen1_main), 0);
-
         updateIntent(this.getIntent());
         mThis = this;
-
         mMusicUI.onCreate();
-
     }
 
     private void updateIntent(Intent it) {
-        //		Log.d(TAG, "updateIntent:" + it);
+        //Log.d(TAG, "updateIntent:" + it);
         if (it != null) {
             int page = it.getIntExtra("page", 0);
             //			Log.d(TAG, "updateIntent:" + page);
@@ -322,8 +310,6 @@ public class MusicActivity extends Activity {
         int ret = 0;
 
         if (MachineConfig.VALUE_SYSTEM_UI20_RM10_1.equals(GlobalDef.getSystemUI()) || MachineConfig.VALUE_SYSTEM_UI21_RM10_2.equals(GlobalDef.getSystemUI())) {
-
-
             if (keyCode == KeyEvent.KEYCODE_DPAD_RIGHT) {
                 if (id == R.id.btn_local || id == R.id.btn_usb || id == R.id.btn_usb2 || id == R.id.btn_usb3 || id == R.id.btn_usb4 || id == R.id.btn_sd || id == R.id.btn_sd2) {
                     ret = R.id.prev;
@@ -350,7 +336,8 @@ public class MusicActivity extends Activity {
 
 
         }
-        if (ResourceUtil.baseSW >= 320 && ResourceUtil.baseSW < 340) {
+
+        /*if (ResourceUtil.baseSW >= 320 && ResourceUtil.baseSW < 340) {
             if (keyCode == KeyEvent.KEYCODE_DPAD_UP) {
                 if (id == R.id.prev || id == R.id.pp) {
                     ret = getVisibleListView();
@@ -364,11 +351,7 @@ public class MusicActivity extends Activity {
                     ret = R.id.prev;
                 }
             }
-
-
-        }
-
-
+        }*/
         return ret;
     }
 
