@@ -48,10 +48,9 @@ import com.octopus.android.carapps.common.utils.ResourceUtil;
 public class MusicActivity extends Activity {
 
     final static String TAG = "MusicActivity";
-    MusicUI mMusicUI;
     private static MusicActivity mThis;
-
     private boolean mStop = false;
+    MusicUI mMusicUI;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -70,12 +69,15 @@ public class MusicActivity extends Activity {
 
     private void updateIntent(Intent it) {
         //Log.d(TAG, "updateIntent:" + it);
-        if (it != null) {
+        if (it != null)
+        {
             int page = it.getIntExtra("page", 0);
-            //			Log.d(TAG, "updateIntent:" + page);
+            //Log.d(TAG, "updateIntent:" + page);
             if (page != 0) {
                 mMusicUI.mStartActivityNewPage = page;
-            } else {
+            }
+            else
+            {
                 Log.d(TAG, it.getData() + ":updateIntent:" + it.getType());
                 if ("audio".equals(it.getType())) {
                     Uri uri = it.getData();
@@ -114,9 +116,10 @@ public class MusicActivity extends Activity {
         if (Util.isAndroidQ()) {
             updateIntent(getIntent());
         }
-        if (mMusicUI != null) mMusicUI.onResume();
-
-        mMusicUI.mGpsRunAfter = GlobalDef.openGps(this, getIntent());
+        if (mMusicUI != null) {
+            mMusicUI.onResume();
+            mMusicUI.mGpsRunAfter = GlobalDef.openGps(this, getIntent());
+        }
         setIntent(null);
     }
 
@@ -139,16 +142,16 @@ public class MusicActivity extends Activity {
             mUpdateUIResource = false;
         }
         super.onResume();
-        resumeConfiguration = getResources().getConfiguration();
-        //		Log.d(TAG, "onResume"+getCurrentFocus());
 
+        resumeConfiguration = getResources().getConfiguration();
+        //Log.d(TAG, "onResume"+getCurrentFocus());
     }
 
     protected void onPause() {
         super.onPause();
-        //		Log.d(TAG, "onPause"+getCurrentFocus());
-        // if (mMusicUI != null)
-        // mMusicUI.onPause();
+        /// Log.d(TAG, "onPause"+getCurrentFocus());
+        /// if (mMusicUI != null)
+        /// mMusicUI.onPause();
         setIntent(null);
         if (Util.isAndroidQ()) {
             mMusicUI.mStartActivityNewPage = 0;
@@ -156,7 +159,8 @@ public class MusicActivity extends Activity {
     }
 
     public static void finishActivity(Context context) {
-        if (mThis != null) {
+        if (mThis != null)
+        {
             if (mThis.mMusicUI != null) {
                 mThis.mMusicUI.mWillDestory = true;
             }

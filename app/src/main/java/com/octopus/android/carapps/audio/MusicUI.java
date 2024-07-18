@@ -133,19 +133,13 @@ public class MusicUI extends UIBase implements View.OnClickListener {
         mSource = SOURCE;
     }
 
-    private static final int[] BUTTON_ON_CLICK = new int[]{
-            R.id.back, R.id.prev, R.id.pp, R.id.next, R.id.repeat, R.id.eq, R.id.btn_all, R.id.btn_local, R.id.btn_sd, R.id.btn_usb, R.id.btn_usb2, R.id.btn_usb3, R.id.btn_usb4, R.id.btn_sd2,
-            R.id.btn_add_all, R.id.repeat2, R.id.btn_folder, R.id.album_and_visualizer_view, R.id.list, R.id.eq_mode_switch, R.id.id3, R.id.folder_switch, R.id.play_repeat_tag
-    };//,R.id.mic,R.id.vol };
+    private static final int[] BUTTON_ON_CLICK = new int[]{R.id.back, R.id.prev, R.id.pp, R.id.next, R.id.repeat, R.id.eq, R.id.btn_all, R.id.btn_local, R.id.btn_sd, R.id.btn_usb, R.id.btn_usb2, R.id.btn_usb3, R.id.btn_usb4, R.id.btn_sd2, R.id.btn_add_all, R.id.repeat2, R.id.btn_folder, R.id.album_and_visualizer_view, R.id.list, R.id.eq_mode_switch, R.id.id3, R.id.folder_switch, R.id.play_repeat_tag};//,R.id.mic,R.id.vol };
 
     private static final int[][] VIEW_HIDE = new int[][]{
             //{ R.id.common_status_bar_main, R.id.layout_visulizerView },
-            {R.id.common_status_bar_main}, {R.id.eq}
-    };
+            {R.id.common_status_bar_main}, {R.id.eq}};
 
-    private static final int[] VIEW_HIDE2 = new int[]{
-            R.id.bottom_button_layout, R.id.list_content, R.id.seek_bar_layout, R.id.tb
-    };
+    private static final int[] VIEW_HIDE2 = new int[]{R.id.bottom_button_layout, R.id.list_content, R.id.seek_bar_layout, R.id.tb};
 
     public void updateFullUI() {
         if (mDisplayIndex == SCREEN1) {
@@ -243,7 +237,6 @@ public class MusicUI extends UIBase implements View.OnClickListener {
     @SuppressLint("ClickableViewAccessibility")
     @Override
     public void onCreate() {
-
         super.onCreate();
         mCreate = true;
         mMediaPlayer = com.octopus.android.carapps.audio.MediaPlaybackService.getMediaPlayer();
@@ -258,7 +251,7 @@ public class MusicUI extends UIBase implements View.OnClickListener {
                 @Override
                 public boolean onTouch(View v, MotionEvent me) {
                     if (mMyScrollView != null) {
-                        @SuppressLint("ClickableViewAccessibility") int action = me.getActionMasked();
+                        int action = me.getActionMasked();
                         if (action == MotionEvent.ACTION_UP) {
                             mMyScrollView.requestDisallowInterceptTouchEvent(false);
                         } else {

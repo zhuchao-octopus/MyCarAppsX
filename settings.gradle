@@ -9,7 +9,7 @@ pluginManagement {
         }
         mavenCentral()
         gradlePluginPortal()
-        maven { url '\\\\192.168.10.20\\smb\\OctopusFrameworkLibs'}
+        maven { url '\\\\192.168.10.93\\smb\\OctopusFrameworkLibs'}
         maven { url 'https://gitee.com/zhuchao-octopus/OctopusFrameworkLibs/raw/master' }
     }
 }
@@ -19,10 +19,10 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        maven { url '\\\\192.168.10.20\\smb\\OctopusFrameworkLibs'}
+        maven { url '\\\\192.168.10.93\\smb\\OctopusFrameworkLibs'}
         maven { url 'https://gitee.com/zhuchao-octopus/OctopusFrameworkLibs/raw/master' }
     }
 }
 
-rootProject.name = "CarAppsX"
+rootProject.name = "MyCarAppsX"
 include ':app'
