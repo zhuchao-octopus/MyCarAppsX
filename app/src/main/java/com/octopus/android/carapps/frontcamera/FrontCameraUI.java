@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.hardware.Camera;
 import android.hardware.Camera.Size;
+
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
@@ -29,12 +30,13 @@ import com.common.util.MachineConfig;
 import com.common.util.MyCmd;
 import com.common.util.SystemConfig;
 import com.common.util.Util;
+import com.octopus.android.carapps.MyGLSurfaceView;
 import com.octopus.android.carapps.R;
 import com.octopus.android.carapps.common.ui.GlobalDef;
 import com.octopus.android.carapps.common.camera.CameraHolder;
 import com.octopus.android.carapps.common.ui.UIBase;
 import com.octopus.android.carapps.common.utils.ParkBrake;
-import com.rockchip.gl.GLSurfaceView;
+
 
 import java.util.List;
 import java.util.Timer;
@@ -225,7 +227,7 @@ public class FrontCameraUI extends UIBase implements View.OnClickListener, Surfa
 
     }
 
-    private GLSurfaceView mGLSufaceView;
+    private MyGLSurfaceView mGLSufaceView;
 
     private long mLockClickSwitch = 0;
 

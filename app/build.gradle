@@ -10,18 +10,33 @@ android {
         applicationId "com.octopus.android.carapps"
         minSdk 24
         targetSdk 34
-        versionCode 1
+        versionCode 10
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    buildTypes {
+    signingConfigs {
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            keyAlias 'rkpx5'
+            keyPassword 'android'
+            storeFile file('rkpx5.jks')
+            storePassword 'android'
         }
     }
+
+    buildTypes {
+        debug {
+            //在debug模式下引用该签名文件
+            signingConfig signingConfigs.release
+        }
+        release {
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+            minifyEnabled false
+        }
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -31,7 +46,7 @@ android {
         variant.outputs.configureEach {
             def date = new Date().format("yyyyMMddHHmm", TimeZone.getTimeZone("GMT+08"))
             if (variant.buildType.name == 'release') {
-                outputFileName = "CarApps.apk" //_${date}
+                outputFileName = "CarAppsX.apk" //_${date}
             }
         }
     }

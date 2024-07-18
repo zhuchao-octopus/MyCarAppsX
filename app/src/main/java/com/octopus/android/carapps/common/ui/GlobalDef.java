@@ -114,27 +114,31 @@ public class GlobalDef {
 
     public static void initCustomUI(Context c) {
         mSystemUI = MachineConfig.getPropertyReadOnly(MachineConfig.KEY_SYSTEM_UI);
-        mSystemUI = MachineConfig.VALUE_SYSTEM_UI32_KLD8;//this default is VALUE_SYSTEM_UI45_8702_2
+        //mSystemUI = MachineConfig.VALUE_SYSTEM_UI32_KLD8;//this default is VALUE_SYSTEM_UI45_8702_2
         String value = mSystemUI;
-        if (MachineConfig.VALUE_SYSTEM_UI20_RM10_1.equals(value) || MachineConfig.VALUE_SYSTEM_UI21_RM10_2.equals(value)) {
-            String s = SystemConfig.getProperty(c, SystemConfig.KEY_LAUNCHER_UI_RM10);
-            if (s != null) {
-                if ("1".equals(s)) {
-                    mSystemUI = MachineConfig.VALUE_SYSTEM_UI21_RM10_2;
-                } else { // 0
-                    mSystemUI = MachineConfig.VALUE_SYSTEM_UI20_RM10_1;
+        switch (value) {
+            case MachineConfig.VALUE_SYSTEM_UI20_RM10_1:
+            case MachineConfig.VALUE_SYSTEM_UI21_RM10_2: {
+                String s = SystemConfig.getProperty(c, SystemConfig.KEY_LAUNCHER_UI_RM10);
+                if (s != null) {
+                    if ("1".equals(s)) {
+                        mSystemUI = MachineConfig.VALUE_SYSTEM_UI21_RM10_2;
+                    } else { // 0
+                        mSystemUI = MachineConfig.VALUE_SYSTEM_UI20_RM10_1;
+                    }
                 }
-
+                break;
             }
-        } else if (MachineConfig.VALUE_SYSTEM_UI21_RM12.equals(value)) {
-
-            String s = SystemConfig.getProperty(c, SystemConfig.KEY_LAUNCHER_UI_RM10);
-            if (s != null) {
-                if ("1".equals(s)) {
-                    mSystemUI = MachineConfig.VALUE_SYSTEM_UI21_RM10_2;
-                } else { // 0
-                    mSystemUI = MachineConfig.VALUE_SYSTEM_UI21_RM12;
+            case MachineConfig.VALUE_SYSTEM_UI21_RM12: {
+                String s = SystemConfig.getProperty(c, SystemConfig.KEY_LAUNCHER_UI_RM10);
+                if (s != null) {
+                    if ("1".equals(s)) {
+                        mSystemUI = MachineConfig.VALUE_SYSTEM_UI21_RM10_2;
+                    } else { // 0
+                        mSystemUI = MachineConfig.VALUE_SYSTEM_UI21_RM12;
+                    }
                 }
+                break;
             }
         }
 

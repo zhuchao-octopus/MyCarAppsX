@@ -23,6 +23,8 @@ import com.octopus.android.carapps.R;
 import com.octopus.android.carapps.common.ui.GlobalDef;
 import com.octopus.android.carapps.common.utils.ResourceUtil;
 
+import java.util.Objects;
+
 public class RadioActivity extends Activity {
 
     private RadioUI mRadioUI;
@@ -170,7 +172,7 @@ public class RadioActivity extends Activity {
     }
 
     private MotionEvent mMotionEventDelayed = null;
-    private final Handler mHandler = new Handler(Looper.myLooper()) {
+    private final Handler mHandler = new Handler(Objects.requireNonNull(Looper.myLooper())) {
 
         @Override
         public void handleMessage(Message msg) {

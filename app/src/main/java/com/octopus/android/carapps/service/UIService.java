@@ -554,7 +554,7 @@ public class UIService extends Service {
         Intent it = new Intent(MyCmd.BROADCAST_CMD_TO_CAR_SERVICE_CAR_UI);
         it.putExtra(MyCmd.EXTRA_COMMON_CMD, cmd);
         it.putExtra(MyCmd.EXTRA_COMMON_ID, id);
-        it.setPackage(AppConfig.PACKAGE_CAR_SERVICE);
+        it.setPackage(AppConfig.getCarServicePackageName(mThis));
         sendBroadcast(it);
     }
 

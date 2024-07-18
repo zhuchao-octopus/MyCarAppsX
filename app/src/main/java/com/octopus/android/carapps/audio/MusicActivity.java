@@ -62,8 +62,6 @@ public class MusicActivity extends Activity {
         }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.screen0_music_layout);
-        // setContentView(R.layout.screen0_music_layout);
-
         mMusicUI = MusicUI.getInstance(MusicActivity.this, findViewById(R.id.screen1_main), 0);
         updateIntent(this.getIntent());
         mThis = this;

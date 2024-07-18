@@ -14,7 +14,7 @@ public class DVideoSpec {
     final static String TAG = "DVideoSpec";
 
     static {
-        System.loadLibrary("DVD");
+        System.loadLibrary("dvd");
     }
 
     public DVideoSpec() {

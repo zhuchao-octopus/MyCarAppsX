@@ -67,37 +67,75 @@ public class ResourceUtil {
     }
 
     public static void updateAppUi(Context context) { // app used except
-        //if (GlobalDef.mContext == null) {
-        //    GlobalDef.initCustomUI(context);
-        //}
-        //String value = GlobalDef.getSystemUI();
-        // DisplayMetrics dm = context.getResources().getDisplayMetrics();
-        // mScreenWidth = dm.widthPixels;
-        // mScreenHeight = dm.heightPixels;
+        ///if (GlobalDef.mContext == null) {
+        ///    GlobalDef.initCustomUI(context);
+        ///}
+        int base_sw = 340;
+        String value = GlobalDef.getSystemUI();
+        MMLog.d(TAG, "SystemUI Type:" + value);
+        /// DisplayMetrics dm = context.getResources().getDisplayMetrics();
+        /// mScreenWidth = dm.widthPixels;
+        /// mScreenHeight = dm.heightPixels;
         DisplayManager displayManager = (DisplayManager) context.getSystemService(Context.DISPLAY_SERVICE);
         Display[] displays = displayManager.getDisplays();
-        //DisplayInfo outDisplayInfo = new DisplayInfo();
-        //display[0].getDisplayInfo(outDisplayInfo);
-        //mScreenWidth = outDisplayInfo.appWidth;
-        //mScreenHeight = outDisplayInfo.appHeight;
+        ///DisplayInfo outDisplayInfo = new DisplayInfo();
+        ///display[0].getDisplayInfo(outDisplayInfo);
+        ///mScreenWidth = outDisplayInfo.appWidth;
+        ///mScreenHeight = outDisplayInfo.appHeight;
         DisplayMetrics dm = context.getResources().getDisplayMetrics();
         mScreenWidth = dm.widthPixels;
         mScreenHeight = dm.heightPixels;
 
         Configuration configuration = context.getResources().getConfiguration();
-        //configuration.smallestScreenWidthDp = 440;
-        MMLog.d(TAG,"Configuration:" + configuration);
+        MMLog.d(TAG, "Configuration:" + configuration);
+
         //for(Display display:displays)
-        for(int i =0;i<displays.length;i++)
-           MMLog.d(TAG,"Display["+i+"]:" + displays[i].toString());
+        for (int i = 0; i < displays.length; i++)
+            MMLog.d(TAG, "Display[" + i + "]:" + displays[i].toString());
+
+        if (MachineConfig.VALUE_SYSTEM_UI_KLD12_80.equals(value) || MachineConfig.VALUE_SYSTEM_UI19_KLD1.equals(value) || MachineConfig.VALUE_SYSTEM_UI28_7451.equals(value)) {
+            base_sw = 346;
+        } else if (MachineConfig.VALUE_SYSTEM_UI_KLD3_8702.equals(value) || MachineConfig.VALUE_SYSTEM_UI_KLD15_6413.equals(value) || MachineConfig.VALUE_SYSTEM_UI32_KLD8.equals(value) || MachineConfig.VALUE_SYSTEM_UI37_KLD10.equals(value)) {
+            base_sw = 360;
+        } else if (MachineConfig.VALUE_SYSTEM_UI45_8702_2.equals(value)) {
+            base_sw = 370;
+        } else if (MachineConfig.VALUE_SYSTEM_UI_KLD10_887.equals(value)) {
+            base_sw = 380;
+        } else if (MachineConfig.VALUE_SYSTEM_UI20_RM10_1.equals(value)) {
+            base_sw = 390;
+        } else if (MachineConfig.VALUE_SYSTEM_UI21_RM10_2.equals(value)) {
+            base_sw = 400;
+        } else if (MachineConfig.VALUE_SYSTEM_UI22_1050.equals(value) || MachineConfig.VALUE_SYSTEM_UI_PX30_1.equals(value)) {
+            base_sw = 410;
+        } else if (MachineConfig.VALUE_SYSTEM_UI16_7099.equals(value) || MachineConfig.VALUE_SYSTEM_UI31_KLD7.equals(value) || MachineConfig.VALUE_SYSTEM_UI36_664.equals(value)) {
+            base_sw = 420;
+        } else if (MachineConfig.VALUE_SYSTEM_UI34_KLD9.equals(value)) {
+            base_sw = 430;
+        }
+        else if (MachineConfig.VALUE_SYSTEM_UI35_KLD813.equals(value)) {
+            base_sw = 440;
+        } else if (MachineConfig.VALUE_SYSTEM_UI35_KLD813_2.equals(value)) {
+            base_sw = 450;
+        } else if (MachineConfig.VALUE_SYSTEM_UI21_RM12.equals(value)) {
+            base_sw = 460;
+        } else if (MachineConfig.VALUE_SYSTEM_UI44_KLD007.equals(value)) {
+            base_sw = 470;
+        } else if (MachineConfig.VALUE_SYSTEM_UI43_3300_1.equals(value)) {
+            base_sw = 480;
+        } else {
+            base_sw = 320;
+        }
+
+        configuration.smallestScreenWidthDp = base_sw;
         context.getResources().updateConfiguration(configuration, null);//test
+        MMLog.d(TAG, "Configuration:" + configuration);
     }
 
     public static String updateSingleUi(Context context) { // only launcher use
-        // now
-        String value = MachineConfig.getPropertyReadOnly(MachineConfig.KEY_SYSTEM_UI);
         int sw = 0;
+        String value = MachineConfig.getPropertyReadOnly(MachineConfig.KEY_SYSTEM_UI);
         DisplayMetrics dm = context.getResources().getDisplayMetrics();
+
         if (dm.widthPixels == 1024 && dm.heightPixels == 600) {
             sw = 321;
         }

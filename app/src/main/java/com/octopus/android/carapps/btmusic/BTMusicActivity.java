@@ -29,7 +29,7 @@ public class BTMusicActivity extends Activity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        //boolean multiWindow = ResourceUtil.updateAppUi(this);
+        ResourceUtil.updateAppUi(this);
         boolean multiWindow = ResourceUtil.isMultiWindow(this);
         if (multiWindow) {
             GlobalDef.updateMultiWindowActivity(this);
